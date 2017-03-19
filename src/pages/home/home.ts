@@ -1,12 +1,15 @@
+/**
+ * Created by Javes on 3/19/2017.
+ */
 import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 
 @Component({
-  selector: 'page-page1',
-  templateUrl: 'page1.html'
+  selector: 'page-home',
+  templateUrl: 'home.html'
 })
-export class Page1 {
+export class Home {
 
   constructor(public navCtrl: NavController) {
 
