@@ -11,4 +11,15 @@ import {Component} from '@angular/core';
 
 export class VideoThumbnail {
 
+
+
+  constructor(v_id){
+    /*
+     passed a v_id which will reference a specific video
+     should use a service VideoFetcher to call an api that returns
+     a JSON containing thumbnail info
+
+     might need seperate service for media
+     */
+  }
 }
