@@ -13,7 +13,7 @@ export class VideoThumbnail {
 
 
 
-  constructor(v_id){
+  constructor(){
     /*
      passed a v_id which will reference a specific video
      should use a service VideoFetcher to call an api that returns
