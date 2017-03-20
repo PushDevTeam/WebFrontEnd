@@ -6,3 +6,14 @@ div.cat-head {
 }
 home {
 }
+
+$article_H: 185px;
+$article_W: 3/4*$article_H;
+
+ div.thumbnail{
+  height: 185px;
+  width: $article_W;
+  margin-outside: auto;
+  text-align: center;
+  background: grey;
+}
