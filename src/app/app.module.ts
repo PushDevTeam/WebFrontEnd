@@ -6,7 +6,11 @@ import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import {SideScroller} from "../components/side-scroller/side-scroller.component";
 import {VideoThumbnail} from "../components/video-thumbnail/video-thumbnail.component";
-
+import { SignInPage } from '../pages/sign-in/sign-in';
+import { SignUpPage } from '../pages/sign-up/sign-up';
+import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
+import { AuthService } from '../services/auth';
+//TODO: import video-img and video-info services
 
 @NgModule({
   declarations: [
@@ -16,7 +20,10 @@ import {VideoThumbnail} from "../components/video-thumbnail/video-thumbnail.comp
     Page1,
     Page2,
     SideScroller,
-    VideoThumbnail
+    VideoThumbnail,
+    SignInPage,
+    SignUpPage,
+    OnBoardingPage
 
   ],
   imports: [
@@ -27,8 +34,15 @@ import {VideoThumbnail} from "../components/video-thumbnail/video-thumbnail.comp
     MyApp,
     Home,
     Page1,
-    Page2
+    Page2,
+    SignInPage,
+    SignUpPage,
+    OnBoardingPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [
+  {provide: ErrorHandler, useClass: IonicErrorHandler},
+  AuthService
+
+  ]
 })
 export class AppModule {}
