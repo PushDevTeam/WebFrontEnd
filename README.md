@@ -11,8 +11,7 @@ Clone from repo and run npm install, then ionic serve
 get node tar ball
 extract it to your home directory
 
-add "export PATH=~/node-v6.10.0-linux-x64/bin:$PATH" to .bashrc.local 
-
+add "export PATH=~/node-v6.10.0-linux-x64/bin:$PATH" to .bashrc.local
 
 
 npm config set prefix ~/.npm-packages
