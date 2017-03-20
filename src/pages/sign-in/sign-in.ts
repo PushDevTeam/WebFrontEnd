@@ -5,6 +5,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { LoadingController, AlertController } from "ionic-angular";
 import { AuthService } from "../../services/auth";
 import { Home } from "../home/home";
+import { OnBoardingPage } from "../on-boarding/on-boarding";
 
 @Component({
   selector: 'page-sign-in',
@@ -16,6 +17,12 @@ export class SignInPage {
               private loadingCtrl: LoadingController,
               private alertCtrl: AlertController,
               private navCtrl: NavController) {}
+
+
+onSignUp(form: NgForm) {
+  this.navCtrl.push(OnBoardingPage);
+
+}
 
 
               onSignin(form: NgForm) {

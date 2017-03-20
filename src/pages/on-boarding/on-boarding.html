@@ -1,9 +1,3 @@
-<!--
-  Generated template for the OnBoarding page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -14,5 +8,35 @@
 
 
 <ion-content padding>
+  <form [formGroup]="onboardingForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ion-item>
+        <ion-label fixed> Location </ion-label>
+        <ion-select formControlName="location">
+          <ion-option *ngFor="let location of locationOptions" [value]="location"> {{location}} </ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed> Sex </ion-label>
+        <ion-select formControlName="sex">
+          <ion-option *ngFor="let sex of sexOptions" [value]="sex"> {{sex}} </ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+      <ion-label fixed> Target Body Parts </ion-label>
+      <ion-select formControlName="body">
+        <ion-option *ngFor="let body of bodyOptions" [value]="body"> {{body}} </ion-option>
+      </ion-select>
+      </ion-item>
+      <ion-item>
+      <ion-label fixed> Work Out Goals </ion-label>
+      <ion-select formControlName="goals">
+        <ion-option *ngFor="let goal of goalOptions" [value]="goals"> {{goal}} </ion-option>
+      </ion-select>
+      </ion-item>
+    </ion-list>
+    <button type="submit" ion-button> Submit </button>
+  </form>
+
 
 </ion-content>

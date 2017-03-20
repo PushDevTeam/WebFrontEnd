@@ -10,6 +10,7 @@ import { SignInPage } from '../pages/sign-in/sign-in';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
 import { AuthService } from '../services/auth';
+import {OnboardingService} from '../services/onboarding-info';
 //TODO: import video-img and video-info services
 
 @NgModule({
@@ -41,7 +42,8 @@ import { AuthService } from '../services/auth';
   ],
   providers: [
   {provide: ErrorHandler, useClass: IonicErrorHandler},
-  AuthService
+  AuthService,
+  OnboardingService
 
   ]
 })
