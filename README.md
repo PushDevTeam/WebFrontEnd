@@ -20,6 +20,6 @@ npm install -g ionic
 npm install -g cordova
 
 
-add "export PATH=~/.npm-packages/lib/node_modules/ionic/bin:~/.npm-packages/lib/node_modules/cordova/bin:$PATH" to .bashrc.local 
+add "export PATH=\~/.npm-packages/lib/node_modules/ionic/bin:~/.npm-packages/lib/node_modules/cordova/bin:$PATH" to .bashrc.local 
 
 
