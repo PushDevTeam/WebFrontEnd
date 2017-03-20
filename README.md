@@ -15,7 +15,9 @@ add "export PATH=~/node-v6.10.0-linux-x64/bin:$PATH" to .bashrc.local
 
 
 npm config set prefix ~/.npm-packages
+
 npm install -g ionic
+
 npm install -g cordova
 
 
