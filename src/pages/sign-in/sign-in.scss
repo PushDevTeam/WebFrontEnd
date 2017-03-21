@@ -1,3 +1,26 @@
 ion-content.loginBody {
   background-color: #00C3FF;
+  margin-top: 50px;
+  font-size: 4px;
+}
+
+  ion-list {
+    margin-left: 80px;
+    margin: auto;
+  }
+
+  ion-lable {
+    color: black;
+  }
+
+
+div.buttonHolder {
+  text-align: center;
+  margin-top: 35px;
+}
+
+ion-button {
+  display: block;
+  margin:auto;
+  background-color: black;
 }

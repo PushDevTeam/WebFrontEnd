@@ -20,13 +20,11 @@ export class SignInPage {
 
 
 onSignUp(form: NgForm) {
-  this.navCtrl.push(OnBoardingPage);
-
+  this.navCtrl.push(Home);
 }
 
-
-              onSignin(form: NgForm) {
-              this.navCtrl.push(Home);
+onSignin(form: NgForm) {
+this.navCtrl.push(Home);
 
               //  const loading = this.loadingCtrl.create({
                 //  content: 'Signing you in...'
