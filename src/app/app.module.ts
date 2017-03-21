@@ -8,6 +8,7 @@ import {SideScroller} from "../components/side-scroller/side-scroller.component"
 import {VideoThumbnail} from "../components/video-thumbnail/video-thumbnail.component";
 import { SignInPage } from '../pages/sign-in/sign-in';
 import { SignUpPage } from '../pages/sign-up/sign-up';
+import { StartPage } from '../pages/start/start';
 import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
 import { AuthService } from '../services/auth';
 import {OnboardingService} from '../services/onboarding-info';
@@ -24,8 +25,8 @@ import {OnboardingService} from '../services/onboarding-info';
     VideoThumbnail,
     SignInPage,
     SignUpPage,
-    OnBoardingPage
-
+    OnBoardingPage,
+    StartPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -38,7 +39,8 @@ import {OnboardingService} from '../services/onboarding-info';
     Page2,
     SignInPage,
     SignUpPage,
-    OnBoardingPage
+    OnBoardingPage,
+    StartPage
   ],
   providers: [
   {provide: ErrorHandler, useClass: IonicErrorHandler},

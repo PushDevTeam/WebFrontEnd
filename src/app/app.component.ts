@@ -9,7 +9,7 @@ import { Page2 } from '../pages/page2/page2';
 import { SignInPage } from '../pages/sign-in/sign-in';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
-
+import { StartPage } from '../pages/start/start';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,7 +18,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
 //  rootPage: any = Home;
-rootPage = SignInPage;
+rootPage = StartPage;
 
 
   pages: Array<{title: string, component: any}>;

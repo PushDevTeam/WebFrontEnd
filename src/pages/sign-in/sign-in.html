@@ -3,7 +3,7 @@
 
 </ion-header>
 
-<ion-content padding>
+<ion-content class="loginBody" padding>
   <form #f="ngForm" (ngSubmit)="onSignin(f)">
     <ion-list>
       <ion-item>
@@ -26,6 +26,6 @@
     <button ion-button block type="submit" [disabled]="!f.valid">Log in</button>
   </form>
 
-<p>Don't have an account? </p>
+<p class="">DON'T HAVE AN ACCOUNT? </p>
   <button ion-button clear (click)="onSignUp(f)">Sign up!</button>
 </ion-content>
