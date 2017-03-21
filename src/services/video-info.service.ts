@@ -15,7 +15,7 @@ import {VideoInfoObj} from '../components/video-thumbnail/video-info-obj';
 
      {id:0, title:"GET BUFF", other_stuff: "n stuff"},
      {id:1, title:"COOL VID", other_stuff: "n stuff"},
-     {id:2, title:"KICKBOXING IS TIGHT", other_stuff: "n stuff"},
+     {id:2, title:"KICKBOXIN IS TIGHT", other_stuff: "n stuff"},
      {id:3, title:"DANCE UR ASS OFF", other_stuff: "n stuff"},
      {id:4, title:"CRUNCHIFY UR ABS", other_stuff: "n stuff"},
      {id:5, title:"ANOTHER COOL ONE", other_stuff: "n stuff"},

@@ -20,7 +20,7 @@ export class VideoThumbnail {
   constructor(
     private infoService: VideoInfoService,
     private imgService: VideoImgService
-  ){}
+  ) { }
 
   ngOnInit(){
     /*
@@ -30,9 +30,16 @@ export class VideoThumbnail {
 
      might need seperate service for media
      */
-     this.metaData = this.infoService.getVideoInfo(this.id);
+     this.getVideoInfo();
   }
-  goToVidView(v_id){
-    alert("goToVidView("+v_id+")");
+
+
+  getVideoInfo(){
+    this.metaData = this.infoService.getVideoInfo(this.id);
+  }
+
+
+  goToVidView(){
+    alert("goToVidView: "+this.metaData.title);
   }
 }

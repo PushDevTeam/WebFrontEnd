@@ -14,7 +14,7 @@ import { AuthService } from '../services/auth';
 import {OnboardingService} from '../services/onboarding-info';
 import {VideoInfoService} from '../services/video-info.service';
 import {VideoImgService} from '../services/video-img.service';
-
+import {VideoSetService} from '../services/video-set.service';
 //TODO: import video-img and video-info services
 
 @NgModule({
@@ -50,7 +50,8 @@ import {VideoImgService} from '../services/video-img.service';
   AuthService,
   OnboardingService,
   VideoInfoService,
-  VideoImgService
+  VideoImgService,
+  VideoSetService,
 
 
 
