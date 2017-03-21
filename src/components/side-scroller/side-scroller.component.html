@@ -2,30 +2,7 @@
   <h3>Category</h3>
 </div>
 <ion-slides class="cat-scroller" slidesPerView='3' spaceBetween='15'>
-  <ion-slide style="background-color: green">
-    <h2>Slide 1</h2>
-  </ion-slide>
 
-  <ion-slide style="background-color: blue">
-    <h2>Slide 2</h2>
-  </ion-slide>
-
-  <ion-slide style="background-color: red">
-    <h2>Slide 3</h2>
-  </ion-slide>
-  <ion-slide style="background-color: green">
-  <h2>Slide 4</h2>
-</ion-slide>
-
-<ion-slide style="background-color: blue">
-  <h2>Slide 5</h2>
-</ion-slide>
-
-<ion-slide style="background-color: red">
-  <h2>Slide 6</h2>
-</ion-slide>
-
-
-
+  <video-thumbnail *ngFor="let id of v_ids" [id]="id"></video-thumbnail>
 
 </ion-slides>
