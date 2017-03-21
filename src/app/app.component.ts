@@ -30,7 +30,9 @@ rootPage = StartPage;
     this.pages = [
       { title: 'Home', component: Home},
       { title: 'Page One', component: Page1 },
-      { title: 'Page Two', component: Page2 }
+      { title: 'Page Two', component: Page2 },
+      { title: 'Start', component: StartPage }
+
     ];
     console.log(this.pages);
   }
