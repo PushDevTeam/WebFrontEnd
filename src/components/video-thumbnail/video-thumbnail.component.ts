@@ -5,19 +5,17 @@
 import {Component, Input} from '@angular/core';
 import {VideoInfoService} from '../../services/video-info.service';
 import {VideoImgService} from '../../services/video-img.service';
-
+import {VideoInfoObj} from './video-info-obj';
 @Component({
   selector: 'video-thumbnail',
   templateUrl: 'video-thumbnail.component.html',
   providers: [VideoInfoService, VideoImgService]
 })
 
+
 export class VideoThumbnail {
   @Input() public id: number;
-  public info: {
-    title: string,
-    other_stuff: string
-  }
+  public metaData: VideoInfoObj;
 
   constructor(
     private infoService: VideoInfoService,
@@ -32,6 +30,9 @@ export class VideoThumbnail {
 
      might need seperate service for media
      */
-
+     this.metaData = this.infoService.getVideoInfo(this.id);
+  }
+  goToVidView(v_id){
+    alert("goToVidView("+v_id+")");
   }
 }

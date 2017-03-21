@@ -1,3 +1,6 @@
-<ion-slide style="background-color: green">
-  <h2>Video {{this.id}}</h2>
+<ion-slide style="background-color: green" (click)="goToVidView(id)">
+  <h2>{{metaData.title}}</h2>
+  <p>
+    {{metaData.other_stuff}}
+  </p>
 </ion-slide>
