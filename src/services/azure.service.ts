@@ -1,8 +1,4 @@
-import {Component} from '@angular/core';
-declare var WindowsAzure: any;
-@Component({
-    providers: [WindowsAzure]
-})
+
 export class MainData {
     
     private _client: any;
@@ -14,15 +10,8 @@ export class MainData {
 
     connectAzure = (azure: any) => {
         this._client = new azure(this.azurepath);
-        
-        //console.log('todoitemtable', this.client.getTable('todoitem'));
-        //var item = { test: 'Item 1', complete: false };
-        //this.client.getTable('todoitem').insert(item);
-        //console.log('todoitemtable', this.client.getTable('todoitem'));
-        //console.log('client', this.client)
-        //this.queryData(this.client.getTable('todoitem'));
     }
-
+    /*
     authenticateUser = () => {
         this.client.login('facebook').then(() => {
             //testing authentication
@@ -31,7 +20,7 @@ export class MainData {
             this.queryData(todotable);
         })
      }, this.authenticationError);
-    }
+    }*/
 
     authenticationError = (error) => {
         throw new Error('Error authenticating');

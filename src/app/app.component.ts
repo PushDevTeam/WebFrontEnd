@@ -44,7 +44,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
 
       this.maindata.connectAzure(WindowsAzure.MobileServiceClient);
-      this.maindata.authenticateUser();
+      //this.maindata.authenticateUser();
       
       StatusBar.styleDefault();
       Splashscreen.hide();

@@ -9,7 +9,8 @@ import { OnBoardingPage } from "../on-boarding/on-boarding";
 
 @Component({
   selector: 'page-sign-in',
-  templateUrl: 'sign-in.html'
+  templateUrl: 'sign-in.html',
+  providers: [AuthService]
 })
 export class SignInPage {
 
@@ -18,32 +19,47 @@ export class SignInPage {
               private alertCtrl: AlertController,
               private navCtrl: NavController) {}
 
+  onFacebookLogin(){
+    return this.authService.facebookAuth().then(this.onSuccessfulLogin, this.onFailedLogin);
+  }
 
-onSignUp(form: NgForm) {
-  this.navCtrl.push(OnBoardingPage);
+  onGoogleLogin(){
+    return this.authService.googleAuth().then(this.onSuccessfulLogin, this.onFailedLogin);
+  }
 
+  onSuccessfulLogin(){
+    this.navCtrl.push(Home);
+  }
+
+  onFailedLogin(){
+    //TODO: handle failed login
+  }
+
+  onSignUp(form: NgForm) {
+    this.navCtrl.push(OnBoardingPage);
+
+  }
+
+
+  onSignin(form: NgForm) {
+    this.navCtrl.push(Home);
+
+    //  const loading = this.loadingCtrl.create({
+      //  content: 'Signing you in...'
+      //});
+      //loading.present();
+      //this.authService.signIn(form.value.email, form.value.password)
+    //    .then(data => {
+      //    loading.dismiss();
+      //  })
+      //  .catch(error => {
+        //  loading.dismiss();
+          //const alert = this.alertCtrl.create({
+            //title: 'Signin failed!',
+            //message: error.message,
+            //buttons: ['Ok']
+          //});
+        //  alert.present();
+      //  });
+  }
 }
-
-
-              onSignin(form: NgForm) {
-              this.navCtrl.push(Home);
-
-              //  const loading = this.loadingCtrl.create({
-                //  content: 'Signing you in...'
-                //});
-                //loading.present();
-                //this.authService.signIn(form.value.email, form.value.password)
-              //    .then(data => {
-                //    loading.dismiss();
-                //  })
-                //  .catch(error => {
-                  //  loading.dismiss();
-                    //const alert = this.alertCtrl.create({
-                      //title: 'Signin failed!',
-                      //message: error.message,
-                      //buttons: ['Ok']
-                    //});
-                  //  alert.present();
-                //  });
-              }
-            }

@@ -25,6 +25,8 @@
     </ion-list>
     <button ion-button block type="submit" [disabled]="!f.valid">Log in</button>
   </form>
+<button ion-button block color="primary" (click)="onFacebookLogin()">Log in with Facebook</button>
+<button ion-button block color="secondary" (click)="onGoogleLogin()">Log in with Google</button>
 
 <p>Don't have an account? </p>
   <button ion-button clear (click)="onSignUp(f)">Sign up!</button>
