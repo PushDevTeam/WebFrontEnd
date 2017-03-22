@@ -8,8 +8,8 @@ import {Home} from "../pages/home/home";
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import { SignInPage } from '../pages/sign-in/sign-in';
-// import { SignUpPage } from '../pages/sign-up/sign-up';
-// import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
+import { SignUpPage } from '../pages/sign-up/sign-up';
+import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
 
 declare var WindowsAzure: any;
 
@@ -22,8 +22,7 @@ export class MyApp {
 
   //  rootPage: any = Home;
   rootPage = SignInPage;
-  //mainData: any;
-
+  
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform, private maindata: MainData) {
@@ -44,7 +43,6 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
 
       this.maindata.connectAzure(WindowsAzure.MobileServiceClient);
-      //this.maindata.authenticateUser();
       
       StatusBar.styleDefault();
       Splashscreen.hide();

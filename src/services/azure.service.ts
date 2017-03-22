@@ -9,21 +9,7 @@ export class MainData {
     }
 
     connectAzure = (azure: any) => {
-        this._client = new azure(this.azurepath);
-    }
-    /*
-    authenticateUser = () => {
-        this.client.login('facebook').then(() => {
-            //testing authentication
-        let todotable = this.client.getTable('todoitem');
-        todotable.insert({test: 'Item 1', complete: false}).then(()=>{
-            this.queryData(todotable);
-        })
-     }, this.authenticationError);
-    }*/
-
-    authenticationError = (error) => {
-        throw new Error('Error authenticating');
+        this._client = new azure(this._azurepath);
     }
 
     queryData = (table) => {
@@ -55,8 +41,5 @@ export class MainData {
                 }
 
     get client(){ return this._client };
-    //set client(client){ this._client = client };
-
     get azurepath() {return this._azurepath};
-    set azurepath(path) {this._azurepath = path};
 }
