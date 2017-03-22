@@ -2,5 +2,11 @@
   "name": "dailyPush",
   "app_id": "",
   "v2": true,
-  "typescript": true
+  "typescript": true,
+  "proxies": [
+    {
+      "proxyUrl":"https://pushdaily-00.azurewebsites.net/tables/todoitem",
+      "path":"tables/todoitem"
+    }
+  ]
 }

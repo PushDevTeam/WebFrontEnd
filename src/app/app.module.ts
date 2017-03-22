@@ -1,5 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+//import {WindowsAzure} from 'cordova-plugin-ms-azure-mobile-apps';
 import { MyApp } from './app.component';
 import {Home} from "../pages/home/home";
 import { Page1 } from '../pages/page1/page1';
@@ -9,6 +10,9 @@ import {VideoThumbnail} from "../components/video-thumbnail/video-thumbnail.comp
 import { SignInPage } from '../pages/sign-in/sign-in';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
+
+import {MainData} from '../services/azure.service';
+
 import { AuthService } from '../services/auth';
 import {OnboardingService} from '../services/onboarding-info';
 //TODO: import video-img and video-info services
@@ -42,6 +46,7 @@ import {OnboardingService} from '../services/onboarding-info';
   ],
   providers: [
   {provide: ErrorHandler, useClass: IonicErrorHandler},
+  MainData,
   AuthService,
   OnboardingService
 
