@@ -27,7 +27,7 @@ export class StartPage {
   }
 
   onSignIn() {
-    this.navCtrl.push(SignInPage);
+    this.navCtrl.push(SignInPage, {mode: 'IN'});
   }
 
 }

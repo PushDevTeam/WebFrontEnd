@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -11,21 +11,28 @@ import { OnBoardingPage } from "../on-boarding/on-boarding";
   selector: 'page-sign-in',
   templateUrl: 'sign-in.html'
 })
-export class SignInPage {
+export class SignInPage implements OnInit {
+  mode='Up';
+
 
   constructor(private authService: AuthService,
               private loadingCtrl: LoadingController,
               private alertCtrl: AlertController,
-              private navCtrl: NavController) {}
+              private navCtrl: NavController,
+              private navParams: NavParams) {}
 
 
-onSignUp(form: NgForm) {
-  this.navCtrl.push(Home);
+ngOnInit() {
+  this.mode = this.navParams.get('mode');
+}
+
+goBack() {
+  this.navCtrl.pop();
 }
 
 onSignin(form: NgForm) {
 this.navCtrl.push(Home);
-
+//if this.mode == up || this.mode == in
               //  const loading = this.loadingCtrl.create({
                 //  content: 'Signing you in...'
                 //});

@@ -1,11 +1,23 @@
 
-<ion-header>
-  <ion-navbar>
-    <ion-title>signUp</ion-title>
+<!--
+<ion-header class="header">
+  <ion-navbar color="secondary">
+    <ion-title color="light">Sign {{mode}}</ion-title>
   </ion-navbar>
 </ion-header>
+-->
+<ion-content class="loginBody">
+  <ion-row>
+    <ion-col width-27="">
+  <button class="backButton" ion-button clear icon-left (click)="goBack()">
+    <ion-icon name="arrow-back"></ion-icon>
+</button>
+</ion-col>
+<ion-col width-73>
+  <h5 class="title"> SIGN {{mode}}</h5>
+</ion-col>
+</ion-row>
 
-<ion-content class="loginBody" padding>
   <form #f="ngForm" (ngSubmit)="onSignin(f)">
     <ion-list>
       <ion-item class="email">
@@ -26,8 +38,11 @@
       </ion-item>
     </ion-list>
     <div class="buttonHolder">
-    <button ion-button type="submit" color="dark" [disabled]="!f.valid">Log in</button>
+    <button ion-button type="submit" color="dark" [disabled]="!f.valid">Sign {{mode}}</button>
   </div>
   </form>
+
+
+<!--<p ngIf=mode==in display forgot password -->
 
 </ion-content>

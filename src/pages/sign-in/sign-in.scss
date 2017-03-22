@@ -1,7 +1,11 @@
 ion-content.loginBody {
   background-color: #00C3FF;
-  margin-top: 50px;
   font-size: 4px;
+
+  div.nav {
+    background-color: #00C3FF;
+  }
+
 }
 
   ion-list {
@@ -20,7 +24,5 @@ div.buttonHolder {
 }
 
 ion-button {
-  display: block;
   margin:auto;
-  background-color: black;
 }
