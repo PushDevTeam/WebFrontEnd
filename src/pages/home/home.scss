@@ -1,19 +1,10 @@
 .featured {
   height: 30vh;
 }
-div.cat-head {
-  text-align: center
+.feature-slide{
+  background-color: green;
 }
+
 home {
-}
 
-$article_H: 185px;
-$article_W: 3/4*$article_H;
-
- div.thumbnail{
-  height: 185px;
-  width: $article_W;
-  margin-outside: auto;
-  text-align: center;
-  background: grey;
 }
