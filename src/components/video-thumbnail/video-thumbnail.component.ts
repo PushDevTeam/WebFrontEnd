@@ -49,6 +49,6 @@ export class VideoThumbnail {
   goToVidView(){
     // TODO add params such as uhhhhh what video to watch
     this.navCtrl.push(VideoView);
-    alert("goToVidView: "+this.metaData.title);
+
   }
 }
