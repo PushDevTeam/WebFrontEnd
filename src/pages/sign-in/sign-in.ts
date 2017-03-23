@@ -9,7 +9,8 @@ import { OnBoardingPage } from "../on-boarding/on-boarding";
 
 @Component({
   selector: 'page-sign-in',
-  templateUrl: 'sign-in.html'
+  templateUrl: 'sign-in.html',
+  providers: [AuthService]
 })
 export class SignInPage {
 
@@ -18,12 +19,26 @@ export class SignInPage {
               private alertCtrl: AlertController,
               private navCtrl: NavController) {}
 
+  onFacebookLogin(){
+    return this.authService.facebookAuth().then(this.onSuccessfulLogin, this.onFailedLogin);
+  }
 
-onSignUp(form: NgForm) {
-  this.navCtrl.push(OnBoardingPage);
+  onGoogleLogin(){
+    return this.authService.googleAuth().then(this.onSuccessfulLogin, this.onFailedLogin);
+  }
 
-}
+  onSuccessfulLogin(){
+    this.navCtrl.push(Home);
+  }
 
+  onFailedLogin(){
+    //TODO: handle failed login
+  }
+
+  onSignUp(form: NgForm) {
+    this.navCtrl.push(OnBoardingPage);
+
+  }
 
               onSignin(form: NgForm) {
               this.navCtrl.push(Home);
