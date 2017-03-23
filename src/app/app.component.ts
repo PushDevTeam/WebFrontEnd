@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
+import { MainData } from '../services/azure.service';
 
 import {Home} from "../pages/home/home";
 import { Page1 } from '../pages/page1/page1';
@@ -11,19 +12,20 @@ import { SignUpPage } from '../pages/sign-up/sign-up';
 import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
 import { StartPage } from '../pages/start/start';
 
+declare var WindowsAzure: any;
+
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: [MainData]
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
- rootPage: any = Home;
-//rootPage = StartPage;
-
-
+  //  rootPage: any = Home;
+  rootPage = SignInPage;
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform) {
+  constructor(public platform: Platform, private maindata: MainData) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -41,6 +43,9 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+
+      this.maindata.connectAzure(WindowsAzure.MobileServiceClient);
+      
       StatusBar.styleDefault();
       Splashscreen.hide();
     });

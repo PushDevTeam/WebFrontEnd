@@ -10,6 +10,9 @@ import { SignInPage } from '../pages/sign-in/sign-in';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import { StartPage } from '../pages/start/start';
 import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
+
+import {MainData} from '../services/azure.service';
+
 import { AuthService } from '../services/auth';
 import {OnboardingService} from '../services/onboarding-info';
 import {VideoInfoService} from '../services/video-info.service';
@@ -47,6 +50,7 @@ import {VideoSetService} from '../services/video-set.service';
   ],
   providers: [
   {provide: ErrorHandler, useClass: IonicErrorHandler},
+  MainData,
   AuthService,
   OnboardingService,
   VideoInfoService,

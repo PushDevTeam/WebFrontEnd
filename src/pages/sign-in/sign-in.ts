@@ -9,7 +9,8 @@ import { OnBoardingPage } from "../on-boarding/on-boarding";
 
 @Component({
   selector: 'page-sign-in',
-  templateUrl: 'sign-in.html'
+  templateUrl: 'sign-in.html',
+  providers: [AuthService]
 })
 export class SignInPage implements OnInit {
   mode='Up';
@@ -21,6 +22,26 @@ export class SignInPage implements OnInit {
               private navCtrl: NavController,
               private navParams: NavParams) {}
 
+  onFacebookLogin(){
+    return this.authService.facebookAuth().then(this.onSuccessfulLogin, this.onFailedLogin);
+  }
+
+  onGoogleLogin(){
+    return this.authService.googleAuth().then(this.onSuccessfulLogin, this.onFailedLogin);
+  }
+
+  onSuccessfulLogin(){
+    this.navCtrl.push(Home);
+  }
+
+  onFailedLogin(){
+    //TODO: handle failed login
+  }
+
+  onSignUp(form: NgForm) {
+    this.navCtrl.push(OnBoardingPage);
+
+  }
 
 ngOnInit() {
   this.mode = this.navParams.get('mode');

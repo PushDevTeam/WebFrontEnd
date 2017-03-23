@@ -1,5 +1,12 @@
-export class AuthService {
+import {Injectable} from '@angular/core';
+import {MainData} from './azure.service';
 
+
+@Injectable()
+export class AuthService {
+  constructor(private maindata: MainData){
+
+  }
 
   signUp(email: String, password: string) {
 
@@ -9,13 +16,20 @@ export class AuthService {
 
   }
 
-logout() {
+  logout() {
 
-}
+  }
 
-getActiveUser() {
+  getActiveUser() {
 
-}
+  }
 
+  facebookAuth = () => {
+    return this.maindata.client.login('facebook');
+  }
 
+  googleAuth = () => {
+    //not configured on back end yet
+    return this.maindata.client.login('google');
+  }
 }
