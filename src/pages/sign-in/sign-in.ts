@@ -6,6 +6,9 @@ import { LoadingController, AlertController } from "ionic-angular";
 import { AuthService } from "../../services/auth";
 import { Home } from "../home/home";
 import { OnBoardingPage } from "../on-boarding/on-boarding";
+import {UserService} from '../../services/user.service';
+
+
 
 @Component({
   selector: 'page-sign-in',
@@ -20,7 +23,8 @@ export class SignInPage implements OnInit {
               private loadingCtrl: LoadingController,
               private alertCtrl: AlertController,
               private navCtrl: NavController,
-              private navParams: NavParams) {}
+              private navParams: NavParams,
+              private userService: UserService) {}
 
   onFacebookLogin(){
     return this.authService.facebookAuth().then(this.onSuccessfulLogin, this.onFailedLogin);

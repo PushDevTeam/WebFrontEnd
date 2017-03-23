@@ -4,6 +4,7 @@
 import {Component, Input} from '@angular/core';
 import {VideoThumbnail} from '../video-thumbnail/video-thumbnail.component';
 import {VideoSetService} from '../../services/video-set.service';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'side-scroller',
@@ -17,7 +18,8 @@ export class SideScroller {
 
 
 
- constructor(private setService: VideoSetService) {
+ constructor(private setService: VideoSetService,
+   private userService: UserService) {
 
 
  }

@@ -12,6 +12,7 @@ import { SignUpPage } from '../pages/sign-up/sign-up';
 import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
 import { StartPage } from '../pages/start/start';
 import {VideoView} from '../pages/video-view/video-view';
+import {UserService} from '../../services/user.service';
 declare var WindowsAzure: any;
 
 @Component({

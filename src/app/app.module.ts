@@ -20,7 +20,7 @@ import {VideoInfoService} from '../services/video-info.service';
 import {VideoImgService} from '../services/video-img.service';
 import {VideoSetService} from '../services/video-set.service';
 import {VideoService} from '../services/video.service';
-
+import {UserService} from '../services/user.service';
 @NgModule({
   declarations: [
 
@@ -57,7 +57,8 @@ import {VideoService} from '../services/video.service';
   VideoInfoService,
   VideoImgService,
   VideoSetService,
-  VideoService
+  VideoService,
+  UserService
 
 
 
