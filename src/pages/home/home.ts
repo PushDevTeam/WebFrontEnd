@@ -17,4 +17,9 @@ export class Home {
 
   }
 
+  ngOnInit(){
+  
+  //  this.navCtrl.setRoot(Home);
+  }
+
 }

@@ -11,7 +11,7 @@ import { SignInPage } from '../pages/sign-in/sign-in';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
 import { StartPage } from '../pages/start/start';
-
+import {VideoView} from '../pages/video-view/video-view';
 declare var WindowsAzure: any;
 
 @Component({
@@ -21,8 +21,8 @@ declare var WindowsAzure: any;
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  //  rootPage: any = Home;
-  rootPage = SignInPage;
+  //rootPage: any = Home;
+  rootPage = StartPage;
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform, private maindata: MainData) {
@@ -45,7 +45,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
 
       this.maindata.connectAzure(WindowsAzure.MobileServiceClient);
-      
+
       StatusBar.styleDefault();
       Splashscreen.hide();
     });

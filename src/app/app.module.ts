@@ -9,6 +9,8 @@ import {VideoThumbnail} from "../components/video-thumbnail/video-thumbnail.comp
 import { SignInPage } from '../pages/sign-in/sign-in';
 import { StartPage } from '../pages/start/start';
 import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
+import {VideoView} from '../pages/video-view/video-view';
+
 
 import {MainData} from '../services/azure.service';
 
@@ -17,7 +19,7 @@ import {OnboardingService} from '../services/onboarding-info';
 import {VideoInfoService} from '../services/video-info.service';
 import {VideoImgService} from '../services/video-img.service';
 import {VideoSetService} from '../services/video-set.service';
-//TODO: import video-img and video-info services
+import {VideoService} from '../services/video.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import {VideoSetService} from '../services/video-set.service';
     VideoThumbnail,
     SignInPage,
     OnBoardingPage,
-    StartPage
+    StartPage,
+    VideoView,
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -43,7 +46,8 @@ import {VideoSetService} from '../services/video-set.service';
     Page2,
     SignInPage,
     OnBoardingPage,
-    StartPage
+    StartPage,
+    VideoView,
   ],
   providers: [
   {provide: ErrorHandler, useClass: IonicErrorHandler},
@@ -53,6 +57,7 @@ import {VideoSetService} from '../services/video-set.service';
   VideoInfoService,
   VideoImgService,
   VideoSetService,
+  VideoService
 
 
 
