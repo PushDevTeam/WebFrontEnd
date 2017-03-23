@@ -2,10 +2,15 @@
  * Created by Javes on 3/19/2017.
  */
 
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {VideoInfoService} from '../../services/video-info.service';
 import {VideoImgService} from '../../services/video-img.service';
 import {VideoInfoObj} from './video-info-obj';
+import { VideoView} from '../../pages/video-view/video-view';
+import { NavController,  NavParams } from 'ionic-angular';
+
+
+
 @Component({
   selector: 'video-thumbnail',
   templateUrl: 'video-thumbnail.component.html',
@@ -19,7 +24,9 @@ export class VideoThumbnail {
 
   constructor(
     private infoService: VideoInfoService,
-    private imgService: VideoImgService
+    private imgService: VideoImgService,
+    public navCtrl: NavController,
+    public navParams: NavParams,
   ) { }
 
   ngOnInit(){
@@ -40,6 +47,8 @@ export class VideoThumbnail {
 
 
   goToVidView(){
-    alert("goToVidView: "+this.metaData.title);
+    // TODO add params such as uhhhhh what video to watch
+    this.navCtrl.push(VideoView);
+
   }
 }
