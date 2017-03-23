@@ -7,7 +7,6 @@ import { Page2 } from '../pages/page2/page2';
 import {SideScroller} from "../components/side-scroller/side-scroller.component";
 import {VideoThumbnail} from "../components/video-thumbnail/video-thumbnail.component";
 import { SignInPage } from '../pages/sign-in/sign-in';
-import { SignUpPage } from '../pages/sign-up/sign-up';
 import { StartPage } from '../pages/start/start';
 import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
 
@@ -30,7 +29,6 @@ import {VideoSetService} from '../services/video-set.service';
     SideScroller,
     VideoThumbnail,
     SignInPage,
-    SignUpPage,
     OnBoardingPage,
     StartPage
   ],
@@ -44,7 +42,6 @@ import {VideoSetService} from '../services/video-set.service';
     Page1,
     Page2,
     SignInPage,
-    SignUpPage,
     OnBoardingPage,
     StartPage
   ],
