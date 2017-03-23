@@ -13,6 +13,8 @@ export class Home {
 
   constructor(public navCtrl: NavController) {
 
+
+
   }
 
 }

@@ -12,6 +12,9 @@ import { StartPage } from '../pages/start/start';
 import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
 import { AuthService } from '../services/auth';
 import {OnboardingService} from '../services/onboarding-info';
+import {VideoInfoService} from '../services/video-info.service';
+import {VideoImgService} from '../services/video-img.service';
+import {VideoSetService} from '../services/video-set.service';
 //TODO: import video-img and video-info services
 
 @NgModule({
@@ -45,7 +48,12 @@ import {OnboardingService} from '../services/onboarding-info';
   providers: [
   {provide: ErrorHandler, useClass: IonicErrorHandler},
   AuthService,
-  OnboardingService
+  OnboardingService,
+  VideoInfoService,
+  VideoImgService,
+  VideoSetService,
+
+
 
   ]
 })

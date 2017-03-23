@@ -17,8 +17,8 @@ import { StartPage } from '../pages/start/start';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-//  rootPage: any = Home;
-rootPage = StartPage;
+ rootPage: any = Home;
+//rootPage = StartPage;
 
 
   pages: Array<{title: string, component: any}>;
@@ -30,7 +30,9 @@ rootPage = StartPage;
     this.pages = [
       { title: 'Home', component: Home},
       { title: 'Page One', component: Page1 },
-      { title: 'Page Two', component: Page2 }
+      { title: 'Page Two', component: Page2 },
+      { title: 'Start', component: StartPage }
+
     ];
     console.log(this.pages);
   }
