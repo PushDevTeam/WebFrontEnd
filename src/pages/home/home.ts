@@ -10,7 +10,7 @@ import {UserService} from '../../services/user.service';
   templateUrl: 'home.html'
 })
 export class Home {
-  private username: string;
+
 
 
   constructor(public navCtrl: NavController,
@@ -21,10 +21,10 @@ export class Home {
   }
 
   ngOnInit(){
-    this.username = this.userService.getUsername();
-    console.log("Home");
-    console.log(this.username);
+
     // this.navCtrl.setRoot(Home);
   }
-
+  getEmail(){
+    return this.userService.getEmail();
+  }
 }
