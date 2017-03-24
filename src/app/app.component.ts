@@ -1,8 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
+import { Storage } from '@ionic/storage';
 
 import { MainData } from '../services/azure.service';
+import {UserService} from '../services/user.service';
+import {StorageService} from '../services/storage.service';
+
 
 import {Home} from "../pages/home/home";
 import { Page1 } from '../pages/page1/page1';
@@ -12,6 +16,7 @@ import { SignUpPage } from '../pages/sign-up/sign-up';
 import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
 import { StartPage } from '../pages/start/start';
 import {VideoView} from '../pages/video-view/video-view';
+
 declare var WindowsAzure: any;
 
 @Component({
@@ -22,10 +27,13 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   //rootPage: any = Home;
-  rootPage = StartPage;
+  rootPage: any = StartPage;
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, private maindata: MainData) {
+  constructor(public platform: Platform,
+      private maindata: MainData,
+      private userService: UserService,
+      private storage: Storage) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -36,7 +44,7 @@ export class MyApp {
       { title: 'Start', component: StartPage }
 
     ];
-    console.log(this.pages);
+
   }
 
   initializeApp() {
@@ -48,6 +56,18 @@ export class MyApp {
 
       StatusBar.styleDefault();
       Splashscreen.hide();
+      console.log("initializeApp");
+
+      this.userService.loadStoredUser().then((found) => {
+        if(found) {
+          console.log("user found");
+          // actually Authorizing page that begins Auth process
+          this.rootPage = Home;
+        }else {
+          this.rootPage = StartPage
+        }
+      });
+
     });
   }
 

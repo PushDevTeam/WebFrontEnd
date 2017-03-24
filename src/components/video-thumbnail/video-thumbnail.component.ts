@@ -8,7 +8,7 @@ import {VideoImgService} from '../../services/video-img.service';
 import {VideoInfoObj} from './video-info-obj';
 import { VideoView} from '../../pages/video-view/video-view';
 import { NavController,  NavParams } from 'ionic-angular';
-
+import {UserService} from '../../services/user.service';
 
 
 @Component({
@@ -23,10 +23,12 @@ export class VideoThumbnail {
   public metaData: VideoInfoObj;
 
   constructor(
+    private userService: UserService,
     private infoService: VideoInfoService,
     private imgService: VideoImgService,
     public navCtrl: NavController,
     public navParams: NavParams,
+
   ) { }
 
   ngOnInit(){
@@ -40,13 +42,13 @@ export class VideoThumbnail {
      this.getVideoInfo();
   }
 
-
   getVideoInfo(){
     this.metaData = this.infoService.getVideoInfo(this.id);
   }
 
 
   goToVidView(){
+
     // TODO add params such as uhhhhh what video to watch
     this.navCtrl.push(VideoView);
 
