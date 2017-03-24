@@ -56,7 +56,11 @@ goBack() {
 }
 
 onSignin(form: NgForm) {
-this.navCtrl.push(Home);
+  // code from javes testing user storage
+
+  this.userService.createUser(form);
+
+  this.navCtrl.push(Home);
 //if this.mode == up || this.mode == in
               //  const loading = this.loadingCtrl.create({
                 //  content: 'Signing you in...'

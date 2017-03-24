@@ -1,5 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicStorageModule } from '@ionic/storage';
+
 import { MyApp } from './app.component';
 import {Home} from "../pages/home/home";
 import { Page1 } from '../pages/page1/page1';
@@ -21,6 +23,8 @@ import {VideoImgService} from '../services/video-img.service';
 import {VideoSetService} from '../services/video-set.service';
 import {VideoService} from '../services/video.service';
 import {UserService} from '../services/user.service';
+import {StorageService} from '../services/storage.service';
+
 @NgModule({
   declarations: [
 
@@ -36,7 +40,8 @@ import {UserService} from '../services/user.service';
     VideoView,
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -58,7 +63,8 @@ import {UserService} from '../services/user.service';
   VideoImgService,
   VideoSetService,
   VideoService,
-  UserService
+  UserService,
+  StorageService
 
 
 

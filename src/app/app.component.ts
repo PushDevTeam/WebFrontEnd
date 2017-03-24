@@ -13,6 +13,7 @@ import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
 import { StartPage } from '../pages/start/start';
 import {VideoView} from '../pages/video-view/video-view';
 import {UserService} from '../../services/user.service';
+import {StorageService} from '../../services/storage.service';
 declare var WindowsAzure: any;
 
 @Component({
@@ -37,7 +38,7 @@ export class MyApp {
       { title: 'Start', component: StartPage }
 
     ];
-    console.log(this.pages);
+
   }
 
   initializeApp() {
