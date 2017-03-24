@@ -61,11 +61,12 @@ export class MyApp {
       this.userService.loadStoredUser().then((found) => {
         if(found) {
           console.log("user found");
+          // actually Authorizing page that begins Auth process
           this.rootPage = Home;
         }else {
           this.rootPage = StartPage
         }
-      })
+      });
 
     });
   }
