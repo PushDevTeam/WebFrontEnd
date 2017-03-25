@@ -71,7 +71,10 @@ export class UserService {
 
 
   public getUsername() { return this.user.username; }
-  public getEmail() { return this.user.email; }
+  public getEmail() {
+    if(this.user == null) return 'mock_email';
+    return this.user.email;
+   }
 
   public getStoredUser() {
     return this.storageService.get('user');

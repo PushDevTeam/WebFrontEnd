@@ -112,6 +112,7 @@ export class OnBoardingPage {
     console.log(FIT_LEVELS[this.toggledFitLvl]);
     console.log(this.toggledGoals);
     console.log(CAST_OPT[this.toggledCast]);
+    this.navCtrl.push(Home);
   }
 
 
