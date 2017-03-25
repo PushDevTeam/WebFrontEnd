@@ -1,3 +1,144 @@
+
+$h1_fontsize : 6vh;
+$header_banner_h :28vh;
+$form_padding_sides: 7vw;
+
 page-on-boarding {
 
+}
+
+page-on-boarding .banner-header {
+  height: $header_banner_h;
+  margin: auto;
+}
+page-on-boarding ion-slide{
+  background : color($colors, primary);
+}
+page-on-boarding div{
+  color: color($colors, secondary);
+}
+page-on-boarding h1{
+  font-size: $h1_fontsize;
+  font-weight: 600;
+  padding: 1vh;
+  display:block;
+}
+.begin p {
+  margin:auto;
+  text-align:center;
+  margin-top: 2vh;
+  font-size: $h1_fontsize*(4/10);
+  font-weight:200;
+  display:block;
+}
+.banner-header p {
+  margin:auto;
+  text-align:center;
+  margin-top: 3vh;
+  font-size: $h1_fontsize*(4/10);
+  font-weight:200;
+  display:block;
+}
+.begin img {
+  width: 100%;
+  height:auto;
+}
+
+.onboard-body{
+  height: 100vh - $header_banner_h;
+  background-color: white;
+  padding-top: 5vh;
+  padding-bottom:5vh;
+  padding-left:$form_padding_sides;
+  padding-right:$form_padding_sides;
+
+}
+
+//general style, not size/spacing
+.onboard-body button{
+  display: block;
+  width: 100%;
+  background-color: color($colors, secondary);
+  color: black;
+  border-style :solid;
+  border-color: color($colors, primary);
+  text-align: center;
+
+}
+.onboard-body .toggled{
+  background-color:  color($colors, primary);
+  color: white;
+}
+//choose gender slide
+.choose-gender .onboard-body{
+  padding-top: 8vh;
+}
+
+.choose-gender button{
+  height: 8vh;
+  margin-bottom: 5vh;
+}
+//choose age slide
+.choose-age button{
+  height: 8vh;
+  margin-bottom: 4vh;
+
+// choose fitness level
+}
+.choose-level button{
+  height: 10vh;
+  margin-top: 6vh;
+
+}
+// choose goals slide
+.onboard-grid{
+  height: 100vh - $header_banner_h;
+  background-color: white;
+  text-align:center;
+
+
+}
+.onboard-grid ion-col {
+  height: (92vh-$header_banner_h)/4;
+  border-color: white;
+  border-style: solid;
+  vertical-align: middle;
+  background-color: lightgrey;
+  padding: 0;
+
+}
+.onboard-grid ion-card{
+  margin:0;
+  width:auto;
+  height:auto;
+}
+.onboard-grid .card-title{
+  color:white;
+}
+
+.choose-goals button {
+  padding:0;
+
+}
+.choose-goals .toggled{
+  background-color: #e3e4e5;
+  color: white;
+}
+
+.choose-goals .goals-text{
+  color:black;
+  padding-left: 6vw;
+  height: 6vh;
+  display:table-cell;
+  vertical-align: middle;
+}
+//choose cast slide
+.choose-cast-opt button{
+
+  margin-bottom: 4vh;
+  height: 9vh;
+}
+//form slide
+.onboard-form{
+  background-color:white;
 }

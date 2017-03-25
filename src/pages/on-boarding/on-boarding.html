@@ -1,42 +1,181 @@
-<ion-header>
+<ion-content>
 
-  <ion-navbar>
-    <ion-title>onBoarding</ion-title>
-  </ion-navbar>
+  <ion-slides pager #signupSlider>
+    <ion-slide class="begin">
+      <div>
+        <h1>
+          Find the perfect <br />workout for you!<br />
+        </h1>
+        <h2>
+          <p>
+            This 2-minute assessment will<br />
+            help us create the best<br />
+            work out for you.<br />
+          </p>
+        </h2>
+    
+      </div>
+    </ion-slide>
+    <ion-slide class="choose-gender" color="primary">
+      <div>
+        <div class="banner-header">
 
-</ion-header>
+          <h1>
+          Find the perfect <br />workout for you!<br />
+          </h1>
+
+          <h2>
+          <p>
+            What is your gender?
+          </p>
+        </h2>
+        </div>
+        <div class="onboard-body">
+          <button ion-button outline *ngFor="let g of genderList; let index = index" (click)="toggleGenderButton(index)" [ngClass]="{'toggled':this.toggledGender == index}">
+
+          {{genderList[index]}}
+        </button>
 
 
-<ion-content padding>
-  <form [formGroup]="onboardingForm" (ngSubmit)="onSubmit()">
-    <ion-list>
-      <ion-item>
-        <ion-label fixed> Location </ion-label>
-        <ion-select formControlName="location">
-          <ion-option *ngFor="let location of locationOptions" [value]="location"> {{location}} </ion-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label fixed> Sex </ion-label>
-        <ion-select formControlName="sex">
-          <ion-option *ngFor="let sex of sexOptions" [value]="sex"> {{sex}} </ion-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-      <ion-label fixed> Target Body Parts </ion-label>
-      <ion-select formControlName="body">
-        <ion-option *ngFor="let body of bodyOptions" [value]="body"> {{body}} </ion-option>
-      </ion-select>
-      </ion-item>
-      <ion-item>
-      <ion-label fixed> Work Out Goals </ion-label>
-      <ion-select formControlName="goals">
-        <ion-option *ngFor="let goal of goalOptions" [value]="goals"> {{goal}} </ion-option>
-      </ion-select>
-      </ion-item>
-    </ion-list>
-    <button type="submit" ion-button> Submit </button>
-  </form>
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide class="choose-age" color="primary">
+      <div>
+        <div class="banner-header">
+          <h1>
+          Find the perfect <br />workout for you!<br />
+          </h1>
+          <h2>
+          <p>
+            What is your age?
+          </p>
+        </h2>
+        </div>
+        <div class="onboard-body">
+          <button ion-button outline *ngFor="let a of ageGroupsList; let index = index" (click)="toggleAgeButton(index)" [ngClass]="{'toggled':this.toggledAge == index}">
 
+          {{ageGroupsList[index]}}
+        </button>
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide class="choose-level" color="primary">
+      <div>
+        <div class="banner-header">
+
+          <h1>
+          Find the perfect <br />workout for you!<br />
+          </h1>
+          <h2>
+          <p>
+            How would you describe your fitness level?
+          </p>
+        </h2>
+        </div>
+        <div class="onboard-body">
+          <button ion-button outline *ngFor="let f of fitLevelsList; let index = index" (click)="toggleLevelButton(index)" [ngClass]="{'toggled':this.toggledFitLvl == index}">
+
+
+          {{fitLevelsList[index]}}
+        </button>
+
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide class="choose-exercises" color="primary">
+      <div>
+        <div class="banner-header">
+
+          <h1>
+          Find the perfect <br />workout for you!<br />
+          </h1>
+          <h2>
+          <p>
+            What types of exercises would<br />
+             you like to do at home?
+          </p>
+        </h2>
+        </div>
+        <div class="onboard-grid">
+          <ion-grid>
+            <ion-row>
+              <ion-col col-6>Img0</ion-col>
+              <ion-col col-6>Img1</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-6>Img2</ion-col>
+              <ion-col col-6>Img3</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-6>Img4</ion-col>
+              <ion-col col-6>Img5</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-6>Img6</ion-col>
+              <ion-col col-6>Img7</ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide class="choose-goals" color="primary">
+      <div>
+        <div class="banner-header">
+
+          <h1>
+          Find the perfect <br />workout for you!<br />
+          </h1>
+          <h2>
+          <p>
+            What are your fitness goals?
+          </p>
+        </h2>
+        </div>
+        <div class="onboard-grid">
+          <ion-list >
+            <button ion-item
+            *ngFor="let g of fitGoalsList; let index = index"
+            (click)="toggleGoalButton(index)" [ngClass]="{'toggled':this.toggledGoals.indexOf(index) > -1}">
+
+
+            <div class="goals-text">
+              {{fitGoalsList[index]}}
+            </div>
+          </button>
+
+          </ion-list>
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide class="choose-cast-opt" color="primary">
+      <div>
+        <div class="banner-header">
+
+          <h1>
+          Find the perfect <br />workout for you!<br />
+          </h1>
+          <h2>
+          <p>
+            In the room you workout, <br />
+            do you have a digital media player?
+          </p>
+        </h2>
+        </div>
+        <div class="onboard-body">
+          <button ion-button outline
+          *ngFor="let g of castOptsList; let index = index"
+          (click)="toggleCastButton(index)" [ngClass]="{'toggled':this.toggledCast == index}">
+
+            {{castOptsList[index]}}
+        </button>
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide class="onboard-form">
+
+    </ion-slide>
+
+  </ion-slides>
 
 </ion-content>

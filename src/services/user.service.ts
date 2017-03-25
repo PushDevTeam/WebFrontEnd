@@ -6,11 +6,34 @@ import { NgForm } from "@angular/forms";
 /*
 TODO:  review what information we want on users
 */
-class UserObj {
+export const GENDER_LIST : string[] = [
+  'Male','Female','Another identity','Prefer not to say'];
+export const AGE_GROUPS: string[] = [
+  '18 to 25', '26 to 35', '36 to 45', '46 to 55', '55+'
+];
+export const FIT_LEVELS: string[] = [
+  'Beginner',
+  'Intermediate',
+  'Advanced'
+];
+export const FITNESS_GOALS = [
+  'Lose weight',
+  'Strengthen',
+  'Build muscle',
+  'Lose baby weight',
+  'Dance your ass off'
+];
+export const CAST_OPT = ['AppleTV', 'Chromecast', 'Roku', 'None'];
+export class UserObj {
   public id: number;
   public username: string;
   public password: string;
   public email: string;
+  public gender: number;
+  public ageGroup: number;
+  public level: number;
+  public goals: number[];
+  public
 }
 /*
 root module should be the ONLY provider of this service
@@ -32,7 +55,7 @@ export class UserService {
 
     return this.getStoredUser().then((user_v) => {
       this.user = JSON.parse(user_v);
-      console.log(this.user);
+
       if (this.user === null) {
         return false
       }
