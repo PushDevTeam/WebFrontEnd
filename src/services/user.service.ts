@@ -2,15 +2,42 @@ import {Injectable} from '@angular/core';
 import {StorageService} from './storage.service';
 import { NgForm } from "@angular/forms";
 
-
 /*
 TODO:  review what information we want on users
 */
-class UserObj {
+export const GENDER_LIST : string[] = [
+  'Male','Female','Another identity','Prefer not to say'];
+export const AGE_GROUPS: string[] = [
+  '18 to 25', '26 to 35', '36 to 45', '46 to 55', '55+'
+];
+export const FIT_LEVELS: string[] = [
+  'Beginner',
+  'Intermediate',
+  'Advanced'
+];
+export const FITNESS_GOALS = [
+  'Lose weight',
+  'Strengthen',
+  'Build muscle',
+  'Lose baby weight',
+  'Dance your ass off'
+];
+export const CAST_OPT = ['AppleTV', 'Chromecast', 'Roku', 'None'];
+export const EXERCISES_TYPES =
+  [
+    '1','2','3','4','5','6','7','8','9','10',
+  ];
+
+export class UserObj {
   public id: number;
   public username: string;
   public password: string;
   public email: string;
+  public gender: number;
+  public ageGroup: number;
+  public level: number;
+  public goals: number[];
+
 }
 /*
 root module should be the ONLY provider of this service
@@ -32,7 +59,7 @@ export class UserService {
 
     return this.getStoredUser().then((user_v) => {
       this.user = JSON.parse(user_v);
-      console.log(this.user);
+
       if (this.user === null) {
         return false
       }
@@ -44,7 +71,10 @@ export class UserService {
 
 
   public getUsername() { return this.user.username; }
-  public getEmail() { return this.user.email; }
+  public getEmail() {
+    if(this.user == null) return 'mock_email';
+    return this.user.email;
+   }
 
   public getStoredUser() {
     return this.storageService.get('user');

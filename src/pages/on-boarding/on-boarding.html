@@ -1,42 +1,194 @@
-<ion-header>
+<ion-content>
 
-  <ion-navbar>
-    <ion-title>onBoarding</ion-title>
-  </ion-navbar>
+  <ion-slides pager #signupSlider>
+    <ion-slide class="begin">
+      <div>
+        <h1>
+          Find the perfect <br />workout for you!<br />
+        </h1>
+        <h2>
+          <p>
+            This 2-minute assessment will<br />
+            help us create the best<br />
+            work out for you.<br />
+          </p>
+        </h2>
 
-</ion-header>
+      </div>
+    </ion-slide>
+    <ion-slide class="choose-gender" color="primary">
+      <div>
+        <div class="banner-header">
+
+          <h1>
+          Find the perfect <br />workout for you!<br />
+          </h1>
+
+          <h2>
+          <p>
+            What is your gender?
+          </p>
+        </h2>
+        </div>
+        <div class="onboard-body">
+          <button ion-button outline *ngFor="let g of genderList; let index = index" (click)="toggleGenderButton(index)" [ngClass]="{'toggled':this.toggledGender == index}">
+
+          {{genderList[index]}}
+        </button>
 
 
-<ion-content padding>
-  <form [formGroup]="onboardingForm" (ngSubmit)="onSubmit()">
-    <ion-list>
-      <ion-item>
-        <ion-label fixed> Location </ion-label>
-        <ion-select formControlName="location">
-          <ion-option *ngFor="let location of locationOptions" [value]="location"> {{location}} </ion-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label fixed> Sex </ion-label>
-        <ion-select formControlName="sex">
-          <ion-option *ngFor="let sex of sexOptions" [value]="sex"> {{sex}} </ion-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-      <ion-label fixed> Target Body Parts </ion-label>
-      <ion-select formControlName="body">
-        <ion-option *ngFor="let body of bodyOptions" [value]="body"> {{body}} </ion-option>
-      </ion-select>
-      </ion-item>
-      <ion-item>
-      <ion-label fixed> Work Out Goals </ion-label>
-      <ion-select formControlName="goals">
-        <ion-option *ngFor="let goal of goalOptions" [value]="goals"> {{goal}} </ion-option>
-      </ion-select>
-      </ion-item>
-    </ion-list>
-    <button type="submit" ion-button> Submit </button>
-  </form>
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide class="choose-age" color="primary">
+      <div>
+        <div class="banner-header">
+          <h1>
+          Find the perfect <br />workout for you!<br />
+          </h1>
+          <h2>
+          <p>
+            What is your age?
+          </p>
+        </h2>
+        </div>
+        <div class="onboard-body">
+          <button ion-button outline *ngFor="let a of ageGroupsList; let index = index" (click)="toggleAgeButton(index)" [ngClass]="{'toggled':this.toggledAge == index}">
 
+          {{ageGroupsList[index]}}
+        </button>
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide class="choose-level" color="primary">
+      <div>
+        <div class="banner-header">
+
+          <h1>
+          Find the perfect <br />workout for you!<br />
+          </h1>
+          <h2>
+          <p>
+            How would you describe your fitness level?
+          </p>
+        </h2>
+        </div>
+        <div class="onboard-body">
+          <button ion-button outline *ngFor="let f of fitLevelsList; let index = index" (click)="toggleLevelButton(index)" [ngClass]="{'toggled':this.toggledFitLvl == index}">
+
+
+          {{fitLevelsList[index]}}
+        </button>
+
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide class="choose-exercises" color="primary">
+      <div>
+        <div class="banner-header">
+
+          <h1>
+          Find the perfect <br />workout for you!<br />
+          </h1>
+          <h2>
+          <p>
+            What types of exercises would<br />
+             you like to do at home?
+          </p>
+        </h2>
+        </div>
+        <div class="onboard-grid">
+          <button
+          *ngFor="let g of exercisesList; let index = index"
+          (click)="toggleExerciseButton(index)" [ngClass]="{'toggled':this.toggledExercises.indexOf(index) > -1}">
+          {{this.exercisesList[index]}}
+          </button>
+
+
+
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide class="choose-goals" color="primary">
+      <div>
+        <div class="banner-header">
+
+          <h1>
+          Find the perfect <br />workout for you!<br />
+          </h1>
+          <h2>
+          <p>
+            What are your fitness goals?
+          </p>
+        </h2>
+        </div>
+        <div class="onboard-grid">
+          <ion-list >
+            <button ion-item
+            *ngFor="let g of fitGoalsList; let index = index"
+            (click)="toggleGoalButton(index)" [ngClass]="{'toggled':this.toggledGoals.indexOf(index) > -1}">
+
+
+            <div class="goals-text" [ngClass]="{'toggled':this.toggledGoals.indexOf(index) > -1}">
+              {{fitGoalsList[index]}}
+            </div>
+          </button>
+
+          </ion-list>
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide class="choose-cast-opt" color="primary">
+      <div>
+        <div class="banner-header">
+
+          <h1>
+          Find the perfect <br />workout for you!<br />
+          </h1>
+          <h2>
+          <p>
+            In the room you workout, <br />
+            do you have a digital media player?
+          </p>
+        </h2>
+        </div>
+        <div class="onboard-body">
+          <button ion-button outline
+          *ngFor="let g of castOptsList; let index = index"
+          (click)="toggleCastButton(index)" [ngClass]="{'toggled':this.toggledCast == index}">
+
+            {{castOptsList[index]}}
+        </button>
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide class="onboard-form">
+      <form [formGroup]="onboardingForm">
+        <ion-item>
+          <ion-input formControlName="full_name" placeholder="Full Name" type="text"></ion-input>
+        </ion-item>
+        <ion-item class="email">
+
+          <ion-input formControlName="email" placeholder="Email" type="email"></ion-input>
+        </ion-item>
+        <ion-item>
+
+          <ion-input formControlName="username" placeholder="Username" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+
+          <ion-input formControlName="password" placeholder="Password" type="password"></ion-input>
+        </ion-item>
+        <ion-item>
+
+          <ion-input formControlName="confirm_pword" placeholder="Confirm Password" type="password"></ion-input>
+        </ion-item>
+          <button ion-button (click)="onSubmit()" id="submit">SIGN UP</button>
+          <button ion-button clear id="already"> I already have an account</button>
+
+      </form>
+    </ion-slide>
+
+  </ion-slides>
 
 </ion-content>
