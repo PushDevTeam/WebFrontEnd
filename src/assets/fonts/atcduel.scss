@@ -1,0 +1,26 @@
+$atc-duel-font-path: $font-path !default;
+
+@font-face {
+  font-family: "atc-duel4";
+  src: local("ATCDuel-V4Sharp"), url("atcduel4.woff") format("woff");
+}
+
+@font-face {
+  font-family: "atc-duel6";
+  src: local("ATCDuel-V6Sharp"), url("atcduel6.woff") format("woff");
+}
+
+@font-face {
+  font-family: "atc-duel8";
+  src: local("ATCDuel-V8Sharp"), url("atcduel8.woff") format("woff");
+}
+
+@font-face {
+  font-family: "atc-duel10";
+  src: local("ATCDuel-V10Sharp"), url("atcduel10.woff") format("woff");
+}
+
+@font-face {
+  font-family: "atc-duel12";
+  src: local("ATCDuel-V12Sharp"), url("atcduel12.woff") format("woff");
+}

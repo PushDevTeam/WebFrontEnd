@@ -1,14 +1,18 @@
 
-<ion-header>
-</ion-header>
-
 <ion-content class="startBody" padding>
-<div class="buttonHolder">
-  <img src="assets/push.png" alt="Push logo">
-  <p>READY TO FIND YOUR WORKOUT? </p>
-    <button ion-button (click)="onSignUp(f)">Sign up</button>
-    <button ion-button (click)="onSignIn()"> Sign in</button>
+<div class="content">
+  <img src="assets/loginPushLogo.png" alt="Push logo">
+  <h1> DAILY </h1>
+  <p class="findWorkout">Find your workout. </p>
 
+  <div class="buttonHolder">
+    <button ion-button (click)="onSignUp(f)" class=signUpButton>GET STARTED</button>
+</div>
+    <p> Already have an account? </p>
+
+    <button ion-button clear (click)="onSignIn()" class="signInButton"> SIGN IN</button>
+
+<p class="bottom">  By using our service, you agree to our Terms </p>
 </div>
 
 </ion-content>
