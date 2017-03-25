@@ -33,7 +33,7 @@ export class UserObj {
   public ageGroup: number;
   public level: number;
   public goals: number[];
-  public
+
 }
 /*
 root module should be the ONLY provider of this service

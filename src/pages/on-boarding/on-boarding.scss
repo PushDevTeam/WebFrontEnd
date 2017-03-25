@@ -141,4 +141,26 @@ page-on-boarding h1{
 //form slide
 .onboard-form{
   background-color:white;
+
+}
+.onboard-form input{
+  color:grey;
+  text-align:center;
+
+}
+.onboard-form ion-item{
+  padding-left: 4vw;
+  padding-right: 4vw;
+  height: 10vh;
+  font-size:(3vh)*(8/10);
+}
+.onboard-form button{
+  width: 85%;
+  margin-top: 10vh;
+  height: 8vh;
+
+}
+.onboard-form #already{
+  font-size:2vh;
+  margin-top: 0;
 }

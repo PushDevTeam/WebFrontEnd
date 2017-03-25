@@ -33,6 +33,15 @@ export class OnBoardingPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private formBuilder: FormBuilder) {
+
+
+      this.onboardingForm = formBuilder.group({
+        full_name: [''],
+        email: [''],
+        username: [''],
+        password: [''],
+        confirm_pword: ['']
+      })
   }
   @ViewChild('signupSlider') signupSlider: any;
   build_user: UserObj = new UserObj();
@@ -45,15 +54,11 @@ export class OnBoardingPage {
 
   ageGroupsList = AGE_GROUPS;
   toggledAge: number;
-  toggleAgeButton(idx) {
-    this.toggledAge = idx;
-  }
+  toggleAgeButton(idx) { this.toggledAge = idx; }
 
   fitLevelsList = FIT_LEVELS;
   toggledFitLvl: number;
-  toggleLevelButton(idx) {
-    this.toggledFitLvl = idx;
-  }
+  toggleLevelButton(idx) { this.toggledFitLvl = idx; }
 
   fitGoalsList = FITNESS_GOALS;
   toggledGoals: number[] = [];
@@ -61,14 +66,13 @@ export class OnBoardingPage {
     var i = this.toggledGoals.indexOf(idx)
     if(i == -1) this.toggledGoals.push(idx);
     else this.toggledGoals.splice(i,1);
-
   }
 
   castOptsList = CAST_OPT;
   toggledCast: number;
-  toggleCastButton(idx) {
-    this.toggledCast = idx;
-  }
+  toggleCastButton(idx) { this.toggledCast = idx; }
+
+
   submitAttemmpt: boolean = false;
 
   onboardingForm: FormGroup;

@@ -13,7 +13,7 @@
             work out for you.<br />
           </p>
         </h2>
-    
+
       </div>
     </ion-slide>
     <ion-slide class="choose-gender" color="primary">
@@ -173,7 +173,30 @@
       </div>
     </ion-slide>
     <ion-slide class="onboard-form">
+      <form [formGroup]="onboardingForm">
+        <ion-item>
+          <ion-input formControlName="full_name" placeholder="Full Name" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
 
+          <ion-input formControlName="email" placeholder="Email" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+
+          <ion-input formControlName="username" placeholder="Username" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+
+          <ion-input formControlName="password" placeholder="Password" type="password"></ion-input>
+        </ion-item>
+        <ion-item>
+
+          <ion-input formControlName="confirm_pword" placeholder="Confirm Password" type="password"></ion-input>
+        </ion-item>
+          <button ion-button>SIGN UP</button>
+          <button ion-button clear id="already"> I already have an account</button>
+
+      </form>
     </ion-slide>
 
   </ion-slides>
