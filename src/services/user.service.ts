@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {StorageService} from './storage.service';
 import { NgForm } from "@angular/forms";
 
-
 /*
 TODO:  review what information we want on users
 */
@@ -24,6 +23,11 @@ export const FITNESS_GOALS = [
   'Dance your ass off'
 ];
 export const CAST_OPT = ['AppleTV', 'Chromecast', 'Roku', 'None'];
+export const EXERCISES_TYPES =
+  [
+    '1','2','3','4','5','6','7','8','9','10',
+  ];
+
 export class UserObj {
   public id: number;
   public username: string;

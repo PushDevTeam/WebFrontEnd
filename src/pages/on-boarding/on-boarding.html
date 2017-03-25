@@ -98,24 +98,14 @@
         </h2>
         </div>
         <div class="onboard-grid">
-          <ion-grid>
-            <ion-row>
-              <ion-col col-6>Img0</ion-col>
-              <ion-col col-6>Img1</ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col col-6>Img2</ion-col>
-              <ion-col col-6>Img3</ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col col-6>Img4</ion-col>
-              <ion-col col-6>Img5</ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col col-6>Img6</ion-col>
-              <ion-col col-6>Img7</ion-col>
-            </ion-row>
-          </ion-grid>
+          <button
+          *ngFor="let g of exercisesList; let index = index"
+          (click)="toggleExerciseButton(index)" [ngClass]="{'toggled':this.toggledExercises.indexOf(index) > -1}">
+          {{this.exercisesList[index]}}
+          </button>
+
+
+
         </div>
       </div>
     </ion-slide>
@@ -139,7 +129,7 @@
             (click)="toggleGoalButton(index)" [ngClass]="{'toggled':this.toggledGoals.indexOf(index) > -1}">
 
 
-            <div class="goals-text">
+            <div class="goals-text" [ngClass]="{'toggled':this.toggledGoals.indexOf(index) > -1}">
               {{fitGoalsList[index]}}
             </div>
           </button>
@@ -177,9 +167,9 @@
         <ion-item>
           <ion-input formControlName="full_name" placeholder="Full Name" type="text"></ion-input>
         </ion-item>
-        <ion-item>
+        <ion-item class="email">
 
-          <ion-input formControlName="email" placeholder="Email" type="text"></ion-input>
+          <ion-input formControlName="email" placeholder="Email" type="email"></ion-input>
         </ion-item>
         <ion-item>
 
@@ -193,7 +183,7 @@
 
           <ion-input formControlName="confirm_pword" placeholder="Confirm Password" type="password"></ion-input>
         </ion-item>
-          <button ion-button>SIGN UP</button>
+          <button ion-button (click)="onSubmit()" id="submit">SIGN UP</button>
           <button ion-button clear id="already"> I already have an account</button>
 
       </form>

@@ -1,22 +1,26 @@
 
 $h1_fontsize : 6vh;
 $header_banner_h :28vh;
+$lower_h: 100vh-$header_banner_h;
 $form_padding_sides: 7vw;
 
 page-on-boarding {
 
 }
 
-page-on-boarding .banner-header {
+.banner-header {
   height: $header_banner_h;
   margin: auto;
+  background-color: white;
+  color:black;
+  border-bottom-color: color($colors, lightgrey);
+  border-bottom-style:solid;
+  border-bottom-width: 0.2vh;
 }
 page-on-boarding ion-slide{
-  background : color($colors, primary);
+  background : white;
 }
-page-on-boarding div{
-  color: color($colors, secondary);
-}
+
 page-on-boarding h1{
   font-size: $h1_fontsize;
   font-weight: 600;
@@ -30,7 +34,9 @@ page-on-boarding h1{
   font-size: $h1_fontsize*(4/10);
   font-weight:200;
   display:block;
+
 }
+
 .banner-header p {
   margin:auto;
   text-align:center;
@@ -45,13 +51,19 @@ page-on-boarding h1{
 }
 
 .onboard-body{
-  height: 100vh - $header_banner_h;
-  background-color: white;
+  height: $lower_h;
+  background-color: color($colors, whitegrey);
   padding-top: 5vh;
   padding-bottom:5vh;
   padding-left:$form_padding_sides;
   padding-right:$form_padding_sides;
-
+}
+.onboard-grid{
+  overflow:scroll;
+  height: $lower_h;
+  background-color: white;
+  text-align:center;
+  background-color: color($colors, whitegrey);
 }
 
 //general style, not size/spacing
@@ -61,12 +73,13 @@ page-on-boarding h1{
   background-color: color($colors, secondary);
   color: black;
   border-style :solid;
-  border-color: color($colors, primary);
+  border-color: color($colors, lightgrey);
   text-align: center;
 
 }
 .onboard-body .toggled{
   background-color:  color($colors, primary);
+  border-color: color($colors, primary);
   color: white;
 }
 //choose gender slide
@@ -90,41 +103,35 @@ page-on-boarding h1{
   margin-top: 6vh;
 
 }
-// choose goals slide
-.onboard-grid{
-  height: 100vh - $header_banner_h;
-  background-color: white;
-  text-align:center;
-
-
-}
-.onboard-grid ion-col {
-  height: (92vh-$header_banner_h)/4;
-  border-color: white;
-  border-style: solid;
-  vertical-align: middle;
+// choose exercises slide
+$img_button_w :48vw;
+.choose-exercises button {
   background-color: lightgrey;
-  padding: 0;
+  width: $img_button_w;
+  height:$lower_h/5;
+  margin-top: 1vh;
+  display:inline;
+  margin: 1vw;
+    border-style:solid;
+    border-color:white;
+}
+.choose-exercises .toggled {
+  color: white;
+  border-style:solid;
+  border-color: color($colors, primary);
+  border-width: 1vw*(2/4);
+}
 
-}
-.onboard-grid ion-card{
-  margin:0;
-  width:auto;
-  height:auto;
-}
-.onboard-grid .card-title{
-  color:white;
-}
+//choose-goals slide
 
 .choose-goals button {
   padding:0;
-
-}
-.choose-goals .toggled{
-  background-color: #e3e4e5;
-  color: white;
+  color:black;
 }
 
+.choose-goals .input-wrapper{
+  font-color:white;
+}
 .choose-goals .goals-text{
   color:black;
   padding-left: 6vw;
@@ -132,35 +139,45 @@ page-on-boarding h1{
   display:table-cell;
   vertical-align: middle;
 }
+.choose-goals .toggled{
+  background-color: color($colors, primary);
+  color: white;
+}
 //choose cast slide
 .choose-cast-opt button{
-
   margin-bottom: 4vh;
   height: 9vh;
 }
 //form slide
 .onboard-form{
   background-color:white;
-
 }
 .onboard-form input{
   color:grey;
   text-align:center;
-
 }
 .onboard-form ion-item{
   padding-left: 4vw;
   padding-right: 4vw;
-  height: 10vh;
+  height: 8vh;
+  margin-top: 2vh;
+  margin-bottom:2vh;
   font-size:(3vh)*(8/10);
 }
-.onboard-form button{
+.onboard-form .text-input {
+  margin-bottom: 0vh;
+}
+
+.onboard-form #submit{
   width: 85%;
   margin-top: 10vh;
   height: 8vh;
-
 }
 .onboard-form #already{
   font-size:2vh;
   margin-top: 0;
+}
+
+.onboard-form ion-item .has-error {
+
 }

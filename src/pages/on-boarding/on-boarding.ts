@@ -14,7 +14,7 @@ import {UserObj,
   GENDER_LIST,
   AGE_GROUPS,
   FIT_LEVELS,
-  //
+  EXERCISES_TYPES,
   FITNESS_GOALS,
   CAST_OPT,
 } from '../../services/user.service';
@@ -36,21 +36,27 @@ export class OnBoardingPage {
 
 
       this.onboardingForm = formBuilder.group({
-        full_name: [''],
+        // contain only letters and spaces, max length 50
+        full_name: ['',
+        Validators.compose(
+          [
+            Validators.maxLength(50),
+            Validators.pattern('[a-zA-Z ]*'),
+            Validators.required])
+          ],
+
         email: [''],
         username: [''],
         password: [''],
         confirm_pword: ['']
-      })
+      });
   }
   @ViewChild('signupSlider') signupSlider: any;
   build_user: UserObj = new UserObj();
 
   genderList = GENDER_LIST;
   toggledGender: number;
-  toggleGenderButton(idx) {
-    this.toggledGender = idx;
-  }
+  toggleGenderButton(idx) { this.toggledGender = idx; }
 
   ageGroupsList = AGE_GROUPS;
   toggledAge: number;
@@ -60,11 +66,19 @@ export class OnBoardingPage {
   toggledFitLvl: number;
   toggleLevelButton(idx) { this.toggledFitLvl = idx; }
 
+  exercisesList = EXERCISES_TYPES;
+  toggledExercises: number[] = [];
+  toggleExerciseButton(idx){
+    var i = this.toggledExercises.indexOf(idx);
+    if(i < 0) this.toggledExercises.push(idx);
+    else this.toggledExercises.splice(i,1);
+  }
+
   fitGoalsList = FITNESS_GOALS;
   toggledGoals: number[] = [];
   toggleGoalButton(idx){
     var i = this.toggledGoals.indexOf(idx)
-    if(i == -1) this.toggledGoals.push(idx);
+    if(i < 0) this.toggledGoals.push(idx);
     else this.toggledGoals.splice(i,1);
   }
 
@@ -92,7 +106,12 @@ export class OnBoardingPage {
 
 
   onSubmit() {
-
+    alert("validate()");
+    console.log(GENDER_LIST[this.toggledGender]);
+    console.log(AGE_GROUPS[this.toggledAge]);
+    console.log(FIT_LEVELS[this.toggledFitLvl]);
+    console.log(this.toggledGoals);
+    console.log(CAST_OPT[this.toggledCast]);
   }
 
 
