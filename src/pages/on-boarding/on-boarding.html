@@ -185,8 +185,8 @@
         </div>
       </div>
     </ion-slide>
-    <ion-slide class="onboard-form">
-      <form [formGroup]="onboardingForm">
+    <ion-slide >
+      <form [formGroup]="onboardingForm" class="onboard-form">
         <ion-item
         [class.invalid]=
         "!onboardingForm.controls.full_name.valid && (onboardingForm.controls.full_name.dirty || submitAttempt)">
@@ -216,10 +216,14 @@
           <ion-input formControlName="password" placeholder="Password" type="password"></ion-input>
         </ion-item>
 
-        <ion-item [class.invalid]="(!passwordsMatch() && (onboardingForm.controls.password.dirty && onboardingForm.controls.confirm_pword.dirty) || submitAttempt)">
+        <ion-item id="last" [class.invalid]="(!passwordsMatch() && (onboardingForm.controls.password.dirty && onboardingForm.controls.confirm_pword.dirty) || submitAttempt)">
           <ion-input formControlName="confirm_pword" placeholder="Confirm Password" type="password"></ion-input>
         </ion-item>
-
+        <div class="error-pwords">
+          <div *ngIf="!passwordsMatch()">
+            Passwords must match.
+          </div>
+        </div>
           <button ion-button (click)="onSubmit()" id="submit">SIGN UP</button>
           <button ion-button clear id="already"> I already have an account</button>
 

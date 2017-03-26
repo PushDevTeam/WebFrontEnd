@@ -1,5 +1,5 @@
 
-$h1_fontsize : 6vh;
+$h1_fontsize : 9vh;
 $header_banner_h :28vh;
 $lower_h: 100vh-$header_banner_h;
 $form_padding_sides: 7vw;
@@ -19,16 +19,18 @@ page-on-boarding {
   border-bottom-style:solid;
   border-bottom-width: 0.2vh;
 }
+
 page-on-boarding ion-slide{
   background : white;
 }
-
 page-on-boarding h1{
   font-size: $h1_fontsize;
-  font-weight: 600;
+
+  color: color($colors, midgrey);
   padding: 1vh;
   display:block;
 }
+
 .begin p {
   margin:auto;
   text-align:center;
@@ -42,9 +44,10 @@ page-on-boarding h1{
 .banner-header p {
   margin:auto;
   text-align:center;
-  margin-top: 3vh;
+  margin-top: 2vh;
+  font-family: Arial, Helvetica, sans-serif !important;
   font-size: $h1_fontsize*(4/10);
-  font-weight:200;
+  font-weight:600;
   display:block;
 }
 .begin img {
@@ -74,9 +77,12 @@ page-on-boarding h1{
   width: 100%;
   background-color: color($colors, secondary);
   color: black;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size:130%;
   border-style :solid;
   border-color: color($colors, lightgrey);
   text-align: center;
+  text-transform: none;
 
 }
 .onboard-body .toggled{
@@ -117,6 +123,7 @@ $img_button_w :48vw;
   margin: 1vw;
     border-style:solid;
     border-color:white;
+    font-family: Arial, Helvetica, sans-serif !important;
 }
 .choose-exercises .toggled {
   color: white;
@@ -130,6 +137,7 @@ $img_button_w :48vw;
 .choose-goals button {
   padding:0;
   color:black;
+
 }
 
 .choose-goals .input-wrapper{
@@ -141,10 +149,15 @@ $img_button_w :48vw;
   height: 6vh;
   display:table-cell;
   vertical-align: middle;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 140%;
 }
 .choose-goals .toggled{
   background-color: color($colors, primary);
-  color: white;
+  color: white !important;
+}
+.toggled .goals-text {
+  color:white;
 }
 //choose cast slide
 .choose-cast-opt button{
@@ -154,6 +167,7 @@ $img_button_w :48vw;
 //form slide
 .onboard-form{
   background-color:white;
+  max-height: 60vh;
 }
 .onboard-form input{
   color:grey;
@@ -162,7 +176,7 @@ $img_button_w :48vw;
 .onboard-form ion-item{
   padding-left: 4vw;
   padding-right: 4vw;
-  height: 8vh;
+  height: 10%;
   margin-top: 2vh;
   margin-bottom:2vh;
   font-size:(3vh)*(8/10);
@@ -173,19 +187,29 @@ $img_button_w :48vw;
 
 .onboard-form #submit{
   width: 85%;
-  margin-top: 10vh;
-  height: 8vh;
+  margin-top: 3vh;
+  height: 6vh;
 }
 .onboard-form #already{
   font-size:2vh;
   margin-top: 0;
 }
+.onboard-form #last {
+  margin-bottom: 0;
 
+}
 .onboard-form .invalid {
 //background: radial-gradient(ellipse at 50% 100%,#ffcccc, white, white);
-background: linear-gradient(to right, #ffb3b3 -20%, white, white, white, #ffb3b3 120%);
+//background: linear-gradient(to right, #ffb3b3 -20%, white, white, white, #ffb3b3 120%);
 }
+.error-pwords{
+  color:red;
 
+  font-weight: 100;
+  font-size: 2vh;
+  padding-top:0;
+  height:3vh;
+}
 page-on-boarding .invalid .item-inner{
 
 }
