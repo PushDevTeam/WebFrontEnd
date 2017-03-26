@@ -7,7 +7,9 @@ $form_padding_sides: 7vw;
 page-on-boarding {
 
 }
-
+.swiper-pagination-bullet-active{
+  background-color: color($colors, primary);
+}
 .banner-header {
   height: $header_banner_h;
   margin: auto;
@@ -53,8 +55,8 @@ page-on-boarding h1{
 .onboard-body{
   height: $lower_h;
   background-color: color($colors, whitegrey);
-  padding-top: 5vh;
-  padding-bottom:5vh;
+
+
   padding-left:$form_padding_sides;
   padding-right:$form_padding_sides;
 }
@@ -84,17 +86,18 @@ page-on-boarding h1{
 }
 //choose gender slide
 .choose-gender .onboard-body{
-  padding-top: 8vh;
+  padding-top: 0vh;
 }
 
 .choose-gender button{
   height: 8vh;
+  margin-top: 5vh;
   margin-bottom: 5vh;
 }
 //choose age slide
 .choose-age button{
   height: 8vh;
-  margin-bottom: 4vh;
+  margin-top: 4vh;
 
 // choose fitness level
 }
@@ -145,7 +148,7 @@ $img_button_w :48vw;
 }
 //choose cast slide
 .choose-cast-opt button{
-  margin-bottom: 4vh;
+  margin-top: 5vh;
   height: 9vh;
 }
 //form slide
@@ -178,6 +181,18 @@ $img_button_w :48vw;
   margin-top: 0;
 }
 
-.onboard-form ion-item .has-error {
+.onboard-form .invalid {
+//background: radial-gradient(ellipse at 50% 100%,#ffcccc, white, white);
+background: linear-gradient(to right, #ffb3b3 -20%, white, white, white, #ffb3b3 120%);
+}
+
+page-on-boarding .invalid .item-inner{
+
+}
+page-on-boarding .error{
+  color:red;
+  font-size: 2vh;
+  padding-top:2vh;
+  height:3vh;
 
 }
