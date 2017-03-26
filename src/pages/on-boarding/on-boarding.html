@@ -220,7 +220,7 @@
           <ion-input formControlName="confirm_pword" placeholder="Confirm Password" type="password"></ion-input>
         </ion-item>
         <div class="error-pwords">
-          <div *ngIf="!passwordsMatch()">
+          <div *ngIf="(!passwordsMatch() && (onboardingForm.controls.password.dirty && onboardingForm.controls.confirm_pword.dirty) || submitAttempt)">
             Passwords must match.
           </div>
         </div>

@@ -1,8 +1,11 @@
-
+// optimized for android
 $h1_fontsize : 9vh;
 $header_banner_h :28vh;
 $lower_h: 100vh-$header_banner_h;
 $form_padding_sides: 7vw;
+$buttons_font_sz: 130%;
+$goals_list_font_sz: 140%;
+$err_font_sz:2vh;
 
 page-on-boarding {
 
@@ -78,7 +81,7 @@ page-on-boarding h1{
   background-color: color($colors, secondary);
   color: black;
   font-family: Arial, Helvetica, sans-serif !important;
-  font-size:130%;
+  font-size:$buttons_font_sz;
   border-style :solid;
   border-color: color($colors, lightgrey);
   text-align: center;
@@ -150,7 +153,7 @@ $img_button_w :48vw;
   display:table-cell;
   vertical-align: middle;
   font-family: Arial, Helvetica, sans-serif !important;
-  font-size: 140%;
+  font-size: $goals_list_font_sz;
 }
 .choose-goals .toggled{
   background-color: color($colors, primary);
@@ -172,6 +175,7 @@ $img_button_w :48vw;
 .onboard-form input{
   color:grey;
   text-align:center;
+
 }
 .onboard-form ion-item{
   padding-left: 4vw;
@@ -183,6 +187,7 @@ $img_button_w :48vw;
 }
 .onboard-form .text-input {
   margin-bottom: 0vh;
+  font-family: Arial, Helvetica, sans-serif !important;
 }
 
 .onboard-form #submit{
@@ -192,7 +197,10 @@ $img_button_w :48vw;
 }
 .onboard-form #already{
   font-size:2vh;
-  margin-top: 0;
+  margin-top: 2%;
+  color: color($colors, lightgrey);
+  font-family: Arial, Helvetica, sans-serif !important;
+  text-transform: none;
 }
 .onboard-form #last {
   margin-bottom: 0;
@@ -206,7 +214,7 @@ $img_button_w :48vw;
   color:red;
 
   font-weight: 100;
-  font-size: 2vh;
+  font-size: $err_font_sz;
   padding-top:0;
   height:3vh;
 }
@@ -215,7 +223,7 @@ page-on-boarding .invalid .item-inner{
 }
 page-on-boarding .error{
   color:red;
-  font-size: 2vh;
+  font-size: $err_font_sz;
   padding-top:2vh;
   height:3vh;
 
