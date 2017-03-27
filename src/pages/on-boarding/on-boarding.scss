@@ -1,13 +1,18 @@
-
-$h1_fontsize : 6vh;
+// optimized for android
+$h1_fontsize : 9vh;
 $header_banner_h :28vh;
 $lower_h: 100vh-$header_banner_h;
 $form_padding_sides: 7vw;
+$buttons_font_sz: 130%;
+$goals_list_font_sz: 140%;
+$err_font_sz:2vh;
 
 page-on-boarding {
 
 }
-
+.swiper-pagination-bullet-active{
+  background-color: color($colors, primary);
+}
 .banner-header {
   height: $header_banner_h;
   margin: auto;
@@ -17,16 +22,18 @@ page-on-boarding {
   border-bottom-style:solid;
   border-bottom-width: 0.2vh;
 }
+
 page-on-boarding ion-slide{
   background : white;
 }
-
 page-on-boarding h1{
   font-size: $h1_fontsize;
-  font-weight: 600;
+
+  color: color($colors, midgrey);
   padding: 1vh;
   display:block;
 }
+
 .begin p {
   margin:auto;
   text-align:center;
@@ -40,9 +47,10 @@ page-on-boarding h1{
 .banner-header p {
   margin:auto;
   text-align:center;
-  margin-top: 3vh;
+  margin-top: 2vh;
+  font-family: Arial, Helvetica, sans-serif !important;
   font-size: $h1_fontsize*(4/10);
-  font-weight:200;
+  font-weight:600;
   display:block;
 }
 .begin img {
@@ -53,8 +61,8 @@ page-on-boarding h1{
 .onboard-body{
   height: $lower_h;
   background-color: color($colors, whitegrey);
-  padding-top: 5vh;
-  padding-bottom:5vh;
+
+
   padding-left:$form_padding_sides;
   padding-right:$form_padding_sides;
 }
@@ -72,9 +80,12 @@ page-on-boarding h1{
   width: 100%;
   background-color: color($colors, secondary);
   color: black;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size:$buttons_font_sz;
   border-style :solid;
   border-color: color($colors, lightgrey);
   text-align: center;
+  text-transform: none;
 
 }
 .onboard-body .toggled{
@@ -84,17 +95,18 @@ page-on-boarding h1{
 }
 //choose gender slide
 .choose-gender .onboard-body{
-  padding-top: 8vh;
+  padding-top: 0vh;
 }
 
 .choose-gender button{
   height: 8vh;
+  margin-top: 5vh;
   margin-bottom: 5vh;
 }
 //choose age slide
 .choose-age button{
   height: 8vh;
-  margin-bottom: 4vh;
+  margin-top: 4vh;
 
 // choose fitness level
 }
@@ -114,6 +126,7 @@ $img_button_w :48vw;
   margin: 1vw;
     border-style:solid;
     border-color:white;
+    font-family: Arial, Helvetica, sans-serif !important;
 }
 .choose-exercises .toggled {
   color: white;
@@ -127,6 +140,7 @@ $img_button_w :48vw;
 .choose-goals button {
   padding:0;
   color:black;
+
 }
 
 .choose-goals .input-wrapper{
@@ -138,46 +152,79 @@ $img_button_w :48vw;
   height: 6vh;
   display:table-cell;
   vertical-align: middle;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: $goals_list_font_sz;
 }
 .choose-goals .toggled{
   background-color: color($colors, primary);
-  color: white;
+  color: white !important;
+}
+.toggled .goals-text {
+  color:white;
 }
 //choose cast slide
 .choose-cast-opt button{
-  margin-bottom: 4vh;
+  margin-top: 5vh;
   height: 9vh;
 }
 //form slide
 .onboard-form{
   background-color:white;
+  max-height: 60vh;
 }
 .onboard-form input{
   color:grey;
   text-align:center;
+
 }
 .onboard-form ion-item{
   padding-left: 4vw;
   padding-right: 4vw;
-  height: 8vh;
+  height: 10%;
   margin-top: 2vh;
   margin-bottom:2vh;
   font-size:(3vh)*(8/10);
 }
 .onboard-form .text-input {
   margin-bottom: 0vh;
+  font-family: Arial, Helvetica, sans-serif !important;
 }
 
 .onboard-form #submit{
   width: 85%;
-  margin-top: 10vh;
-  height: 8vh;
+  margin-top: 3vh;
+  height: 6vh;
 }
 .onboard-form #already{
   font-size:2vh;
-  margin-top: 0;
+  margin-top: 2%;
+  color: color($colors, lightgrey);
+  font-family: Arial, Helvetica, sans-serif !important;
+  text-transform: none;
 }
+.onboard-form #last {
+  margin-bottom: 0;
 
-.onboard-form ion-item .has-error {
+}
+.onboard-form .invalid {
+//background: radial-gradient(ellipse at 50% 100%,#ffcccc, white, white);
+//background: linear-gradient(to right, #ffb3b3 -20%, white, white, white, #ffb3b3 120%);
+}
+.error-pwords{
+  color:red;
+
+  font-weight: 100;
+  font-size: $err_font_sz;
+  padding-top:0;
+  height:3vh;
+}
+page-on-boarding .invalid .item-inner{
+
+}
+page-on-boarding .error{
+  color:red;
+  font-size: $err_font_sz;
+  padding-top:2vh;
+  height:3vh;
 
 }

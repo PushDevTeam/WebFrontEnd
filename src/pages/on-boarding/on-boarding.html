@@ -1,6 +1,6 @@
 <ion-content>
 
-  <ion-slides pager #signupSlider>
+  <ion-slides pager #onboardSlider color="primary">
     <ion-slide class="begin">
       <div>
         <h1>
@@ -31,6 +31,13 @@
         </h2>
         </div>
         <div class="onboard-body">
+
+          <div class="error">
+            <div *ngIf="genderError">
+              Please select an option.
+            </div>
+          </div>
+
           <button ion-button outline *ngFor="let g of genderList; let index = index" (click)="toggleGenderButton(index)" [ngClass]="{'toggled':this.toggledGender == index}">
 
           {{genderList[index]}}
@@ -40,7 +47,7 @@
         </div>
       </div>
     </ion-slide>
-    <ion-slide class="choose-age" color="primary">
+    <ion-slide class="choose-age" color="red">
       <div>
         <div class="banner-header">
           <h1>
@@ -53,6 +60,11 @@
         </h2>
         </div>
         <div class="onboard-body">
+          <div class="error">
+            <div *ngIf="ageError">
+              Please select an option.
+            </div>
+          </div>
           <button ion-button outline *ngFor="let a of ageGroupsList; let index = index" (click)="toggleAgeButton(index)" [ngClass]="{'toggled':this.toggledAge == index}">
 
           {{ageGroupsList[index]}}
@@ -74,6 +86,11 @@
         </h2>
         </div>
         <div class="onboard-body">
+          <div class="error">
+            <div *ngIf="levelError">
+              Please select an option.
+            </div>
+          </div>
           <button ion-button outline *ngFor="let f of fitLevelsList; let index = index" (click)="toggleLevelButton(index)" [ngClass]="{'toggled':this.toggledFitLvl == index}">
 
 
@@ -153,36 +170,60 @@
         </h2>
         </div>
         <div class="onboard-body">
+          <div class="error">
+            <div *ngIf="castError">
+              Please select an option.
+            </div>
+          </div>
           <button ion-button outline
           *ngFor="let g of castOptsList; let index = index"
           (click)="toggleCastButton(index)" [ngClass]="{'toggled':this.toggledCast == index}">
 
             {{castOptsList[index]}}
         </button>
+
         </div>
       </div>
     </ion-slide>
-    <ion-slide class="onboard-form">
-      <form [formGroup]="onboardingForm">
-        <ion-item>
-          <ion-input formControlName="full_name" placeholder="Full Name" type="text"></ion-input>
-        </ion-item>
-        <ion-item class="email">
+    <ion-slide >
+      <form [formGroup]="onboardingForm" class="onboard-form">
+        <ion-item
+        [class.invalid]=
+        "!onboardingForm.controls.full_name.valid && (onboardingForm.controls.full_name.dirty || submitAttempt)">
+          <ion-input formControlName="full_name"
+          placeholder="Full Name"
+          type="text"
+          ></ion-input>
 
-          <ion-input formControlName="email" placeholder="Email" type="email"></ion-input>
         </ion-item>
-        <ion-item>
 
+        <ion-item class="email"
+        [class.invalid]=
+        "!onboardingForm.controls.email.valid && (onboardingForm.controls.email.dirty || submitAttempt)">
+        >
+          <ion-input
+          formControlName="email"
+          placeholder="Email"
+          type="email"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item >
           <ion-input formControlName="username" placeholder="Username" type="text"></ion-input>
         </ion-item>
-        <ion-item>
 
+        <ion-item [class.invalid]="(!passwordsMatch() && (onboardingForm.controls.password.dirty && onboardingForm.controls.confirm_pword.dirty) || submitAttempt)">
           <ion-input formControlName="password" placeholder="Password" type="password"></ion-input>
         </ion-item>
-        <ion-item>
 
+        <ion-item id="last" [class.invalid]="(!passwordsMatch() && (onboardingForm.controls.password.dirty && onboardingForm.controls.confirm_pword.dirty) || submitAttempt)">
           <ion-input formControlName="confirm_pword" placeholder="Confirm Password" type="password"></ion-input>
         </ion-item>
+        <div class="error-pwords">
+          <div *ngIf="(!passwordsMatch() && (onboardingForm.controls.password.dirty && onboardingForm.controls.confirm_pword.dirty) || submitAttempt)">
+            Passwords must match.
+          </div>
+        </div>
           <button ion-button (click)="onSubmit()" id="submit">SIGN UP</button>
           <button ion-button clear id="already"> I already have an account</button>
 
