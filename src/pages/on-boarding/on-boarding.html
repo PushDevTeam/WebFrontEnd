@@ -20,6 +20,8 @@
       <div>
         <div class="banner-header">
 
+
+
           <h1>
           Find the perfect <br />workout for you!<br />
           </h1>
@@ -29,6 +31,7 @@
             What is your gender?
           </p>
         </h2>
+
         </div>
         <div class="onboard-body">
 
@@ -81,7 +84,7 @@
           </h1>
           <h2>
           <p>
-            How would you describe your fitness level?
+            How would you describe <br />your fitness level?
           </p>
         </h2>
         </div>
@@ -115,9 +118,7 @@
         </h2>
         </div>
         <div class="onboard-grid">
-          <button
-          *ngFor="let g of exercisesList; let index = index"
-          (click)="toggleExerciseButton(index)" [ngClass]="{'toggled':this.toggledExercises.indexOf(index) > -1}">
+          <button *ngFor="let g of exercisesList; let index = index" (click)="toggleExerciseButton(index)" [ngClass]="{'toggled':this.toggledExercises.indexOf(index) > -1}">
           {{this.exercisesList[index]}}
           </button>
 
@@ -140,10 +141,8 @@
         </h2>
         </div>
         <div class="onboard-grid">
-          <ion-list >
-            <button ion-item
-            *ngFor="let g of fitGoalsList; let index = index"
-            (click)="toggleGoalButton(index)" [ngClass]="{'toggled':this.toggledGoals.indexOf(index) > -1}">
+          <ion-list>
+            <button ion-item *ngFor="let g of fitGoalsList; let index = index" (click)="toggleGoalButton(index)" [ngClass]="{'toggled':this.toggledGoals.indexOf(index) > -1}">
 
 
             <div class="goals-text" >
@@ -175,9 +174,7 @@
               Please select an option.
             </div>
           </div>
-          <button ion-button outline
-          *ngFor="let g of castOptsList; let index = index"
-          (click)="toggleCastButton(index)" [ngClass]="{'toggled':this.toggledCast == index}">
+          <button ion-button outline *ngFor="let g of castOptsList; let index = index" (click)="toggleCastButton(index)" [ngClass]="{'toggled':this.toggledCast == index}">
 
             {{castOptsList[index]}}
         </button>
@@ -185,30 +182,19 @@
         </div>
       </div>
     </ion-slide>
-    <ion-slide >
+    <ion-slide class="form-slide">
       <form [formGroup]="onboardingForm" class="onboard-form">
-        <ion-item
-        [class.invalid]=
-        "!onboardingForm.controls.full_name.valid && (onboardingForm.controls.full_name.dirty || submitAttempt)">
-          <ion-input formControlName="full_name"
-          placeholder="Full Name"
-          type="text"
-          ></ion-input>
+        <ion-item [class.invalid]="!onboardingForm.controls.full_name.valid && (onboardingForm.controls.full_name.dirty || submitAttempt)">
+          <ion-input formControlName="full_name" placeholder="Full Name" type="text"></ion-input>
 
         </ion-item>
 
-        <ion-item class="email"
-        [class.invalid]=
-        "!onboardingForm.controls.email.valid && (onboardingForm.controls.email.dirty || submitAttempt)">
-        >
-          <ion-input
-          formControlName="email"
-          placeholder="Email"
-          type="email"
-          ></ion-input>
+        <ion-item class="email" [class.invalid]="!onboardingForm.controls.email.valid && (onboardingForm.controls.email.dirty || submitAttempt)">
+          >
+          <ion-input formControlName="email" placeholder="Email" type="email"></ion-input>
         </ion-item>
 
-        <ion-item >
+        <ion-item>
           <ion-input formControlName="username" placeholder="Username" type="text"></ion-input>
         </ion-item>
 
@@ -224,8 +210,8 @@
             Passwords must match.
           </div>
         </div>
-          <button ion-button (click)="onSubmit()" id="submit">SIGN UP</button>
-          <button ion-button clear id="already"> I already have an account</button>
+        <button ion-button (click)="onSubmit()" id="submit">SIGN UP</button>
+        <button ion-button clear id="already"> I already have an account</button>
 
       </form>
     </ion-slide>

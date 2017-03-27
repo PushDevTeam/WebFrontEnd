@@ -1,10 +1,12 @@
 // optimized for android
-$h1_fontsize : 9vh;
+$h1_fontsize : 110%; // greater than 130 pushes new line on my android
+
+$sub_font_sz: $h1_fontsize*(6/10);
 $header_banner_h :28vh;
 $lower_h: 100vh-$header_banner_h;
 $form_padding_sides: 7vw;
-$buttons_font_sz: 130%;
-$goals_list_font_sz: 140%;
+$buttons_font_sz: 100%;
+$goals_list_font_sz: 100%;
 $err_font_sz:2vh;
 
 page-on-boarding {
@@ -13,51 +15,66 @@ page-on-boarding {
 .swiper-pagination-bullet-active{
   background-color: color($colors, primary);
 }
-.banner-header {
-  height: $header_banner_h;
-  margin: auto;
-  background-color: white;
-  color:black;
-  border-bottom-color: color($colors, lightgrey);
-  border-bottom-style:solid;
-  border-bottom-width: 0.2vh;
-}
+
 
 page-on-boarding ion-slide{
   background : white;
 }
 page-on-boarding h1{
-  font-size: $h1_fontsize;
-
+  font-size: 140%;
+//font-family: "Arial Black", "Arial Bold", Gadget, sans-serif !important;
   color: color($colors, midgrey);
+  font-family: 'atcduel4';
   padding: 1vh;
   display:block;
+  text-transform: uppercase;
 }
-
+.begin{
+  background-color: color($colors,midgrey);
+  border-right-style:solid;
+  border-right-width:0.4vh;
+  border-right-color: color($colors, red);
+}
+.begin h1{
+  color: white;
+}
 .begin p {
   margin:auto;
   text-align:center;
   margin-top: 2vh;
-  font-size: $h1_fontsize*(4/10);
-  font-weight:200;
+  font-size: $sub_font_sz;
+  font-weight:100;
   display:block;
+  color: white;
+  font-family: 'atcduel4';
 
 }
 
+.begin img {
+  width: 100%;
+  height:auto;
+}
+.banner-header {
+  height: $header_banner_h;
+  padding-top: 10%;
+  background-color: white;
+  color:black;
+  border-bottom-color: color($colors, red);
+  border-bottom-style: double;
+  border-bottom-width: 1vh;
+  text-transform: uppercase;
+
+}
 .banner-header p {
   margin:auto;
   text-align:center;
   margin-top: 2vh;
   font-family: Arial, Helvetica, sans-serif !important;
-  font-size: $h1_fontsize*(4/10);
+  font-size: $sub_font_sz;
   font-weight:600;
   display:block;
+  text-transform: none;
 }
-.begin img {
-  width: 100%;
-  height:auto;
-}
-
 .onboard-body{
   height: $lower_h;
   background-color: color($colors, whitegrey);
@@ -83,9 +100,10 @@ page-on-boarding h1{
   font-family: Arial, Helvetica, sans-serif !important;
   font-size:$buttons_font_sz;
   border-style :solid;
-  border-color: color($colors, lightgrey);
+  border-color: color($colors, midgrey);
   text-align: center;
   text-transform: none;
+
 
 }
 .onboard-body .toggled{
@@ -168,9 +186,15 @@ $img_button_w :48vw;
   height: 9vh;
 }
 //form slide
+.form-slide{
+  border-left-style:solid;
+  border-left-width:0.4vh;
+  border-left-color: color($colors, red);
+}
 .onboard-form{
   background-color:white;
   max-height: 60vh;
+
 }
 .onboard-form input{
   color:grey;
