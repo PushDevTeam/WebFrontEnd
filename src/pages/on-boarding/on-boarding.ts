@@ -9,6 +9,7 @@ import {
 } from "@angular/forms";
 
 import { Home} from '../home/home';
+import {SignInPage} from '../sign-in/sign-in';
 import {UserObj,
   UserService,
   GENDER_LIST,
@@ -131,7 +132,9 @@ export class OnBoardingPage {
   passwordsMatch(){
     return this.onboardingForm.controls['password'].value == this.onboardingForm.controls['confirm_pword'].value;
   }
-
+  alreadyHave(){
+    this.navCtrl.push(SignInPage);
+  }
 
   onSubmit() {
     alert("validate()");
