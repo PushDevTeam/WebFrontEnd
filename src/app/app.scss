@@ -16,8 +16,9 @@
 // automatically applied to the <body> element in the app.
 ion-content, ion-header {
   background-color: black;
-  font-family: 'atcduel4' !important;
+  font-family: 'atcduel10' !important;
 }
+
 
 @font-face {
     font-family: 'atcduel4';
@@ -26,6 +27,45 @@ ion-content, ion-header {
     font-style: normal;
 }
 
-body, span, button, h1, h2, h3, h4, h5, h6, p {
-font-family: 'atcduel4' !important;
+@font-face {
+    font-family: 'atcduel6';
+    src: url('../assets/fonts/atcduel6.WOFF');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'atcduel8';
+    src: url('../assets/fonts/atcduel8.WOFF');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'atcduel10';
+    src: url('../assets/fonts/atcduel10.WOFF');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'atcduel12';
+    src: url('../assets/fonts/atcduel12.WOFF');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+h1, h2, h4, h5, h6 {
+font-family: 'atcduel12' !important;
+}
+
+h3, button {
+  font-family:  'atcduel6' !important;
+}
+
+
+p, body, div  {
+  font-family: 'atcduel4' !important;
+
 }

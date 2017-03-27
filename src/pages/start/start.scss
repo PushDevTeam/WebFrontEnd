@@ -1,22 +1,48 @@
 ion-content.startBody {
   background-color: #00C3FF;
+  color: white;
 }
 
-div.buttonHolder {
+img {
+  margin-top: 100px;
+}
+
+.signUpButton {
+  text-align: center;
+  margin-top: 200px;
+  font-size: 1.5em;
+  padding: 25px 40px 25px 40px;
+}
+
+
+.signInButton {
+  color: white;
+  width: 150px;
+  font-size: 1.5em;
+}
+
+div.content {
   text-align: center;
 }
-button {
-  display: block;
-  margin:auto;
-  background-color: white;
+
+.findWorkout {
+  font-size: 175%;
 }
 
-button:disabled {
-  color: black;
+h1 {
+  font-size: 300%;
+  margin-top: 0px;
 }
 
 p {
   margin: auto;
   margin-top: 40px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  font-size: 120%;
+}
+
+.bottom {
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 50px;
 }
