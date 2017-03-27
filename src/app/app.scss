@@ -47,12 +47,36 @@ ion-content, ion-header {
     font-weight: normal;
     font-style: normal;
 }
-
 @font-face {
     font-family: 'atcduel12';
     src: url('../assets/fonts/atcduel12.WOFF');
     font-weight: normal;
     font-style: normal;
+}
+@font-face{
+  font-family: DinPro;
+  src:url('../assets/fonts/DINPRO-BLACK.OTF');
+  font-weight: 900;
+}
+@font-face{
+  font-family: DinPro;
+  src:url('../assets/fonts/DINPRO-BOLD.OTF');
+  font-weight: 700;
+}
+@font-face{
+  font-family: DinPro;
+  src:url('../assets/fonts/DINPRO-LIGHT.OTF');
+  font-weight: 100;
+}
+@font-face{
+  font-family: DinPro;
+  src:url('../assets/fonts/DINPRO-MEDIUM.OTF');
+  font-weight: 500;
+}
+@font-face{
+  font-family: DinPro;
+  src:url('../assets/fonts/DINPRO-REGULAR.OTF');
+  font-weight: 300;
 }
 
 

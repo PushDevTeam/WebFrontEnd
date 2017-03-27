@@ -22,7 +22,6 @@ page-on-boarding ion-slide{
 }
 page-on-boarding h1{
   font-size: 140%;
-//font-family: "Arial Black", "Arial Bold", Gadget, sans-serif !important;
   color: color($colors, midgrey);
   font-family: 'atcduel4';
   padding: 1vh;
@@ -44,9 +43,9 @@ page-on-boarding h1{
   margin:auto;
   text-align:center;
   margin-top: 2vh;
-  font-family: Arial, Helvetica, sans-serif !important;
+  font-family: DinPro;
   font-size: $sub_font_sz;
-  font-weight:600;
+  font-weight:400;
   display:block;
   text-transform: none;
 }
@@ -91,10 +90,11 @@ page-on-boarding h1{
   text-align:center;
   margin-top: 2vh;
   font-size: $sub_font_sz;
-  font-weight:100;
   display:block;
   color: white;
-  font-family: 'atcduel4';
+  font-family: DinPro;
+  font-weight: 300;
+
 
 }
 
@@ -108,7 +108,8 @@ page-on-boarding h1{
   width: 100%;
   background-color: color($colors, secondary);
   color: black;
-  font-family: Arial, Helvetica, sans-serif !important;
+  font-family: DinPro;
+  font-weight: 400;
   font-size:$buttons_font_sz;
   border-style :solid;
   border-color: color($colors, midgrey);
@@ -153,9 +154,10 @@ $img_button_w :48vw;
   margin-top: 1vh;
   display:inline;
   margin: 1vw;
-    border-style:solid;
-    border-color:white;
-    font-family: Arial, Helvetica, sans-serif !important;
+  border-style:solid;
+  border-color:white;
+  font-family: DinPro;
+  font-weight: 400;
 }
 .choose-exercises .toggled {
   color: white;
@@ -181,7 +183,8 @@ $img_button_w :48vw;
   height: 6vh;
   display:table-cell;
   vertical-align: middle;
-  font-family: Arial, Helvetica, sans-serif !important;
+  font-family: DinPro;
+  font-weight: 400;
   font-size: $goals_list_font_sz;
 }
 .choose-goals .toggled{
@@ -234,7 +237,8 @@ $img_button_w :48vw;
   font-size:2vh;
   margin-top: 2%;
   color: color($colors, lightgrey);
-  font-family: Arial, Helvetica, sans-serif !important;
+  font-family: DinPro;
+  font-weigh: 400;
   text-transform: none;
 }
 .onboard-form #last {
