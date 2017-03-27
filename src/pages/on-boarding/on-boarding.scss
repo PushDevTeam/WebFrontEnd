@@ -29,31 +29,6 @@ page-on-boarding h1{
   display:block;
   text-transform: uppercase;
 }
-.begin{
-  background-color: color($colors,midgrey);
-  border-right-style:solid;
-  border-right-width:0.4vh;
-  border-right-color: color($colors, red);
-}
-.begin h1{
-  color: white;
-}
-.begin p {
-  margin:auto;
-  text-align:center;
-  margin-top: 2vh;
-  font-size: $sub_font_sz;
-  font-weight:100;
-  display:block;
-  color: white;
-  font-family: 'atcduel4';
-
-}
-
-.begin img {
-  width: 100%;
-  height:auto;
-}
 .banner-header {
   height: $header_banner_h;
   padding-top: 10%;
@@ -90,7 +65,43 @@ page-on-boarding h1{
   text-align:center;
   background-color: color($colors, whitegrey);
 }
+//beginning slide
+.begin{
+  background-color: color($colors,midgrey);
+  border-right-style:solid;
+  border-right-width:0.4vh;
+  border-right-color: color($colors, red);
+}
+.begin .banner-header {
+  height: $header_banner_h;
+  padding-top: 10%;
+  background-color:color($colors, midgrey);
+  color:black;
+  border: none;
+  text-transform: uppercase;
+}
+.begin .onboard-body {
+  background-color: color($colors, midgrey);
+}
+.begin h1{
+  color: white;
+}
+.begin p {
+  margin:auto;
+  text-align:center;
+  margin-top: 2vh;
+  font-size: $sub_font_sz;
+  font-weight:100;
+  display:block;
+  color: white;
+  font-family: 'atcduel4';
 
+}
+
+.begin img {
+  width: 100%;
+  height:auto;
+}
 //general style, not size/spacing
 .onboard-body button{
   display: block;
