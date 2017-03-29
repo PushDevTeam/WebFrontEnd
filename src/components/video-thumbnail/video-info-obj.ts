@@ -1,6 +1,7 @@
 
 export class VideoInfoObj {
   id: number;
-  title:string;
+  videoUrl: string;
+  title: string;
   other_stuff: string;
 }
