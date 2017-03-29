@@ -1,11 +1,14 @@
 div.cat-head {
-  text-align: center
+  text-align: center;
+  text-transform: uppercase;
+  margin: 2vh 0 2vh 0;
 }
+
 div.scrollmenu {
-  padding-left:5vw;
-  padding-right:5vw;
+  padding-left: 5vw;
+  padding-right: 5vw;
   background-color: white;
   height: auto;
-  white-space:nowrap;
-  overflow-x:scroll;
+  white-space: nowrap;
+  overflow-x: scroll;
 }
