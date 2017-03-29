@@ -1,10 +1,10 @@
 video-thumbnail {
   width: 90vw;
-  height: 43vh;
+  height: auto;
   display: inline-block;
   background-color: white;
   margin: 0 0.5vw 0 0.5vw;
-
+  overflow-y: hidden;
 
   .vt-wrapper {
     background-color: white;
