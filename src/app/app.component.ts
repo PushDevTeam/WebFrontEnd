@@ -4,7 +4,7 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { Storage } from '@ionic/storage';
 
 import { MainData } from '../services/azure.service';
-import {UserService} from '../services/user.service';
+import {UserService, UserObj} from '../services/user.service';
 import {StorageService} from '../services/storage.service';
 
 
@@ -27,18 +27,18 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   //rootPage: any = Home;
-  rootPage: any = StartPage;
-  pages: Array<{title: string, component: any}>;
+  rootPage: any = Home;
+  pages: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform,
-      private maindata: MainData,
-      private userService: UserService,
-      private storage: Storage) {
+    private maindata: MainData,
+    private userService: UserService,
+    private storage: Storage) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: Home},
+      { title: 'Home', component: Home },
       { title: 'Page One', component: Page1 },
       { title: 'Page Two', component: Page2 },
       { title: 'Start', component: StartPage }
@@ -57,17 +57,25 @@ export class MyApp {
       StatusBar.styleDefault();
       Splashscreen.hide();
       console.log("initializeApp");
-
-      this.userService.loadStoredUser().then((found) => {
-        if(found) {
-          console.log("user found");
-          // actually Authorizing page that begins Auth process
-          this.rootPage = Home;
-        }else {
-          this.rootPage = StartPage
-        }
+      //
+      var user = new UserObj();
+      user.email = "rodgers@gbp.win";
+      user.username = "rodgers12";
+      user.password = "password";
+      user.id = 0;
+      this.userService.storeUser(user).then((success) => {
+        console.log(success);
+        this.userService.loadStoredUser().then((found) => {
+          if (found) {
+            console.log("user found");
+            // actually Authorizing page that begins Auth process
+            this.rootPage = Home;
+          } else {
+            console.log("no user locally stored");
+            this.rootPage = StartPage
+          }
+        });
       });
-
     });
   }
 

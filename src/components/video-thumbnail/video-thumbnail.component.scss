@@ -1,8 +1,75 @@
+video-thumbnail {
+  width: 90vw;
+  height: 43vh;
+  display: inline-block;
+  background-color: white;
+
+  .vt-wrapper {
+    background-color: white;
+    width: 100%;
+    height: auto;
+    position: relative;
+
+    .vt {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: auto;
+    }
+
+    .play {
+      width: 25%;
+      display: block;
+      margin: 0;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -12.5%;
+      margin-top: -12.5%;
+    }
+  }
 
 
-video-thumbnail{
-  background-color: inherit;
-}
-.video-slide{
-  background-color: gold;
+
+  .info {
+    padding: 3vw;
+
+    .title {
+      font-family: DinPro;
+      font-weight: 500;
+      font-size: 2.5vh;
+
+    }
+    .subtitle {
+      font-family: DinPro;
+      font-weight: 300;
+      font-size:1.9vh;
+      overflow: hidden;
+    }
+    .misc {
+      font-size: 2vh;
+      margin-top: 1.5vh;
+      vertical-align: middle;
+
+      ion-icon {
+        display:inline;
+        font-size: 3.5vh;
+        font-weight: 400;
+      }
+      .text{
+        font-family: DinPro;
+        font-weight: 100;
+        display: inline;
+        margin: 1vh 3vw 1vh 3vw;
+        padding: 0.5vh 3vw 0.5vh 0vw;
+        position: relative;
+        top: -0.6vh;
+
+        border-right-width: 0.75vw;
+        border-right-style: solid;
+        border-right-color: color($colors, whitegrey);
+
+      }
+    }
+  }
 }

@@ -15,7 +15,6 @@ export class StorageService {
   }
 
   public get(keyword:string) {
-
     return this.store.get(keyword);
   }
 }

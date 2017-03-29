@@ -33,10 +33,10 @@ export class UserObj {
   public username: string;
   public password: string;
   public email: string;
-  public gender: number;
-  public ageGroup: number;
-  public level: number;
-  public goals: number[];
+  public gender?: number;
+  public ageGroup?: number;
+  public level?: number;
+  public goals?: number[];
 
 }
 /*
