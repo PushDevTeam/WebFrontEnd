@@ -5,13 +5,67 @@ video-view {
   align-content: center;
   background-color: white;
 
-  #video-player {
-    margin-top: 8vh;
+  .player-wrapper {
     width: 100%;
-    position: relative;
+    margin-top: 8vh;
+
+    #video-player {
+
+
+      width: 100%;
+      position: relative;
+    }
   }
 
-  .video-view-nav {
-    background-color: white;
+
+  .titles{
+    margin: 0 5vw 0 5vw;
+    border-bottom-color: color($colors, whitegrey);
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    .small-title{
+      font-family: DinPro;
+      font-size: 1.5vh;
+      font-weight: 700;
+      margin: 2vh;
+      text-transform: uppercase;
+      color: color($colors, red);
+    }
+    .large-title{
+      font-family: DinPro;
+      font-size: 3.5vh;
+      font-weight: 300;
+      margin: 2vh;
+    }
+  }
+  table.misc-list {
+    padding: 2vh 5vw 2vh 5vw;
+    border-bottom-color: color($colors, whitegrey);
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    text-align: left;
+    width: 90%;
+    margin: 0 5vw 0 5vw;
+    table-layout:fixed;
+
+    tr.item{
+      display: block;
+      margin: 1vh 1vw 1vh 1vw;
+      td.iconthing {
+        text-align: center;
+        display: inline;
+        width: 12vw !important;
+        ion-icon{
+          display: inline;
+          font-size: 5vh;
+
+        }
+      }
+      td.text {
+        display: inline;
+        font-family:DinPro;
+        font-size: 2vh;
+      }
+    }
   }
 }
