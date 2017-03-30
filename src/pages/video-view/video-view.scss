@@ -15,12 +15,13 @@ video-view {
     #video-player {
       width: 100%;
       position: relative;
+
+
     }
   }
 
   .body {
     padding: 0 5vw;
-
 
     .titles {
       border-bottom-color: color($colors, whitegrey);
@@ -95,15 +96,27 @@ video-view {
       font-weight: 700;
       font-size: 1.5vh;
       text-transform: uppercase;
+
       ion-badge {
         font-family: DinPro;
         font-weight: 500;
-        font-size:2vh;
-
+        font-size: 2vh;
         margin: 1vh 1vw;
         background-color: color($colors, midgrey);
         text-transform: uppercase;
       }
     }
   }
+}
+video::-internal-media-controls-download-button {
+  display: none;
+}
+
+video::-webkit-media-controls-enclosure {
+  overflow: hidden;
+}
+
+video::-webkit-media-controls-panel {
+  width: calc(113%);
+  /* Adjust as needed */
 }
