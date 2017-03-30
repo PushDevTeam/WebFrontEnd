@@ -9,8 +9,7 @@ import {StorageService} from '../services/storage.service';
 
 
 import {Home} from "../pages/home/home";
-import { Page1 } from '../pages/page1/page1';
-import { Page2 } from '../pages/page2/page2';
+import { Terms} from '../pages/terms/terms';
 import { SignInPage } from '../pages/sign-in/sign-in';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
@@ -39,8 +38,8 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: Home },
-      { title: 'Page One', component: Page1 },
-      { title: 'Page Two', component: Page2 },
+
+
       { title: 'Start', component: StartPage }
 
     ];
@@ -51,7 +50,7 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      
+
       this.maindata.connectAzure(WindowsAzure.MobileServiceClient);
 
       this.userService.loadStoredUser().then((found) =>{
@@ -60,10 +59,10 @@ export class MyApp {
           this.rootPage = Home;
         } else {
           console.log('no user locally stored');
-          this.rootPage = StartPage
+          this.rootPage = StartPage;
         }
       });
-      
+
 
       StatusBar.styleDefault();
       Splashscreen.hide();
