@@ -168,5 +168,8 @@ export class OnBoardingPage {
     this.navCtrl.push(Home);
   }
 
+  goBack() {
+    this.navCtrl.pop();
+  }
 
 }

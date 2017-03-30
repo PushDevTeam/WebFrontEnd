@@ -11,6 +11,7 @@ import { SignInPage } from '../pages/sign-in/sign-in';
 import { StartPage } from '../pages/start/start';
 import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
 import {VideoView} from '../pages/video-view/video-view';
+import {VideoRatingPage} from '../pages/video-rating/video-rating';
 
 
 import {AzureService} from '../services/azure.service';
@@ -23,6 +24,7 @@ import {VideoSetService} from '../services/video-set.service';
 import {VideoService} from '../services/video.service';
 import {UserService} from '../services/user.service';
 import {StorageService} from '../services/storage.service';
+import {VideoRatingService} from '../services/video-rating.service';
 import {FBService} from '../services/fb.service';
 import {FacebookService} from 'ng2-facebook-sdk';
 
@@ -38,7 +40,9 @@ import {FacebookService} from 'ng2-facebook-sdk';
     OnBoardingPage,
     StartPage,
     VideoView,
-    Terms
+
+    VideoRatingPage,
+    Terms,
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -66,8 +70,12 @@ import {FacebookService} from 'ng2-facebook-sdk';
   VideoService,
   UserService,
   StorageService,
+
+  VideoRatingService,
+
   FBService,
   FacebookService
+
 
 
 
