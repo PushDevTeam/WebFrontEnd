@@ -53,35 +53,22 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       
       this.maindata.connectAzure(WindowsAzure.MobileServiceClient);
-      this.fbService.userLogin().then((response)=>{
-        this.fbService.getUserFriends();
-        this.fbService.getUserInfo();
-        this.maindata.testDataGetter();
-      })
+
+      this.userService.loadStoredUser().then((found) =>{
+        if (found) {
+          console.log('user found');
+          this.rootPage = Home;
+        } else {
+          console.log('no user locally stored');
+          this.rootPage = StartPage
+        }
+      });
+      
 
       StatusBar.styleDefault();
       Splashscreen.hide();
       console.log("initializeApp");
-      //
-      /*
-      var user = new UserObj();
-      user.email = "rodgers@gbp.win";
-      user.username = "rodgers12";
-      user.password = "password";
-      user.id = 0;
-      this.userService.storeUser(user).then((success) => {
-        console.log(success);
-        this.userService.loadStoredUser().then((found) => {
-          if (found) {
-            console.log("user found");
-            // actually Authorizing page that begins Auth process
-            this.rootPage = Home;
-          } else {
-            console.log("no user locally stored");
-            this.rootPage = StartPage
-          }
-        });
-      });*/
+
     });
   }
 

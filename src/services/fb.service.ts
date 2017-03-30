@@ -34,7 +34,7 @@ export class FBService {
     }
 
     getUserInfo = () => {
-        return this.fb.api('/me', 'get', {fields: 'name,id,picture,email,gender,age_range,birthday,third_party_id'}).then((response)=>{console.log('getUserLastName response', response)})
+        return this.fb.api('/me', 'get', {fields: 'name,id,picture,email,gender,age_range,birthday,third_party_id'}).then((response)=>{console.log('FBService.getUserInfo response', response); return response;})
     }
 
     get appid() {return this._appid};

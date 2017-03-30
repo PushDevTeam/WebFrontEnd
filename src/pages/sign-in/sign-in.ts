@@ -29,7 +29,7 @@ export class SignInPage implements OnInit {
     return this.authService.facebookAuth().then(this.onSuccessfulLogin, this.onFailedLogin);
   }
 
-  onSuccessfulLogin(){
+  onSuccessfulLogin = () => {
     this.navCtrl.push(Home);
   }
 
