@@ -7,6 +7,9 @@ video-view {
   width: 100%;
   height: auto;
   overflow: scroll;
+  ion-header{
+    background-color: white;
+  }
 
   .player-wrapper {
     width: 100%;
