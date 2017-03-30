@@ -38,6 +38,9 @@ export class UserObj {
   public level?: number;
   public goals?: number[];
 
+  public profileimgurl?: string;
+  
+
 }
 /*
 root module should be the ONLY provider of this service
