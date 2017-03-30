@@ -6,6 +6,68 @@
   </ion-navbar>
 </ion-header>
 
-  <video autoplay controls id="video-player">
-    <source src={{this.vid_url}} type="video/mp4"/>
+<div class='player-wrapper'>
+  <video controls id="video-player">
+    <source src={{this.videoInfo.videoUrl}} type="video/mp4"/>
   </video>
+</div>
+<div class='body'>
+
+
+  <div class='titles'>
+
+    <div class='small-title'>
+      Lorem ipsum sit dolor
+    </div>
+    <div class='large-title'>
+      {{this.videoInfo.title}}
+    </div>
+  </div>
+
+  <div class='misc-list'>
+    <div class='item'>
+      <div class='iconthing'>
+        <ion-icon name='contact'></ion-icon>
+      </div>
+
+      <div class='text'>
+       {{this.videoInfo.trainer}}
+      </div>
+    </div>
+    <div class='item'>
+      <div class='iconthing'>
+        <ion-icon name='stopwatch'></ion-icon>
+      </div>
+
+      <div class='text'>
+        {{this.videoInfo.duration}}
+      </div>
+    </div>
+    <div class='item'>
+      <div class='iconthing'>
+        <ion-icon name='stats'></ion-icon>
+      </div>
+
+      <div class='text'>
+        {{this.videoInfo.difficulty}}
+      </div>
+    </div>
+    <div class='item'>
+      <div class='iconthing'>
+        <ion-icon name='flame'></ion-icon>
+      </div>
+
+      <div class='text'>
+        320 Calories
+      </div>
+    </div>
+
+  </div>
+  <div class='paragraph'>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et metus sit amet erat placerat fermentum ut tincidunt enim. Nullam non mauris mattis dolor sollicitudin venenatis quis id turpis. Sed pharetra nunc blandit, convallis dolor sit amet, bibendum leo. Cras vitae dui posuere, scelerisque enim sollicitudin, elementum eros.
+  </div>
+  <div class='tags'>
+    tags<br /><br />
+    <ion-badge item-left *ngFor='let tag of videoInfo.tags'>{{tag}}</ion-badge>
+  </div>
+</div>

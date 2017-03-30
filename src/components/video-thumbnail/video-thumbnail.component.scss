@@ -1,8 +1,10 @@
 video-thumbnail {
   width: 90vw;
-  height: 43vh;
+  height: auto;
   display: inline-block;
   background-color: white;
+  margin: 0 0.5vw 0 0.5vw;
+  overflow-y: hidden;
 
   .vt-wrapper {
     background-color: white;
@@ -52,7 +54,7 @@ video-thumbnail {
       vertical-align: middle;
 
       ion-icon {
-        display:inline;
+        display: inline;
         font-size: 3.5vh;
         font-weight: 400;
       }

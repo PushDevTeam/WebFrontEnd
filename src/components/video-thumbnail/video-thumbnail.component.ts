@@ -17,7 +17,6 @@ import {UserService} from '../../services/user.service';
   providers: [VideoInfoService, VideoImgService]
 })
 
-
 export class VideoThumbnail {
   @Input() public id: number;
   public metaData: VideoInfoObj;
@@ -29,7 +28,9 @@ export class VideoThumbnail {
     public navCtrl: NavController,
     public navParams: NavParams,
 
-  ) { }
+  ) {
+
+  }
 
   ngOnInit(){
     /*
@@ -50,7 +51,8 @@ export class VideoThumbnail {
   goToVidView(){
 
     // TODO add params such as uhhhhh what video to watch
-    this.navCtrl.push(VideoView);
+
+    this.navCtrl.push(VideoView, {'id': this.id});
 
   }
 }

@@ -1,6 +1,10 @@
 
 export class VideoInfoObj {
   id: number;
-  title:string;
-  other_stuff: string;
+  videoUrl: string;
+  title: string;
+  trainer: string;
+  duration: string;
+  difficulty: string;
+  tags: Array<string> = [];
 }
