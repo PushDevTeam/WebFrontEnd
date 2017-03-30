@@ -1,29 +1,46 @@
+page-sign-in  {
+
 ion-content.loginBody {
   background-color: white;
   text-align: center;
 }
 
-img {
-  margin-top: 12vh;
-  margin-left: 50vh;
-  margin-right: 50vh;
+.backButton {
+    position: absolute;
+    margin-left: 2vh;
 }
 
-ion-item  {
+img {
+  margin: auto;
+  margin-top: 18vh;
+  width: 70%;
+  height: auto;
+}
+
+
+.text-input  {
   padding-left: 4vw;
   padding-right: 4vw;
   height: 10%;
-  margin-top: 20vh;
+  width: 80%;
+  margin-top: 5vh;
   margin-bottom:2vh;
   font-size:(3vh)*(8/10);
-  font-family: DinPro;
+  font-family: DinPro !important;
   font-weight: 100;
+  text-align: center;
 }
-
 
 button {
   margin: auto;
   width: 85%;
-  margin-top: 3vh;
+  margin-top: 12vh;
   height: 6vh;
+  margin-bottom: 5vh;
+  font-size: 1.3em;
+}
+
+.forgotAndReset p {
+  margin-top: 4vh;
+}
 }

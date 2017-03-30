@@ -3,33 +3,26 @@ ion-content.startBody {
   color: white;
 }
 
-.image {
-  margin-top: 10vh;
-}
-
 img {
   margin: auto;
-  width: 90%;
+  margin-top: 18vh;
+  width: 70%;
   height: auto;
-}
-
-.findWorkout {
-  font-family: atcduel4;
 }
 
 .signUpButton {
   color: color($colors, dark);
   text-align: center;
-  margin-top: 200px;
-  font-size: 1.5em;
-  padding: 25px 40px 25px 40px;
+  margin-top: 18vh;
+  font-size: 1.3em;
+  width: 50%;
 }
 
 
 .signInButton {
   color: white;
-  width: 150px;
-  font-size: 1.5em;
+  width: 50%;
+  font-size: 1.3em;
 }
 
 div.content {
@@ -37,14 +30,16 @@ div.content {
 }
 
 .findWorkout {
-  font-size: 175%;
+  font-size: 160%;
+  font-family: atcduel4;
+  font-weight: 100;
 }
 
 p {
   margin: auto;
   margin-top: 40px;
   margin-bottom: 10px;
-  font-size: 120%;
+  font-size: 100%;
   font-family: DinPro;
 }
 
@@ -52,4 +47,7 @@ p {
   margin: auto;
   margin-top: 5vh;
   margin-bottom: 6vh;
+  font-size: 100%;
+  font-family: DinPro;
+  font-weight: 100;
 }

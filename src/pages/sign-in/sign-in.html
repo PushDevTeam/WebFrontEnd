@@ -7,9 +7,11 @@
 </ion-header>
 -->
 <ion-content class="loginBody">
-  <button class="backButton" ion-button clear icon-left (click)="goBack()">
+  <div class="backButton">
+  <button ion-button clear (click)="goBack()">
     <ion-icon name="arrow-back"></ion-icon>
 </button>
+</div>
 <img src="assets/PUSHDAILY_Logo_Black.png" alt="Push logo">
 
   <ion-row>
@@ -39,16 +41,16 @@
       </ion-item>
     </ion-list>
     <div class="buttonHolder">
-    <button ion-button type="submit" color="dark">Sign {{mode}} </button>
+    <button ion-button type="submit" color="dark">SIGN {{mode}} </button>
   </div>
   </form>
 
-<button ion-button block color="primary" (click)="onFacebookLogin()">Log in with Facebook</button>
+<button ion-button (click)="onFacebookLogin()">LOG IN WITH FACEBOOK</button>
 
-
-<p> Forgot password? </p>
-<p> Reset password?  </p>
-
+<div class=forgotAndReset>
+<p> Forgot password </p>
+<p> Reset password </p>
+</div>
 <!--<p ngIf=mode==in display forgot password -->
 
 </ion-content>
