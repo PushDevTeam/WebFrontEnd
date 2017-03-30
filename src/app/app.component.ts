@@ -3,25 +3,23 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import { Storage } from '@ionic/storage';
 
-import { MainData } from '../services/azure.service';
+import {AzureService} from '../services/azure.service';
 import {UserService, UserObj} from '../services/user.service';
 import {StorageService} from '../services/storage.service';
 
 
 import {Home} from "../pages/home/home";
-import { Page1 } from '../pages/page1/page1';
-import { Page2 } from '../pages/page2/page2';
+import { Terms} from '../pages/terms/terms';
 import { SignInPage } from '../pages/sign-in/sign-in';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
 import { StartPage } from '../pages/start/start';
 import {VideoView} from '../pages/video-view/video-view';
-
+import {FBService} from '../services/fb.service';
 declare var WindowsAzure: any;
 
 @Component({
-  templateUrl: 'app.html',
-  providers: [MainData]
+  templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
@@ -31,16 +29,17 @@ export class MyApp {
   pages: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform,
-    private maindata: MainData,
+    private maindata: AzureService,
     private userService: UserService,
-    private storage: Storage) {
+    private storage: Storage,
+    private fbService: FBService) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: Home },
-      { title: 'Page One', component: Page1 },
-      { title: 'Page Two', component: Page2 },
+
+
       { title: 'Start', component: StartPage }
 
     ];
@@ -54,28 +53,21 @@ export class MyApp {
 
       this.maindata.connectAzure(WindowsAzure.MobileServiceClient);
 
+      this.userService.loadStoredUser().then((found) =>{
+        if (found) {
+          console.log('user found');
+          this.rootPage = Home;
+        } else {
+          console.log('no user locally stored');
+          this.rootPage = StartPage;
+        }
+      });
+
+
       StatusBar.styleDefault();
       Splashscreen.hide();
       console.log("initializeApp");
-      //
-      var user = new UserObj();
-      user.email = "rodgers@gbp.win";
-      user.username = "rodgers12";
-      user.password = "password";
-      user.id = 0;
-      this.userService.storeUser(user).then((success) => {
-        console.log(success);
-        this.userService.loadStoredUser().then((found) => {
-          if (found) {
-            console.log("user found");
-            // actually Authorizing page that begins Auth process
-            this.rootPage = Home;
-          } else {
-            console.log("no user locally stored");
-            this.rootPage = StartPage
-          }
-        });
-      });
+
     });
   }
 
