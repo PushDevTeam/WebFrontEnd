@@ -14,7 +14,7 @@ import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
 import {VideoView} from '../pages/video-view/video-view';
 
 
-import {MainData} from '../services/azure.service';
+import {AzureService} from '../services/azure.service';
 
 import { AuthService } from '../services/auth';
 import {OnboardingService} from '../services/onboarding-info';
@@ -24,6 +24,10 @@ import {VideoSetService} from '../services/video-set.service';
 import {VideoService} from '../services/video.service';
 import {UserService} from '../services/user.service';
 import {StorageService} from '../services/storage.service';
+import {FBService} from '../services/fb.service';
+
+import {FacebookService} from 'ng2-facebook-sdk';
+
 
 @NgModule({
   declarations: [
@@ -56,7 +60,7 @@ import {StorageService} from '../services/storage.service';
   ],
   providers: [
   {provide: ErrorHandler, useClass: IonicErrorHandler},
-  MainData,
+  AzureService,
   AuthService,
   OnboardingService,
   VideoInfoService,
@@ -64,7 +68,9 @@ import {StorageService} from '../services/storage.service';
   VideoSetService,
   VideoService,
   UserService,
-  StorageService
+  StorageService,
+  FBService,
+  FacebookService
 
 
 

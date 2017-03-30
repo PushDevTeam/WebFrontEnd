@@ -1,8 +1,15 @@
+import {Injectable} from '@angular/core';
+/**
+ * ACG 3/29/17
+ * 
+ * Used for client side interaction with the Facebook API
+ * **/
 
-export class MainData {
+Injectable()
+export class AzureService {
     
     private _client: any;
-    private _azurepath: string = 'https://pushdaily-00.azurewebsites.net';
+    private _azurepath: string = 'https://pushdaily-api.azurewebsites.net';
 
     constructor(){
 
@@ -10,9 +17,27 @@ export class MainData {
 
     connectAzure = (azure: any) => {
         this._client = new azure(this._azurepath);
+        console.log('connected azure client', this.client);
+        //this.testAzure();
+        
     }
-
-    queryData = (table) => {
+    testAzure = ()=>{
+        this.testDataSetter();
+        this.testDataGetter();
+    }
+    testDataGetter = () =>{
+        let table = this.client.getTable('UserOption');
+        this.queryData(table).then((resp)=>{
+            console.log(resp);
+        })
+    }
+    testDataSetter = () =>{
+        let table = this.client.getTable('UserOption');
+        let newItem = {'name': 'ag test', 'optionstable': 'test'};
+        table.insert(newItem).done(function (insertedItem) {console.log('setter success, insertedItem', insertedItem);}, this.failure);
+}
+    failure(failinfo){ console.log('data operation failed', failinfo)};
+    queryData = (table: any) => {
         /**
          * Process the results that are received by a call to table.read()
          *
@@ -23,21 +48,22 @@ export class MainData {
         
             function success(results) {
                 //var numItemsRead = results.length;
-
+                let resp = [];
                 for (var i = 0 ; i < results.length ; i++) {
                     var row = results[i];
-                    console.log('row', row)
+                    resp.push(row['name']);
+                    // console.log('row', row)
                     // Each row is an object - the properties are the columns
                 }
+                return resp;
             }
 
             function failure(error) {
-                throw new Error('Error loading data: ');
+                return this.failure(error);
+                //throw new Error('Error loading data: ');
             }
 
-            table
-                .read()
-                .then(success, failure);
+            return table.read().then(success, failure);
                 }
 
     get client(){ return this._client };

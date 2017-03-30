@@ -12,8 +12,7 @@ import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'page-sign-in',
-  templateUrl: 'sign-in.html',
-  providers: [AuthService]
+  templateUrl: 'sign-in.html'
 })
 export class SignInPage implements OnInit {
   mode='Up';
@@ -30,11 +29,7 @@ export class SignInPage implements OnInit {
     return this.authService.facebookAuth().then(this.onSuccessfulLogin, this.onFailedLogin);
   }
 
-  onGoogleLogin(){
-    return this.authService.googleAuth().then(this.onSuccessfulLogin, this.onFailedLogin);
-  }
-
-  onSuccessfulLogin(){
+  onSuccessfulLogin = () => {
     this.navCtrl.push(Home);
   }
 
