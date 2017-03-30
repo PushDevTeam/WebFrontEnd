@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
-import {MainData} from './azure.service';
-
+import {AzureService} from './azure.service';
+import {FBService} from './fb.service';
 
 @Injectable()
 export class AuthService {
-  constructor(private maindata: MainData){
+  constructor(private azureService: AzureService, private fbService: FBService){
 
   }
 
@@ -25,11 +25,8 @@ export class AuthService {
   }
 
   facebookAuth = () => {
-    return this.maindata.client.login('facebook');
+    
+    return this.fbService.userLogin();
   }
 
-  googleAuth = () => {
-    //not configured on back end yet
-    return this.maindata.client.login('google');
-  }
 }

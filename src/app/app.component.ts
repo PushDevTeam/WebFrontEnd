@@ -3,7 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import { Storage } from '@ionic/storage';
 
-import { MainData } from '../services/azure.service';
+import {AzureService} from '../services/azure.service';
 import {UserService, UserObj} from '../services/user.service';
 import {StorageService} from '../services/storage.service';
 
@@ -16,12 +16,11 @@ import { SignUpPage } from '../pages/sign-up/sign-up';
 import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
 import { StartPage } from '../pages/start/start';
 import {VideoView} from '../pages/video-view/video-view';
-
+import {FBService} from '../services/fb.service';
 declare var WindowsAzure: any;
 
 @Component({
-  templateUrl: 'app.html',
-  providers: [MainData]
+  templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
@@ -31,9 +30,10 @@ export class MyApp {
   pages: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform,
-    private maindata: MainData,
+    private maindata: AzureService,
     private userService: UserService,
-    private storage: Storage) {
+    private storage: Storage,
+    private fbService: FBService) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -51,13 +51,19 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-
+      
       this.maindata.connectAzure(WindowsAzure.MobileServiceClient);
+      this.fbService.userLogin().then((response)=>{
+        this.fbService.getUserFriends();
+        this.fbService.getUserInfo();
+        this.maindata.testDataGetter();
+      })
 
       StatusBar.styleDefault();
       Splashscreen.hide();
       console.log("initializeApp");
       //
+      /*
       var user = new UserObj();
       user.email = "rodgers@gbp.win";
       user.username = "rodgers12";
@@ -75,7 +81,7 @@ export class MyApp {
             this.rootPage = StartPage
           }
         });
-      });
+      });*/
     });
   }
 
