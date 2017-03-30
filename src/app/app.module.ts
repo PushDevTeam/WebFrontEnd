@@ -12,6 +12,7 @@ import { SignInPage } from '../pages/sign-in/sign-in';
 import { StartPage } from '../pages/start/start';
 import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
 import {VideoView} from '../pages/video-view/video-view';
+import {VideoRatingPage} from '../pages/video-rating/video-rating';
 
 
 import {MainData} from '../services/azure.service';
@@ -24,6 +25,7 @@ import {VideoSetService} from '../services/video-set.service';
 import {VideoService} from '../services/video.service';
 import {UserService} from '../services/user.service';
 import {StorageService} from '../services/storage.service';
+import {VideoRatingService} from '../services/video-rating.service';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import {StorageService} from '../services/storage.service';
     OnBoardingPage,
     StartPage,
     VideoView,
+    VideoRatingPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -64,8 +67,8 @@ import {StorageService} from '../services/storage.service';
   VideoSetService,
   VideoService,
   UserService,
-  StorageService
-
+  StorageService,
+  VideoRatingService
 
 
   ]

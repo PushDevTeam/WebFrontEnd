@@ -1,28 +1,29 @@
 ion-content.loginBody {
-  background-color: #00C3FF;
-  font-size: 4px;
-
-  div.nav {
-    background-color: #00C3FF;
-  }
-
-}
-
-  ion-list {
-    margin-left: 80px;
-    margin: auto;
-  }
-
-  ion-lable {
-    color: black;
-  }
-
-
-div.buttonHolder {
+  background-color: white;
   text-align: center;
-  margin-top: 35px;
 }
 
-ion-button {
-  margin:auto;
+img {
+  margin-top: 12vh;
+  margin-left: 50vh;
+  margin-right: 50vh;
+}
+
+ion-item  {
+  padding-left: 4vw;
+  padding-right: 4vw;
+  height: 10%;
+  margin-top: 20vh;
+  margin-bottom:2vh;
+  font-size:(3vh)*(8/10);
+  font-family: DinPro;
+  font-weight: 100;
+}
+
+
+button {
+  margin: auto;
+  width: 85%;
+  margin-top: 3vh;
+  height: 6vh;
 }

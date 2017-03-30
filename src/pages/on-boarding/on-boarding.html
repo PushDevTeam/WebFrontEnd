@@ -1,7 +1,11 @@
 <ion-content>
-
   <ion-slides pager #onboardSlider color="primary">
     <ion-slide class="begin">
+      <div class=backButton>
+      <button ion-button clear icon-left (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+    </button>
+  </div>
       <div class ="banner-header">
         <h1>
           Find the perfect <br />workout for you!<br />

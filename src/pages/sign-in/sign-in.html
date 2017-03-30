@@ -7,14 +7,15 @@
 </ion-header>
 -->
 <ion-content class="loginBody">
-  <ion-row>
-    <ion-col width-27="">
   <button class="backButton" ion-button clear icon-left (click)="goBack()">
     <ion-icon name="arrow-back"></ion-icon>
 </button>
+<img src="assets/PUSHDAILY_Logo_Black.png" alt="Push logo">
+
+  <ion-row>
+    <ion-col width-27="">
 </ion-col>
 <ion-col width-73>
-  <h5 class="title"> SIGN {{mode}}</h5>
 </ion-col>
 </ion-row>
 
@@ -25,25 +26,27 @@
           type="email"
           ngModel
           name="email"
-          placeholder="EMAIL"
+          placeholder="E-Mail"
           required></ion-input>
       </ion-item>
-      <ion-item class="password">
+      <ion-item>
         <ion-input
           type="password"
           ngModel
           name="password"
           required
-          placeholder="PASSWORD"></ion-input>
+          placeholder="Password"></ion-input>
       </ion-item>
     </ion-list>
     <div class="buttonHolder">
-    <button ion-button type="submit" color="dark" [disabled]="!f.valid">Sign {{mode}}</button>
+    <button ion-button type="submit" color="dark">Sign {{mode}} </button>
   </div>
   </form>
-<button ion-button block color="primary" (click)="onFacebookLogin()">Log in with Facebook</button>
-<button ion-button block color="secondary" (click)="onGoogleLogin()">Log in with Google</button>
+<button ion-button color="primary" (click)="onFacebookLogin()">Log in with Facebook</button>
+<button ion-button color="secondary" (click)="onGoogleLogin()">Log in with Google</button>
 
+<p> Forgot password? </p>
+<p> Reset password?  </p>
 
 <!--<p ngIf=mode==in display forgot password -->
 
