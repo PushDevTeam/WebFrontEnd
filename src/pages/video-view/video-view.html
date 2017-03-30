@@ -20,7 +20,7 @@
       Lorem ipsum sit dolor
     </div>
     <div class='large-title'>
-      Integer viverra metus vel
+      {{this.videoInfo.title}}
     </div>
   </div>
 
@@ -31,7 +31,7 @@
       </div>
 
       <div class='text'>
-        Allen Harmon
+       {{this.videoInfo.trainer}}
       </div>
     </div>
     <div class='item'>
@@ -40,7 +40,7 @@
       </div>
 
       <div class='text'>
-        42:34
+        {{this.videoInfo.duration}}
       </div>
     </div>
     <div class='item'>
@@ -49,7 +49,7 @@
       </div>
 
       <div class='text'>
-        Intermediate
+        {{this.videoInfo.difficulty}}
       </div>
     </div>
     <div class='item'>
@@ -68,12 +68,6 @@
   </div>
   <div class='tags'>
     tags<br /><br />
-    <ion-badge item-left>Man</ion-badge>
-    <ion-badge item-left>Woman</ion-badge>
-    <ion-badge item-left>Dance</ion-badge>
-    <ion-badge item-left>Cardio</ion-badge>
-    <ion-badge item-left>Cardio</ion-badge>
-    <ion-badge item-left>Cardio</ion-badge>
-    <ion-badge item-left>Cardio</ion-badge>
+    <ion-badge item-left *ngFor='let tag of videoInfo.tags'>{{tag}}</ion-badge>
   </div>
 </div>

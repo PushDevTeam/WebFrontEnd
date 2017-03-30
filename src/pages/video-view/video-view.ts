@@ -19,11 +19,11 @@ export class VideoView {
   ){
     console.log('video view constructor');
     console.log('navParams id ='+this.navParams.get('id'));
-    this.videoInfo = this.videoInfoService.getVideoInfo(this.navParams.get('id'));
+    this.id = this.navParams.get('id');
 
   }
   ngOnInit(){
-
+    this.videoInfo = this.videoInfoService.getVideoInfo(this.id);
   }
 
 }
