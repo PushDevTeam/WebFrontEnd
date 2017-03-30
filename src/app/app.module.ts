@@ -40,11 +40,9 @@ import {FacebookService} from 'ng2-facebook-sdk';
     OnBoardingPage,
     StartPage,
     VideoView,
-<<<<<<< HEAD
-    VideoRatingPage
-=======
-    Terms
->>>>>>> master
+
+    VideoRatingPage,
+    Terms,
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -72,13 +70,13 @@ import {FacebookService} from 'ng2-facebook-sdk';
   VideoService,
   UserService,
   StorageService,
-<<<<<<< HEAD
-  VideoRatingService
-=======
+
+  VideoRatingService,
+
   FBService,
   FacebookService
 
->>>>>>> master
+
 
 
   ]
