@@ -35,7 +35,58 @@ export class AzureService {
         let table = this.client.getTable('UserOption');
         let newItem = {'name': 'ag test', 'optionstable': 'test'};
         table.insert(newItem).done(function (insertedItem) {console.log('setter success, insertedItem', insertedItem);}, this.failure);
-}
+    }
+
+    getFeaturedVideoIds = () => {
+        this.queryTable('FeaturedVideo').then((resp)=>{
+            let returnable: Array<string> = [];
+            for (let i = 0; i < resp.length; i++){
+                let item = resp[i];
+                if (item.deactive_date === ''){
+                    returnable.push(item.video_id);
+                }
+            }
+            return returnable;
+        })
+    }
+
+    getVideos = () => {
+        this.queryTable('Video').then((resp)=>{
+            return resp;
+        })
+    }
+
+    getVideoUrlSuffixs = () => {
+        this.queryTable('VideoUrlSuffix').then((resp)=>{
+            return resp;
+        })
+    }
+
+    getVideoUrls = () => {
+        this.queryTable('VideoUrl').then((resp)=>{
+            return resp;
+        })
+    }
+
+    getVideoTags = () => {
+        this.queryTable('EntityTag').then((resp)=>{
+            let returnable: Array<string> = [];
+            for (let i=0; i < resp.length; i++){
+                let item = resp[i];
+                if (item.entity_type === 'video'){
+                    returnable.push(item);
+                }
+            }
+            return returnable;
+        })
+    }
+
+    queryTable = (tablename: string) => {
+        let table = this.client.getTable(tablename);
+        return this.queryData(table);
+    }
+
+
     failure(failinfo){ console.log('data operation failed', failinfo)};
     queryData = (table: any) => {
         /**
@@ -51,7 +102,7 @@ export class AzureService {
                 let resp = [];
                 for (var i = 0 ; i < results.length ; i++) {
                     var row = results[i];
-                    resp.push(row['name']);
+                    resp.push(row);
                     // console.log('row', row)
                     // Each row is an object - the properties are the columns
                 }
