@@ -200,17 +200,17 @@
           >
           <ion-input formControlName="email" placeholder="Email" type="email"></ion-input>
         </ion-item>
-
+<!--
         <ion-item>
           <ion-input formControlName="username" placeholder="Username" type="text"></ion-input>
         </ion-item>
-
+-->
         <ion-item [class.invalid]="(!passwordsMatch() && (onboardingForm.controls.password.dirty && onboardingForm.controls.confirm_pword.dirty) || submitAttempt)">
-          <ion-input formControlName="password" placeholder="Password" type="password"></ion-input>
+          <ion-input novalidate formControlName="password" placeholder="Password" type="password"></ion-input>
         </ion-item>
 
         <ion-item id="last" [class.invalid]="(!passwordsMatch() && (onboardingForm.controls.password.dirty && onboardingForm.controls.confirm_pword.dirty) || submitAttempt)">
-          <ion-input formControlName="confirm_pword" placeholder="Confirm Password" type="password"></ion-input>
+          <ion-input novalidate formControlName="confirm_pword" placeholder="Confirm Password" type="password"></ion-input>
         </ion-item>
         <div class="error-pwords">
           <div *ngIf="(!passwordsMatch() && (onboardingForm.controls.password.dirty && onboardingForm.controls.confirm_pword.dirty) || submitAttempt)">
