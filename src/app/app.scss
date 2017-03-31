@@ -23,8 +23,8 @@ ion-menu {
   .scroll-content {
     background-color: color($colors, lightgrey);
     text-align: center;
-
   }
+
   .close-wrapper {
     text-align: right;
     width: 100%;
@@ -55,22 +55,23 @@ ion-menu {
     }
   }
 
-
-  table{
-    margin: 5vh 0;
-    margin-bottom: 20vh;
-    width:100%;
+  table {
+    margin: 5vh 0 20vh;
+    width: 100%;
     table-layout: fixed;
+
     tr {
       margin: 10vh 0;
-      .iconwrap{
+
+      .iconwrap {
         padding-left: 3vw;
         display: block-inline;
         width: 25%;
         font-size: 5vh;
       }
-      .text{
-        text-align:left;
+
+      .text {
+        text-align: left;
         font-family: DinPro;
         font-weight: 700;
         font-size: 3.5vh;
@@ -80,22 +81,12 @@ ion-menu {
     }
   }
 
-
-
-
-
-
   #signout {
     margin: auto;
-    border-color:black;
+    border-color: black;
     color: black;
     text-transform: uppercase;
-
   }
-
-
-
-
 }
 @font-face {
   font-family: 'atcduel4';
