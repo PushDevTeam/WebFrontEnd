@@ -57,19 +57,10 @@ export class UserService {
   ) {
 
   }
-
-  public loadStoredUser(): Promise<boolean> {
-
-    return this.getStoredUser().then((user_v) => {
-      this.user = JSON.parse(user_v);
-
-      if (this.user === null) {
-        return false
-      }
-      return true;
-    }, err => {
-      return false;
-    });
+  // returns true if there was a user retrieved
+  public loadStoredUser(): boolean {
+    this.user = this.getStoredUser();
+    return (this.user != undefined);
   }
 
 
@@ -84,7 +75,7 @@ export class UserService {
   }
 
   public storeUser(user: UserObj) {
-    return this.storageService.set('user', JSON.stringify(user));
+    return this.storageService.set('user',user);
   }
   public createUser(form: NgForm) {
     var save_user = new UserObj();
