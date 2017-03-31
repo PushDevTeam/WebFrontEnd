@@ -10,12 +10,13 @@ export class StorageService {
 
   }
 
-  public set(keyword:string, value:any){
-    window.localStorage.setItem(keyword, JSON.stringify(value));
+  public set(keyName:string, value:any){
+    window.localStorage.setItem(keyName, JSON.stringify(value));
   }
-
-
-  public get(keyword:string) {
-    return JSON.parse(window.localStorage.getItem(keyword));
+  public get(keyName:string) {
+    return JSON.parse(window.localStorage.getItem(keyName));
+  }
+  public remove(keyName:string) {
+    window.localStorage.removeItem(keyName);
   }
 }
