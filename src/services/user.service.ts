@@ -71,11 +71,11 @@ export class UserService {
    }
 
   public getStoredUser() {
-    return this.storageService.getItem('user');
+    return this.storageService.get('user');
   }
 
   public storeUser(user: UserObj) {
-    return this.storageService.setItem('user',user);
+    return this.storageService.set('user',user);
   }
   public createUser(form: NgForm) {
     var save_user = new UserObj();
