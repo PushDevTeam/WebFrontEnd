@@ -10,12 +10,8 @@
       <div class='username'>
         {{this.userService.getEmail()}}
       </div>
-
     </div>
-
-
-
-
+    
     <table>
       <tr *ngFor='let p of pages' (click)='openPage(p)' menuClose>
         <td class='iconwrap'>
@@ -23,16 +19,11 @@
         </td>
         <td class='text'>
           {{p.title}}
-
         </td>
       </tr>
-
     </table>
 
-
-
-
-<button ion-button outline menuClose id="signout"> sign out </button>
+    <button ion-button outline menuClose id="signout"> sign out </button>
   </ion-content>
 
 </ion-menu>
