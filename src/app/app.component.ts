@@ -53,15 +53,14 @@ export class MyApp {
 
       this.maindata.connectAzure(WindowsAzure.MobileServiceClient);
 
-      this.userService.loadStoredUser().then((found) =>{
-        if (found) {
-          console.log('user found');
-          this.rootPage = Home;
-        } else {
-          console.log('no user locally stored');
-          this.rootPage = StartPage;
-        }
-      });
+      if (this.userService.loadStoredUser()) {
+        console.log('user found');
+        this.rootPage = Home;
+      } else {
+        console.log('no user locally stored');
+        this.rootPage = StartPage;
+      }
+
 
 
       StatusBar.styleDefault();

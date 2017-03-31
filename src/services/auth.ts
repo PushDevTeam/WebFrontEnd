@@ -26,7 +26,7 @@ export class AuthService {
   }
 
   facebookAuth = () => {
-    
+
       return this.fbService.userLogin().then((response)=>{
         this.fbService.getUserInfo().then((response)=>{
           console.log('response', response)
@@ -37,9 +37,7 @@ export class AuthService {
           user.id = response.third_party_id;
           user.profileimgurl = response.picture.data.url;
           user.gender = response.gender;
-          this.userService.storeUser(user).then((success)=>{
-            console.log(success);
-          })
+          this.userService.storeUser(user);
         })
 
 
