@@ -29,7 +29,7 @@ export class MyApp {
   pages: Array<{ title: string, component: any, icon_name: string }>;
 
   constructor(public platform: Platform,
-    private maindata: AzureService,
+    private azureService: AzureService,
     private userService: UserService,
     private storage: Storage,
     private fbService: FBService) {
@@ -47,8 +47,21 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+      this.azureService.connectAzure(WindowsAzure.MobileServiceClient);
 
-      this.maindata.connectAzure(WindowsAzure.MobileServiceClient);
+      //example getter - will return array of strings with video ids of featured videos
+      this.azureService.getFeaturedVideoIds()
+      .then((resp) => {
+        console.log('featured video ids:', resp);
+  
+        //example setter - will post feedback for the 0 index video id returned from getFeaturedVideos
+        this.azureService.postVideoFeedback(resp[0], '2', 'some comment about this video');
+      })
+      .then(()=>{
+          this.azureService.getAllVideoFeedback().then((newresp)=>{
+            console.log('all video feedback', newresp);
+          })
+      })    
 
       this.userService.loadStoredUser().then((found) =>{
         if (found) {
