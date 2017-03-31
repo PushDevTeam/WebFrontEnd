@@ -17,6 +17,7 @@ import { StartPage } from '../pages/start/start';
 import {VideoView} from '../pages/video-view/video-view';
 import {FBService} from '../services/fb.service';
 declare var WindowsAzure: any;
+declare var MobileAccessibility: any;
 
 @Component({
   templateUrl: 'app.html'
@@ -48,6 +49,9 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+
+      //TODO uncomment this if building for mobile
+      //MobileAccessibility.usePreferredTextZoom(false);
       this.azureService.connectAzure(WindowsAzure.MobileServiceClient);
 
       //example getter - will return array of strings with video ids of featured videos
