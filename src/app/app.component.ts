@@ -23,7 +23,7 @@ declare var WindowsAzure: any;
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  
+
   //rootPage: any = Home;
   rootPage: any = Home;
   pages: Array<{ title: string, component: any, icon_name: string }>;
@@ -53,7 +53,7 @@ export class MyApp {
       this.azureService.getFeaturedVideoIds()
       .then((resp) => {
         console.log('featured video ids:', resp);
-  
+
         //example setter - will post feedback for the 0 index video id returned from getFeaturedVideos
         this.azureService.postVideoFeedback(resp[0], '2', 'some comment about this video');
       })
@@ -61,7 +61,7 @@ export class MyApp {
           this.azureService.getAllVideoFeedback().then((newresp)=>{
             console.log('all video feedback', newresp);
           })
-      })    
+      })
 
       if (this.userService.loadStoredUser()) {
         console.log('user found');
@@ -88,6 +88,8 @@ export class MyApp {
   signOutUser(){
     //clear UserObj
     // clear storage
+    this.userService.clearUser();
     //send to Start
+    this.nav.setRoot(StartPage);
   }
 }

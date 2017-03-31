@@ -87,4 +87,11 @@ export class UserService {
     this.storeUser(save_user);
     this.user = save_user;
   }
+
+
+  // clears user local storage and UserObj
+  public clearUser(){
+    this.user = undefined;
+    this.storageService.remove('user');
+  }
 }
