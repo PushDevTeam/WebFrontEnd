@@ -18,58 +18,52 @@ export class AzureService {
     connectAzure = (azure: any) => {
         this._client = new azure(this._azurepath);
         console.log('connected azure client', this.client);
-        //this.testAzure();
-        
-    }
-    testAzure = ()=>{
-        this.testDataSetter();
-        this.testDataGetter();
-    }
-    testDataGetter = () =>{
-        let table = this.client.getTable('UserOption');
-        this.queryData(table).then((resp)=>{
-            console.log(resp);
+        this.getVideos().then((resp)=>{
+            console.log('resp', resp)
         })
     }
-    testDataSetter = () =>{
-        let table = this.client.getTable('UserOption');
-        let newItem = {'name': 'ag test', 'optionstable': 'test'};
-        table.insert(newItem).done(function (insertedItem) {console.log('setter success, insertedItem', insertedItem);}, this.failure);
+
+    setNewTableItem = (tablename: string, newitem: any) => {
+        let table = this.client.getTable(tablename);
+        return table.insert(newitem).done((insertedItem) => {console.log('setter success \n tablename: ' + tablename, insertedItem);}, this.failure);
     }
 
-    getFeaturedVideoIds = () => {
-        this.queryTable('FeaturedVideo').then((resp)=>{
+    postVideoFeedback = (video_id: string, rating: string, comment: string = '') => {
+        let post = {'rating': rating, 'video_id': video_id, 'freeform_comment': comment};
+        return this.setNewTableItem('VideoFeedback', post);
+    }
+
+    getFeaturedVideoIds = (): Array<string> => {
+        return this.queryTable('FeaturedVideo').then((resp)=>{
             let returnable: Array<string> = [];
             for (let i = 0; i < resp.length; i++){
                 let item = resp[i];
-                if (item.deactive_date === ''){
-                    returnable.push(item.video_id);
-                }
+                returnable.push(item.video_id);
             }
             return returnable;
         })
     }
 
     getVideos = () => {
-        this.queryTable('Video').then((resp)=>{
+        return this.queryTable('Video').then((resp)=>{
             return resp;
         })
     }
 
     getVideoUrlSuffixs = () => {
-        this.queryTable('VideoUrlSuffix').then((resp)=>{
+        return this.queryTable('VideoUrlSuffix').then((resp)=>{
             return resp;
         })
     }
 
     getVideoUrls = () => {
-        this.queryTable('VideoUrl').then((resp)=>{
+        return this.queryTable('VideoUrl').then((resp)=>{
             return resp;
         })
     }
 
     getVideoTags = () => {
-        this.queryTable('EntityTag').then((resp)=>{
+        return this.queryTable('EntityTag').then((resp)=>{
             let returnable: Array<string> = [];
             for (let i=0; i < resp.length; i++){
                 let item = resp[i];
