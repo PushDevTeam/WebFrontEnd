@@ -1,6 +1,4 @@
 // http://ionicframework.com/docs/v2/theming/
-
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -14,82 +12,162 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-ion-content, ion-header {
+
+ion-content,
+ion-header {
   background-color: black;
   font-family: 'atcduel10' !important;
 }
 
+ion-menu {
+  .scroll-content {
+    background-color: color($colors, lightgrey);
+    text-align: center;
 
-@font-face {
-    font-family: 'atcduel4';
-    src: url('../assets/fonts/atcduel4.WOFF');
-    font-weight: normal;
-    font-style: normal;
-}
+  }
+  .close-wrapper {
+    text-align: right;
+    width: 100%;
+    height: auto;
+    padding: 0 4vw;
 
-@font-face {
-    font-family: 'atcduel6';
-    src: url('../assets/fonts/atcduel6.WOFF');
-    font-weight: normal;
-    font-style: normal;
-}
+    ion-icon {
+      display: block;
+      font-size: 6vh;
+      color: white;
+    }
+  }
 
-@font-face {
-    font-family: 'atcduel8';
-    src: url('../assets/fonts/atcduel8.WOFF');
-    font-weight: normal;
-    font-style: normal;
-}
+  .user-info-wrap {
+    width: 100%;
+    text-align: center;
 
-@font-face {
-    font-family: 'atcduel10';
-    src: url('../assets/fonts/atcduel10.WOFF');
-    font-weight: normal;
-    font-style: normal;
+    img {
+      margin: 0;
+      width: 40%;
+      height: auto;
+    }
+
+    .username {
+      font-family: DinPro;
+      font-weight: 300;
+      font-size: 3vh;
+    }
+  }
+
+
+  table{
+    margin: 5vh 0;
+    margin-bottom: 20vh;
+    width:100%;
+    table-layout: fixed;
+    tr {
+      margin: 10vh 0;
+      .iconwrap{
+        padding-left: 3vw;
+        display: block-inline;
+        width: 25%;
+        font-size: 5vh;
+      }
+      .text{
+        text-align:left;
+        font-family: DinPro;
+        font-weight: 700;
+        font-size: 3.5vh;
+        position: relative;
+        position-top: -1vh;
+      }
+    }
+  }
+
+
+
+
+
+
+  #signout {
+    margin: auto;
+    border-color:black;
+    color: black;
+    text-transform: uppercase;
+
+  }
+
+
+
+
 }
 @font-face {
-    font-family: 'atcduel12';
-    src: url('../assets/fonts/atcduel12.WOFF');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'atcduel4';
+  src: url('../assets/fonts/atcduel4.WOFF');
+  font-weight: normal;
+  font-style: normal;
 }
-@font-face{
+@font-face {
+  font-family: 'atcduel6';
+  src: url('../assets/fonts/atcduel6.WOFF');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'atcduel8';
+  src: url('../assets/fonts/atcduel8.WOFF');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'atcduel10';
+  src: url('../assets/fonts/atcduel10.WOFF');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'atcduel12';
+  src: url('../assets/fonts/atcduel12.WOFF');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
   font-family: DinPro;
-  src:url('../assets/fonts/DINPRO-BLACK.OTF');
+  src: url('../assets/fonts/DINPRO-BLACK.OTF');
   font-weight: 900;
 }
-@font-face{
+@font-face {
   font-family: DinPro;
-  src:url('../assets/fonts/DINPRO-BOLD.OTF');
+  src: url('../assets/fonts/DINPRO-BOLD.OTF');
   font-weight: 700;
 }
-@font-face{
+@font-face {
   font-family: DinPro;
-  src:url('../assets/fonts/DINPRO-LIGHT.OTF');
+  src: url('../assets/fonts/DINPRO-LIGHT.OTF');
   font-weight: 100;
 }
-@font-face{
+@font-face {
   font-family: DinPro;
-  src:url('../assets/fonts/DINPRO-MEDIUM.OTF');
+  src: url('../assets/fonts/DINPRO-MEDIUM.OTF');
   font-weight: 500;
 }
-@font-face{
+@font-face {
   font-family: DinPro;
-  src:url('../assets/fonts/DINPRO-REGULAR.OTF');
+  src: url('../assets/fonts/DINPRO-REGULAR.OTF');
   font-weight: 300;
 }
 
-
-h1, h2, h4, h5, h6 {
-font-family: 'atcduel12' ;
+h1,
+h2,
+h4,
+h5,
+h6 {
+  font-family: 'atcduel12';
 }
 
-h3, button {
-  font-family:  'atcduel6' ;
+button,
+h3 {
+  font-family: 'atcduel6';
 }
 
-
-p, body, div  {
-  font-family: 'atcduel4' ;
-
+body,
+div,
+p {
+  font-family: 'atcduel4';
 }

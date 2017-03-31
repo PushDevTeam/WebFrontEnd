@@ -23,10 +23,10 @@ declare var WindowsAzure: any;
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-
+  
   //rootPage: any = Home;
   rootPage: any = Home;
-  pages: Array<{ title: string, component: any }>;
+  pages: Array<{ title: string, component: any, icon_name: string }>;
 
   constructor(public platform: Platform,
     private maindata: AzureService,
@@ -37,10 +37,7 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: Home },
-
-
-      { title: 'Start', component: StartPage }
+      { title: 'Home', component: Home, icon_name: 'home' },
 
     ];
 
@@ -75,5 +72,10 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+  signOutUser(){
+    //clear UserObj
+    // clear storage
+    //send to Start
   }
 }
