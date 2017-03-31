@@ -12,11 +12,18 @@ ion-content.loginBody {
 
 img {
   margin: auto;
-  margin-top: 18vh;
+  margin-top: 18.5vh;
   width: 70%;
   height: auto;
 }
 
+.list {
+  margin-top: 5vh;
+  display: block;
+  width: 91%;
+  padding-right: 0vh;
+  padding-left: 2vh;
+}
 
 .text-input  {
   padding-left: 4vw;
@@ -25,10 +32,18 @@ img {
   width: 80%;
   margin-top: 5vh;
   margin-bottom:2vh;
+  margin-left: 0vh;
+  margin: auto;
   font-size:(3vh)*(8/10);
   font-family: DinPro !important;
   font-weight: 100;
   text-align: center;
+  display: block;
+  border-top: none;
+}
+
+.buttonHolder {
+  margin-top: 5vh;
 }
 
 button {
