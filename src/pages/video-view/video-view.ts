@@ -29,7 +29,7 @@ export class VideoView {
   }
 
 onVideoEnd() {
-  const modal = this.modalCtrl.create(VideoRatingPage);
+  const modal = this.modalCtrl.create(VideoRatingPage, this.id);
   modal.present();
 }
 
