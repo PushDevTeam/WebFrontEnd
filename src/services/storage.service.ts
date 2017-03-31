@@ -1,20 +1,22 @@
 
 import {Injectable} from '@angular/core';
-import { Storage } from '@ionic/storage';
+
 
 @Injectable()
 export class StorageService {
-  private store: Storage;
 
-  constructor(storage: Storage){
-    this.store = storage;
+
+  constructor(){
+
   }
 
-  public set(keyword:string, value:any){
-    return this.store.set(keyword, value);
+  public set(keyName:string, value:any){
+    window.localStorage.setItem(keyName, JSON.stringify(value));
   }
-
-  public get(keyword:string) {
-    return this.store.get(keyword);
+  public get(keyName:string) {
+    return JSON.parse(window.localStorage.getItem(keyName));
+  }
+  public remove(keyName:string) {
+    window.localStorage.removeItem(keyName);
   }
 }

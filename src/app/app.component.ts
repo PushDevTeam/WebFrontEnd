@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, NavController, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import { Storage } from '@ionic/storage';
 
@@ -26,21 +26,19 @@ export class MyApp {
 
   //rootPage: any = Home;
   rootPage: any = Home;
-  pages: Array<{ title: string, component: any }>;
+  pages: Array<{ title: string, component: any, icon_name: string }>;
 
   constructor(public platform: Platform,
-    private maindata: AzureService,
+    private azureService: AzureService,
     private userService: UserService,
     private storage: Storage,
-    private fbService: FBService) {
+    private fbService: FBService,
+  ) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: Home },
-
-
-      { title: 'Start', component: StartPage }
+      { title: 'Home', component: Home, icon_name: 'home' },
 
     ];
 
@@ -50,18 +48,30 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+      this.azureService.connectAzure(WindowsAzure.MobileServiceClient);
 
-      this.maindata.connectAzure(WindowsAzure.MobileServiceClient);
+      //example getter - will return array of strings with video ids of featured videos
+      this.azureService.getFeaturedVideoIds()
+      .then((resp) => {
+        console.log('featured video ids:', resp);
 
-      this.userService.loadStoredUser().then((found) =>{
-        if (found) {
-          console.log('user found');
-          this.rootPage = Home;
-        } else {
-          console.log('no user locally stored');
-          this.rootPage = StartPage;
-        }
-      });
+        //example setter - will post feedback for the 0 index video id returned from getFeaturedVideos
+        this.azureService.postVideoFeedback(resp[0], '2', 'some comment about this video');
+      })
+      .then(()=>{
+          this.azureService.getAllVideoFeedback().then((newresp)=>{
+            console.log('all video feedback', newresp);
+          })
+      })
+
+      if (this.userService.loadStoredUser()) {
+        console.log('user found');
+        this.nav.setRoot(Home);
+      } else {
+        console.log('no user locally stored');
+        this.nav.setRoot(StartPage);
+      }
+
 
 
       StatusBar.styleDefault();
@@ -75,5 +85,12 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+  signOutUser(){
+    //clear UserObj
+    // clear storage
+    this.userService.clearUser();
+    //send to Start
+    this.nav.setRoot(StartPage);
   }
 }
