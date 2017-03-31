@@ -1,276 +1,300 @@
 // optimized for android
-$h1_fontsize : 110%; // greater than 130 pushes new line on my android
-
+$h1_fontsize: 110%; // greater than 130 pushes new line on my android
 $sub_font_sz: $h1_fontsize*(6/10);
-$header_banner_h :28vh;
+$header_banner_h: 30vh;
 $lower_h: 100vh-$header_banner_h;
 $form_padding_sides: 7vw;
 $buttons_font_sz: 100%;
 $goals_list_font_sz: 100%;
-$err_font_sz:2vh;
+$err_font_sz: 2vh;
 
 page-on-boarding {
+  .swiper-pagination-bullet-active {
+    background-color: color($colors, primary);
+  }
 
+  .backButton button {
+    position: absolute;
+    margin-left: 0;
+    display: block;
+  }
 
-.swiper-pagination-bullet-active{
-  background-color: color($colors, primary);
-}
+  ion-slide {
+    background: color($colors, whitegrey);
+  }
 
-.backButton button {
-        position: absolute;
-        margin-left: 2vh;
-        display: block;
-}
+  h1 {
+    font-size: 140%;
+    color: color($colors, midgrey);
+    font-family: 'atcduel4';
+    padding: 1vh;
+    display: block;
+    text-transform: uppercase;
+  }
 
-page-on-boarding ion-slide{
-  background : white;
-}
-page-on-boarding h1{
-  font-size: 140%;
-  color: color($colors, midgrey);
-  font-family: 'atcduel4';
-  padding: 1vh;
-  display:block;
-  text-transform: uppercase;
-}
-.banner-header {
-  height: $header_banner_h;
-  padding-top: 10%;
-  background-color: white;
-  color:black;
-  border-bottom-color: color($colors, red);
-  border-bottom-style: double;
-  border-bottom-width: 1vh;
-  text-transform: uppercase;
+  .banner-header {
+    height: $header_banner_h !important;
+    padding-top: 6%;
+    background-color: white;
+    color: black;
+    border-bottom-color: color($colors, red);
+    border-bottom-style: double;
+    border-bottom-width: 1vh;
+    text-transform: uppercase;
+  }
 
-}
-.banner-header p {
-  margin:auto;
-  text-align:center;
-  margin-top: 2vh;
-  font-family: DinPro;
-  font-size: $sub_font_sz;
-  font-weight:400;
-  display:block;
-  text-transform: none;
-}
-.onboard-body{
-  height: $lower_h;
-  background-color: color($colors, whitegrey);
+  .banner-header p {
+    margin: auto;
+    text-align: center;
+    margin-top: 2vh;
+    font-family: DinPro;
+    font-size: $sub_font_sz;
+    font-weight: 400;
+    display: block;
+    text-transform: none;
+  }
 
+  .onboard-body {
+    height: $lower_h;
+    background-color: color($colors, whitegrey);
+    padding-left: $form_padding_sides;
+    padding-right: $form_padding_sides;
+    overflow: hidden;
+  }
 
-  padding-left:$form_padding_sides;
-  padding-right:$form_padding_sides;
-}
-.onboard-grid{
-  overflow:scroll;
-  height: $lower_h;
-  background-color: white;
-  text-align:center;
-  background-color: color($colors, whitegrey);
-}
-//beginning slide
-.begin{
-  background-color: color($colors,midgrey);
-  border-right-style:solid;
-  border-right-width:0.4vh;
-  border-right-color: color($colors, red);
-}
-.begin .banner-header {
-  height: $header_banner_h;
-  padding-top: 10%;
-  background-color:color($colors, midgrey);
-  color:black;
-  border: none;
-  text-transform: uppercase;
-}
-.begin .onboard-body {
-  background-color: color($colors, midgrey);
-}
-.begin h1{
-  color: white;
-}
-.begin p {
-  margin:auto;
-  text-align:center;
-  margin-top: 2vh;
-  font-size: $sub_font_sz;
-  display:block;
-  color: white;
-  font-family: DinPro;
-  font-weight: 300;
+  .onboard-grid {
+    overflow: scroll;
+    height: $lower_h;
+    background-color: white;
+    text-align: center;
+    background-color: color($colors, whitegrey);
+  }
+  //beginning slide
+  .begin {
+    background-color: color($colors,midgrey);
+    border-right-style: solid;
+    border-right-width: 0.4vh;
+    border-right-color: color($colors, red);
+  }
 
+  .begin .banner-header {
+    height: $header_banner_h;
+    padding-top: 6%;
+    background-color: color($colors, midgrey);
+    color: black;
+    border: none;
+    text-transform: uppercase;
+  }
 
-}
+  .begin .onboard-body {
+    background-color: color($colors, midgrey);
+  }
 
-.begin img {
-  width: 100%;
-  height:auto;
-}
-//general style, not size/spacing
-.onboard-body button{
-  display: block;
-  width: 100%;
-  background-color: color($colors, secondary);
-  color: black;
-  font-family: DinPro;
-  font-weight: 400;
-  font-size:$buttons_font_sz;
-  border-style :solid;
-  border-color: color($colors, midgrey);
-  text-align: center;
-  text-transform: none;
+  .begin h1 {
+    color: white;
+  }
 
+  .begin p {
+    margin: auto;
+    text-align: center;
+    margin-top: 2vh;
+    font-size: $sub_font_sz;
+    display: block;
+    color: white;
+    font-family: DinPro;
+    font-weight: 300;
+  }
 
-}
-.onboard-body .toggled{
-  background-color:  color($colors, primary);
-  border-color: color($colors, primary);
-  color: white;
-}
-//choose gender slide
-.choose-gender .onboard-body{
-  padding-top: 0vh;
-}
+  .begin img {
+    width: 100%;
+    height: auto;
+  }
+  //general style, not size/spacing
+  .onboard-body button {
+    display: block;
+    width: 100%;
+    background-color: color($colors, secondary);
+    color: black;
+    font-family: DinPro;
+    font-weight: 400;
+    font-size: $buttons_font_sz;
+    border-style: solid;
+    border-color: color($colors, midgrey);
+    text-align: center;
+    text-transform: none;
+  }
 
-.choose-gender button{
-  height: 8vh;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
-}
-//choose age slide
-.choose-age button{
-  height: 8vh;
-  margin-top: 4vh;
+  .onboard-body .toggled {
+    background-color: color($colors, primary);
+    border-color: color($colors, primary);
+    color: white;
+  }
+  //choose gender slide
+  .choose-gender .onboard-body {
+    padding-top: 0;
+  }
 
-// choose fitness level
-}
-.choose-level button{
-  height: 10vh;
-  margin-top: 6vh;
+  .choose-gender button {
+    height: 8vh;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+  }
+  //choose age slide
+  .choose-age button {
+    height: 8vh;
+    margin-top: 4vh;
+    // choose fitness level
+  }
 
-}
-// choose exercises slide
-$img_button_w :48vw;
-.choose-exercises button {
-  background-color: lightgrey;
-  width: $img_button_w;
-  height:$lower_h/5;
-  margin-top: 1vh;
-  display:inline;
-  margin: 1vw;
-  border-style:solid;
-  border-color:white;
-  font-family: DinPro;
-  font-weight: 400;
-}
-.choose-exercises .toggled {
-  color: white;
-  border-style:solid;
-  border-color: color($colors, primary);
-  border-width: 1vw*(2/4);
-}
+  .choose-level button {
+    height: 10vh;
+    margin-top: 6vh;
+  }
+  // choose exercises slide
+  $img_button_w: 48vw;
 
-//choose-goals slide
+  .choose-exercises button {
+    background-color: lightgrey;
+    width: $img_button_w;
+    height: $lower_h/5;
+    margin-top: 1vh;
+    display: inline;
+    margin: 1vw;
+    border-style: solid;
+    border-color: white;
+    font-family: DinPro;
+    font-weight: 400;
+  }
 
-.choose-goals button {
-  padding:0;
-  color:black;
+  .choose-exercises .toggled {
+    color: white;
+    border-style: solid;
+    border-color: color($colors, primary);
+    border-width: 1vw*(2/4);
+  }
+  //choose-goals slide
+  .choose-goals button {
+    padding: 0;
+    color: black;
+  }
 
-}
+  .choose-goals .input-wrapper {
+    font-color: white;
+  }
 
-.choose-goals .input-wrapper{
-  font-color:white;
-}
-.choose-goals .goals-text{
-  color:black;
-  padding-left: 6vw;
-  height: 6vh;
-  display:table-cell;
-  vertical-align: middle;
-  font-family: DinPro;
-  font-weight: 400;
-  font-size: $goals_list_font_sz;
-}
-.choose-goals .toggled{
-  background-color: color($colors, primary);
-  color: white !important;
-}
-.toggled .goals-text {
-  color:white;
-}
-//choose cast slide
-.choose-cast-opt button{
-  margin-top: 5vh;
-  height: 9vh;
-}
-//form slide
-.form-slide{
-  border-left-style:solid;
-  border-left-width:0.4vh;
-  border-left-color: color($colors, red);
-}
-.onboard-form{
-  background-color:white;
-  max-height: 60vh;
+  .choose-goals .goals-text {
+    color: black;
+    padding-left: 6vw;
+    height: 6vh;
+    display: table-cell;
+    vertical-align: middle;
+    font-family: DinPro;
+    font-weight: 400;
+    font-size: $goals_list_font_sz;
+  }
 
-}
-.onboard-form input{
-  color:grey;
-  text-align:center;
+  .choose-goals .toggled {
+    background-color: color($colors, primary);
+    color: white !important;
+  }
 
-}
-.onboard-form ion-item{
-  padding-left: 4vw;
-  padding-right: 4vw;
-  height: 10%;
-  margin-top: 2vh;
-  margin-bottom:2vh;
-  font-size:(3vh)*(8/10);
-}
-.onboard-form .text-input {
-  margin-bottom: 1vh;
-  font-family: DinPro;
-  font-weight: 100;
-}
+  .toggled .goals-text {
+    color: white;
+  }
+  //choose cast slide
+  .choose-cast-opt button {
+    margin-top: 5vh;
+    height: 9vh;
+  }
+  //form slide
+  .form-slide {
+    background-color: white;
+    border-left-style: solid;
+    border-left-width: 0.4vh;
+    border-left-color: color($colors, red);
 
-.onboard-form #submit{
-  width: 85%;
-  margin-top: 3vh;
-  height: 6vh;
-}
-.onboard-form #already{
-  font-size:2vh;
-  margin-top: 2%;
-  color: color($colors, lightgrey);
-  font-family: DinPro;
-  font-weigh: 400;
-  text-transform: none;
-}
-.onboard-form #last {
-  margin-bottom: 0;
+    .logo-wrap {
+      padding: 0 35vw;
+      margin-bottom: 7vh;
+      margin-top: 3vh;
+      #logo {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
 
-}
-.onboard-form .invalid {
-//background: radial-gradient(ellipse at 50% 100%,#ffcccc, white, white);
-//background: linear-gradient(to right, #ffb3b3 -20%, white, white, white, #ffb3b3 120%);
-}
-.error-pwords{
-  color:red;
+    .onboard-form {
+      background-color: white;
 
-  font-weight: 100;
-  font-size: $err_font_sz;
-  padding-top:0;
-  height:3vh;
-}
-page-on-boarding .invalid .item-inner{
+      input {
+        color: grey;
+        text-align: center;
+      }
 
-}
-page-on-boarding .error{
-  color:red;
-  font-size: $err_font_sz;
-  padding-top:2vh;
-  height:3vh;
+      ion-item {
+        padding-left: 4vw;
+        padding-right: 4vw;
+        height: 10%;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        font-size: (3vh)*(8/10);
+      }
 
-}
+      .text-input {
+        margin-bottom: 1vh;
+        font-family: DinPro;
+        font-weight: 100;
+      }
+
+      #submit {
+        font-family:'atcduel4';
+        width: 85%;
+        margin-top: 3vh;
+        height: 7vh;
+      }
+
+      #fbsubmit {
+        font-family:'atcduel4';
+        width: 83%;
+        margin-top: 2vh;
+        height: 7vh;
+        background-color: #3b5998;
+        ion-icon{
+          margin: 0 5%;
+          font-size: 150%;
+        }
+      }
+
+      #already {
+        font-size: 2vh;
+        margin: 4vh 0 3vh;
+        color: color($colors, lightgrey);
+        font-family: DinPro;
+        font-weigh: 400;
+        text-transform: none;
+      }
+
+      #last-form-input {
+        margin-bottom: 0;
+      }
+
+      .error-pwords {
+        color: red;
+        font-weight: 100;
+        font-size: $err_font_sz;
+        padding-top: 0;
+        height: 3vh;
+      }
+    }
+  }
+
+  .error {
+    font-family: DinPro;
+    font-weight: 100;
+    color: red;
+    font-size: $err_font_sz;
+    padding-top: 1vh;
+    height: 3vh;
+  }
 }

@@ -16,8 +16,11 @@ import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
 import { StartPage } from '../pages/start/start';
 import {VideoView} from '../pages/video-view/video-view';
 import {FBService} from '../services/fb.service';
+
+
 declare var WindowsAzure: any;
 declare var MobileAccessibility: any;
+
 
 @Component({
   templateUrl: 'app.html'
@@ -34,6 +37,7 @@ export class MyApp {
     private userService: UserService,
     private storage: Storage,
     private fbService: FBService,
+
   ) {
     this.initializeApp();
 
