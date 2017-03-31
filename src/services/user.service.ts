@@ -30,7 +30,7 @@ export const EXERCISES_TYPES =
 
 export class UserObj {
   public id: number;
-  public username: string;
+  //public username: string;
   public password: string;
   public email: string;
   public gender?: number;
@@ -39,7 +39,7 @@ export class UserObj {
   public goals?: number[];
 
   public profileimgurl?: string;
-  
+
 
 }
 /*
@@ -73,7 +73,7 @@ export class UserService {
   }
 
 
-  public getUsername() { return this.user.username; }
+  //public getUsername() { return this.user.username; }
   public getEmail() {
     if(this.user == null) return 'mock_email';
     return this.user.email;
@@ -91,7 +91,7 @@ export class UserService {
     save_user.id = 0;
     save_user.email = form.value.email;
     save_user.password = form.value.password;
-    save_user.username = "mock_username";
+  //  save_user.username = "mock_username";
     // only store and set if auth
     this.storeUser(save_user);
     this.user = save_user;

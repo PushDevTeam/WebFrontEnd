@@ -57,12 +57,14 @@ export class OnBoardingPage {
           Validators.pattern(EMAIL_REGEX),
           Validators.required
         ])],
+        /*
         username: ['',
         Validators.compose([
           Validators.maxLength(40),
           Validators.pattern(USERNAME_REGEX),
           Validators.required
         ])],
+        */
         password: [''],
         confirm_pword: ['']
       });
@@ -165,6 +167,9 @@ export class OnBoardingPage {
     console.log(FIT_LEVELS[this.toggledFitLvl]);
     console.log(this.toggledGoals);
     console.log(CAST_OPT[this.toggledCast]);
+
+    // authorize form data
+    // create user and store
     this.navCtrl.push(Home);
   }
 
