@@ -11,15 +11,16 @@ $err_font_sz:2vh;
 
 page-on-boarding {
 
-}
-
-.backButton button{
-}
 
 .swiper-pagination-bullet-active{
   background-color: color($colors, primary);
 }
 
+.backButton button {
+        position: absolute;
+        margin-left: 2vh;
+        display: block;
+}
 
 page-on-boarding ion-slide{
   background : white;
@@ -229,7 +230,6 @@ $img_button_w :48vw;
 }
 .onboard-form .text-input {
   margin-bottom: 1vh;
-  text-align: center;
   font-family: DinPro;
   font-weight: 100;
 }
@@ -272,4 +272,5 @@ page-on-boarding .error{
   padding-top:2vh;
   height:3vh;
 
+}
 }
