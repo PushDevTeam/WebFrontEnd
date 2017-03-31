@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { Home } from '../home/home';
 
 /*
   Created by Nstopa
@@ -13,8 +14,28 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'video-rating.html'
 })
 export class VideoRatingPage {
+//  public videoInfo : VideoInfoObj;
+  private id: number;
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+               private viewCtrl: ViewController) {}
+  //this.id = this.navParams.get('id');
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  ngOnInit() {
 
+  }
+
+onShare() {
+
+    this.navCtrl.push(Home);
+}
+
+onSubmit() {
+  this.navCtrl.push(Home);
+}
+
+
+onExit() {
+  this.navCtrl.push(Home);
+}
 
 }

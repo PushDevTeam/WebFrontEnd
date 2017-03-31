@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController,  NavParams } from 'ionic-angular';
+import { NavController,  NavParams, ModalController } from 'ionic-angular';
 import { VideoService } from '../../services/video.service';
 import { VideoInfoService } from '../../services/video-info.service';
 import { VideoInfoObj } from '../../components/video-thumbnail/video-info-obj';
+import { VideoRatingPage } from '../video-rating/video-rating';
 
 @Component({
     selector: 'video-view',
@@ -16,7 +17,8 @@ export class VideoView {
     public videoInfoService: VideoInfoService,
     public navParams: NavParams,
     public navCtrl: NavController,
-  ){
+    private modalCtrl: ModalController
+  ) {
     console.log('video view constructor');
     console.log('navParams id ='+this.navParams.get('id'));
     this.id = this.navParams.get('id');
@@ -25,5 +27,10 @@ export class VideoView {
   ngOnInit(){
     this.videoInfo = this.videoInfoService.getVideoInfo(this.id);
   }
+
+onVideoEnd() {
+  const modal = this.modalCtrl.create(VideoRatingPage);
+  modal.present();
+}
 
 }

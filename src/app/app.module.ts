@@ -57,6 +57,7 @@ import {FacebookService} from 'ng2-facebook-sdk';
     OnBoardingPage,
     StartPage,
     VideoView,
+    VideoRatingPage,
     Terms
   ],
   providers: [
@@ -70,9 +71,7 @@ import {FacebookService} from 'ng2-facebook-sdk';
   VideoService,
   UserService,
   StorageService,
-
   VideoRatingService,
-
   FBService,
   FacebookService
 
