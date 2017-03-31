@@ -78,9 +78,6 @@ import {FacebookService} from 'ng2-facebook-sdk';
   FBService,
   FacebookService,
 
-
-
-
   ]
 })
 export class AppModule {}
