@@ -10,6 +10,7 @@ export class AzureService {
     
     private _client: any;
     private _azurepath: string = 'https://pushdaily-api.azurewebsites.net';
+    private _featuredvideoids: Array<string> = [];
 
     constructor(){
 
@@ -17,13 +18,10 @@ export class AzureService {
 
     connectAzure = (azure: any) => {
         this._client = new azure(this._azurepath);
-        console.log('connected azure client', this.client);
-        this.getVideos().then((resp)=>{
-            console.log('resp', resp)
-        })
+        //console.log('connected azure client', this.client);
     }
 
-    setNewTableItem = (tablename: string, newitem: any) => {
+    setNewTableItem = (tablename: string, newitem: any): Promise<any> => {
         let table = this.client.getTable(tablename);
         return table.insert(newitem).done((insertedItem) => {console.log('setter success \n tablename: ' + tablename, insertedItem);}, this.failure);
     }
@@ -33,36 +31,44 @@ export class AzureService {
         return this.setNewTableItem('VideoFeedback', post);
     }
 
-    getFeaturedVideoIds = (): Array<string> => {
+    getAllVideoFeedback = () => {
+        return this.queryTable('VideoFeedback').then((resp)=>{
+            console.log(resp);
+            return resp;
+        })
+    }
+    
+    getFeaturedVideoIds = (): Promise<Array<string>> => {
         return this.queryTable('FeaturedVideo').then((resp)=>{
             let returnable: Array<string> = [];
             for (let i = 0; i < resp.length; i++){
                 let item = resp[i];
                 returnable.push(item.video_id);
             }
+            //this._featuredvideoids = returnable;
             return returnable;
         })
     }
 
-    getVideos = () => {
+    getVideos = (): Promise<Array<any>> => {
         return this.queryTable('Video').then((resp)=>{
             return resp;
         })
     }
 
-    getVideoUrlSuffixs = () => {
+    getVideoUrlSuffixs = (): Promise<Array<any>> => {
         return this.queryTable('VideoUrlSuffix').then((resp)=>{
             return resp;
         })
     }
 
-    getVideoUrls = () => {
+    getVideoUrls = (): Promise<Array<any>> => {
         return this.queryTable('VideoUrl').then((resp)=>{
             return resp;
         })
     }
 
-    getVideoTags = () => {
+    getVideoTags = (): Promise<Array<any>> => {
         return this.queryTable('EntityTag').then((resp)=>{
             let returnable: Array<string> = [];
             for (let i=0; i < resp.length; i++){
@@ -113,4 +119,5 @@ export class AzureService {
 
     get client(){ return this._client };
     get azurepath() {return this._azurepath};
+    get featuredvideoids() {return this._featuredvideoids};
 }
