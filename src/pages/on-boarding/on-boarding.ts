@@ -170,7 +170,7 @@ export class OnBoardingPage {
 
     // authorize form data
     // create user and store
-    this.navCtrl.push(Home);
+    this.navCtrl.setRoot(Home);
   }
 
   goBack() {

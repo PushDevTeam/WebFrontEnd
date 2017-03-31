@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, NavController, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import { Storage } from '@ionic/storage';
 
@@ -32,7 +32,8 @@ export class MyApp {
     private azureService: AzureService,
     private userService: UserService,
     private storage: Storage,
-    private fbService: FBService) {
+    private fbService: FBService,
+  ) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -65,10 +66,10 @@ export class MyApp {
 
       if (this.userService.loadStoredUser()) {
         console.log('user found');
-        this.rootPage = Home;
+        this.nav.setRoot(Home);
       } else {
         console.log('no user locally stored');
-        this.rootPage = StartPage;
+        this.nav.setRoot(StartPage);
       }
 
 

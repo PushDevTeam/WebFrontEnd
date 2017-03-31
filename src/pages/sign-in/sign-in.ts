@@ -30,7 +30,7 @@ export class SignInPage implements OnInit {
   }
 
   onSuccessfulLogin = () => {
-    this.navCtrl.push(Home);
+    this.navCtrl.setRoot(Home);
   }
 
   onFailedLogin(){
@@ -38,7 +38,7 @@ export class SignInPage implements OnInit {
   }
 
   onSignUp(form: NgForm) {
-    this.navCtrl.push(OnBoardingPage);
+    this.navCtrl.setRoot(OnBoardingPage);
 
   }
 
@@ -55,7 +55,7 @@ onSignin(form: NgForm) {
 
   this.userService.createUser(form);
 
-  this.navCtrl.push(Home);
+  this.navCtrl.setRoot(Home);
 //if this.mode == up || this.mode == in
               //  const loading = this.loadingCtrl.create({
                 //  content: 'Signing you in...'

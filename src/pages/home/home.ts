@@ -22,7 +22,7 @@ export class Home {
 
   ngOnInit(){
 
-    // this.navCtrl.setRoot(Home);
+    //this.navCtrl.setRoot(Home);
   }
   getEmail(){
     return this.userService.getEmail();
