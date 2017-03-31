@@ -1,6 +1,8 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { IonicStorageModule } from '@ionic/storage';
+import { StatusBar, Splashscreen } from 'ionic-native';
+
 
 import { MyApp } from './app.component';
 import {Home} from "../pages/home/home";
@@ -43,10 +45,12 @@ import {FacebookService} from 'ng2-facebook-sdk';
 
     VideoRatingPage,
     Terms,
+
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -70,14 +74,9 @@ import {FacebookService} from 'ng2-facebook-sdk';
   VideoService,
   UserService,
   StorageService,
-
   VideoRatingService,
-
   FBService,
-  FacebookService
-
-
-
+  FacebookService,
 
   ]
 })

@@ -173,6 +173,17 @@ export class OnBoardingPage {
     this.navCtrl.setRoot(Home);
   }
 
+  facebookSignIn(){
+    let new_user = new UserObj();
+    new_user.gender = this.toggledGender;
+    new_user.ageGroup = this.toggledAge;
+    new_user.level = this.toggledFitLvl;
+    new_user.goals = this.toggledGoals;
+    //TODO
+    //handle facebook auth stuff
+  }
+
+
   goBack() {
     this.navCtrl.pop();
   }
