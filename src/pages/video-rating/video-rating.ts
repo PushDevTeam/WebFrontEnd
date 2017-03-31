@@ -18,6 +18,8 @@ import { VideoInfoService } from '../../services/video-info.service';
 export class VideoRatingPage {
   public videoInfo : VideoInfoObj;
   private id: number;
+  private stars: any[];
+  private rating: number;
   constructor(public videoInfoService: VideoInfoService,
               public navParams: NavParams,
               private viewCtrl: ViewController) {
@@ -25,10 +27,16 @@ export class VideoRatingPage {
 
 
   ngOnInit() {
+  this.stars = ['1', '2', '3', '4', '5'];
   this.id = this.navParams.get('id');
+  this.rating = 0;
    this.videoInfo = this.videoInfoService.getVideoInfo(this.id);
   }
 
+
+setRating(index: number) {
+  this.rating = index;
+}
 
 onShare() {
     this.viewCtrl.dismiss();

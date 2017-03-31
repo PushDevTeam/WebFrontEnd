@@ -10,28 +10,47 @@
 
 <ion-content>
 
+<div class="header">
   <h1>
     RATE YOUR EXPERIENCE
   </h1>
+</div>
 
-<div>
-<div>
+<div class="videoInfo">
+  <span class="left">
     <img src='assets/dummy.jpg' class="thumbnail" />
-</div>
-<div>
-<p class='title'>
-  {{this.videoInfo.title}}
-</p>
-</div>
-<ion-icon name="star"> </ion-icon>
+  </span>
+  <span class="right">
+    <p class='title'>
+      {{this.videoInfo.title}}
+    </p>
+  </span>
 </div>
 
+
+<div>
+<button class="stars" ion-button *ngFor="let star of stars; let index = index"
+[class.star-empty]="rating < index + 1"
+[class.star-full]="rating >= index +1"
+clear (click)="setRating(index + 1)">
+  <ion-icon name="star"></ion-icon>
+</button>
+</div>
+
+<div class="comment">
   <ion-item>
 <ion-input placeholder="Leave a comment...">
 </ion-input>
   </ion-item>
+</div>
 
-  <button ion-button (click)="onShare()"> SHARE </button>
-  <button ion-button (click)="onSubmit()" > SUBMIT</button>
+<div class="buttons">
+<div class="share">
+  <button class="shareButton" ion-button (click)="onShare()"> SHARE </button>
+</div>
 
+<div class="submit">
+  <button class="submitButton" ion-button (click)="onSubmit()" > SUBMIT</button>
+</div>
+</div>
 </ion-content>

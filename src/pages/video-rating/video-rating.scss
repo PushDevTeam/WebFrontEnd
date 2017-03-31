@@ -1,3 +1,57 @@
 page-video-rating {
 
+.header {
+  text-align: center;
+  margin: auto;
+  margin-bottom: 3vh;
+}
+
+img {
+  margin-top: 3vh;
+  width: 25%;
+  height: auto;
+}
+
+.left {
+  width: 50%;
+}
+
+.right {
+  width: 50%;
+}
+
+.title {
+  padding: 1vh 1vh 1vh 1vh;
+  display: inline;
+}
+.videoInfo {
+  display: inline;
+  padding-left: 1vh;
+  padding-right: 1vh;
+}
+
+.star-full {
+  color: red;
+}
+
+.star-empty {
+  color: grey;
+}
+
+.stars {
+  padding: 1vh;
+}
+
+.share {
+  margin-top: 5vh;
+  margin: auto;
+}
+
+
+
+
+.placeholder {
+  font-family: DinPro;
+}
+
 }
