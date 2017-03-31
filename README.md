@@ -3,7 +3,7 @@
 
 requires npm, cordova, ionic.
 
-Clone from repo and run npm install, then ionic serve
+Clone from repo and run npm install, then ionic serve -p 8101
 
 
 -- running on CS Linux labs -- 
