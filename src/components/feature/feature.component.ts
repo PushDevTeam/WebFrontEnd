@@ -7,6 +7,7 @@
 import { Component } from '@angular/core';
 import { AzureService } from '../../services/azure.service';
 
+import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'feature',
@@ -17,16 +18,17 @@ export class Feature {
 
   constructor(
     private azureService: AzureService
-  ) {
-
-  }
+  ) {}
 
   ngOnInit() {
-    this.azureService.getFeaturedVideoIds()
-      .then((resp) => {
-        console.log('feature component: ', resp);
-      }, (resp) => {
-        console.log('feature component the second time: ', resp);
-      });
+    console.log('on init of feature.component', this);
+    console.log(this.azureService);
+    if (this.azureService.isinitialized){
+      this.azureService.getFeaturedVideoIds().then((resp)=>{
+        console.log('getFeaturedVideoIds from feature.component', resp);
+      })
+    } else {
+      console.log('tried to get azure data before azure was initialized');
+    } 
   }
 }
