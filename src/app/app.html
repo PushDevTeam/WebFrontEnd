@@ -6,7 +6,7 @@
 
     </div>
     <div class='user-info-wrap'>
-      <img src='assets/profile_placeholder.png' />
+      <img src='assets/icons/profile.svg' />
       <div class='username'>
         {{this.userService.getEmail()}}
       </div>
@@ -15,7 +15,7 @@
     <table>
       <tr *ngFor='let p of pages' (click)='openPage(p)' menuClose>
         <td class='iconwrap'>
-          <ion-icon name='{{p.icon_name}}'></ion-icon>
+          <img src='assets/icons/{{p.icon_name}}.svg'/>
         </td>
         <td class='text'>
           {{p.title}}
