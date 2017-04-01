@@ -6,7 +6,7 @@
  */
 import { Component } from '@angular/core';
 import { AzureService } from '../../services/azure.service';
-
+import { VideoView} from '../../pages/video-view/video-view';
 import { NavController } from 'ionic-angular';
 
 @Component({
@@ -14,10 +14,11 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'feature.component.html'
 })
 export class Feature {
-  public video_ids: any[];
+  public video_ids: any[] = [];
 
   constructor(
-    private azureService: AzureService
+    private azureService: AzureService,
+    private navCtrl:NavController,
   ) {}
 
   ngOnInit() {
@@ -26,9 +27,15 @@ export class Feature {
     if (this.azureService.isinitialized){
       this.azureService.getFeaturedVideoIds().then((resp)=>{
         console.log('getFeaturedVideoIds from feature.component', resp);
+        this.video_ids = resp;
       })
     } else {
       console.log('tried to get azure data before azure was initialized');
-    } 
+    }
+  }
+
+
+  goToVid(id){
+    this.navCtrl.push(VideoView, {'id': id});
   }
 }

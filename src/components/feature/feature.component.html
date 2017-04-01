@@ -1,8 +1,8 @@
 <ion-slides pager class="featured" >
 
 
-  <ion-slide  >
-    <h2>Slide 1</h2>
+  <ion-slide *ngFor='let id of video_ids' (click)='goToVid(id)'>
+    <h2>{{id}}</h2>
   </ion-slide>
 
 
