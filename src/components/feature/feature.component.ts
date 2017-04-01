@@ -22,17 +22,13 @@ export class Feature {
   ) {}
 
   ngOnInit() {
-    console.log('on init of feature.component', this);
-    console.log(this.azureService);
-    if (this.azureService.isinitialized){
-      this.azureService.getFeaturedVideoIds().then((resp)=>{
-        console.log('getFeaturedVideoIds from feature.component', resp);
-        this.video_ids = resp;
-      })
-    } else {
-      console.log('tried to get azure data before azure was initialized');
-    }
-  }
+    console.log('on init of feature.component');
+    this.azureService.getFeaturedVideoIds().then((resp)=>{
+      console.log('getFeaturedVideoIds from feature.component', resp);
+      this.video_ids = resp;
+    })
+  } 
+
 
 
   goToVid(id){
