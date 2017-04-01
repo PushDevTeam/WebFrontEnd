@@ -1,29 +1,39 @@
 page-video-rating {
+  margin-top: 5vh;
+  margin: auto;
+  text-align: center;
 
 .header {
   text-align: center;
   margin: auto;
   margin-bottom: 3vh;
+  font-size: .4em;
+  font-family: atcduel4 !important;
 }
+
+
+.videoInfo {
+  margin: auto;
+}
+
 
 img {
   margin-top: 3vh;
-  width: 25%;
   height: auto;
+  margin-top: 0;
+  margin-left: 4vh;
 }
 
-.left {
-  width: 50%;
-}
 
 .right {
-  width: 50%;
+  display: inline;
 }
 
 .title {
-  padding: 1vh 1vh 1vh 1vh;
   display: inline;
+  margin: 0vh 1vh 1vh 1vh;
 }
+
 .videoInfo {
   display: inline;
   padding-left: 1vh;
@@ -39,19 +49,30 @@ img {
 }
 
 .stars {
-  padding: 1vh;
-}
-
-.share {
-  margin-top: 5vh;
-  margin: auto;
+  padding: .75vh;
 }
 
 
-
-
-.placeholder {
-  font-family: DinPro;
+.text-input {
+  font-family: DinPro !important;
+  text-align: center;
 }
+
+
+
+.shareButton {
+  width: 50%;
+  margin-top: 2vh;
+  color: color($colors, dark);
+}
+
+.submitButton {
+  width: 50%;
+  margin-top: 2vh;
+  background-color: color($colors, dark);
+  color: color($colors, light);
+}
+
+
 
 }

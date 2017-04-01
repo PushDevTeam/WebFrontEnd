@@ -11,31 +11,33 @@
 <ion-content>
 
 <div class="header">
-  <h1>
+  <h3>
     RATE YOUR EXPERIENCE
-  </h1>
+  </h3>
 </div>
 
-<div class="videoInfo">
-  <span class="left">
+<ion-grid>
+  <ion-row>
+<ion-col>
     <img src='assets/dummy.jpg' class="thumbnail" />
-  </span>
-  <span class="right">
+</ion-col>
+  <ion-col class="right">
+  <ion-row>
     <p class='title'>
       {{this.videoInfo.title}}
     </p>
-  </span>
-</div>
-
-
-<div>
+  </ion-row>
+  <ion-row>
 <button class="stars" ion-button *ngFor="let star of stars; let index = index"
 [class.star-empty]="rating < index + 1"
 [class.star-full]="rating >= index +1"
 clear (click)="setRating(index + 1)">
   <ion-icon name="star"></ion-icon>
 </button>
-</div>
+</ion-row>
+</ion-col>
+</ion-row>
+</ion-grid>
 
 <div class="comment">
   <ion-item>
