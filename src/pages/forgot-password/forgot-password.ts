@@ -20,7 +20,7 @@ export class ForgotPasswordPage {
     console.log('ionViewDidLoad ForgotPasswordPage');
   }
 
-onSignin(form: NgForm) {
+onReset(form: NgForm) {
 }
 
 goBack() {
