@@ -1,3 +1,79 @@
 page-video-rating {
+  margin-top: 5vh;
+  margin: auto;
+  text-align: center;
+  background-color: color($colors, midgrey);
+
+.header {
+  text-align: center;
+  margin: auto;
+  margin-bottom: 3vh;
+  font-size: .4em;
+  font-family: atcduel4 !important;
+}
+
+
+.videoInfo {
+  margin: auto;
+}
+
+
+img {
+  margin-top: 3vh;
+  height: auto;
+  margin-top: 0;
+  margin-left: 4vh;
+}
+
+
+.right {
+  display: inline;
+}
+
+.title {
+  display: inline;
+  margin: 0vh 1vh 1vh 1vh;
+}
+
+.videoInfo {
+  display: inline;
+  padding-left: 1vh;
+  padding-right: 1vh;
+}
+
+.star-full {
+  color: red;
+}
+
+.star-empty {
+  color: grey;
+}
+
+.stars {
+  padding: .75vh;
+}
+
+
+.text-input {
+  font-family: DinPro !important;
+  text-align: center;
+}
+
+
+
+.shareButton {
+  width: 50%;
+  margin-top: 2vh;
+  color: color($colors, dark);
+}
+
+.submitButton {
+  width: 50%;
+  margin-top: 2vh;
+  background-color: color($colors, dark);
+  color: color($colors, light);
+}
+
+
 
 }
