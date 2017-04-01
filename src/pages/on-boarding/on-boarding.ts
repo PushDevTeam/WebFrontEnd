@@ -41,36 +41,12 @@ export class OnBoardingPage {
     public navParams: NavParams,
     private formBuilder: FormBuilder) {
 
-
-      this.onboardingForm = formBuilder.group({
-        // contain only letters and spaces, max length 50
-        full_name: ['',
-        Validators.compose([
-            Validators.maxLength(50),
-            Validators.pattern('[a-zA-Z ]*'),
-            Validators.required
-          ])],
-
-        email: ['',
-        Validators.compose([
-          Validators.maxLength(40),
-          Validators.pattern(EMAIL_REGEX),
-          Validators.required
-        ])],
-        /*
-        username: ['',
-        Validators.compose([
-          Validators.maxLength(40),
-          Validators.pattern(USERNAME_REGEX),
-          Validators.required
-        ])],
-        */
-        password: [''],
-        confirm_pword: ['']
-      });
   }
   @ViewChild('onboardSlider') onboardSlider: any;
   build_user: UserObj = new UserObj();
+  
+
+  confirm_pword: string;
 
   genderList = GENDER_LIST;
   toggledGender: number;
@@ -132,7 +108,10 @@ export class OnBoardingPage {
 
 
   passwordsMatch(){
-    return this.onboardingForm.controls['password'].value == this.onboardingForm.controls['confirm_pword'].value;
+    return (
+      (this.build_user.password == this.confirm_pword)
+      && (this.build_user.password != '')
+      && (this.confirm_pword != ''));
   }
   alreadyHave(){
     this.navCtrl.push(SignInPage);

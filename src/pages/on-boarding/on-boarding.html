@@ -193,30 +193,49 @@
       <div class='logo-wrap'>
         <img src='assets/PUSHDAILY_Logo_Black.png' id='logo'/>
       </div>
-      <form [formGroup]="onboardingForm" class="onboard-form">
-        <ion-item [class.invalid]="!onboardingForm.controls.full_name.valid && (onboardingForm.controls.full_name.dirty || submitAttempt)">
-          <ion-input formControlName="full_name" placeholder="Full Name" type="text"></ion-input>
-
+      <form #form='ngForm' class="onboard-form">
+        <ion-item>
+          <ion-input
+          placeholder="Full Name"
+          type="text"
+          [(ngModel)] = "build_user.name"
+          name='name'
+          required></ion-input>
         </ion-item>
 
-        <ion-item class="email" [class.invalid]="!onboardingForm.controls.email.valid && (onboardingForm.controls.email.dirty || submitAttempt)">
-          >
-          <ion-input formControlName="email" placeholder="Email" type="email"></ion-input>
+        <ion-item class="email">
+          <ion-input
+          placeholder="Email"
+          type="email"
+          [(ngModel)] = "build_user.email"
+          name='email'
+          required></ion-input>
         </ion-item>
         <!--
         <ion-item>
           <ion-input formControlName="username" placeholder="Username" type="text"></ion-input>
         </ion-item>
 -->
-        <ion-item [class.invalid]="(!passwordsMatch() && (onboardingForm.controls.password.dirty && onboardingForm.controls.confirm_pword.dirty) || submitAttempt)">
-          <ion-input novalidate formControlName="password" placeholder="Password" type="password"></ion-input>
+        <ion-item >
+          <ion-input novalidate
+           placeholder="Password"
+           type="password"
+           required
+           [(ngModel)] = "build_user.password"
+           name='pword'></ion-input>
         </ion-item>
 
-        <ion-item id="last-form-input" [class.invalid]="(!passwordsMatch() && (onboardingForm.controls.password.dirty && onboardingForm.controls.confirm_pword.dirty) || submitAttempt)">
-          <ion-input novalidate formControlName="confirm_pword" placeholder="Confirm Password" type="password"></ion-input>
+        <ion-item id="last-form-input">
+          <ion-input
+            novalidate
+            placeholder="Confirm Password"
+            required
+            [(ngModel)]='confirm_pword'
+            name='confirm_pword'
+            type="password"></ion-input>
         </ion-item>
         <div class="error-pwords">
-          <div *ngIf="(!passwordsMatch() && (onboardingForm.controls.password.dirty && onboardingForm.controls.confirm_pword.dirty) || submitAttempt)">
+          <div *ngIf="(!passwordsMatch())">
             Passwords must match.
           </div>
         </div>
