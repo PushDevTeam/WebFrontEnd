@@ -56,20 +56,22 @@ export class MyApp {
 
       //TODO uncomment this if building for mobile
       //MobileAccessibility.usePreferredTextZoom(false);
-
+      //this.azureService.getVideos().then((resp) =>{console.log('getVideos \n', resp)});
+      this.azureService.getVideoUrls().then((resp)=>{console.log('getVideoUrls \n', resp)});
+      this.azureService.getVideos().then((resp)=>{console.log('getVideos \n', resp)})
       //example getter - will return array of strings with video ids of featured videos
-      this.azureService.getFeaturedVideoIds()
-      .then((resp) => {
-        console.log('featured video ids:', resp);
+      //this.azureService.getFeaturedVideoIds()
+      //.then((resp) => {
+      //  console.log('featured video ids:', resp);
 
         //example setter - will post feedback for the 0 index video id returned from getFeaturedVideos
-        this.azureService.postVideoFeedback(resp[0], '2', 'some comment about this video');
-      })
-      .then(()=>{
-          this.azureService.getAllVideoFeedback().then((newresp)=>{
-            console.log('all video feedback', newresp);
-          })
-      })
+      //  this.azureService.postVideoFeedback(resp[0], '2', 'some comment about this video');
+      //})
+      //.then(()=>{
+      //    this.azureService.getAllVideoFeedback().then((newresp)=>{
+      //      console.log('all video feedback', newresp);
+      //    })
+      //})
 
       if (this.userService.loadStoredUser()) {
         console.log('user found');
