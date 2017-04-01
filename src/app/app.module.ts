@@ -15,6 +15,7 @@ import { StartPage } from '../pages/start/start';
 import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
 import {VideoView} from '../pages/video-view/video-view';
 import {VideoRatingPage} from '../pages/video-rating/video-rating';
+import { ForgotPasswordPage} from '../pages/forgot-password/forgot-password';
 
 import {AzureService} from '../services/azure.service';
 
@@ -45,6 +46,7 @@ import {FacebookService} from 'ng2-facebook-sdk';
     Feature,
     VideoRatingPage,
     Terms,
+    ForgotPasswordPage,
 
   ],
   imports: [
@@ -61,7 +63,8 @@ import {FacebookService} from 'ng2-facebook-sdk';
     OnBoardingPage,
     StartPage,
     VideoView,
-    Terms
+    Terms,
+    ForgotPasswordPage
   ],
   providers: [
   {provide: ErrorHandler, useClass: IonicErrorHandler},
