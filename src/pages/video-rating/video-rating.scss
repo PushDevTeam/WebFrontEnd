@@ -1,15 +1,37 @@
+$header_banner_h: 30vh;
+
 page-video-rating {
   margin-top: 5vh;
   margin: auto;
   text-align: center;
-  background-color: color($colors, midgrey);
 
+ion-content {
+  background-color: color($colors, lightgrey) !important;
+}
+
+/*
 .header {
   text-align: center;
   margin: auto;
   margin-bottom: 3vh;
-  font-size: .4em;
+  font-size: .3em;
   font-family: atcduel4 !important;
+}
+*/
+
+
+h1 {
+  font-size: 140%;
+  font-family: 'atcduel4' !important;
+  padding: 1vh;
+  display: block;
+  text-transform: uppercase;
+}
+
+.header {
+  margin-bottom: 3vh;
+  padding-top: 6%;
+  text-transform: uppercase;
 }
 
 
@@ -22,7 +44,8 @@ img {
   margin-top: 3vh;
   height: auto;
   margin-top: 0;
-  margin-left: 4vh;
+  width: 90%;
+  height: auto;
 }
 
 
@@ -50,9 +73,12 @@ img {
 }
 
 .stars {
-  padding: .75vh;
+  padding: .70vh;
 }
 
+.item {
+    background-color: color($colors, lightgrey);
+}
 
 .text-input {
   font-family: DinPro !important;

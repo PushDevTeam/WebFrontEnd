@@ -8,6 +8,7 @@ import { Home } from "../home/home";
 import { OnBoardingPage } from "../on-boarding/on-boarding";
 import {UserService} from '../../services/user.service';
 import {ForgotPasswordPage} from '../forgot-password/forgot-password';
+import {UserObj} from '../../services/user.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ import {ForgotPasswordPage} from '../forgot-password/forgot-password';
 })
 export class SignInPage implements OnInit {
   mode='Up';
-
+  //login_user: UserObj = new UserObj();
 
   constructor(private authService: AuthService,
               private loadingCtrl: LoadingController,
