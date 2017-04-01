@@ -109,7 +109,7 @@ export class AzureService {
                 videosobj[videoresp[i].id] = videoresp[i];
             }
             let returnable = [];
-            this.getVideoUrls().then((urlresp)=>{
+            return this.getVideoUrls().then((urlresp)=>{
                 for (let i = 0; i < videoresp.length; i++){
                     videosobj[urlresp[i].video_id][urlresp[i].resolution + '_url'] = urlresp[i];
                     returnable.push(videosobj[urlresp[i].video_id]);
