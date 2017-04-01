@@ -62,7 +62,7 @@ onShare() {
 
 onSubmit() {
   this.viewCtrl.dismiss();
-  this.azureService.postVideoFeedback(this.id, String(this.rating),
+  this.azureService.postVideoFeedback(String(this.id), String(this.rating),
                       this.commentForm.controls['comment'].value);
 }
 
