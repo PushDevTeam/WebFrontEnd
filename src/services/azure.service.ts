@@ -1,23 +1,26 @@
 import {Injectable} from '@angular/core';
+declare var WindowsAzure: any;
 /**
  * ACG 3/29/17
  * 
  * Used for client side interaction with the Facebook API
  * **/
-
 Injectable()
 export class AzureService {
     
+    private _isinitialized = false;
     private _client: any;
     private _azurepath: string = 'https://pushdaily-api.azurewebsites.net';
     private _featuredvideoids: Array<string> = [];
 
     constructor(){
 
+      this.connectAzure(WindowsAzure.MobileServiceClient);
     }
 
     connectAzure = (azure: any) => {
         this._client = new azure(this._azurepath);
+        this._isinitialized = true;
         //console.log('connected azure client', this.client);
     }
 
@@ -37,7 +40,7 @@ export class AzureService {
             return resp;
         })
     }
-    
+
     getFeaturedVideoIds = (): Promise<Array<string>> => {
         return this.queryTable('FeaturedVideo').then((resp)=>{
             let returnable: Array<string> = [];
@@ -120,4 +123,5 @@ export class AzureService {
     get client(){ return this._client };
     get azurepath() {return this._azurepath};
     get featuredvideoids() {return this._featuredvideoids};
+    get isinitialized() {return this._isinitialized};
 }

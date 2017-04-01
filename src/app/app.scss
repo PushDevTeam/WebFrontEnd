@@ -18,7 +18,9 @@ ion-header {
   background-color: black;
   font-family: 'atcduel10' !important;
 }
-
+.bar-button-menutoggle{
+  color: color($colors,midgrey);
+}
 ion-menu {
   .scroll-content {
     background-color: color($colors, lightgrey);
