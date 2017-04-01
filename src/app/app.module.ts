@@ -26,7 +26,6 @@ import {VideoSetService} from '../services/video-set.service';
 import {VideoService} from '../services/video.service';
 import {UserService} from '../services/user.service';
 import {StorageService} from '../services/storage.service';
-import {VideoRatingService} from '../services/video-rating.service';
 import {FBService} from '../services/fb.service';
 import {FacebookService} from 'ng2-facebook-sdk';
 
@@ -61,6 +60,7 @@ import {FacebookService} from 'ng2-facebook-sdk';
     OnBoardingPage,
     StartPage,
     VideoView,
+    VideoRatingPage,
     Terms
   ],
   providers: [
@@ -74,7 +74,6 @@ import {FacebookService} from 'ng2-facebook-sdk';
   VideoService,
   UserService,
   StorageService,
-  VideoRatingService,
   FBService,
   FacebookService,
 

@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
+declare var WindowsAzure: any;
 /**
  * ACG 3/29/17
  * 
  * Used for client side interaction with the Facebook API
  * **/
-
 Injectable()
 export class AzureService {
     
@@ -15,6 +15,7 @@ export class AzureService {
 
     constructor(){
 
+      this.connectAzure(WindowsAzure.MobileServiceClient);
     }
 
     connectAzure = (azure: any) => {

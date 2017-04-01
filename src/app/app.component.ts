@@ -56,7 +56,6 @@ export class MyApp {
 
       //TODO uncomment this if building for mobile
       //MobileAccessibility.usePreferredTextZoom(false);
-      this.azureService.connectAzure(WindowsAzure.MobileServiceClient);
 
       //example getter - will return array of strings with video ids of featured videos
       this.azureService.getFeaturedVideoIds()
