@@ -40,10 +40,12 @@ clear (click)="setRating(index + 1)">
 </ion-grid>
 
 <div class="comment">
+<form [formGroup]="commentForm">
   <ion-item>
-<ion-input placeholder="Leave a comment...">
+<ion-input formControlName="comment" placeholder="Leave a comment..." type="text">
 </ion-input>
   </ion-item>
+</form>
 </div>
 
 <div class="buttons">

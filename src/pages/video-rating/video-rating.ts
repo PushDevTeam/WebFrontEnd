@@ -4,6 +4,14 @@ import { Home } from '../home/home';
 import { VideoInfoObj } from '../../components/video-thumbnail/video-info-obj';
 import { VideoInfoService } from '../../services/video-info.service';
 
+import {
+  FormGroup,
+  FormControl,
+  FormBuilder,
+  Validators } from "@angular/forms";
+
+import { AzureService } from '../../services/azure.service';
+
 /*
   Created by Nstopa
   3/29/2017
@@ -20,9 +28,19 @@ export class VideoRatingPage {
   private id: number;
   private stars: any[];
   private rating: number;
+  private commentForm: FormGroup;
   constructor(public videoInfoService: VideoInfoService,
               public navParams: NavParams,
-              private viewCtrl: ViewController) {
+              private viewCtrl: ViewController,
+              private formBuilder: FormBuilder,
+              private azureService: AzureService) {
+
+                this.commentForm = formBuilder.group({
+                  comment: ['',
+                Validators.compose([
+                  Validators.maxLength(140)
+                ])]
+                });
               }
 
 
@@ -39,6 +57,10 @@ setRating(index: number) {
 }
 
 onShare() {
+  console.log(this.id);
+  console.log(this.rating);
+  //  this.azureService.postVideoFeedback(this.id, this.rating.toString(),
+    //                  this.commentForm.controls['comment'].value);
     this.viewCtrl.dismiss();
 }
 
