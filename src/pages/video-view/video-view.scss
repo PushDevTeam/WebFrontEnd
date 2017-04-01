@@ -13,7 +13,7 @@ video-view {
 
   .player-wrapper {
     width: 100%;
-    margin-top: 7vh;
+    margin-top: 9vh;
 
     #video-player {
       width: 100%;
@@ -66,16 +66,17 @@ video-view {
           display: inline-block;
           width: 12vw !important;
 
-          ion-icon {
+          .pd-icon {
             display: inline;
-            font-size: 5vh;
+            width: 7vw;
+            height: auto;
           }
         }
 
         .text {
           display: inline;
           font-family: DinPro;
-          font-size: 2vh;
+          font-size: 2.1vh;
           position: relative;
           top: -0.75vh;
         }

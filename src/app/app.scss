@@ -69,7 +69,9 @@ ion-menu {
         padding-left: 3vw;
         display: block-inline;
         width: 25%;
-        font-size: 5vh;
+        img{
+          width: 10vw;
+        }
       }
 
       .text {
