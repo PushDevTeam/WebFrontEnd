@@ -57,15 +57,13 @@ setRating(index: number) {
 }
 
 onShare() {
-  console.log(this.id);
-  console.log(this.rating);
-  //  this.azureService.postVideoFeedback(this.id, this.rating.toString(),
-    //                  this.commentForm.controls['comment'].value);
     this.viewCtrl.dismiss();
 }
 
 onSubmit() {
   this.viewCtrl.dismiss();
+  this.azureService.postVideoFeedback(this.id, String(this.rating),
+                      this.commentForm.controls['comment'].value);
 }
 
 

@@ -22,7 +22,7 @@ export class StartPage {
     console.log('ionViewDidLoad StartPage');
   }
 
-  onSignUp(form: NgForm) {
+  onSignUp() {
     this.navCtrl.push(OnBoardingPage);
   }
 
