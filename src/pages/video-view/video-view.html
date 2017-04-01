@@ -7,7 +7,7 @@
 </ion-header>
 
 <div class='player-wrapper'>
-  <video controls id="video-player">
+  <video controls (ended)="onVideoEnd()" id="video-player">
     <source src={{this.videoInfo.videoUrl}} type="video/mp4"/>
   </video>
 </div>
