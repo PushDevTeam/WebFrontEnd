@@ -1,53 +1,49 @@
-ion-content.startBody {
-  background-color: color($colors, midgrey);
-  color: white;
-}
+page-start {
+  ion-content.startBody {
+    background-color: color($colors, midgrey);
+    color: white;
+  }
 
-img {
-  margin: auto;
-  margin-top: 18vh;
-  width: 70%;
-  height: auto;
-}
+  img {
+    margin: 18vh auto auto;
+    width: 70%;
+    height: auto;
+  }
 
-.signUpButton {
-  color: color($colors, dark);
-  text-align: center;
-  margin-top: 18vh;
-  font-size: 1.3em;
-  width: 50%;
-}
+  .signUpButton {
+    color: color($colors, dark);
+    text-align: center;
+    margin-top: 18vh;
+    font-size: 1.3em;
+    width: 50%;
+  }
 
+  .signInButton {
+    color: white;
+    width: 50%;
+    font-size: 1.3em;
+  }
 
-.signInButton {
-  color: white;
-  width: 50%;
-  font-size: 1.3em;
-}
+  div.content {
+    text-align: center;
+  }
 
-div.content {
-  text-align: center;
-}
+  .findWorkout {
+    font-size: 160%;
+    font-family: atcduel4;
+    font-weight: 100;
+  }
 
-.findWorkout {
-  font-size: 160%;
-  font-family: atcduel4;
-  font-weight: 100;
-}
+  p {
+    margin: 40px auto 10px;
+    font-size: 100%;
+    font-family: DinPro;
+  }
 
-p {
-  margin: auto;
-  margin-top: 40px;
-  margin-bottom: 10px;
-  font-size: 100%;
-  font-family: DinPro;
-}
-
-.bottom {
-  margin: auto;
-  margin-top: 5vh;
-  margin-bottom: 6vh;
-  font-size: 100%;
-  font-family: DinPro;
-  font-weight: 100;
+  .bottom {
+    margin: 5vh auto 6vh;
+    font-size: 100%;
+    font-family: DinPro;
+    font-weight: 100;
+  }
 }
