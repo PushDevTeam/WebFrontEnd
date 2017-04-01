@@ -3,26 +3,58 @@
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
+
+  should I use img or the video thumbnail component
 -->
 
 
 <ion-content>
 
-  <h1>
-    Rate your Experience
-  </h1>
-
-<div>
-  <span> </span>
-  <span> </span>
+<div class="header">
+  <h3>
+    RATE YOUR EXPERIENCE
+  </h3>
 </div>
 
+<ion-grid>
+  <ion-row>
+<ion-col>
+    <img src='assets/dummy.jpg' class="thumbnail" />
+</ion-col>
+  <ion-col class="right">
+  <ion-row>
+    <p class='title'>
+      {{this.videoInfo.title}}
+    </p>
+  </ion-row>
+  <ion-row>
+<button class="stars" ion-button *ngFor="let star of stars; let index = index"
+[class.star-empty]="rating < index + 1"
+[class.star-full]="rating >= index +1"
+clear (click)="setRating(index + 1)">
+  <ion-icon name="star"></ion-icon>
+</button>
+</ion-row>
+</ion-col>
+</ion-row>
+</ion-grid>
+
+<div class="comment">
+<form [formGroup]="commentForm">
   <ion-item>
-<ion-input placeholder="Leave a comment...">
+<ion-input formControlName="comment" placeholder="Leave a comment..." type="text">
 </ion-input>
   </ion-item>
+</form>
+</div>
 
-  <button ion-button (click)="onShare()"> SHARE </button>
-  <button ion-button (click)="onSubmit()" > SUBMIT</button>
+<div class="buttons">
+<div class="share">
+  <button class="shareButton" ion-button (click)="onShare()"> SHARE </button>
+</div>
 
+<div class="submit">
+  <button class="submitButton" ion-button (click)="onSubmit()" > SUBMIT</button>
+</div>
+</div>
 </ion-content>
