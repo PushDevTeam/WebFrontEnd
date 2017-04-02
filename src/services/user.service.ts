@@ -31,6 +31,7 @@ export const EXERCISES_TYPES =
 export class UserObj {
   public id: number;
   //public username: string;
+  public name: string;
   public password: string;
   public email: string;
   public gender?: number;
@@ -39,6 +40,10 @@ export class UserObj {
   public goals?: number[];
 
   public profileimgurl?: string;
+
+  contsructor(){
+
+  }
 
 
 }

@@ -1,12 +1,7 @@
 import { Component, ViewChild} from '@angular/core';
 import { NavController, NavParams} from 'ionic-angular';
-import {
-  FormGroup,
-  FormControl,
-  FormBuilder,
-  Validators,
-  FormArray
-} from "@angular/forms";
+import { NgForm } from "@angular/forms";
+
 
 import { Home} from '../home/home';
 import {SignInPage} from '../sign-in/sign-in';
@@ -39,12 +34,12 @@ const USERNAME_REGEX = /^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]
 export class OnBoardingPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    private formBuilder: FormBuilder) {
+    ) {
 
   }
   @ViewChild('onboardSlider') onboardSlider: any;
   build_user: UserObj = new UserObj();
-  
+
 
   confirm_pword: string;
 
@@ -102,7 +97,7 @@ export class OnBoardingPage {
 
   submitAttemmpt: boolean = false;
 
-  onboardingForm: FormGroup;
+
   public submitted: boolean;
 
 
@@ -118,7 +113,7 @@ export class OnBoardingPage {
   }
 
   onSubmit() {
-    alert("validate()");
+    //alert("validate()");
     if(this.toggledGender == undefined) this.genderError = true;
     if(this.toggledAge == undefined) this.ageError = true;
     if(this.toggledFitLvl == undefined) this.levelError = true;

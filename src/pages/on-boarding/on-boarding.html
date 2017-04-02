@@ -193,7 +193,7 @@
       <div class='logo-wrap'>
         <img src='assets/PUSHDAILY_Logo_Black.png' id='logo'/>
       </div>
-      <form #form='ngForm' class="onboard-form">
+      <form #form='ngForm' class="onboard-form" ngSubmit='onSubmit()'>
         <ion-item>
           <ion-input
           placeholder="Full Name"
@@ -205,17 +205,13 @@
 
         <ion-item class="email">
           <ion-input
-          placeholder="Email"
+          placeholder="E-mail"
           type="email"
           [(ngModel)] = "build_user.email"
           name='email'
           required></ion-input>
         </ion-item>
-        <!--
-        <ion-item>
-          <ion-input formControlName="username" placeholder="Username" type="text"></ion-input>
-        </ion-item>
--->
+
         <ion-item >
           <ion-input novalidate
            placeholder="Password"
@@ -239,8 +235,8 @@
             Passwords must match.
           </div>
         </div>
-        <button ion-button (click)="onSubmit()" id="submit">SIGN UP</button>
-        <button ion-button (click)="onSubmit()" id="fbsubmit">
+        <button ion-button submit id="submit">SIGN UP</button>
+        <button ion-button (click)="facebookSignIn()" id="fbsubmit">
           <ion-icon name='logo-facebook'></ion-icon>Sign up with Facebook</button>
         <button ion-button clear id="already" (click)="alreadyHave()"> I already have an account</button>
 
