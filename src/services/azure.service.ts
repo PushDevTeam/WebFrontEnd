@@ -1,4 +1,6 @@
 import {Injectable} from '@angular/core';
+import {IVideoInfoObj, VideoInfoObj} from '../components/video-thumbnail/video-info-obj';
+
 declare var WindowsAzure: any;
 /**
  * ACG 3/29/17
@@ -12,6 +14,11 @@ export class AzureService {
     private _client: any;
     private _azurepath: string = 'https://pushdaily-api.azurewebsites.net';
     private _featuredvideoids: Array<string> = [];
+    private _videourl: any;
+    private _videothumburl: any;
+    private _videobase: any;
+    private _videotag: any;
+
 
     constructor(){
 
@@ -21,7 +28,6 @@ export class AzureService {
     connectAzure = (azure: any) => {
         this._client = new azure(this._azurepath);
         this._isinitialized = true;
-        //console.log('connected azure client', this.client);
     }
 
     setNewTableItem = (tablename: string, newitem: any): Promise<any> => {
@@ -40,6 +46,34 @@ export class AzureService {
             return resp;
         })
     }
+    getVideoUrls = (): Promise<Array<any>> => {
+        return this.queryTable('VideoUrl').then((resp)=>{
+            let returnable: Array<any> = [];
+            for (let i = 0; i < resp.length; i++){
+                let item = resp[i];
+                let newitem = {};
+                newitem['video_id'] = item['video_id'];
+                newitem['resolution'] = item['resolution'];
+                newitem['url'] = item['url1'] + item['url2'];
+                returnable.push(newitem);
+            }
+            return returnable;
+        })
+    }
+
+    getVideoThumbUrls = (): Promise<Array<any>> => {
+        return this.queryTable('VideoThumbUrl').then((resp)=>{
+            let returnable: Array<any> = [];
+            for (let i = 0; i < resp.length; i++){
+                let item = resp[i];
+                let newitem = {};
+                newitem['video_id'] = item['video_id'];
+                newitem['thumb_url'] = item['thumb_url'];
+                returnable.push(newitem);
+            }
+            return returnable;
+        })
+    }
 
     getFeaturedVideoIds = (): Promise<Array<string>> => {
         return this.queryTable('FeaturedVideo').then((resp)=>{
@@ -53,20 +87,73 @@ export class AzureService {
         })
     }
 
-    getVideos = (): Promise<Array<any>> => {
-        return this.queryTable('Video').then((resp)=>{
-            return resp;
+    loadVideos = (): Promise<Array<IVideoInfoObj>> => {
+        let pvideo = this.queryTable('Video').then((videoresp)=>{
+            let videobase = {};
+            for (let i = 0; i < videoresp.length; i++){
+                videobase[videoresp[i].id] = videoresp[i];
+            }
+            this._videobase = videobase;
+            return videobase;
+        });
+        
+        let pvideourl: Promise<any> = this.getVideoUrls().then((urlresp)=>{
+            let videourl = {};
+            for (let i = 0; i < urlresp.length; i++){
+                videourl[urlresp[i].video_id] = urlresp[i];
+            }
+            this._videourl = videourl;
+            return videourl;
+        });
+
+        let pvideothumburl: Promise<any> = this.getVideoThumbUrls().then((thumbresp)=>{
+            let thumbsobj = {};
+            for (let i = 0; i < thumbresp.length; i++){
+                thumbsobj[thumbresp[i].video_id] = thumbresp[i];
+            }
+            this._videothumburl = thumbsobj;
+            return thumbsobj;
+        });
+
+        let pvideotags: Promise<any> = this.getVideoUrlSuffixs().then((tagresp)=>{
+            let videotagsobj = {};
+            for (let i = 0; i < tagresp.length; i++){
+                let id = tagresp[i].entity_id
+                if (videotagsobj.hasOwnProperty(id)){
+                    videotagsobj[id].push(tagresp[i].tag);
+                } else {
+                    videotagsobj[id] = [tagresp[i].tag];
+                }
+            }
+            this._videotag = videotagsobj;
+            return videotagsobj;
+        });
+
+        return Promise.all([pvideo, pvideourl, pvideothumburl, pvideotags]).then(()=>{
+            let returnable: Array<IVideoInfoObj> = [];
+            let vbase = this._videobase;
+            for (let video_id in vbase){
+                let thisvideo = vbase[video_id];
+                let vobj: IVideoInfoObj = {
+                    id: video_id,
+                    videoUrl: this._videourl[video_id].url,
+                    thumbUrl: this._videothumburl[video_id].thumb_url,
+                    title: thisvideo.title,
+                    trainer: thisvideo.trainer_id || 'DEFAULT TRAINER',
+                    duration : thisvideo.duration || '*20:00',
+                    difficulty: thisvideo.difficulty || 'Medium',
+                    tags: this._videotag[video_id] || ['test1', 'test2', 'test3', 'test4', 'test5', 'test6', 'test7'],
+                    description: thisvideo.description
+                }
+                returnable.push(vobj);
+            }
+            return returnable;
         })
+
     }
 
     getVideoUrlSuffixs = (): Promise<Array<any>> => {
         return this.queryTable('VideoUrlSuffix').then((resp)=>{
-            return resp;
-        })
-    }
-
-    getVideoUrls = (): Promise<Array<any>> => {
-        return this.queryTable('VideoUrl').then((resp)=>{
             return resp;
         })
     }

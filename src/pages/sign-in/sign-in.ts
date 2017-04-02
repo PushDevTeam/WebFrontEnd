@@ -7,7 +7,8 @@ import { AuthService } from "../../services/auth";
 import { Home } from "../home/home";
 import { OnBoardingPage } from "../on-boarding/on-boarding";
 import {UserService} from '../../services/user.service';
-
+import {ForgotPasswordPage} from '../forgot-password/forgot-password';
+import {UserObj} from '../../services/user.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ import {UserService} from '../../services/user.service';
 })
 export class SignInPage implements OnInit {
   mode='Up';
-
+  //login_user: UserObj = new UserObj();
 
   constructor(private authService: AuthService,
               private loadingCtrl: LoadingController,
@@ -39,7 +40,6 @@ export class SignInPage implements OnInit {
 
   onSignUp(form: NgForm) {
     this.navCtrl.setRoot(OnBoardingPage);
-
   }
 
 ngOnInit() {
@@ -49,6 +49,11 @@ ngOnInit() {
 goBack() {
   this.navCtrl.pop();
 }
+
+onForgotPassword() {
+  this.navCtrl.push(ForgotPasswordPage);
+}
+
 
 onSignin(form: NgForm) {
   // code from javes testing user storage
