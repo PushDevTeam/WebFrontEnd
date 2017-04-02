@@ -11,6 +11,10 @@ Injectable()
 export class AzureService {
     
     private _isinitialized = false;
+    private _isloadingvideos = false;
+    private _isdoneloadingvideos = false;
+
+    private _videoinfos: Array<IVideoInfoObj>;
     private _client: any;
     private _azurepath: string = 'https://pushdaily-api.azurewebsites.net';
     private _featuredvideoids: Array<string> = [];
@@ -18,6 +22,7 @@ export class AzureService {
     private _videothumburl: any;
     private _videobase: any;
     private _videotag: any;
+
 
 
     constructor(){
@@ -87,7 +92,20 @@ export class AzureService {
         })
     }
 
-    loadVideos = (): Promise<Array<IVideoInfoObj>> => {
+    loadVideos = () => {
+        if (!this.isdoneloadingvideos) {
+            this._isloadingvideos = true;
+            return this._loadVideos();
+        }
+        else {
+            
+            return Promise.resolve(this.videoinfos);
+            //return this.videoinfos;
+            //return new Promise(()=>{return this.videoinfos});
+        }
+    }
+
+    _loadVideos = (): Promise<Array<IVideoInfoObj>> => {
         let pvideo = this.queryTable('Video').then((videoresp)=>{
             let videobase = {};
             for (let i = 0; i < videoresp.length; i++){
@@ -147,6 +165,9 @@ export class AzureService {
                 }
                 returnable.push(vobj);
             }
+            this._videoinfos = returnable;
+            this._isdoneloadingvideos = true;
+            this._isloadingvideos = false;
             return returnable;
         })
 
@@ -210,5 +231,9 @@ export class AzureService {
     get client(){ return this._client };
     get azurepath() {return this._azurepath};
     get featuredvideoids() {return this._featuredvideoids};
+    get videoinfos() {return this._videoinfos};
+
     get isinitialized() {return this._isinitialized};
-}
+    get isdoneloadingvideos() { return this._isdoneloadingvideos };
+    get isloadingvideos() {return this._isloadingvideos };
+}   
