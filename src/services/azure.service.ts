@@ -1,4 +1,6 @@
 import {Injectable} from '@angular/core';
+import {IVideoInfoObj, VideoInfoObj} from '../components/video-thumbnail/video-info-obj';
+
 declare var WindowsAzure: any;
 /**
  * ACG 3/29/17
@@ -12,6 +14,11 @@ export class AzureService {
     private _client: any;
     private _azurepath: string = 'https://pushdaily-api.azurewebsites.net';
     private _featuredvideoids: Array<string> = [];
+    private _videourl: any;
+    private _videothumburl: any;
+    private _videobase: any;
+    private _videotag: any;
+
 
     constructor(){
 
@@ -21,42 +28,6 @@ export class AzureService {
     connectAzure = (azure: any) => {
         this._client = new azure(this._azurepath);
         this._isinitialized = true;
-        //console.log('connected azure client', this.client);
-    }
-
-    _initData = () => {
-        //core basics: 3da38c6a-feed-4c42-9d83-c31f501fbca5
-        //starting strength: 60805857-5031-47a3-b531-410b7504431e
-        //bodyweight intermediate: 9ea0466a-aef1-4618-9a33-f9ed60fa626b
-        //nv now hiit: ae2f89d0-8436-45e1-9f59-97189dbdaea5
-        //fall 2015 hiit: f6b4929b-c615-4151-a58a-573e30df8bf2
-        let guid1 = "3da38c6a-feed-4c42-9d83-c31f501fbca5";
-        let guid2 = "60805857-5031-47a3-b531-410b7504431e";
-        let guid3 = "9ea0466a-aef1-4618-9a33-f9ed60fa626b";
-        let guid4 = "ae2f89d0-8436-45e1-9f59-97189dbdaea5";
-        let guid5 = "f6b4929b-c615-4151-a58a-573e30df8bf2";
-
-        let url11 = "https://pushdaily.blob.core.windows.net/asset-bef5963b-10f7-492d-a191-78e4aa0b7121/Fall 2015 HIIT Workout_"
-        let url12 = ".mp4?sv=2015-07-08&sr=c&si=90de2574-b4da-4878-ae28-3f8d24fd8948&sig=R41OTKvoQ0hZta%2FogzmoCwKOjUtNW4XoB%2FW5L%2F%2FiZLE%3D&st=2017-04-01T20%3A10%3A13Z&se=2117-04-01T20%3A10%3A13Z";
-        let url21 = "https://pushdaily.blob.core.windows.net/asset-2f6b4354-3949-4ce3-984b-a9206c486b61/NV NOW HIIT Workout Short Edit (_"
-        let url22 = ".mp4?sv=2015-07-08&sr=c&si=f0a35ee1-cbc1-4d80-82e6-a6b7f44f0e8c&sig=%2Bu8UeEWP4NbpZAq%2BtYvlTob4hTIJSZ6kdynTGIu451M%3D&st=2017-04-01T20%3A10%3A37Z&se=2117-04-01T20%3A10%3A37Z";
-        let url31 = "https://pushdaily.blob.core.windows.net/asset-472513ba-485f-466b-a1a7-c2cc1f9e4d85/Starting Strength - Level 1_"
-        let url32 = ".mp4?sv=2015-07-08&sr=c&si=057a484d-2d56-4eae-bb01-d5a187f164fb&sig=futKCVtW2l9Vor8npTvjPbfTDzeXtXQF6Uq2oqrdo70%3D&st=2017-03-31T07%3A11%3A36Z&se=2117-03-31T07%3A11%3A36Z";
-        let url41 = "https://pushdaily.blob.core.windows.net/asset-0f770764-7c73-412b-bbe0-82d70648f35b/Bodyweight Intermediate_"
-        let url42 = ".mp4?sv=2015-07-08&sr=c&si=1216329a-6b52-4cc4-bb56-8c4c7af7648f&sig=oJNLGWf1AYaYowD3SzcC8mPjR1svBNN1oBSOWbUfQV4%3D&st=2017-03-31T01%3A15%3A12Z&se=2117-03-31T01%3A15%3A12Z";
-        let url51 = "https://pushdaily.blob.core.windows.net/asset-a3ea0269-10ce-4298-8003-75a23d6db2f2/What is STREET VYBE_"
-        let url52 = "640x360_1000.mp4?sv=2015-07-08&sr=c&si=56bc448b-2760-49fc-8a25-4a7de3a738d8&sig=2Vock0i4uKpULpP6h1NUhEF2KGZiysYHQ9tPK54Akqo%3D&st=2017-04-01T20%3A43%3A38Z&se=2117-04-01T20%3A43%3A38Z";
-
-        let toupdate = [{'url1': url11, 'url2':url12, 'video_id': guid1, 'resolution': '640x360_1000'},
-                        {'url1': url21, 'url2':url22, 'video_id': guid2, 'resolution': '640x360_1000'},
-                        {'url1': url31, 'url2':url32, 'video_id': guid3, 'resolution': '640x360_1000'},
-                        {'url1': url41, 'url2':url42, 'video_id': guid4, 'resolution': '640x360_1000'},
-                        {'url1': url51, 'url2':url52, 'video_id': guid5, 'resolution': '640x360_1000'}];
-
-        for (let i = 0; i < toupdate.length; i++){
-            let updater = toupdate[i];
-        //    this.setNewTableItem('VideoUrl', updater);
-        }
     }
 
     setNewTableItem = (tablename: string, newitem: any): Promise<any> => {
@@ -90,6 +61,20 @@ export class AzureService {
         })
     }
 
+    getVideoThumbUrls = (): Promise<Array<any>> => {
+        return this.queryTable('VideoThumbUrl').then((resp)=>{
+            let returnable: Array<any> = [];
+            for (let i = 0; i < resp.length; i++){
+                let item = resp[i];
+                let newitem = {};
+                newitem['video_id'] = item['video_id'];
+                newitem['thumb_url'] = item['thumb_url'];
+                returnable.push(newitem);
+            }
+            return returnable;
+        })
+    }
+
     getFeaturedVideoIds = (): Promise<Array<string>> => {
         return this.queryTable('FeaturedVideo').then((resp)=>{
             let returnable: Array<string> = [];
@@ -102,23 +87,69 @@ export class AzureService {
         })
     }
 
-    getVideos = (): Promise<Array<any>> => {
-        return this.queryTable('Video').then((videoresp)=>{
-            let videosobj = {};
+    loadVideos = (): Promise<Array<IVideoInfoObj>> => {
+        let pvideo = this.queryTable('Video').then((videoresp)=>{
+            let videobase = {};
             for (let i = 0; i < videoresp.length; i++){
-                videosobj[videoresp[i].id] = videoresp[i];
+                videobase[videoresp[i].id] = videoresp[i];
             }
-            let returnable = [];
-            return this.getVideoUrls().then((urlresp)=>{
-                for (let i = 0; i < videoresp.length; i++){
-                    videosobj[urlresp[i].video_id][urlresp[i].resolution + '_url'] = urlresp[i];
-                    returnable.push(videosobj[urlresp[i].video_id]);
+            this._videobase = videobase;
+            return videobase;
+        });
+        
+        let pvideourl: Promise<any> = this.getVideoUrls().then((urlresp)=>{
+            let videourl = {};
+            for (let i = 0; i < urlresp.length; i++){
+                videourl[urlresp[i].video_id] = urlresp[i];
+            }
+            this._videourl = videourl;
+            return videourl;
+        });
+
+        let pvideothumburl: Promise<any> = this.getVideoThumbUrls().then((thumbresp)=>{
+            let thumbsobj = {};
+            for (let i = 0; i < thumbresp.length; i++){
+                thumbsobj[thumbresp[i].video_id] = thumbresp[i];
+            }
+            this._videothumburl = thumbsobj;
+            return thumbsobj;
+        });
+
+        let pvideotags: Promise<any> = this.getVideoUrlSuffixs().then((tagresp)=>{
+            let videotagsobj = {};
+            for (let i = 0; i < tagresp.length; i++){
+                let id = tagresp[i].entity_id
+                if (videotagsobj.hasOwnProperty(id)){
+                    videotagsobj[id].push(tagresp[i].tag);
+                } else {
+                    videotagsobj[id] = [tagresp[i].tag];
                 }
-                console.log('Videos \n', returnable);
-                return returnable;
-                 
-            })
+            }
+            this._videotag = videotagsobj;
+            return videotagsobj;
+        });
+
+        return Promise.all([pvideo, pvideourl, pvideothumburl, pvideotags]).then(()=>{
+            let returnable: Array<IVideoInfoObj> = [];
+            let vbase = this._videobase;
+            for (let video_id in vbase){
+                let thisvideo = vbase[video_id];
+                let vobj: IVideoInfoObj = {
+                    id: video_id,
+                    videoUrl: this._videourl[video_id].url,
+                    thumbUrl: this._videothumburl[video_id].thumb_url,
+                    title: thisvideo.title,
+                    trainer: thisvideo.trainer_id || 'DEFAULT TRAINER',
+                    duration : thisvideo.duration || '*20:00',
+                    difficulty: thisvideo.difficulty || 'Medium',
+                    tags: this._videotag[video_id] || ['test1', 'test2', 'test3', 'test4', 'test5', 'test6', 'test7'],
+                    description: thisvideo.description
+                }
+                returnable.push(vobj);
+            }
+            return returnable;
         })
+
     }
 
     getVideoUrlSuffixs = (): Promise<Array<any>> => {
