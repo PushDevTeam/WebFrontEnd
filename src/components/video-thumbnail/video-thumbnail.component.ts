@@ -5,7 +5,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {VideoInfoService} from '../../services/video-info.service';
 import {VideoImgService} from '../../services/video-img.service';
-import {VideoInfoObj} from './video-info-obj';
+import {IVideoInfoObj, VideoInfoObj} from './video-info-obj';
 import { VideoView} from '../../pages/video-view/video-view';
 import { NavController,  NavParams } from 'ionic-angular';
 import {UserService} from '../../services/user.service';
@@ -18,8 +18,8 @@ import {UserService} from '../../services/user.service';
 })
 
 export class VideoThumbnail {
-  @Input() public id: number;
-  public metaData: VideoInfoObj;
+  @Input() public id: string;
+  public metaData: IVideoInfoObj = <IVideoInfoObj>{};
 
   constructor(
     private userService: UserService,
@@ -30,6 +30,12 @@ export class VideoThumbnail {
 
   ) {
 
+
+    this.infoService.getAllVideos().then((res)=> {
+      console.log('getAllVIdeos',res);
+      this.metaData = res.find( (v_info_obj) => {return v_info_obj.id == this.id});
+      console.log('metadata',this.metaData);
+    });
   }
 
   ngOnInit(){
@@ -40,11 +46,10 @@ export class VideoThumbnail {
 
      might need seperate service for media
      */
-     this.getVideoInfo();
   }
 
   getVideoInfo(){
-    this.metaData = this.infoService.getVideoInfo(this.id);
+    //this.metaData = this.infoService.getVideoInfo(this.id);
   }
 
 
