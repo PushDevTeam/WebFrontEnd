@@ -27,7 +27,7 @@ const MOCK_THUMB_URL = 'https://pushdaily.blob.core.windows.net/asset-d009e52e-1
      {id:'8', videoUrl: MOCK_URL, title:"LEAN & MEAN", trainer: 'Trainer #42', duration: '32:38', difficulty: 'Medium', tags: ['Tag1', 'Tag2', 'Tag3','Tag4','Tag5','Tag6','Tag7','Tag8'], description: 'mock_desc', thumbUrl: MOCK_THUMB_URL},
      {id:'9', videoUrl: MOCK_URL, title:"YEAH WORK OUTS", trainer: 'Trainer McTrainer', duration: '32:39', difficulty: 'Medium', tags: ['Tag1', 'Tag2', 'Tag3','Tag4','Tag5','Tag6','Tag7','Tag8'], description: 'mock_desc', thumbUrl: MOCK_THUMB_URL},
    ];
-  
+
    fetchVideoData = (): Promise<any> =>{
      return this.azureService.loadVideos().then((resp)=>{
        for (let i=0; i < resp.length; i++){
@@ -57,7 +57,7 @@ const MOCK_THUMB_URL = 'https://pushdaily.blob.core.windows.net/asset-d009e52e-1
 
    getVideoInfo(id): VideoInfoObj{
      //use something like this instead when you're using the real video data
-     //return this._videosbyid[id]
-     return this.mock[id];
+     return this._videosbyid[id];
+     //return this.mock[id];
    }
  }
