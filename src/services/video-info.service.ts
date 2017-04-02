@@ -13,11 +13,6 @@ const MOCK_THUMB_URL = 'https://pushdaily.blob.core.windows.net/asset-d009e52e-1
  export class VideoInfoService {
    private _videosbyid: any = {};
    constructor(private azureService: AzureService){
-     this.azureService.loadVideos().then((resp)=>{
-       for (let i=0; i < resp.length; i++){
-         this._videosbyid[resp[i].id] = resp[i];
-       }
-    });
 
     }
    private mock: IVideoInfoObj[] = [
@@ -33,18 +28,31 @@ const MOCK_THUMB_URL = 'https://pushdaily.blob.core.windows.net/asset-d009e52e-1
      {id:'9', videoUrl: MOCK_URL, title:"YEAH WORK OUTS", trainer: 'Trainer McTrainer', duration: '32:39', difficulty: 'Medium', tags: ['Tag1', 'Tag2', 'Tag3','Tag4','Tag5','Tag6','Tag7','Tag8'], description: 'mock_desc', thumbUrl: MOCK_THUMB_URL},
    ];
   
-   getAllVideoIds = (): Array<string> => {
-     console.log('videokeys', Object.keys(this._videosbyid));
-     console.log('all videos by id', this._videosbyid);
-     let returnable = [];
-     Object.keys(this._videosbyid).map((value)=>{returnable.push(value)});
-     return returnable;
+   fetchVideoData = (): Promise<any> =>{
+     return this.azureService.loadVideos().then((resp)=>{
+       for (let i=0; i < resp.length; i++){
+         this._videosbyid[resp[i].id] = resp[i];
+       }
+       return this._videosbyid;
+    });
    }
 
-   getAllVideos = (): Array<IVideoInfoObj> => {
-     let vids = [];
-     Object.keys(this._videosbyid).map((value)=>{vids.push(this._videosbyid[value])});
-     return vids;
+   getAllVideoIds = (): Promise<Array<string>> => {
+     console.log('videokeys', Object.keys(this._videosbyid));
+     console.log('all videos by id', this._videosbyid);
+     return this.fetchVideoData().then(()=>{
+      let returnable = [];
+      Object.keys(this._videosbyid).map((value)=>{returnable.push(value)});
+      return returnable;
+    })
+   }
+
+   getAllVideos = (): Promise<Array<IVideoInfoObj>> => {
+    return this.fetchVideoData().then(()=>{
+      let vids = [];
+      Object.keys(this._videosbyid).map((value)=>{vids.push(this._videosbyid[value])});
+      return vids;
+    })
    }
 
    getVideoInfo(id): VideoInfoObj{
