@@ -55,9 +55,9 @@ export class MyApp {
 
       //TODO uncomment this if building for mobile
       //MobileAccessibility.usePreferredTextZoom(false);
-      //this.azureService.getVideos().then((resp) =>{console.log('getVideos \n', resp)});
-      //this.azureService.getVideoUrls().then((resp)=>{console.log('getVideoUrls \n', resp)});
-      //this.azureService.getVideos().then((resp)=>{console.log('getVideos \n', resp)})
+      
+      this.azureService.loadVideos().then((resp)=>{console.log('loadVideos() \n', resp)});
+
       //example getter - will return array of strings with video ids of featured videos
       //this.azureService.getFeaturedVideoIds()
       //.then((resp) => {
