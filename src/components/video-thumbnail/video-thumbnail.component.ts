@@ -31,9 +31,8 @@ export class VideoThumbnail {
   ) {
 
 
-    this.infoService.getAllVideos().then((res)=> {
-      console.log('getAllVIdeos',res);
-      this.metaData = res.find( (v_info_obj) => {return v_info_obj.id == this.id});
+    this.infoService.fetchVideoData().then(()=> {
+      this.metaData = this.infoService.getVideoInfo(this.id);
       console.log('metadata',this.metaData);
     });
   }

@@ -23,9 +23,8 @@ export class VideoView {
 
     this.id = this.navParams.get('id');
 
-    this.videoInfoService.getAllVideos().then((res)=> {
-      this.videoInfo = res.find( (v_info_obj) => {return v_info_obj.id == this.id});
-      console.log('video-view videoInfo',this.videoInfo);
+    this.videoInfoService.fetchVideoData().then(()=> {
+      this.videoInfo = this.videoInfoService.getVideoInfo(this.id);
     });
   }
   ngOnInit(){
