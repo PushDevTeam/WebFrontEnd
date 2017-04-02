@@ -13,8 +13,10 @@ import { Terms} from '../pages/terms/terms';
 import { SignInPage } from '../pages/sign-in/sign-in';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
+import {ContactUsPage} from '../pages/contact-us/contact-us';
 import { StartPage } from '../pages/start/start';
 import {VideoView} from '../pages/video-view/video-view';
+import {VideoRatingPage} from '../pages/video-rating/video-rating';
 import {FBService} from '../services/fb.service';
 
 
@@ -44,7 +46,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: Home, icon_name: 'home' },
-
+      { title: 'Contact Us', component: ContactUsPage, icon_name: 'fire'}
     ];
 
   }
