@@ -38,21 +38,6 @@ export class VideoThumbnail {
     });
   }
 
-  ngOnInit(){
-    /*
-     passed a v_id which will reference a specific video
-     should use a service VideoFetcher to call an api that returns
-     a JSON containing thumbnail info
-
-     might need seperate service for media
-     */
-  }
-
-  getVideoInfo(){
-    //this.metaData = this.infoService.getVideoInfo(this.id);
-  }
-
-
   goToVidView(){
 
     // TODO add params such as uhhhhh what video to watch
