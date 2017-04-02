@@ -41,9 +41,6 @@ export class UserObj {
 
   public profileimgurl?: string;
 
-  contsructor(){
-
-  }
 
 
 }
