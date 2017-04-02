@@ -68,7 +68,7 @@ export class UserService {
 
   //public getUsername() { return this.user.username; }
   public getEmail() {
-    if(this.user == null) return 'mock_email';
+    if(this.user == null) return '';
     return this.user.email;
    }
 
