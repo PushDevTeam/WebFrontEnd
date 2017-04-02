@@ -42,7 +42,7 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: Home, icon_name: 'home' },
+      { title: 'Home', component: Home, icon_name: 'Home' },
 
     ];
 
@@ -55,7 +55,7 @@ export class MyApp {
 
       //TODO uncomment this if building for mobile
       //MobileAccessibility.usePreferredTextZoom(false);
-      
+
       this.azureService.loadVideos().then((resp)=>{console.log('loadVideos() \n', resp)});
 
       //example getter - will return array of strings with video ids of featured videos
