@@ -12,7 +12,9 @@ export class VideoInfoObj {
   tags: Array<string>;
   description: string;
   thumbUrl: string;
-  
+  isfeatured?: boolean;
+  featureThumbUrl?: string;
+
   constructor(propertybag: IVideoInfoObj){
     for (let k in propertybag){
       this[k] = propertybag[k];

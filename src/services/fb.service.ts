@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {FacebookService, FacebookInitParams, FacebookLoginResponse} from 'ng2-facebook-sdk';
-
+import {AzureService} from './azure.service';
 /**
  * ACG 3/29/17
  * 
@@ -11,7 +11,7 @@ export class FBService {
     private _appid: string = '1286594241432490';
     private _apiversion: string = 'v2.8'
 
-    constructor(private fb: FacebookService){
+    constructor(private fb: FacebookService, private azureService: AzureService){
 
         let initparams: FacebookInitParams = {  appId: this.appid,
                                                 status: true, 
@@ -24,7 +24,10 @@ export class FBService {
     userLogin = () => {
         console.log('running facebook userLogin');
         return this.fb.login().then(
-            (response: FacebookLoginResponse) => console.log(response),
+            (response: FacebookLoginResponse) => {
+                console.log(response)
+                this.azureService.client.login('facebook', {'access_token': response.authResponse.accessToken}).then(()=>{console.log(this.azureService.client)});
+        },
             (error: any) => console.error(error)
         );
     }
