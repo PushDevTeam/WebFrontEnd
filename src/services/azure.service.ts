@@ -59,7 +59,7 @@ export class AzureService {
                 let newitem = {};
                 newitem['video_id'] = item['video_id'];
                 newitem['resolution'] = item['resolution'];
-                newitem['url'] = item['url1'] + item['url2'];
+                newitem['url'] = item['url1'] + item['resolution'] + item['url2'];
                 returnable.push(newitem);
             }
             return returnable;
