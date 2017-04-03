@@ -3,34 +3,34 @@
  */
 import {Component, Input} from '@angular/core';
 import {VideoThumbnail} from '../video-thumbnail/video-thumbnail.component';
-import {VideoSetService} from '../../services/video-set.service';
+import {VideoInfoService} from '../../services/video-info.service';
 import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'side-scroller',
   templateUrl: 'side-scroller.component.html',
-  providers: [VideoSetService]
+
 })
 
 export class SideScroller {
   @Input() set_label: string;
-  public v_ids: number[];
+  public v_ids: string[];
 
 
 
- constructor(private setService: VideoSetService,
+ constructor(private videoInfoService: VideoInfoService,
    private userService: UserService) {
 
-
+     this.videoInfoService.getAllVideoIds().then( (res) => {
+       this.v_ids = res;
+     });
  }
 
- ngOnInit(){
-   this.getVideoCollection();
- }
 
 
- getVideoCollection(){
-   this.v_ids = this.setService.getSetIds(this.set_label);
+
+ vIdsPromise() {
+   return this.videoInfoService.getAllVideoIds();
  }
 
  goToCategoryView(){

@@ -31,6 +31,7 @@ export const EXERCISES_TYPES =
 export class UserObj {
   public id: number;
   //public username: string;
+  public name: string;
   public password: string;
   public email: string;
   public gender?: number;
@@ -39,6 +40,7 @@ export class UserObj {
   public goals?: number[];
 
   public profileimgurl?: string;
+
 
 
 }
@@ -66,7 +68,7 @@ export class UserService {
 
   //public getUsername() { return this.user.username; }
   public getEmail() {
-    if(this.user == null) return 'mock_email';
+    if(this.user == null) return '';
     return this.user.email;
    }
 

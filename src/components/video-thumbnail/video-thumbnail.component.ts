@@ -5,7 +5,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {VideoInfoService} from '../../services/video-info.service';
 import {VideoImgService} from '../../services/video-img.service';
-import {VideoInfoObj} from './video-info-obj';
+import {IVideoInfoObj, VideoInfoObj} from './video-info-obj';
 import { VideoView} from '../../pages/video-view/video-view';
 import { NavController,  NavParams } from 'ionic-angular';
 import {UserService} from '../../services/user.service';
@@ -18,8 +18,8 @@ import {UserService} from '../../services/user.service';
 })
 
 export class VideoThumbnail {
-  @Input() public id: number;
-  public metaData: VideoInfoObj;
+  @Input() public id: string;
+  public metaData: IVideoInfoObj = <IVideoInfoObj>{};
 
   constructor(
     private userService: UserService,
@@ -30,23 +30,12 @@ export class VideoThumbnail {
 
   ) {
 
+
+    this.infoService.fetchVideoData().then(()=> {
+      this.metaData = this.infoService.getVideoInfo(this.id);
+      console.log('metadata',this.metaData);
+    });
   }
-
-  ngOnInit(){
-    /*
-     passed a v_id which will reference a specific video
-     should use a service VideoFetcher to call an api that returns
-     a JSON containing thumbnail info
-
-     might need seperate service for media
-     */
-     this.getVideoInfo();
-  }
-
-  getVideoInfo(){
-    this.metaData = this.infoService.getVideoInfo(this.id);
-  }
-
 
   goToVidView(){
 
