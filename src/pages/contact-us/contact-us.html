@@ -22,39 +22,45 @@
           name="emailTo"
           required></ion-input>
       </ion-item>
-        <button ion-button type="submit"> submit </button>
-</form>
-</ion-content>
-<!--
-
-      <ion-item class="email">
+      <ion-item>
         <ion-label fixed>Cc: </ion-label>
         <ion-input
           type="email"
-          ([ngModel])="this.email.ccEmail";
+          [(ngModel)]="this.email.ccEmail"
           name="ccEmail"></ion-input>
       </ion-item>
-      <ion-item class="email">
+      <ion-item>
         <ion-label fixed>Bcc: </ion-label>
         <ion-input
           type="email"
-          ([ngModel])="this.email.bccEmail";
+          [(ngModel)]="this.email.bccEmail"
           name="bccEmail"></ion-input>
       </ion-item>
-      <ion-item class="email">
+      <ion-item>
+        <ion-label fixed>From: </ion-label>
+        <ion-input
+          type="email"
+          [(ngModel)]="this.email.fromEmail"
+          name="fromEmail"></ion-input>
+      </ion-item>
+      <ion-item>
         <ion-label fixed> Subject: </ion-label>
         <ion-input
           type="text"
-          ([ngModel])="this.email.subject"
+          [(ngModel)]="this.email.subject"
           name="subject"
-          required></ion-input>
+          ></ion-input>
       </ion-item>
-      <ion-item class="email">
-        <ion-label fixed> </ion-label>
-        <ion-input
+      <div class="emailBody">
+      <ion-item text-wrap>
+        <ion-textarea
           type="text"
-          ([ngModel])="this.email.body"
-          name="body"
-          required></ion-input>
-      </ion-item>
--->
+          [(ngModel)]="this.email.body"
+          name="body">
+        </ion-textarea>
+     </ion-item>
+   </div>
+      <button ion-button type="submit"> Send </button>
+      <button ion-button> Cancel </button>
+      </form>
+      </ion-content>

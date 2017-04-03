@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { EmailObj } from './email';
 import { NgForm, FormGroup, FormControl, FormBuilder, Validators, FormArray } from "@angular/forms";
+import { UserService} from '../../services/user.service';
 /*
   Generated class for the ContactUs page.
 
@@ -13,13 +14,15 @@ import { NgForm, FormGroup, FormControl, FormBuilder, Validators, FormArray } fr
   templateUrl: 'contact-us.html'
 })
 export class ContactUsPage {
-private email: EmailObj;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+private email = new EmailObj();
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public userService: UserService) {}
 
 
   ngOnInit(){
     this.email.toEmail = "natasha@pushdaily.fit";
-    //this.email.subject = "Feedback for Push";
+    this.email.subject = "Feedback for Push";
+    this.email.fromEmail = this.userService.getEmail();
   }
 
 sendEmail() {
