@@ -2,7 +2,6 @@ import { Component, ViewChild} from '@angular/core';
 import { NavController, NavParams} from 'ionic-angular';
 import { NgForm } from "@angular/forms";
 
-
 import { Home} from '../home/home';
 import {SignInPage} from '../sign-in/sign-in';
 import {UserObj,
@@ -34,6 +33,7 @@ const USERNAME_REGEX = /^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]
 export class OnBoardingPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
+    public userService: UserService,
     ) {
 
   }
@@ -144,6 +144,7 @@ export class OnBoardingPage {
 
     // authorize form data
     // create user and store
+    this.userService.storeUser(this.build_user);
     this.navCtrl.setRoot(Home);
   }
 
