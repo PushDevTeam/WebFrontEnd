@@ -8,30 +8,44 @@ import { Component } from '@angular/core';
 import { AzureService } from '../../services/azure.service';
 import { VideoView} from '../../pages/video-view/video-view';
 import { NavController } from 'ionic-angular';
-
+import { VideoInfoObj } from '../video-thumbnail/video-info-obj';
+import { VideoInfoService } from '../../services/video-info.service';
 @Component({
   selector: 'feature',
   templateUrl: 'feature.component.html'
 })
 export class Feature {
   public video_ids: any[] = [];
+  public video_info_arr: VideoInfoObj[] = [];
 
   constructor(
     private azureService: AzureService,
-    private navCtrl:NavController,
-  ) {}
+    private navCtrl: NavController,
+    private videoInfoService: VideoInfoService,
+  ) {
+
+    console.log('on init of feature.component');
+    this.videoInfoService.fetchVideoData().then(() => {
+      this.azureService.getFeaturedVideoIds().then((resp) => {
+        this.video_ids = resp;
+        this.video_ids.forEach((id) => {
+          this.video_info_arr.push(this.videoInfoService.getVideoInfo(id));
+        });
+        console.log('video_info_arr',this.video_info_arr);
+      });
+    });
+
+
+  }
 
   ngOnInit() {
-    console.log('on init of feature.component');
-    this.azureService.getFeaturedVideoIds().then((resp)=>{
-      console.log('getFeaturedVideoIds from feature.component', resp);
-      this.video_ids = resp;
-    })
-  } 
+
+
+  }
 
 
 
-  goToVid(id){
-    this.navCtrl.push(VideoView, {'id': id});
+  goToVid(id) {
+    this.navCtrl.push(VideoView, { 'id': id });
   }
 }

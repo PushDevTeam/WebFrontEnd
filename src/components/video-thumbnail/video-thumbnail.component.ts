@@ -33,7 +33,6 @@ export class VideoThumbnail {
 
     this.infoService.fetchVideoData().then(()=> {
       this.metaData = this.infoService.getVideoInfo(this.id);
-      console.log('metadata',this.metaData);
     });
   }
 

@@ -3,7 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { NgForm } from "@angular/forms";
 import { OnBoardingPage } from "../on-boarding/on-boarding";
 import { SignInPage } from "../sign-in/sign-in";
-
+import { Terms } from '../terms/terms';
 /*
   Generated class for the Start page.
 
@@ -29,5 +29,7 @@ export class StartPage {
   onSignIn() {
     this.navCtrl.push(SignInPage, {mode: 'IN'});
   }
-
+  toTermsPage(){
+    this.navCtrl.push(Terms);
+  }
 }
