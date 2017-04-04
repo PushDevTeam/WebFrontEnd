@@ -77,6 +77,7 @@ export class UserService {
   }
 
   public storeUser(user: UserObj) {
+    this.user = user;
     return this.storageService.set('user',user);
   }
   public createUser(form: NgForm) {
