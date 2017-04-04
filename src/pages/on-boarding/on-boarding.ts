@@ -13,7 +13,7 @@ import {UserObj,
   FITNESS_GOALS,
   CAST_OPT,
 } from '../../services/user.service';
-
+import { AuthService } from '../../services/auth';
 /*
   Generated class for the OnBoarding page.
 
@@ -34,6 +34,7 @@ export class OnBoardingPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public userService: UserService,
+    public authService: AuthService
     ) {
 
   }
@@ -154,8 +155,11 @@ export class OnBoardingPage {
     new_user.ageGroup = this.toggledAge;
     new_user.level = this.toggledFitLvl;
     new_user.goals = this.toggledGoals;
+
+    this.authService.facebookAuth();
     //TODO
     //handle facebook auth stuff
+    this.navCtrl.setRoot(Home);
   }
 
 
