@@ -1,14 +1,17 @@
+
 import {Injectable} from '@angular/core';
 import {IVideoInfoObj, VideoInfoObj} from '../components/video-thumbnail/video-info-obj';
 
 import * as WindowsAzure from 'azure-mobile-apps-client';
+
+import { Http, Response } from '@angular/http';
 //declare var WindowsAzure: any;
 /**
  * ACG 3/29/17
  * 
- * Used for client side interaction with the Facebook API
+ * Used for client side interaction with the Azure API
  * **/
-Injectable()
+@Injectable()
 export class AzureService {
     
     private _isinitialized = false;
@@ -27,14 +30,16 @@ export class AzureService {
 
 
 
-    constructor(){
-
+    constructor(public http: Http){
+        
       this.connectAzure(WindowsAzure.MobileServiceClient);
+      //this.testApi();
     }
 
     connectAzure = (azure: any) => {
         this._client = new azure(this._azurepath);
         this._isinitialized = true;
+        //this.testApi();
         //this._initVideos();
     }
     /*
@@ -51,6 +56,13 @@ export class AzureService {
         }
 
     }*/
+    testApi = () => {
+        //this.client//
+        //let TestAPI = this.http.get("https://pushdaily-api.azurewebsites.net/api/TestAPI").map((res:Response) => {res.json(); console.log('res.json()', res.json())});
+        //console.log('TestAPI \n \n', TestAPI);
+
+    }
+
     updateTableItem = (tablename: string, updateitem: any): Promise<any> => {
         let table = this.client.getTable(tablename);
         return table.update(updateitem).done((updateditem)=> {console.log('update item success \n tablename: ' + tablename + ' \n', updateitem);}, this.failure);
