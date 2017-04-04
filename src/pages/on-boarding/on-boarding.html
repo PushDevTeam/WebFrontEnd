@@ -126,7 +126,8 @@
         </div>
         <div class="onboard-grid">
           <button *ngFor="let g of exercisesList; let index = index" (click)="toggleExerciseButton(index)" [ngClass]="{'toggled':this.toggledExercises.indexOf(index) > -1}">
-          {{this.exercisesList[index]}}
+
+          <img src="{{exercisesList[index]}}" />
           </button>
 
 

@@ -164,13 +164,18 @@ page-on-boarding {
     border-color: white;
     font-family: DinPro;
     font-weight: 400;
+    background-size: 100% 100%;
+    padding: 0;
+
   }
 
   .choose-exercises .toggled {
     color: white;
     border-style: solid;
     border-color: color($colors, primary);
-    border-width: 1vw*(2/4);
+    border-width: 1vw*(4/4);
+    padding: 0;
+
   }
   //choose-goals slide
   .choose-goals button {

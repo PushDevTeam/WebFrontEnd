@@ -25,7 +25,14 @@ export const FITNESS_GOALS = [
 export const CAST_OPT = ['AppleTV', 'Chromecast', 'Roku', 'None'];
 export const EXERCISES_TYPES =
   [
-    '1','2','3','4','5','6','7','8','9','10',
+    'assets/exercise_types/Abs.jpg',
+    'assets/exercise_types/Cardio.jpg',
+    'assets/exercise_types/Cycling.jpg',
+    'assets/exercise_types/Kickboxing.jpg',
+    'assets/exercise_types/Pilates.jpg',
+    'assets/exercise_types/StrengthConditioning.jpg',
+    'assets/exercise_types/Yoga.jpg',
+
   ];
 
 export class UserObj {
