@@ -28,6 +28,7 @@ export const EXERCISES_TYPES =
     'assets/exercise_types/Abs.jpg',
     'assets/exercise_types/Cardio.jpg',
     'assets/exercise_types/Cycling.jpg',
+    'assets/exercise_types/Dance.jpg',
     'assets/exercise_types/Kickboxing.jpg',
     'assets/exercise_types/Pilates.jpg',
     'assets/exercise_types/StrengthConditioning.jpg',

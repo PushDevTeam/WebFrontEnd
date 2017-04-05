@@ -158,7 +158,7 @@ export class OnBoardingPage {
 
     this.authService.facebookAuth();
     //TODO
-    //handle facebook auth stuff
+    // what if fb auth fails
     this.navCtrl.setRoot(Home);
   }
 
