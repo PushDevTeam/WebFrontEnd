@@ -83,7 +83,7 @@ export class UserService {
   }
   public createUser(form: NgForm) {
     var save_user = new UserObj();
-    save_user.id = 0;
+    save_user.id = form.value.email;
     save_user.email = form.value.email;
     save_user.password = form.value.password;
   //  save_user.username = "mock_username";
@@ -98,4 +98,6 @@ export class UserService {
     this.user = undefined;
     this.storageService.remove('user');
   }
+
+  get currentuser() {return this.user};
 }

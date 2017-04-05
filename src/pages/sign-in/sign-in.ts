@@ -29,7 +29,10 @@ export class SignInPage implements OnInit {
   onFacebookLogin(){
     return this.authService.facebookAuth().then(this.onSuccessfulLogin, this.onFailedLogin);
   }
-
+  onCustomLogin(form: NgForm){
+    this.userService.createUser(form);
+    this.authService.customAuthLogin(this.userService.currentuser).then()
+  }
   onSuccessfulLogin = () => {
     this.navCtrl.setRoot(Home);
   }
@@ -57,7 +60,7 @@ onForgotPassword() {
 
 onSignin(form: NgForm) {
   // code from javes testing user storage
-
+  this.onCustomLogin(form);
   this.userService.createUser(form);
 
   this.navCtrl.setRoot(Home);
