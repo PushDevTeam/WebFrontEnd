@@ -234,8 +234,8 @@
             name='confirm_pword'
             type="password"></ion-input>
         </ion-item>
-        <div class="error-pwords">
-          <div *ngIf="(!passwordsMatch())">
+        <div >
+          <div *ngIf="(!passwordsMatch())" class="error-pwords">
             Passwords must match.
           </div>
         </div>
