@@ -28,6 +28,8 @@ export const EXERCISES_TYPES =
     '1','2','3','4','5','6','7','8','9','10',
   ];
 
+export interface IUserObj extends UserObj{};
+
 export class UserObj {
   public id: number;
   //public username: string;

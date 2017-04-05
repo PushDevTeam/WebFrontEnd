@@ -14,7 +14,7 @@ import {UserObj,
   FITNESS_GOALS,
   CAST_OPT,
 } from '../../services/user.service';
-
+import {AuthService} from '../../services/auth';
 /*
   Generated class for the OnBoarding page.
 
@@ -34,6 +34,7 @@ const USERNAME_REGEX = /^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]
 export class OnBoardingPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
+    private authService: AuthService
     ) {
 
   }
@@ -136,25 +137,39 @@ export class OnBoardingPage {
       return false;
     }
 
-    console.log(GENDER_LIST[this.toggledGender]);
-    console.log(AGE_GROUPS[this.toggledAge]);
-    console.log(FIT_LEVELS[this.toggledFitLvl]);
-    console.log(this.toggledGoals);
-    console.log(CAST_OPT[this.toggledCast]);
 
+    let gender = GENDER_LIST[this.toggledGender];
+    let age_group = AGE_GROUPS[this.toggledAge];
+    let fit_level = FIT_LEVELS[this.toggledFitLvl];
+    let toggled_goals = this.toggledGoals;
+    let cast_opt = CAST_OPT[this.toggledCast];
+    console.log('gender: \n', gender);
+    console.log('age_group: \n', age_group);
+    console.log('fit_level: \n', fit_level);
+    console.log('toggled_goals: \n', toggled_goals);
+    console.log('cast_opt: \n', cast_opt);
+
+    let new_user = this.buildUser();
+    this.authService.customAuthSignUp(new_user);
     // authorize form data
     // create user and store
     this.navCtrl.setRoot(Home);
   }
 
-  facebookSignIn(){
+
+  facebookSignUp(){
+    let new_user = this.buildUser();
+    //TODO
+    //handle facebook auth stuff
+  }
+
+  buildUser = () =>{
     let new_user = new UserObj();
     new_user.gender = this.toggledGender;
     new_user.ageGroup = this.toggledAge;
     new_user.level = this.toggledFitLvl;
     new_user.goals = this.toggledGoals;
-    //TODO
-    //handle facebook auth stuff
+    return new_user;
   }
 
 

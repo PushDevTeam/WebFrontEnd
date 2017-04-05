@@ -235,8 +235,8 @@
             Passwords must match.
           </div>
         </div>
-        <button ion-button submit id="submit">SIGN UP</button>
-        <button ion-button (click)="facebookSignIn()" id="fbsubmit">
+        <button ion-button submit (click)="onSubmit()" id="submit">SIGN UP</button>
+        <button ion-button (click)="facebookSignUp()" id="fbsubmit">
           <ion-icon name='logo-facebook'></ion-icon>Sign up with Facebook</button>
         <button ion-button clear id="already" (click)="alreadyHave()"> I already have an account</button>
 

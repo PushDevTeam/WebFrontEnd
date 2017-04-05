@@ -58,9 +58,10 @@ export class AzureService {
     }*/
     testApi = () => {
         //this.client//
-        //let TestAPI = this.http.get("https://pushdaily-api.azurewebsites.net/api/TestAPI").map((res:Response) => {res.json(); console.log('res.json()', res.json())});
+        //let TestAPI = this.http.get("https://pushdaily-api.azurewebsites.net:3000/api/TestAPI").map((res:Response) => {res.json(); console.log('TestAPI success /n res.json()', res.json())},(res:Response) => {res.json(); console.log('TestAPI fail /n res.json()', res.json())});
+        //let TestAPI = this.http.get(this.client.").map((res:Response) => {res.json(); console.log('TestAPI success /n res.json()', res.json())},(res:Response) => {res.json(); console.log('TestAPI fail /n res.json()', res.json())});
+        //this.client.invokeApi('TestAPI', {method: 'GET'}).then((resp)=>{console.log('TestAPI \n client SDK \n', resp)});
         //console.log('TestAPI \n \n', TestAPI);
-
     }
 
     updateTableItem = (tablename: string, updateitem: any): Promise<any> => {
