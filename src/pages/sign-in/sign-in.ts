@@ -31,7 +31,7 @@ export class SignInPage implements OnInit {
   }
   onCustomLogin(form: NgForm){
     this.userService.createUser(form);
-    this.authService.customAuthLogin(this.userService.currentuser).then()
+    this.authService.customAuthLogin(this.userService.currentuser).then(this.onSuccessfulLogin, this.onFailedLogin);
   }
   onSuccessfulLogin = () => {
     this.navCtrl.setRoot(Home);
@@ -39,6 +39,7 @@ export class SignInPage implements OnInit {
 
   onFailedLogin(){
     //TODO: handle failed login
+    this.onForgotPassword();
   }
 
   onSignUp(form: NgForm) {

@@ -14,12 +14,12 @@ export class CustomAuthService {
         console.log('running custom auth userLogin');
         return this.azureService.client.invokeApi('Auth', {method: 'POST', body: {username: username, password: password}})
         .then((resp)=>{
-            console.log('custom auth login response! \n', resp);
+            console.log('custom auth login response \n', resp);
             console.log('windowsAzure.client \n', this.azureService.client);
-            
+            /*
             this.azureService.client.login('JKW', {'access_token': resp.result.token}).then((azureresponse)=>{
                 console.log('azure authentication with custom auth \n', azureresponse);
-            });
+            });*/
             
         });
     }
@@ -30,9 +30,9 @@ export class CustomAuthService {
         .then((resp)=>{
             console.log('custom auth sign up response \n', resp);
             
-            this.azureService.client.login('JKW', {'access_token': resp.result.token}).then((azureresponse)=>{
+            /*this.azureService.client.login('JKW', {'access_token': resp.result.token}).then((azureresponse)=>{
                 console.log('azure login with custom auth response \n', azureresponse);
-            });
+            });*/
             
         });
     }

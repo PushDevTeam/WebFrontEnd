@@ -40,7 +40,7 @@ export class AuthService {
     return this.customAuthService.userLogin(userobj.email, userobj.password).then((response)=>{
       console.log("custom auth response after logging in \n AuthService.customAuthLogin \n ", response, '\n', userobj);
       this.userService.storeUser(userobj);
-    })
+    }, (error)=>{console.log('error in customAuthLogin of customAuthService.userLogin() \n', error, '\n', userobj )});
   }
 
   facebookAuth = () => {
