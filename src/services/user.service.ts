@@ -53,7 +53,7 @@ export class UserObj {
   public level?: number;
   public goals?: number[];
 
-  private _password: string;
+  protected _password: string;
 
   public profileimgurl?: string;
 
