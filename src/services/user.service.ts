@@ -52,10 +52,12 @@ export class UserObj {
   public ageGroup?: number;
   public level?: number;
   public goals?: number[];
-
+  public profileimgurl?: string;
+  public authtype?: string;
+  public authtoken?: string;
+  
   protected _password: string;
 
-  public profileimgurl?: string;
 
   set password(pw: string){
     this._password = SimpleCrypt({password: cryptpw, salt: cryptsalt}).encrypt(pw);

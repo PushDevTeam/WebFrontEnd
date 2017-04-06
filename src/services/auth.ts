@@ -30,21 +30,34 @@ export class AuthService {
   }
 
   customAuthSignUp = (userobj: IUserObj) => {
-    return this.customAuthService.userSignUp(userobj.email, userobj.password).then((response)=>{
+    userobj.authtype = 'custom';
+    return this.customAuthService.userSignUp(userobj).then((response)=>{
       console.log('new user from user object \n AuthService.customAuthSignUp \n ', response, '\n', userobj);
-      this.userService.storeUser(userobj);
+      //his.userService.storeUser(userobj);
     })
   }
 
   customAuthLogin = (userobj: IUserObj) => {
-    return this.customAuthService.userLogin(userobj.email, userobj.password).then((response)=>{
+    userobj.authtype = 'custom';
+    return this.customAuthService.userLogin(userobj).then((response)=>{
       console.log("custom auth response after logging in \n AuthService.customAuthLogin \n ", response, '\n', userobj);
-      this.userService.storeUser(userobj);
+      
+      //this.userService.storeUser(userobj);
     }, (error)=>{console.log('error in customAuthLogin of customAuthService.userLogin() \n', error, '\n', userobj )});
   }
 
   fbAuthSignUp = (userobj: IUserObj) => {
-    return this.facebookAuth(userobj);
+    userobj.authtype = 'facebook';
+    return this.facebookAuth(userobj).then(()=>{
+      return this.customAuthSignUp(userobj);
+    })
+  }
+
+  fbAuthLogin = (userobj: IUserObj) => {
+    userobj.authtype = 'facebook';
+    return this.facebookAuth(userobj).then(()=>{
+      //TODO: update push API user table with current facebook data
+    })
   }
 
 
@@ -54,10 +67,9 @@ export class AuthService {
           console.log('response', response)
           userobj.email = response.email;
           userobj.name = response.name;
-          userobj.password = 'facebook';
+          userobj.password = null;
           userobj.profileimgurl = response.picture.data.url;
           userobj.gender = response.gender;
-          this.userService.storeUser(userobj);
         })
 
 
