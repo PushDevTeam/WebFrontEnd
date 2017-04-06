@@ -22,7 +22,7 @@ export class FBService {
     }
 
     userLogin = () => {
-        this.fb.getLoginStatus().then((resp)=>{if (resp.status !== 'connected'){
+        return this.fb.getLoginStatus().then((resp)=>{if (resp.status !== 'connected'){
         return this.fb.login().then(
             (response: FacebookLoginResponse) => {
                 console.log(response);
