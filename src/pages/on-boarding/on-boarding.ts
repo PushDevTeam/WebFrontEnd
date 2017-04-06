@@ -40,7 +40,7 @@ export class OnBoardingPage {
   }
   @ViewChild('onboardSlider') onboardSlider: any;
   build_user: UserObj = new UserObj();
-
+  temp_user: any = {};
 
   confirm_pword: string;
 
@@ -105,8 +105,8 @@ export class OnBoardingPage {
 
   passwordsMatch(){
     return (
-      (this.build_user.password == this.confirm_pword)
-      && (this.build_user.password != '')
+      (this.temp_user.password == this.confirm_pword)
+      && (this.temp_user.password != '')
       && (this.confirm_pword != ''));
   }
   alreadyHave(){
@@ -137,6 +137,8 @@ export class OnBoardingPage {
       return false;
     }
 
+    this.build_user.password = this.temp_user.password;
+    this.temp_user = {};
 
     let gender = GENDER_LIST[this.toggledGender];
     let age_group = AGE_GROUPS[this.toggledAge];
