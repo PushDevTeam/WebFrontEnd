@@ -12,9 +12,9 @@
         </h1>
         <h2>
           <p>
-            This 2-minute assessment will<br />
-            help us create the best<br />
-            work out for you.<br />
+            This 2-minute assessment will
+            help us <br />create the best
+            work out for you.
           </p>
         </h2>
 
@@ -126,7 +126,8 @@
         </div>
         <div class="onboard-grid">
           <button *ngFor="let g of exercisesList; let index = index" (click)="toggleExerciseButton(index)" [ngClass]="{'toggled':this.toggledExercises.indexOf(index) > -1}">
-          {{this.exercisesList[index]}}
+
+          <img src="{{exercisesList[index]}}" />
           </button>
 
 
@@ -191,9 +192,12 @@
     </ion-slide>
     <ion-slide class="form-slide">
       <div class='logo-wrap'>
-        <img src='assets/PUSHDAILY_Logo_Black.png' id='logo'/>
+        <img src='assets/PUSHTEXT_Logo_Black.png' id='logo'/>
       </div>
-      <form #form='ngForm' class="onboard-form" ngSubmit='onSubmit()'>
+      <div class='onboard-form'>
+
+
+      <form #form='ngForm' ngSubmit='onSubmit()'>
         <ion-item>
           <ion-input
           placeholder="Full Name"
@@ -230,17 +234,19 @@
             name='confirm_pword'
             type="password"></ion-input>
         </ion-item>
-        <div class="error-pwords">
-          <div *ngIf="(!passwordsMatch())">
+        <div >
+          <div *ngIf="(!passwordsMatch())" class="error-pwords">
             Passwords must match.
           </div>
         </div>
-        <button ion-button submit (click)="onSubmit()" id="submit">SIGN UP</button>
-        <button ion-button (click)="facebookSignUp()" id="fbsubmit">
+        <button ion-button submit id="submit" (click)='onSubmit()'>SIGN UP</button>
+        </form>
+        <button ion-button (click)="facebookSignIn()" id="fbsubmit">
           <ion-icon name='logo-facebook'></ion-icon>Sign up with Facebook</button>
         <button ion-button clear id="already" (click)="alreadyHave()"> I already have an account</button>
 
-      </form>
+
+      </div>
     </ion-slide>
 
   </ion-slides>

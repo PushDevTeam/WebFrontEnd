@@ -16,6 +16,8 @@ import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
 import {VideoView} from '../pages/video-view/video-view';
 import {VideoRatingPage} from '../pages/video-rating/video-rating';
 import { ForgotPasswordPage} from '../pages/forgot-password/forgot-password';
+import {ContactUsPage} from '../pages/contact-us/contact-us';
+
 
 import {AzureService} from '../services/azure.service';
 
@@ -47,6 +49,7 @@ import {CustomAuthService} from '../services/customauth.service';
     VideoRatingPage,
     Terms,
     ForgotPasswordPage,
+    ContactUsPage,
 
   ],
   imports: [
@@ -65,7 +68,8 @@ import {CustomAuthService} from '../services/customauth.service';
     VideoView,
     ForgotPasswordPage,
     VideoRatingPage,
-    Terms
+    Terms,
+    ContactUsPage
   ],
   providers: [
   {provide: ErrorHandler, useClass: IonicErrorHandler},

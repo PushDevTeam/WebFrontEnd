@@ -2,7 +2,6 @@ import { Component, ViewChild} from '@angular/core';
 import { NavController, NavParams} from 'ionic-angular';
 import { NgForm } from "@angular/forms";
 
-
 import { Home} from '../home/home';
 import {SignInPage} from '../sign-in/sign-in';
 import {UserObj,
@@ -14,7 +13,7 @@ import {UserObj,
   FITNESS_GOALS,
   CAST_OPT,
 } from '../../services/user.service';
-import {AuthService} from '../../services/auth';
+import { AuthService } from '../../services/auth';
 /*
   Generated class for the OnBoarding page.
 
@@ -34,7 +33,8 @@ const USERNAME_REGEX = /^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]
 export class OnBoardingPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    private authService: AuthService
+    public userService: UserService,
+    public authService: AuthService
     ) {
 
   }
@@ -153,6 +153,7 @@ export class OnBoardingPage {
     this.authService.customAuthSignUp(new_user);
     // authorize form data
     // create user and store
+    this.userService.storeUser(this.build_user);
     this.navCtrl.setRoot(Home);
   }
 
@@ -169,6 +170,11 @@ export class OnBoardingPage {
     new_user.ageGroup = this.toggledAge;
     new_user.level = this.toggledFitLvl;
     new_user.goals = this.toggledGoals;
+
+    this.authService.facebookAuth();
+    //TODO
+    // what if fb auth fails
+    this.navCtrl.setRoot(Home);
     return new_user;
   }
 

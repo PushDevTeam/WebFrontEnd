@@ -1,13 +1,7 @@
 $feature_w: 100vw*(9/16);
 
-.featured {
-  height: auto;
-}
-.feature-slide{
-  background-color: green;
-
-}
-
-home {
-
+page-home {
+  ion-header ion-title img {
+    width: 50%;
+  }
 }

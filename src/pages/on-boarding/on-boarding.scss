@@ -71,7 +71,8 @@ page-on-boarding {
   }
   //beginning slide
   .begin {
-    background-color: color($colors,midgrey);
+    background-image: url('../assets/PUSH_OnboardingOpener.jpg');
+    background-position: 100% 100%;
     border-right-style: solid;
     border-right-width: 0.4vh;
     border-right-color: color($colors, red);
@@ -80,18 +81,18 @@ page-on-boarding {
   .begin .banner-header {
     height: $header_banner_h;
     padding-top: 6%;
-    background-color: color($colors, midgrey);
+    background: none;
     color: black;
     border: none;
     text-transform: uppercase;
   }
 
   .begin .onboard-body {
-    background-color: color($colors, midgrey);
+    background: none;
   }
 
   .begin h1 {
-    color: white;
+    color: color($colors, midgrey);
   }
 
   .begin p {
@@ -100,7 +101,7 @@ page-on-boarding {
     margin-top: 2vh;
     font-size: $sub_font_sz;
     display: block;
-    color: white;
+    color: black;
     font-family: DinPro;
     font-weight: 300;
   }
@@ -160,17 +161,25 @@ page-on-boarding {
     margin-top: 1vh;
     display: inline;
     margin: 1vw;
-    border-style: solid;
+    border: none;
     border-color: white;
     font-family: DinPro;
     font-weight: 400;
+    background-size: 100% 100%;
+    padding: 0;
+
   }
 
   .choose-exercises .toggled {
     color: white;
-    border-style: solid;
-    border-color: color($colors, primary);
-    border-width: 1vw*(2/4);
+    border: none;
+    outline-style: solid;
+    outline-color: color($colors, primary);
+    outline-width: 1vw*(3/4);
+    padding: 0;
+    height: $lower_h/5;
+
+
   }
   //choose-goals slide
   .choose-goals button {
@@ -281,6 +290,7 @@ page-on-boarding {
       }
 
       .error-pwords {
+        font-family: DinPro !important;
         color: red;
         font-weight: 100;
         font-size: $err_font_sz;
