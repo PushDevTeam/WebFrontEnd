@@ -162,9 +162,10 @@ export class OnBoardingPage {
 
   facebookSignUp(){
     this.build_user;
+    this.build_user.password = 'facebook';
     //TODO
     //handle facebook auth stuff
-    this.authService.facebookAuth().then((resp)=> console.log(resp));
+    return this.authService.facebookAuth(this.build_user).then((resp)=> console.log(resp));
   }
 
   buildUser = () =>{

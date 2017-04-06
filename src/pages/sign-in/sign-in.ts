@@ -26,12 +26,13 @@ export class SignInPage implements OnInit {
               private navParams: NavParams,
               private userService: UserService) {}
 
-  onFacebookLogin(){
-    return this.authService.facebookAuth().then(this.onSuccessfulLogin, this.onFailedLogin);
+  onFacebookLogin(form: NgForm){
+    this.userService.createUser(form);
+    return this.authService.facebookAuth(this.userService.currentuser).then(this.onSuccessfulLogin, this.onFailedLogin);
   }
   onCustomLogin(form: NgForm){
     this.userService.createUser(form);
-    this.authService.customAuthLogin(this.userService.currentuser).then(this.onSuccessfulLogin, this.onFailedLogin);
+    return this.authService.customAuthLogin(this.userService.currentuser).then(this.onSuccessfulLogin, this.onFailedLogin);
   }
   onSuccessfulLogin = () => {
     this.navCtrl.setRoot(Home);
@@ -61,10 +62,10 @@ onForgotPassword() {
 
 onSignin(form: NgForm) {
   // code from javes testing user storage
-  this.onCustomLogin(form);
-  this.userService.createUser(form);
+  return this.onCustomLogin(form);
+  //this.userService.createUser(form);
 
-  this.navCtrl.setRoot(Home);
+  //this.navCtrl.setRoot(Home);
 //if this.mode == up || this.mode == in
               //  const loading = this.loadingCtrl.create({
                 //  content: 'Signing you in...'

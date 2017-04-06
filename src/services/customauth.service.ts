@@ -20,14 +20,14 @@ export class CustomAuthService {
     userLogin = (username: string, password: string) => {
         let encrypttosend = SimpleCrypt({password: cryptpw, salt: cryptosalt}).encrypt(password);
         return this.azureService.client.invokeApi('Auth', {method: 'POST', body: {username: username, password: password}})
-        .then(this.authSuccess, this.authError);
+        .done(this.authSuccess, this.authError);
     }
 
     userSignUp = (username: string, password: string) => {
         let self = this;
         let encrypttosend = SimpleCrypt({password: cryptpw, salt: cryptosalt}).encrypt(password);
         return this.azureService.client.invokeApi('Auth', {method: 'PUT', body: {username: username, password: password}})
-        .then(self.authSuccess, self.authError);
+        .done(self.authSuccess, self.authError);
     }
     authSuccess = (resp) => {
             console.log('custom auth response \n', resp);
@@ -39,5 +39,7 @@ export class CustomAuthService {
     }
     authError = (error) => {
         console.log('authError \n', error);
+        console.log('still inside autherror \n');
+        
     }
 }

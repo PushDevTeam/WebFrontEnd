@@ -43,18 +43,21 @@ export class AuthService {
     }, (error)=>{console.log('error in customAuthLogin of customAuthService.userLogin() \n', error, '\n', userobj )});
   }
 
-  facebookAuth = () => {
+  fbAuthSignUp = (userobj: IUserObj) => {
+    return this.facebookAuth(userobj);
+  }
+
+
+  facebookAuth = (userobj: IUserObj) => {
       return this.fbService.userLogin().then((response)=>{
-        this.fbService.getUserInfo().then((response)=>{
+        return this.fbService.getUserInfo().then((response)=>{
           console.log('response', response)
-          let user = new UserObj();
-          user.email = response.email;
-          //user.username = response.name;
-          user.password = '';
-          user.id = response.third_party_id;
-          user.profileimgurl = response.picture.data.url;
-          user.gender = response.gender;
-          this.userService.storeUser(user);
+          userobj.email = response.email;
+          userobj.name = response.name;
+          userobj.password = 'facebook';
+          userobj.profileimgurl = response.picture.data.url;
+          userobj.gender = response.gender;
+          this.userService.storeUser(userobj);
         })
 
 
