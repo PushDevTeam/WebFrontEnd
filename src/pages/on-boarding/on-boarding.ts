@@ -149,8 +149,8 @@ export class OnBoardingPage {
     console.log('toggled_goals: \n', toggled_goals);
     console.log('cast_opt: \n', cast_opt);
 
-    let new_user = this.buildUser();
-    this.authService.customAuthSignUp(new_user);
+    
+    this.authService.customAuthSignUp(this.build_user);
     // authorize form data
     // create user and store
     this.userService.storeUser(this.build_user);
@@ -159,23 +159,21 @@ export class OnBoardingPage {
 
 
   facebookSignUp(){
-    let new_user = this.buildUser();
+    this.build_user;
     //TODO
     //handle facebook auth stuff
+    this.authService.facebookAuth().then((resp)=> console.log(resp));
   }
 
   buildUser = () =>{
-    let new_user = new UserObj();
-    new_user.gender = this.toggledGender;
-    new_user.ageGroup = this.toggledAge;
-    new_user.level = this.toggledFitLvl;
-    new_user.goals = this.toggledGoals;
+    this.build_user.gender = this.toggledGender;
+    this.build_user.ageGroup = this.toggledAge;
+    this.build_user.level = this.toggledFitLvl;
+    this.build_user.goals = this.toggledGoals;
 
-    this.authService.facebookAuth();
     //TODO
     // what if fb auth fails
     this.navCtrl.setRoot(Home);
-    return new_user;
   }
 
 
