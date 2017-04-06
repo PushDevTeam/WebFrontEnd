@@ -26,8 +26,7 @@ export class SignInPage implements OnInit {
               private navParams: NavParams,
               private userService: UserService) {}
 
-  onFacebookLogin(form: NgForm){
-    this.userService.createUser(form);
+  onFacebookLogin(){
     return this.authService.facebookAuth(this.userService.currentuser).then(this.onSuccessfulLogin, this.onFailedLogin);
   }
   onCustomLogin(form: NgForm){
