@@ -164,7 +164,7 @@ export class OnBoardingPage {
     this.build_user.authtype = 'facebook';
     //TODO
     //handle facebook auth stuff
-    this.authService.facebookAuth(this.build_user).then((resp)=> {console.log(resp); });
+    this.authService.facebookAuth(this.build_user).then((resp)=> {console.log(resp); this.navCtrl.setRoot(Home) }, ()=>{this.navCtrl.pop()});
   }
 
   buildUser = () =>{

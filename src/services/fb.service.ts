@@ -22,15 +22,13 @@ export class FBService {
     }
 
     userLogin = () => {
-        console.log('running facebook userLogin');
+        this.fb.getLoginStatus().then((resp)=>{if (resp.status !== 'connected'){
         return this.fb.login().then(
             (response: FacebookLoginResponse) => {
-                console.log(response)
-                this.azureService.client.login('facebook', {'access_token': response.authResponse.accessToken}).then(()=>{console.log(this.azureService.client)});
-        },
-            (error: any) => console.error(error)
-        );
-    }
+                console.log(response);
+                return this.azureService.client.login('facebook', {'access_token': response.authResponse.accessToken});
+            })
+    }})}
 
     getUserFriends = () => {
         return this.fb.api('/me/friends').then((response)=>{console.log('getUserFriends response', response)})
