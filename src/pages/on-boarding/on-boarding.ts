@@ -151,21 +151,20 @@ export class OnBoardingPage {
     console.log('toggled_goals: \n', toggled_goals);
     console.log('cast_opt: \n', cast_opt);
 
-    
-    this.authService.customAuthSignUp(this.build_user);
+    this.build_user.authtype = 'custom';
+    this.authService.customAuthSignUp(this.build_user).then(()=>{
+      this.userService.storeUser(this.build_user); 
+      this.navCtrl.setRoot(Home)}, (err)=>{console.log('error in custom auth sign up')});
     // authorize form data
     // create user and store
-    this.userService.storeUser(this.build_user);
-    this.navCtrl.setRoot(Home);
   }
 
 
   facebookSignUp(){
-    this.build_user;
-    this.build_user.password = 'facebook';
+    this.build_user.authtype = 'facebook';
     //TODO
     //handle facebook auth stuff
-    return this.authService.facebookAuth(this.build_user).then((resp)=> console.log(resp));
+    this.authService.facebookAuth(this.build_user).then((resp)=> {console.log(resp); });
   }
 
   buildUser = () =>{
