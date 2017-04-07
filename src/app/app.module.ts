@@ -31,6 +31,7 @@ import {UserService} from '../services/user.service';
 import {StorageService} from '../services/storage.service';
 import {FBService} from '../services/fb.service';
 import {FacebookService} from 'ng2-facebook-sdk';
+import {CustomAuthService} from '../services/customauth.service';
 
 
 @NgModule({
@@ -83,7 +84,8 @@ import {FacebookService} from 'ng2-facebook-sdk';
   StorageService,
   FBService,
   FacebookService,
-
+  CustomAuthService
+  
   ]
 })
 export class AppModule {}

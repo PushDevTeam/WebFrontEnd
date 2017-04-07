@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {StorageService} from './storage.service';
 import { NgForm } from "@angular/forms";
-
+import * as SimpleCrypt from 'simplecrypt';
 /*
 TODO:  review what information we want on users
 */
@@ -36,20 +36,33 @@ export const EXERCISES_TYPES =
 
   ];
 
+//encryption keys for local storage and internet travel
+//do not change or else passwords in database will become invalid
+const cryptpw = '5994c9fd-fe85-41f8-924d-0562da315c32';
+const cryptsalt = 'd2b9ef30-7ca4-4416-b539-5cdba854ed4e';
+
+export interface IUserObj extends UserObj{};
+
 export class UserObj {
   public id: number;
   //public username: string;
   public name: string;
-  public password: string;
   public email: string;
   public gender?: number;
   public ageGroup?: number;
   public level?: number;
   public goals?: number[];
-
   public profileimgurl?: string;
+  public authtype?: string;
+  public authtoken?: string;
+  
+  protected _password: string;
 
 
+  set password(pw: string){
+    this._password = SimpleCrypt({password: cryptpw, salt: cryptsalt}).encrypt(pw);
+  }
+  get password(){return this._password};
 
 }
 /*
@@ -90,7 +103,7 @@ export class UserService {
   }
   public createUser(form: NgForm) {
     var save_user = new UserObj();
-    save_user.id = 0;
+    save_user.id = form.value.email;
     save_user.email = form.value.email;
     save_user.password = form.value.password;
   //  save_user.username = "mock_username";
@@ -105,4 +118,6 @@ export class UserService {
     this.user = undefined;
     this.storageService.remove('user');
   }
+
+  get currentuser() {return this.user};
 }

@@ -19,7 +19,7 @@ import {VideoView} from '../pages/video-view/video-view';
 import {VideoRatingPage} from '../pages/video-rating/video-rating';
 import {FBService} from '../services/fb.service';
 
-declare var WindowsAzure: any;
+//import * as WindowsAzure from 'azure-mobile-apps-client';
 declare var MobileAccessibility: any;
 
 

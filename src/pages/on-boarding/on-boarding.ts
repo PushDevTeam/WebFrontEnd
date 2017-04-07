@@ -40,7 +40,7 @@ export class OnBoardingPage {
   }
   @ViewChild('onboardSlider') onboardSlider: any;
   build_user: UserObj = new UserObj();
-
+  temp_user: any = {};
 
   confirm_pword: string;
 
@@ -105,8 +105,8 @@ export class OnBoardingPage {
 
   passwordsMatch(){
     return (
-      (this.build_user.password == this.confirm_pword)
-      && (this.build_user.password != '')
+      (this.temp_user.password == this.confirm_pword)
+      && (this.temp_user.password != '')
       && (this.confirm_pword != ''));
   }
   alreadyHave(){
@@ -137,26 +137,42 @@ export class OnBoardingPage {
       return false;
     }
 
-    console.log(GENDER_LIST[this.toggledGender]);
-    console.log(AGE_GROUPS[this.toggledAge]);
-    console.log(FIT_LEVELS[this.toggledFitLvl]);
-    console.log(this.toggledGoals);
-    console.log(CAST_OPT[this.toggledCast]);
+    this.build_user.password = this.temp_user.password;
+    this.temp_user = {};
 
+    let gender = GENDER_LIST[this.toggledGender];
+    let age_group = AGE_GROUPS[this.toggledAge];
+    let fit_level = FIT_LEVELS[this.toggledFitLvl];
+    let toggled_goals = this.toggledGoals;
+    let cast_opt = CAST_OPT[this.toggledCast];
+    console.log('gender: \n', gender);
+    console.log('age_group: \n', age_group);
+    console.log('fit_level: \n', fit_level);
+    console.log('toggled_goals: \n', toggled_goals);
+    console.log('cast_opt: \n', cast_opt);
+
+    this.build_user.authtype = 'custom';
+    this.authService.customAuthSignUp(this.build_user).then(()=>{
+      this.userService.storeUser(this.build_user); 
+      this.navCtrl.setRoot(Home)}, (err)=>{console.log('error in custom auth sign up')});
     // authorize form data
     // create user and store
-    this.userService.storeUser(this.build_user);
-    this.navCtrl.setRoot(Home);
   }
 
-  facebookSignIn(){
-    let new_user = new UserObj();
-    new_user.gender = this.toggledGender;
-    new_user.ageGroup = this.toggledAge;
-    new_user.level = this.toggledFitLvl;
-    new_user.goals = this.toggledGoals;
 
-    this.authService.facebookAuth();
+  facebookSignUp(){
+    this.build_user.authtype = 'facebook';
+    //TODO
+    //handle facebook auth stuff
+    this.authService.facebookAuth(this.build_user).then((resp)=> {console.log(resp); this.navCtrl.setRoot(Home) }, ()=>{this.navCtrl.pop()});
+  }
+
+  buildUser = () =>{
+    this.build_user.gender = this.toggledGender;
+    this.build_user.ageGroup = this.toggledAge;
+    this.build_user.level = this.toggledFitLvl;
+    this.build_user.goals = this.toggledGoals;
+
     //TODO
     // what if fb auth fails
     this.navCtrl.setRoot(Home);
