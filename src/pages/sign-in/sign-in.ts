@@ -39,7 +39,7 @@ export class SignInPage implements OnInit {
 
   onFailedLogin(){
     //TODO: handle failed login
-    this.onForgotPassword();
+    this.navCtrl.push(ForgotPasswordPage);
   }
 
   onSignUp(form: NgForm) {
