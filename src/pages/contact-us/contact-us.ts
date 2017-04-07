@@ -3,6 +3,8 @@ import { NavController, NavParams } from 'ionic-angular';
 import { EmailObj } from './email';
 import { NgForm, FormGroup, FormControl, FormBuilder, Validators, FormArray } from "@angular/forms";
 import { UserService} from '../../services/user.service';
+import { Home } from '../home/home';
+
 /*
   Generated class for the ContactUs page.
 
@@ -27,6 +29,11 @@ private email = new EmailObj();
 
 sendEmail() {
 
+  this.navCtrl.setRoot(Home);
+}
+
+onCancel() {
+  this.navCtrl.setRoot(Home);
 }
 
 }

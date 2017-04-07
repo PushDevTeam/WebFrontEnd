@@ -4,16 +4,15 @@
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+    <form #emailForm="ngForm" (ngSubmit)="sendEmail()">
   <ion-navbar hideBackButton="true">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Contact Us</ion-title>
+    <ion-row>
+
+<button ion-button class="cancelButton" clear strong="false" (click)="onCancel()"> Cancel </button>
+    <button class="sendButton" ion-button clear type="submit" strong="false"> Send </button>
+</ion-row>
   </ion-navbar>
-</ion-header>
-<ion-content>
-  <form #emailForm="ngForm" (ngSubmit)="sendEmail()">
+
       <ion-item>
         <ion-label fixed>To: </ion-label>
         <ion-input
@@ -60,7 +59,9 @@
         </ion-textarea>
      </ion-item>
    </div>
+   <!--
       <button ion-button type="submit"> Send </button>
       <button ion-button> Cancel </button>
+-->
+
       </form>
-      </ion-content>

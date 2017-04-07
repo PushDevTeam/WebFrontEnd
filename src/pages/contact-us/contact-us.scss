@@ -3,13 +3,36 @@ page-contact-us {
   font-family: DinPro !important;
   }
 
-ion-textarea {
-  height: 40vh;
+  ion-textarea {
+    height: 85vh;
+  }
+
+
+ion-label {
+  font-weight: lighter;
+  font-family: DinPro !important;
+}
+
+.emailBody .item-textarea {
+   font-family: DinPro !important;
 }
 
 
-.emailBody .item-textarea {
-  padding: 0 0 0 0;
+.button-inner {
+  text-transform: none;
+  font-family: DinPro !important;
+}
+
+
+.sendButton {
+  padding-right: 1vw;
+  margin-left: 40vw;
+  position: absolute;
+  right: 1.6vh;
+}
+
+.cancelButton {
+  padding-left: 1.6vw;
 }
 
 }
