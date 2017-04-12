@@ -41,7 +41,6 @@ export class AuthService {
     userobj.authtype = 'custom';
     return this.customAuthService.userLogin(userobj).then((response)=>{
       console.log("custom auth response after logging in \n AuthService.customAuthLogin \n ", response, '\n', userobj);
-      
       //this.userService.storeUser(userobj);
     }, (error)=>{console.log('error in customAuthLogin of customAuthService.userLogin() \n', error, '\n', userobj )});
   }
@@ -49,14 +48,18 @@ export class AuthService {
   fbAuthSignUp = (userobj: IUserObj) => {
     userobj.authtype = 'facebook';
     return this.facebookAuth(userobj).then(()=>{
-      return this.customAuthSignUp(userobj);
+      return this.customAuthService.userSignUp(userobj).then((response)=>{
+        console.log('new user from user object \n customAuthService.userSignUp from fbAuthSignUp\n ', response, '\n', userobj);
+      });
     })
   }
 
   fbAuthLogin = (userobj: IUserObj) => {
     userobj.authtype = 'facebook';
     return this.facebookAuth(userobj).then(()=>{
-      return this.customAuthLogin(userobj);
+      return this.customAuthService.userLogin(userobj).then((response)=>{
+        console.log('new user from user object \n customAuthService.userLogin from fbAuthLogin \n ', response, '\n', userobj);
+      });
       //TODO: update push API user table with current facebook data
     })
   }
