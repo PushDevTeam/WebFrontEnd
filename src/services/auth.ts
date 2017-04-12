@@ -3,13 +3,15 @@ import {AzureService} from './azure.service';
 import {FBService} from './fb.service';
 import {UserObj, IUserObj, UserService} from './user.service';
 import {CustomAuthService} from './customauth.service';
-
+import {NavController, NavParams} from 'ionic-angular';
+import {ForgotPasswordPage} from '../forgot-password/forgot-password';
 @Injectable()
 export class AuthService {
   constructor(private azureService: AzureService, 
               private fbService: FBService, 
               private customAuthService: CustomAuthService,
-              private userService: UserService){
+              private userService: UserService,
+              private navController: NavController){
 
   }
 
@@ -56,6 +58,7 @@ export class AuthService {
   fbAuthLogin = (userobj: IUserObj) => {
     userobj.authtype = 'facebook';
     return this.facebookAuth(userobj).then(()=>{
+      return this.customAuthLogin(userobj);
       //TODO: update push API user table with current facebook data
     })
   }
