@@ -3,15 +3,13 @@ import {AzureService} from './azure.service';
 import {FBService} from './fb.service';
 import {UserObj, IUserObj, UserService} from './user.service';
 import {CustomAuthService} from './customauth.service';
-import {NavController, NavParams} from 'ionic-angular';
 import {ForgotPasswordPage} from '../forgot-password/forgot-password';
 @Injectable()
 export class AuthService {
   constructor(private azureService: AzureService, 
               private fbService: FBService, 
               private customAuthService: CustomAuthService,
-              private userService: UserService,
-              private navController: NavController){
+              private userService: UserService){
 
   }
 
