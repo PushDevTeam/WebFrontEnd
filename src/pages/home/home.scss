@@ -1,7 +1,24 @@
 $feature_w: 100vw*(9/16);
 
 page-home {
-  ion-header ion-title img {
-    width: 50%;
+
+  ion-header ion-title {
+    text-align: center;
+    img {
+      width: 20%;
+    }
   }
+  #user-sidepanel{
+    // CSS for alignment of Component goes here, not for CSS within component
+    background-color: lightgrey;
+  }
+  #browse-panel{
+    // CSS for alignment of Component goes here, not for CSS within component
+  }
+  #radio-sidepanel{
+    // CSS for alignment of Component goes here, not for CSS within component
+    background-color: lightgrey;
+
+  }
+
 }

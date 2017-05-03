@@ -1,8 +1,6 @@
 <ion-header>
   <ion-navbar hideBackButton="true">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+
     <ion-title>
       <img src='assets/PUSHTEXT_Logo_Black.png' />
     </ion-title>
@@ -10,10 +8,20 @@
 </ion-header>
 
 <ion-content>
-<feature></feature>
-
-  <side-scroller [set_label]="label1"></side-scroller>
-  <side-scroller [set_label]="label2"></side-scroller>
+  <feature></feature>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-3 id="user-sidepanel">
+        USER SIDEPANEL
+      </ion-col>
+      <ion-col col-6 id="browse-panel">
+        BROWSING PANEL
+      </ion-col>
+      <ion-col col-3 id="radio-sidepanel">
+        RADIO SIDEPANEL
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 
 </ion-content>
