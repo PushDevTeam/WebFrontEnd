@@ -5,11 +5,10 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 
 
 import { MyApp } from './app.component';
-import { Feature} from '../components/feature/feature.component';
+//PAGES
 import {Home} from "../pages/home/home";
 import { Terms } from '../pages/terms/terms';
-import {SideScroller} from "../components/side-scroller/side-scroller.component";
-import {VideoThumbnail} from "../components/video-thumbnail/video-thumbnail.component";
+
 import { SignInPage } from '../pages/sign-in/sign-in';
 import { StartPage } from '../pages/start/start';
 import {OnBoardingPage } from '../pages/on-boarding/on-boarding';
@@ -17,8 +16,15 @@ import {VideoView} from '../pages/video-view/video-view';
 import {VideoRatingPage} from '../pages/video-rating/video-rating';
 import { ForgotPasswordPage} from '../pages/forgot-password/forgot-password';
 import {ContactUsPage} from '../pages/contact-us/contact-us';
-
-
+// COMPONENTS
+import { Feature} from '../components/feature/feature.component';
+import {SideScroller} from "../components/side-scroller/side-scroller.component";
+import {VideoThumbnail} from "../components/video-thumbnail/video-thumbnail.component";
+import {BrowsePanel} from "../components/browse-panel/browse-panel.component";
+import {NowPlaying} from "../components/now-playing/now-playing.component";
+import {RadioSidepanel} from "../components/radio-sidepanel/radio-sidepanel.component";
+import {UserSidepanel} from "../components/user-sidepanel/user-sidepanel.component";
+//SERVICES
 import {AzureService} from '../services/azure.service';
 
 import { AuthService } from '../services/auth';
@@ -38,14 +44,19 @@ import {CustomAuthService} from '../services/customauth.service';
   declarations: [
 
     MyApp,
-    Home,
+    Feature,
     SideScroller,
     VideoThumbnail,
+    BrowsePanel,
+    NowPlaying,
+    RadioSidepanel,
+    UserSidepanel,
+    Home,
     SignInPage,
     OnBoardingPage,
     StartPage,
     VideoView,
-    Feature,
+
     VideoRatingPage,
     Terms,
     ForgotPasswordPage,
@@ -85,7 +96,7 @@ import {CustomAuthService} from '../services/customauth.service';
   FBService,
   FacebookService,
   CustomAuthService
-  
+
   ]
 })
 export class AppModule {}
