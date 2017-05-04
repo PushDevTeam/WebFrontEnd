@@ -4,7 +4,8 @@
 /**
  * Created by Javes on 3/19/2017.
  */
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { Slides } from 'ionic-angular';
 import { AzureService } from '../../services/azure.service';
 import { VideoView} from '../../pages/video-view/video-view';
 import { NavController } from 'ionic-angular';
@@ -15,6 +16,7 @@ import { VideoInfoService } from '../../services/video-info.service';
   templateUrl: 'feature.component.html'
 })
 export class Feature {
+  @ViewChild(Slides) slides: Slides;
   public video_ids: any[] = [];
   public video_info_arr: VideoInfoObj[] = [];
 
@@ -39,12 +41,21 @@ export class Feature {
   }
 
   ngOnInit() {
-
+  }
+  ngAfterViewInit(){
+    this.slides.lockSwipes(true);
 
   }
-
-
-
+  slideLeft(){
+    this.slides.lockSwipes(false);
+    this.slides.slidePrev();
+    this.slides.lockSwipes(true);
+  }
+  slideRight(){
+    this.slides.lockSwipes(false);
+    this.slides.slideNext();
+    this.slides.lockSwipes(true);
+  }
   goToVid(id) {
     this.navCtrl.push(VideoView, { 'id': id });
   }
