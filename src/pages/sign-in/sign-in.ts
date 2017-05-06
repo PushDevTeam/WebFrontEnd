@@ -27,7 +27,8 @@ export class SignInPage implements OnInit {
               private userService: UserService) {}
 
   onFacebookLogin(){
-    return this.authService.facebookAuth(this.userService.currentuser).then(this.onSuccessfulLogin, this.onFailedLogin);
+    this.userService.storeUser(new UserObj());
+    return this.authService.fbAuthLogin(this.userService.currentuser).then(this.onSuccessfulLogin, this.onFailedLogin);
   }
   onCustomLogin(form: NgForm){
     this.userService.createUser(form);
@@ -37,7 +38,7 @@ export class SignInPage implements OnInit {
     this.navCtrl.setRoot(Home);
   }
 
-  onFailedLogin(){
+  onFailedLogin = () => {
     //TODO: handle failed login
     this.navCtrl.push(ForgotPasswordPage);
   }
