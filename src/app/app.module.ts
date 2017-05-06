@@ -2,7 +2,7 @@
 import {NgModule, ErrorHandler} from '@angular/core';
 import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
 import {IonicStorageModule} from '@ionic/storage';
-import {StatusBar, Splashscreen} from 'ionic-native';
+// import {StatusBar, Splashscreen} from 'ionic-native';
 
 /* Root */
 import {MyApp} from './app.component';

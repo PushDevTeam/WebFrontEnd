@@ -1,6 +1,6 @@
 
 import {Injectable} from '@angular/core';
-import {IVideoInfoObj, VideoInfoObj} from '../components/video-thumbnail/video-info-obj';
+import {IVideoInfoObj} from '../components/video-thumbnail/video-info-obj';
 
 import * as WindowsAzure from 'azure-mobile-apps-client';
 
@@ -8,12 +8,12 @@ import { Http, Response } from '@angular/http';
 //declare var WindowsAzure: any;
 /**
  * ACG 3/29/17
- * 
+ *
  * Used for client side interaction with the Azure API
  * **/
 @Injectable()
 export class AzureService {
-    
+
     private _isinitialized = false;
     private _isloadingvideos = false;
     private _isdoneloadingvideos = false;
@@ -31,7 +31,7 @@ export class AzureService {
 
 
     constructor(public http: Http){
-        
+
       this.connectAzure(WindowsAzure.MobileServiceClient);
       //this.testApi();
     }
@@ -132,13 +132,13 @@ export class AzureService {
             return this._loadVideos();
         }
         else {
-            
+
             return Promise.resolve(this.videoinfos);
             //return this.videoinfos;
             //return new Promise(()=>{return this.videoinfos});
         }
     }
-    
+
     getFeaturedVideoThumb = (video_id: string) => {
         if (this._videofeatured.hasOwnProperty(video_id)){ return this._videofeatured[video_id].thumbUrl} else {return ''}
     }
@@ -152,7 +152,7 @@ export class AzureService {
             this._videobase = videobase;
             return videobase;
         });
-        
+
         let pvideourl: Promise<any> = this.getVideoUrls().then((urlresp)=>{
             let videourl = {};
             for (let i = 0; i < urlresp.length; i++){
@@ -261,7 +261,7 @@ export class AzureService {
          * @param {int} results.length the length of the results array
          * @param {Object} results[] the individual results
          */
-        
+
             function success(results) {
                 //var numItemsRead = results.length;
                 let resp = [];
@@ -290,4 +290,4 @@ export class AzureService {
     get isinitialized() {return this._isinitialized};
     get isdoneloadingvideos() { return this._isdoneloadingvideos };
     get isloadingvideos() {return this._isloadingvideos };
-}   
+}

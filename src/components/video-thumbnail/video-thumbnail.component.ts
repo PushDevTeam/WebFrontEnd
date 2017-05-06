@@ -5,7 +5,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {VideoInfoService} from '../../services/video-info.service';
 
-import {IVideoInfoObj, VideoInfoObj} from './video-info-obj';
+import {IVideoInfoObj} from './video-info-obj';
 import { VideoView} from '../../pages/video-view/video-view';
 import { NavController,  NavParams } from 'ionic-angular';
 
@@ -32,6 +32,9 @@ export class VideoThumbnail {
     this.infoService.fetchVideoData().then(()=> {
       this.metaData = this.infoService.getVideoInfo(this.id);
     });
+  }
+  onInit(){
+
   }
 
   goToVidView(){
