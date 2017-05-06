@@ -2,7 +2,6 @@
  * Created by Javes on 3/19/2017.
  */
 import {Component, Input} from '@angular/core';
-import {VideoThumbnail} from '../video-thumbnail/video-thumbnail.component';
 import {VideoInfoService} from '../../services/video-info.service';
 import {UserService} from '../../services/user.service';
 

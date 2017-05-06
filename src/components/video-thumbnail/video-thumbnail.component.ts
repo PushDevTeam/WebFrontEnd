@@ -4,17 +4,17 @@
 
 import {Component, Input, OnInit} from '@angular/core';
 import {VideoInfoService} from '../../services/video-info.service';
-import {VideoImgService} from '../../services/video-img.service';
-import {IVideoInfoObj, VideoInfoObj} from './video-info-obj';
+
+import {IVideoInfoObj} from './video-info-obj';
 import { VideoView} from '../../pages/video-view/video-view';
 import { NavController,  NavParams } from 'ionic-angular';
-import {UserService} from '../../services/user.service';
+
 
 
 @Component({
   selector: 'video-thumbnail',
   templateUrl: 'video-thumbnail.component.html',
-  providers: [VideoInfoService, VideoImgService]
+  providers: [VideoInfoService]
 })
 
 export class VideoThumbnail {
@@ -22,9 +22,7 @@ export class VideoThumbnail {
   public metaData: IVideoInfoObj = <IVideoInfoObj>{};
 
   constructor(
-    private userService: UserService,
     private infoService: VideoInfoService,
-    private imgService: VideoImgService,
     public navCtrl: NavController,
     public navParams: NavParams,
 
@@ -34,6 +32,9 @@ export class VideoThumbnail {
     this.infoService.fetchVideoData().then(()=> {
       this.metaData = this.infoService.getVideoInfo(this.id);
     });
+  }
+  onInit(){
+
   }
 
   goToVidView(){
