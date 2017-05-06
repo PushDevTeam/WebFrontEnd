@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController,  NavParams, ModalController } from 'ionic-angular';
-import { VideoService } from '../../services/video.service';
 import { VideoInfoService } from '../../services/video-info.service';
 import { IVideoInfoObj } from '../../components/video-thumbnail/video-info-obj';
 import { VideoRatingPage } from '../video-rating/video-rating';
