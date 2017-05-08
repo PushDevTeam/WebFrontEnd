@@ -14,12 +14,12 @@ import {UserService} from '../../services/user.service';
   templateUrl: 'home.html'
 })
 export class Home {
-
+  private d:any;
 
 
   constructor(public navCtrl: NavController,
     private userService: UserService) {
-
+    this.d = new Date();
 
 
   }

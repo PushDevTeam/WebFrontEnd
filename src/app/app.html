@@ -1,11 +1,13 @@
 
 
 
+
+
+
 <topbar></topbar>
 
-  <ion-content>
-  </ion-content>
+
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
 
 <bottombar></bottombar>
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

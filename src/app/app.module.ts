@@ -20,6 +20,7 @@ import {VideoView} from '../pages/video-view/video-view';
 /* Components */
 import {BottomBar} from '../components/bottombar/bottombar.component';
 import {Feature} from '../components/feature/feature.component';
+import {Headliner} from '../components/headliner/headliner.component';
 import {SideScroller} from "../components/side-scroller/side-scroller.component";
 import {TopBar} from '../components/topbar/topbar.component';
 import {VideoThumbnail} from "../components/video-thumbnail/video-thumbnail.component";
@@ -57,6 +58,7 @@ import {FacebookService} from 'ng2-facebook-sdk';
     VideoView,
     // components
     BottomBar,
+    Headliner,
     Feature,
     SideScroller,
     VideoThumbnail,

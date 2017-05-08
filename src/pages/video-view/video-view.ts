@@ -12,6 +12,7 @@ import { VideoRatingPage } from '../video-rating/video-rating';
 export class VideoView {
   public videoInfo : IVideoInfoObj = <IVideoInfoObj>{};
   private id: string;
+  private d: any;
 
   constructor(
     public videoInfoService: VideoInfoService,
@@ -19,7 +20,7 @@ export class VideoView {
     public navCtrl: NavController,
     private modalCtrl: ModalController
   ) {
-
+    this.d = new Date();
     this.id = this.navParams.get('id');
 
     this.videoInfoService.fetchVideoData().then(()=> {

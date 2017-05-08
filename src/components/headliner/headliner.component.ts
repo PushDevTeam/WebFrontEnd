@@ -12,10 +12,10 @@ import { NavController } from 'ionic-angular';
 import { VideoInfoObj } from '../video-thumbnail/video-info-obj';
 import { VideoInfoService } from '../../services/video-info.service';
 @Component({
-  selector: 'feature',
-  templateUrl: 'feature.component.html'
+  selector: 'headliner',
+  templateUrl: 'headliner.component.html'
 })
-export class Feature {
+export class Headliner {
   @ViewChild(Slides) slides: Slides;
   public video_ids: any[] = [];
   public video_info_arr: VideoInfoObj[] = [];
@@ -26,7 +26,7 @@ export class Feature {
     private videoInfoService: VideoInfoService,
   ) {
 
-    console.log('on init of feature.component');
+    console.log('on init of headliner.component');
     this.videoInfoService.fetchVideoData().then(() => {
       this.azureService.getFeaturedVideoIds().then((resp) => {
         this.video_ids = resp;
@@ -42,7 +42,20 @@ export class Feature {
 
   ngOnInit() {
   }
+  ngAfterViewInit(){
+    this.slides.lockSwipes(true);
 
+  }
+  slideLeft(){
+    this.slides.lockSwipes(false);
+    this.slides.slidePrev();
+    this.slides.lockSwipes(true);
+  }
+  slideRight(){
+    this.slides.lockSwipes(false);
+    this.slides.slideNext();
+    this.slides.lockSwipes(true);
+  }
   goToVid(id) {
     this.navCtrl.push(VideoView, { 'id': id });
   }
