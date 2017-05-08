@@ -8,7 +8,7 @@ import {RadioSidepanel} from '../../components/radio-sidepanel/radio-sidepanel.c
 import {UserSidepanel} from '../../components/user-sidepanel/user-sidepanel.component';
 
 import { NavController } from 'ionic-angular';
-import {UserService} from '../../services/user.service';
+import {UserService, EXERCISES_TYPES} from '../../services/user.service';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -19,15 +19,10 @@ export class Home {
 
   constructor(public navCtrl: NavController,
     private userService: UserService) {
-    this.d = new Date();
-
 
   }
+  exercisesList = EXERCISES_TYPES;
 
-  ngOnInit(){
-
-    //this.navCtrl.setRoot(Home);
-  }
   getEmail(){
     return this.userService.getEmail();
   }
