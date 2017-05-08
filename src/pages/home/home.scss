@@ -4,8 +4,21 @@ page-home {
 
 
   #body {
-    padding: 0 2% 0 2%;
-  
+    border-top-style: solid ;
+    border-top-color: lightgrey;
+    border-top-width: 2px;
+    border-bottom-style: solid ;
+    border-bottom-color: lightgrey;
+    border-bottom-width: 1px;
+    .section{
+      padding: 0 2% 0 2%;
+      border-top-style: solid ;
+      border-top-color: lightgrey;
+      border-top-width: 2px;
+      border-bottom-style: solid ;
+      border-bottom-color: lightgrey;
+      border-bottom-width: 1px;
+    }
   }
 
 }
