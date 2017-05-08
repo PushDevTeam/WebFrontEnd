@@ -18,9 +18,12 @@ import {VideoRatingPage} from '../pages/video-rating/video-rating';
 import {VideoView} from '../pages/video-view/video-view';
 
 /* Components */
+import {BottomBar} from '../components/bottombar/bottombar.component';
 import {Feature} from '../components/feature/feature.component';
 import {SideScroller} from "../components/side-scroller/side-scroller.component";
+import {TopBar} from '../components/topbar/topbar.component';
 import {VideoThumbnail} from "../components/video-thumbnail/video-thumbnail.component";
+
 
 /* Services */
 import {AuthService} from '../services/auth';
@@ -53,9 +56,11 @@ import {FacebookService} from 'ng2-facebook-sdk';
     VideoRatingPage,
     VideoView,
     // components
+    BottomBar,
     Feature,
     SideScroller,
     VideoThumbnail,
+    TopBar,
 
   ],
   imports: [

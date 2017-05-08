@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, NavController, Platform } from 'ionic-angular';
+import {Content, Nav, NavController, Platform} from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import { Storage } from '@ionic/storage';
 
@@ -17,6 +17,8 @@ import {ContactUsPage} from '../pages/contact-us/contact-us';
 import { StartPage } from '../pages/start/start';
 import {VideoView} from '../pages/video-view/video-view';
 import {VideoRatingPage} from '../pages/video-rating/video-rating';
+
+
 import {FBService} from '../services/fb.service';
 
 //import * as WindowsAzure from 'azure-mobile-apps-client';
@@ -28,7 +30,7 @@ declare var MobileAccessibility: any;
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-
+  @ViewChild(Content) content: Content;
   //rootPage: any = Home;
   rootPage: any = Home;
   pages: Array<{ title: string, component: any, icon_name: string }>;
@@ -49,7 +51,9 @@ export class MyApp {
     ];
 
   }
+  ngOnInit(){
 
+  }
   initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
