@@ -47,7 +47,7 @@
             <div class='section-head'>
               Popular Trainers
             </div>
-            <div class='trainer-prof'>
+            <div class='trainer-prof' *ngIf='true'>
               <div class='pic'>
                 <img src='assets/icons/profile.svg' />
               </div>
@@ -57,13 +57,15 @@
 
               </div>
             </div>
-            <p>
+            <div class='description'>
+
+
 
               some subtext yayyy lets see if it will
               auto wrap it so I need to put in a bunch
               of words yay
 
-            </p>
+            </div>
             <button ion-button>VIEW TRAINERS</button>
           </ion-col>
           <ion-col col-10>
@@ -72,6 +74,7 @@
         </ion-row>
       </ion-grid>
     </div>
+
     <h1>CONTENT</h1><br>
     <h1>CONTENT</h1><br>
     <h1>CONTENT</h1><br>
