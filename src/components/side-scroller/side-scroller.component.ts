@@ -14,14 +14,14 @@ import {UserService} from '../../services/user.service';
 
 export class SideScroller {
   @ViewChild(Slides) slides: Slides;
-  @Input() set_label: string;
+  @Input() set_id: string;
   public v_ids: string[];
 
 
 
   constructor(private videoInfoService: VideoInfoService,
     private userService: UserService) {
-
+      // TODO fetch a set of ids
     this.videoInfoService.getAllVideoIds().then((res) => {
       this.v_ids = res;
     });
@@ -38,7 +38,7 @@ export class SideScroller {
   }
 
   goToCategoryView() {
-    alert("goToCategoryView: " + this.set_label);
+    alert("goToCategoryView: " + this.set_id);
   }
   slideLeft(){
     this.slides.lockSwipes(false);

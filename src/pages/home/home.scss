@@ -13,7 +13,7 @@ page-home {
         margin-bottom: 8px;
         text-transform: uppercase;
         font-family: 'atcduel6' !important;
-        font-size: 2.5vw;
+        font-size: 2.2vw;
         color: color($colors, red);
       }
       .description{
@@ -25,9 +25,9 @@ page-home {
 
       }
       button {
-        position: absolute;
-        top: 75%;
-        margin: 2vw 0 0 0;
+
+        margin: 1vw 0 0 0;
+        background-color: color($colors, dark);
       .button-inner{
 
         font-family: Dinpro;

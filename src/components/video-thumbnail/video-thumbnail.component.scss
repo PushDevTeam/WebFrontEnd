@@ -35,19 +35,31 @@ video-thumbnail {
     .title {
       font-family: DinPro;
       font-weight: 500;
+      width: 100%;
+      text-align: left;
+      overflow: hidden;
+      display:block;
 
     }
 
     .misc {
-      ion-icon {
+      text-align: left;
+      display: block;
+      vertical-align: middle;
+      position: relative;
+
+      .pd-icon {
         display: inline;
-        font-size: 100%;
-        font-weight: 400;
+        width: 0.9vw;
+
+
       }
 
       .text {
+        margin-right: 1vw;
         font-family: DinPro;
         font-weight: 100;
+        font-size: 1vw;
         display: inline;
         position: relative;
       }

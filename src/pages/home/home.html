@@ -1,8 +1,6 @@
 <ion-content>
   <headliner></headliner>
-  <div>
-    DIVIDER OF SOME SORT
-  </div>
+
   <div id='body'>
 
 
@@ -39,57 +37,9 @@
       </ion-grid>
     </div>
 
-    <div id="popular" class='section'>
-      <ion-grid>
-        <ion-row>
-          <ion-col col-2>
 
-            <div class='section-head'>
-              Popular Trainers
-            </div>
-            <div class='trainer-prof' *ngIf='true'>
-              <div class='pic'>
-                <img src='assets/icons/profile.svg' />
-              </div>
-              <div class='name'>
+    <video-set *ngFor='let set of set_array' [set_info]="set"></video-set>
 
-                Jena <br /> Huffine
-
-              </div>
-            </div>
-            <div class='description'>
-
-
-
-              some subtext yayyy lets see if it will
-              auto wrap it so I need to put in a bunch
-              of words yay
-
-            </div>
-            <button ion-button>VIEW TRAINERS</button>
-          </ion-col>
-          <ion-col col-10>
-            <side-scroller [id]='0'></side-scroller>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-
-    <h1>CONTENT</h1><br>
-    <h1>CONTENT</h1><br>
-    <h1>CONTENT</h1><br>
-    <h1>CONTENT</h1><br>
-    <h1>CONTENT</h1><br>
-    <h1>CONTENT</h1><br>
-    <h1>CONTENT</h1><br>
-    <h1>CONTENT</h1><br>
-    <h1>CONTENT</h1><br>
-    <h1>CONTENT</h1><br>
-    <h1>CONTENT</h1><br>
-    <h1>CONTENT</h1><br>
-    <h1>CONTENT</h1><br>
-    <h1>CONTENT</h1><br>
-    <h1>CONTENT</h1><br>
 
 
   </div>
