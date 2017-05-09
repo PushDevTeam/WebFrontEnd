@@ -1,7 +1,13 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      {{this.d.getTime()}}
-    </ion-title>
+  <ion-toolbar transparent>
+      <nav class="topMenu">
+      <div class="navButtons">
+        <button ion-button clear (click)="onHome()"> Home </button>
+      <button ion-button clear (click)="onContact()"> Contact </button>
+    </div>
+    <div class="pushLogoHolder"> <img class="pushLogo" src="assets/PUSHTEXT_Logo_Red.png" />
+  </div>
+  <div class="name"> {{this.userService.getEmail()}} </div>
+</nav>
   </ion-toolbar>
 </ion-header>

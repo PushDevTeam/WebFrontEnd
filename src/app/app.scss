@@ -17,8 +17,10 @@
 // this applies a global margin to all ion-content
 // elements to account for our global toolbars
 ion-content .scroll-content{
-  margin-top: 56px;
+//  margin-top: 56px;
   margin-bottom: 56px;
+  margin-top: 0 !important;
+//  padding-top: 44px;
 }
 
 

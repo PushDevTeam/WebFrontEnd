@@ -2,6 +2,7 @@
 import {NgModule, ErrorHandler} from '@angular/core';
 import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
 import {IonicStorageModule} from '@ionic/storage';
+import { NavController, NavParams } from 'ionic-angular';
 // import {StatusBar, Splashscreen} from 'ionic-native';
 
 /* Root */
@@ -94,7 +95,6 @@ import {FacebookService} from 'ng2-facebook-sdk';
     StorageService,
     UserService,
     VideoInfoService,
-
     FacebookService,
   ]
 })
