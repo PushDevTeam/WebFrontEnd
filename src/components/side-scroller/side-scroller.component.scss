@@ -1,9 +1,27 @@
-
-div.scrollmenu {
-  padding-left: 4vw;
-  padding-right: 4vw;
+ion-slides {
   background-color: white;
   height: auto;
   white-space: nowrap;
-  overflow-x: scroll;
+ #left-arrow{
+   position: absolute;
+   top: 40%;
+   left: -10px;
+   transform: translateY(-50%);
+   font-size: 300%;
+   color:white;
+
+   left:0;
+   z-index:10;
+ }
+  ion-slide {
+
+    video-thumbnail {
+      width: 100%;
+      height: auto;
+      display: inline-block;
+      background-color: white;
+
+      overflow-y: hidden;
+    }
+  }
 }

@@ -1,4 +1,17 @@
+<div>
+  <!--
+  <div class="scrollmenu">
+    <video-thumbnail *ngFor='let id of v_ids' [id]=id></video-thumbnail>
+  </div>
 
-<div class="scrollmenu">
-  <video-thumbnail *ngFor='let id of v_ids' [id]=id></video-thumbnail>
+-->
+
+ <ion-slides slidesPerView=3 spaceBetween=12px;>
+   <ion-icon name="arrow-dropleft-circle" id='left-arrow'></ion-icon>
+   <ion-slide *ngFor='let id of v_ids'>
+     <video-thumbnail [id]=id></video-thumbnail>
+   </ion-slide>
+   <ion-icon name="arrow-dropright-circle" id='right-arrow'></ion-icon>
+ </ion-slides>
+
 </div>
