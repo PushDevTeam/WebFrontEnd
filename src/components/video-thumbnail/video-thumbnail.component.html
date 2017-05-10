@@ -1,7 +1,5 @@
 <div class="vt-wrapper">
-  <img src='{{this.metaData.thumbUrl}}' class="vt" />
-  <img (click)='goToVidView()' src='assets/play_button.png' class="play" />
-
+  <img src='{{this.metaData.thumbUrl}}' class="vt" (click)='goToVidView()' />
 </div>
 <div class="info">
 
@@ -11,11 +9,11 @@
   </div>
 
   <div class="misc">
-    <img src='assets/icons/Time.svg' class='pd-icon'/>
+    <ion-icon md="md-time"></ion-icon>
     <div class="text">
       {{this.metaData.duration}}
     </div>
-    <img src='assets/icons/Difficulty.svg' class='pd-icon'/>
+    <ion-icon md="md-stats"></ion-icon>
     <div class="text">
       {{this.metaData.difficulty}}
     </div>

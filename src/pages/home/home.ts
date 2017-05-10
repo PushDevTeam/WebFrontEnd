@@ -15,7 +15,13 @@ import {UserService, EXERCISES_TYPES} from '../../services/user.service';
 })
 export class Home {
   private d:any;
-
+  private set_array =
+  [
+    {'title': 'Popular Trainers', 'description': 'descriptionnn', 'trainer': 'JENA HUFFINE', 'trainer_img': 'assets/icons/profile.svg'},
+    {'id': null, 'title': 'My Workouts'},
+    {'id': null, 'title': 'Popular Workouts'},
+    {'title': 'Other Category'},
+  ];
 
   constructor(public navCtrl: NavController,
     private userService: UserService) {

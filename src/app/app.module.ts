@@ -24,7 +24,7 @@ import {Headliner} from '../components/headliner/headliner.component';
 import {SideScroller} from "../components/side-scroller/side-scroller.component";
 import {TopBar} from '../components/topbar/topbar.component';
 import {VideoThumbnail} from "../components/video-thumbnail/video-thumbnail.component";
-
+import {VideoSet} from '../components/video-set/video-set.component';
 
 /* Services */
 import {AuthService} from '../services/auth';
@@ -63,6 +63,7 @@ import {FacebookService} from 'ng2-facebook-sdk';
     SideScroller,
     VideoThumbnail,
     TopBar,
+    VideoSet,
 
   ],
   imports: [

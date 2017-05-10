@@ -1,27 +1,61 @@
-ion-slides {
-  background-color: white;
-  height: auto;
-  white-space: nowrap;
- #left-arrow{
-   position: absolute;
-   top: 40%;
-   left: -10px;
-   transform: translateY(-50%);
-   font-size: 300%;
-   color:white;
+side-scroller {
+  position: relative;
 
-   left:0;
-   z-index:10;
- }
-  ion-slide {
+  .slide-controls {
+    width: 100%;
+    position: relative;
 
-    video-thumbnail {
-      width: 100%;
-      height: auto;
-      display: inline-block;
-      background-color: white;
+    #left-arrow {
+      position: absolute;
+      top: 7vw;
+      left: -12px;
+      transform: translateY(-50%);
+      font-size: 300%;
+      transition: color 0.2s ease-out;
+      color: white;
+      z-index: 10;
+      text-shadow: 0 0 6px grey;
+    }
 
-      overflow-y: hidden;
+    #left-arrow:hover {
+      transition: color 0.5s ease;
+      color: color($colors, red);
+    }
+
+    #right-arrow {
+      position: absolute;
+      top: 7vw;
+      right: -12px;
+      transform: translateY(-50%);
+      font-size: 300%;
+      transition: color 0.2s ease-out;
+      color: white;
+      z-index: 10;
+      text-shadow: 0 0 6px grey;
+    }
+
+    #right-arrow:hover {
+      transition: color 0.5s ease-out;
+      color: color($colors, red);
+
+    }
+  }
+
+  ion-slides {
+    position: absolute;
+    background-color: white;
+    height: auto;
+    white-space: nowrap;
+    position: relative;
+
+    ion-slide {
+      video-thumbnail {
+        width: 100%;
+        height: auto;
+        display: inline-block;
+        background-color: white;
+        overflow-y: hidden;
+      }
     }
   }
 }
