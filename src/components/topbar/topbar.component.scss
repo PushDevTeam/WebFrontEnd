@@ -1,33 +1,67 @@
+$padding_top: 5vh;
+
+
 topbar{
-  .pushLogo {
-    width: 15%;
-    height: 15%;
+  .button-inner {
+    text-transform: none;
+    color: white;
   }
 
   .header-ios .toolbar-background-ios,.toolbar-background-md,.toolbar-background-wp{
     border-style: none;
     background: none;
-    border-color: rgba(0, 0, 0, 0)
-
+    border-color: rgba(0, 0, 0, 0);
   }
 
-.topMenu {
-  display: inline-block;
-}
-.pushLogoHolder {
+
+.toolBarHolder {
   display: inline;
-  margin: 0;
-  padding: 0;
+}
+
+.logoHolder {
+  display: inline;
+  max-width: 20%;
+  margin: auto;
+    .pushLogo {
+      width: 20%;
+      height: auto;
+  }
+}
+
+.navButtonHolder {
+  width: 20%;
+  max-width: 20%;
+  display: inline;
+}
+
+.profilePicHolder {
+  width: 10%;
+  max-height: auto;
+  display: inline;
+    .profilePic {
+      height: 5vh;
+      width: auto;
+      display: inline;
+  }
+}
+
+.userNameHolder {
+  display: inline;
+  .userName {
+    display: inline;
+    color: white;
+    width: 10%;
+    max-width: 10%;
+    padding-left: 1vh;
+    .button-effect {
+      width: inherit;
+      max-width: inherit;
+      font-family: DinPro !important;
+      font-weight: lighter;
+    }
+  }
 
 }
 
-.navButtons {
-  dislay: inline-block;
-  float: left;
-  color: white;
-}
 
-.name {
-  display: inline-block;
-}
 }

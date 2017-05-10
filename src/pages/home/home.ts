@@ -6,6 +6,7 @@ import { BrowsePanel} from '../../components/browse-panel/browse-panel.component
 import { NowPlaying } from '../../components/now-playing/now-playing.component';
 import {RadioSidepanel} from '../../components/radio-sidepanel/radio-sidepanel.component';
 import {UserSidepanel} from '../../components/user-sidepanel/user-sidepanel.component';
+import {Feature} from '../../components/feature/feature.component';
 
 import { NavController } from 'ionic-angular';
 import {UserService, EXERCISES_TYPES} from '../../services/user.service';
