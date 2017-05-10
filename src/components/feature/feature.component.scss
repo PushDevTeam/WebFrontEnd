@@ -34,13 +34,16 @@ feature {
 
     .thumb {
       width: 35vw;
-      display:inline-block;
+      display: inline-block;
       max-height: 0.5625*35vw;
       position: relative;
       overflow: hidden;
-      .img {
+
+      img {
         width: 100%;
-        height: 100%;
+        height: auto;
+        position: relative;
+
 
       }
     }
@@ -61,7 +64,7 @@ feature {
       }
 
       .trainer-prof {
-        margin: 0.5vw 0 0 0;
+        margin: 0.5vw 0 0;
         position: relative;
 
         .pic {
@@ -89,44 +92,43 @@ feature {
         }
 
         .text {
-
           margin-right: 0.4vw;
           font-family: DinPro;
           font-weight: 300;
           display: inline-block;
         }
-
       }
-      .description{
+
+      .description {
         margin-top: 1vw;
       }
     }
 
     .suggested-stations {
       content-align: center;
-      padding-left:1%;
+      padding-left: 1%;
       border-left-color: lightgrey;
       border-left-style: solid;
       border-left-width: 1px;
-      .head{
+
+      .head {
         text-align: center;
-        margin: 0 0 5% 0;
+        margin: 0 0 5%;
         text-transform: uppercase;
         color: color($colors, red);
         font-size: 1.5vw;
-
       }
 
       #cover-art-carousel {
-        margin:auto;
+        margin: auto;
         position: relative;
         width: 65%;
 
-        ion-slide{
-          width:100%;
+        ion-slide {
+          width: 100%;
           background-color: white;
 
-          .station-name{
+          .station-name {
             display: block;
             font-family: 'atcduel4' !important;
             font-size: 1em;
@@ -134,10 +136,8 @@ feature {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-
           }
         }
-
       }
     }
   }
