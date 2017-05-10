@@ -33,6 +33,7 @@ export class Feature {
         this.video_ids.forEach((id) => {
           this.video_info_arr.push(this.videoInfoService.getVideoInfo(id));
         });
+        
         console.log('video_info_arr',this.video_info_arr);
       });
     });

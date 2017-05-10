@@ -1,1 +1,82 @@
 
+<div class='wrapper'>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-2>
+        <div class='section-head'>
+          FEATUREd workouts
+        </div>
+
+        <button ion-button>VIEW All</button>
+      </ion-col>
+      <ion-col col-7>
+        <div class='thumb'>
+
+
+          <img src='{{video_info_arr[2]?.featureThumbUrl}}' />
+        </div>
+        <div class='video-info'>
+          <div class='video-title'>
+            {{video_info_arr[2]?.title}}
+          </div>
+          <div class='trainer-prof' *ngIf='true'>
+            <div class='pic'>
+              <img src='assets/icons/profile.svg' />
+            </div>
+            <div class='name'>
+              {{video_info_arr[2]?.trainer}}
+            </div>
+          </div>
+          <div class="misc">
+            <ion-icon md="md-time">
+            </ion-icon>
+            <div class="text">
+              {{video_info_arr[2]?.duration}}
+            </div>
+            <ion-icon md="md-stats"></ion-icon>
+            <div class="text">
+              {{video_info_arr[2]?.difficulty}}
+            </div>
+
+          </div>
+          <div class='description'>
+            {{video_info_arr[2]?.description}}
+          </div>
+        </div>
+      </ion-col>
+      <ion-col col-3 class='suggested-stations'>
+        <div class='head'>
+          Suggested Radio stations
+
+        </div>
+        <div id='cover-art-carousel'>
+
+
+          <ion-slides effect='coverflow' loop='true' autoplay='3000' speed='1000'>
+            <ion-slide>
+              <img src='https://images-na.ssl-images-amazon.com/images/I/61W1dsy-WpL._SS500.jpg' />
+              <div class='station-name'>
+                Watch the Throne Radioooooo
+              </div>
+            </ion-slide>
+            <ion-slide>
+              <img src='https://images-na.ssl-images-amazon.com/images/I/6107bUEBywL._SS500.jpg' />
+              <div class='station-name'>
+                P!nk Radio
+              </div>
+            </ion-slide>
+            <ion-slide>
+              <img src='https://images-na.ssl-images-amazon.com/images/I/61nxfaFU4yL._SS500.jpg' />
+              <div class='station-name'>
+                Disclosure Radio
+              </div>
+            </ion-slide>
+          </ion-slides>
+
+        </div>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
