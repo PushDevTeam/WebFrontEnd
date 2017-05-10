@@ -4,59 +4,60 @@ SCSS for the big slider at top
 .swiper-pagination-bullet-active {
   background: red !important;
 }
+
 headliner {
-  .slides{
-    height:auto;
+  width: 100vw;
+  max-height: 42.85vw;
+
+  .slides {
+    width: 100vw;
+    max-height: 42.85vw;
+    position: relative;
+    overflow: hidden;
+
+    ion-slide {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
     #left {
-      height: 100%;
       position: absolute;
-      z-index: 2;
-      left:0;
-      width: 8%;
-      vertical-align:middle;
-      display: inline-block;
-      img {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-        filter: invert(100%);
-
-      }
-      img:hover{
-        filter: invert(0%);
-      }
-
+      top: 20vw;
+      left: 0;
+      transform: translateY(-50%);
+      font-size: 300%;
+      transition: color 0.2s ease-out;
+      color: white;
+      z-index: 10;
+      text-shadow: 0 0 6px grey;
     }
-    #middle{
-      height: 100%;
-      position: absolute;
-      z-index: 2;
-      left: 8%;
-      width: 84%;
+    #left:hover{
+      transition: color 0.5s ease;
+      color: color($colors, red);
     }
+
+
     #right {
-      height: 100%;
       position: absolute;
-      z-index: 2;
-      float: right;
-      left: 92%;
-      width: 8%;
-      img {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-        filter: invert(100%);
-
-      }
-      img:hover{
-        filter: invert(0%);
-      }
-
+      top: 20vw;
+      right: 0;
+      transform: translateY(-50%);
+      font-size: 300%;
+      transition: color 0.2s ease-out;
+      color: white;
+      z-index: 10;
+      text-shadow: 0 0 6px grey;
     }
-    img .background{
+    #right:hover{
+      transition: color 0.5s ease;
+      color: color($colors, red);
+    }
+
+    img .background {
       width: 100%;
       height: auto;
-      position:absolute;
+      position: absolute;
       display: flex;
       z-index: 0;
     }
