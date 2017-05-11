@@ -11,8 +11,12 @@ topbar{
     border-style: none;
     background: none;
     border-color: rgba(0, 0, 0, 0);
+
   }
 
+  .header-md::after{
+    background-image: none;
+  }
 
 .toolBarHolder {
   position: relative;
@@ -21,34 +25,50 @@ topbar{
   overflow-y: hidden;
 }
 
+.navButtonHolder {
+  width: 25%;
+  max-width: 30%;
+  display: inline-block;
+  color: white;
+  .navButtons {
+    margin-left: 3.5vh;
+    display: inline-block;
+  }
+}
+
 .logoHolder {
   display: inline-block;
-  max-width: 40%;
+  width: 50%;
   text-align: center;
     .pushLogo {
-      width: 30%;
+      width: 18.5%;
       height: auto;
       margin: auto;
   }
 }
 
-.navButtonHolder {
-  width: 30%;
-  max-width: 30%;
-  display: inline-block;
-  color: white;
-  .navButtons {
-    margin-left: 2vh;
-    display: inline-block;
-  }
-}
 
+.searchHolder {
+  display: inline-block;
+  .searchBar {
+  width: 14vw;
+  height: auto;
+}
+.searchIcon {
+  z-index: 2;
+  position: absolute;
+  bottom: 26%;
+  right: 11%;
+  color: gray;
+}
+}
 
 .userNameHolder {
   display: inline;
   color: white;
-  width: 30%;
-  max-width: 30%;
+  width: 20%;
+  max-width: 20%;
+  margin-left: 2vh;
     .profilePic {
       height: 4vh;
       width: auto;
@@ -60,7 +80,7 @@ topbar{
       padding-left: 0;
       font-family: DinPro !important;
   }
-  ion-icon {
+  .dropdown {
       position: relative;
       top:.3vh;
   }
