@@ -9,9 +9,48 @@ headliner {
   width: 100vw;
   max-height: 42.85vw;
 
+  .slide-controls {
+    position: absolute;
+    width: 100%;
+
+    #back {
+      position: absolute;
+      top: 20vw;
+      left: 1%;
+      transform: translateY(-50%);
+      font-size: 1000%;
+      transition: color 0.2s ease-out;
+      color: white;
+      z-index: 10;
+      text-shadow: 0 0 6px grey;
+    }
+
+    #back:hover {
+      transition: color 0.5s ease;
+      color: color($colors, red);
+    }
+
+    #forward {
+      position: absolute;
+      top: 20vw;
+      right: 1%;
+      transform: translateY(-50%);
+      font-size: 1000%;
+      transition: color 0.2s ease-out;
+      color: white;
+      z-index: 10;
+      text-shadow: 0 0 6px grey;
+    }
+
+    #forward:hover {
+      transition: color 0.5s ease;
+      color: color($colors, red);
+    }
+  }
+
   .slides {
-    width: 100vw;
-    max-height: 42.85vw;
+    width: 100%;
+    max-height: 42.84vw;
     position: relative;
     overflow: hidden;
 
@@ -19,39 +58,6 @@ headliner {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
-    }
-
-    #left {
-      position: absolute;
-      top: 20vw;
-      left: 0;
-      transform: translateY(-50%);
-      font-size: 300%;
-      transition: color 0.2s ease-out;
-      color: white;
-      z-index: 10;
-      text-shadow: 0 0 6px grey;
-    }
-    #left:hover{
-      transition: color 0.5s ease;
-      color: color($colors, red);
-    }
-
-
-    #right {
-      position: absolute;
-      top: 20vw;
-      right: 0;
-      transform: translateY(-50%);
-      font-size: 300%;
-      transition: color 0.2s ease-out;
-      color: white;
-      z-index: 10;
-      text-shadow: 0 0 6px grey;
-    }
-    #right:hover{
-      transition: color 0.5s ease;
-      color: color($colors, red);
     }
 
     img .background {
