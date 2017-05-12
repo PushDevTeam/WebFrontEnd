@@ -20,6 +20,7 @@ side-scroller {
     #left-arrow:hover {
       transition: color 0.5s ease;
       color: color($colors, red);
+      cursor: pointer;
     }
 
     #right-arrow {
@@ -37,6 +38,7 @@ side-scroller {
     #right-arrow:hover {
       transition: color 0.5s ease-out;
       color: color($colors, red);
+      cursor: pointer;
 
     }
   }

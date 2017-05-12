@@ -29,6 +29,7 @@ headliner {
     #back:hover {
       transition: color 0.5s ease;
       color: color($colors, red);
+      cursor: pointer;
     }
 
     #forward {
@@ -46,6 +47,7 @@ headliner {
     #forward:hover {
       transition: color 0.5s ease;
       color: color($colors, red);
+      cursor: pointer;
     }
   }
 
@@ -143,6 +145,7 @@ headliner {
         i:hover{
           transition: color 0.5s ease;
           color: color($colors, red);
+          cursor: pointer;
         }
       }
 
