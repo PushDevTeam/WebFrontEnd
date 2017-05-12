@@ -1,6 +1,7 @@
 /*
 SCSS for the big slider at top
 */
+
 .swiper-pagination-bullet-active {
   background: red !important;
 }
@@ -64,10 +65,9 @@ headliner {
         position: absolute;
         top: 15%;
         left: 5%;
-        width: 30%; 
-        background-color: rgba(0,0,0,0.2);
+        width: 30%;
+        background-color: rgba(0,0,0,0.0);
         height: auto;
-
         z-index: 9;
         color: white !important;
 
@@ -75,19 +75,20 @@ headliner {
           text-align: left;
           width: 100%;
           text-transform: capitalize;
-          font-family: 'atcduel8';
-          font-size: 2.5vw;
+          font-family: 'atcduel4';
+          font-size: 2.8vw;
           line-height: 100%;
           margin-bottom: 2%;
         }
 
         .secondary-info {
-          margin: 3% 0;
+          margin: 1.5% 0 3%;
           font-family: DinPro !important;
           font-weight: 200;
           font-size: 1vw;
           float: left;
           text-align: left;
+
           .pic {
             float: left;
             width: 5%;
@@ -99,16 +100,18 @@ headliner {
           }
 
           .name {
-            margin-left: 1.5%;
+            margin-left: 1.8%;
             float: left;
             vertical-align: middle;
-
           }
-          ion-icon{
-            margin-left: 3%;
+
+          ion-icon {
+            margin-left: 4%;
+            margin-right: 1.2%;
           }
         }
-        .description{
+
+        .description {
           clear: left;
           float: left;
           font-family: DinPro !important;
@@ -116,7 +119,69 @@ headliner {
           font-size: 1vw;
           word-wrap: break-word;
           text-align: left;
+        }
+      }
 
+      .playbutton {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        align-self: center;
+        text-align: center;
+        transform: translateX(-50%);
+        transform: translateY(-50%);
+        transition: color 0.5s ease;
+        color: white;
+
+
+
+        i {
+          transition: color 0.5s ease;
+          color: white;
+          font-size: 15vw;
+        }
+        i:hover{
+          transition: color 0.5s ease;
+          color: color($colors, red);
+        }
+      }
+
+      .suggested-radio {
+        text-align: left;
+        text-transform: uppercase;
+        position: absolute;
+        top: 5%;
+        right: 8%;
+        width: 25%;
+        height: auto;
+        z-index: 9;
+        color: white !important;
+        overflow: hidden;
+
+        .station-wrap {
+          text-align: left;
+          padding: 2%;
+          margin: 2%;
+          display: block;
+          background-color: rgba(0,0,0,0.3);
+          height: auto;
+
+          img {
+            width: 20%;
+            vertical-align: middle;
+          }
+
+          .radio-name {
+            text-transform: capitalize;
+            font-family: DinPro;
+            font-size: 1.3vw;
+            width: 74%;
+            margin-left: 0.8vw;
+            display: inline-block;
+            vertical-align: middle;
+            white-space: nowrap;
+            overflow: hidden;
+          }
         }
       }
     }
