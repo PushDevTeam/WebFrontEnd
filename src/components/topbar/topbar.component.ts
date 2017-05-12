@@ -9,6 +9,8 @@ import { Home } from '../../pages/home/home';
 import { NavController} from 'ionic-angular';
 import {App} from 'ionic-angular';
 import {UserService} from '../../services/user.service';
+import {PopoverController} from 'ionic-angular';
+import {DropDown} from '../dropdown/dropdown';
 
 @Component({
   selector: 'topbar',
@@ -17,7 +19,7 @@ import {UserService} from '../../services/user.service';
 export class TopBar {
   private d: any;
 
-  constructor(protected app: App, private userService: UserService){
+  constructor(protected app: App, private userService: UserService, public popoverCtrl: PopoverController){
     //this.d = new Date();
     //console.log(this.d.getTime());
 
@@ -34,5 +36,12 @@ export class TopBar {
   //getEmail(){
   //  return this.userService.getEmail();
   //}
+
+openPopover(myEvent) {
+  let popover = this.popoverCtrl.create(DropDown);
+  popover.present({
+    ev: myEvent
+  });
+}
 
 }
