@@ -26,6 +26,7 @@ import {SideScroller} from "../components/side-scroller/side-scroller.component"
 import {TopBar} from '../components/topbar/topbar.component';
 import {VideoThumbnail} from "../components/video-thumbnail/video-thumbnail.component";
 import {DropDown} from '../components/dropdown/dropdown.component';
+import {VideoSet} from '../components/video-set/video-set.component';
 
 
 /* Services */
@@ -66,6 +67,8 @@ import {FacebookService} from 'ng2-facebook-sdk';
     VideoThumbnail,
     TopBar,
     DropDown,
+    VideoSet,
+
 
   ],
   imports: [

@@ -1,64 +1,193 @@
 /*
 SCSS for the big slider at top
 */
+
 .swiper-pagination-bullet-active {
   background: red !important;
 }
+
 headliner {
-  .slides{
-    height:auto;
-    #left {
-      height: 100%;
+  width: 100vw;
+  max-height: 42.85vw;
+
+  .slide-controls {
+    position: absolute;
+    width: 100%;
+
+    #back {
       position: absolute;
-      z-index: 2;
-      left:0;
-      width: 8%;
-      vertical-align:middle;
-      display: inline-block;
-      img {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-        filter: invert(100%);
-
-      }
-      img:hover{
-        filter: invert(0%);
-      }
-
+      top: 20vw;
+      left: 1%;
+      transform: translateY(-50%);
+      font-size: 500%;
+      transition: color 0.2s ease-out;
+      color: white;
+      z-index: 10;
+      text-shadow: 0 0 6px grey;
     }
-    #middle{
-      height: 100%;
+
+    #back:hover {
+      transition: color 0.5s ease;
+      color: color($colors, red);
+      cursor: pointer;
+    }
+
+    #forward {
       position: absolute;
-      z-index: 2;
-      left: 8%;
-      width: 84%;
+      top: 20vw;
+      right: 1%;
+      transform: translateY(-50%);
+      font-size: 500%;
+      transition: color 0.2s ease-out;
+      color: white;
+      z-index: 10;
+      text-shadow: 0 0 6px grey;
     }
-    #right {
-      height: 100%;
-      position: absolute;
-      z-index: 2;
-      float: right;
-      left: 92%;
-      width: 8%;
-      img {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-        filter: invert(100%);
 
-      }
-      img:hover{
-        filter: invert(0%);
-      }
-
+    #forward:hover {
+      transition: color 0.5s ease;
+      color: color($colors, red);
+      cursor: pointer;
     }
-    img .background{
+  }
+
+  .slides {
+    width: 100vw;
+    max-height: 42.84vw;
+    position: relative;
+    overflow: hidden;
+
+    ion-slide {
       width: 100%;
-      height: auto;
-      position:absolute;
-      display: flex;
-      z-index: 0;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+
+      .video-info {
+        position: absolute;
+        top: 15%;
+        left: 5%;
+        width: 30%;
+        background-color: rgba(0,0,0,0.0);
+        height: auto;
+        z-index: 9;
+        color: white !important;
+
+        .title {
+          text-align: left;
+          width: 100%;
+          text-transform: capitalize;
+          font-family: 'atcduel4';
+          font-size: 2.8vw;
+          line-height: 100%;
+          margin-bottom: 2%;
+        }
+
+        .secondary-info {
+          margin: 1.5% 0 3%;
+          font-family: DinPro !important;
+          font-weight: 200;
+          font-size: 1vw;
+          float: left;
+          text-align: left;
+
+          .pic {
+            float: left;
+            width: 5%;
+
+            img {
+              vertical-align: middle;
+              width: 100%;
+            }
+          }
+
+          .name {
+            margin-left: 1.8%;
+            float: left;
+            vertical-align: middle;
+          }
+
+          ion-icon {
+            margin-left: 4%;
+            margin-right: 1.2%;
+          }
+        }
+
+        .description {
+          clear: left;
+          float: left;
+          font-family: DinPro !important;
+          font-weight: 100;
+          font-size: 1vw;
+          word-wrap: break-word;
+          text-align: left;
+        }
+      }
+
+      .playbutton {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        align-self: center;
+        text-align: center;
+        transform: translateX(-50%);
+        transform: translateY(-50%);
+        transition: color 0.5s ease;
+        color: white;
+
+
+
+        i {
+          transition: color 0.5s ease;
+          text-shadow: 0 0 6px grey;
+          color: white;
+          font-size: 15vw;
+        }
+        i:hover{
+          transition: color 0.5s ease;
+          color: color($colors, red);
+          cursor: pointer;
+        }
+      }
+
+      .suggested-radio {
+        text-align: left;
+        text-transform: uppercase;
+        position: absolute;
+        top: 5%;
+        right: 8%;
+        width: 25%;
+        height: auto;
+        z-index: 9;
+        color: white !important;
+        overflow: hidden;
+
+        .station-wrap {
+          text-align: left;
+          padding: 2%;
+          margin: 2%;
+          display: block;
+          background-color: rgba(0,0,0,0.3);
+          height: auto;
+
+          img {
+            width: 20%;
+            vertical-align: middle;
+          }
+
+          .radio-name {
+            text-transform: capitalize;
+            font-family: DinPro;
+            font-size: 1.3vw;
+            width: 74%;
+            margin-left: 0.8vw;
+            display: inline-block;
+            vertical-align: middle;
+            white-space: nowrap;
+            overflow: hidden;
+          }
+        }
+      }
     }
   }
 }

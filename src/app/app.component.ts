@@ -81,7 +81,8 @@ export class MyApp {
         this.nav.setRoot(Home);
       } else {
         console.log('no user locally stored');
-        this.nav.setRoot(StartPage);
+        //this.nav.setRoot(StartPage);
+        this.nav.setRoot(Home);
       }
 
 

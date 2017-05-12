@@ -1,27 +1,65 @@
 $feature_w: 100vw*(9/16);
 
 page-home {
-
-
   #body {
-
-    .section{
-      padding: 0 2% 0 2%;
-
-      border-bottom-style: solid ;
+    .section {
+      padding: 2%;
+      border-bottom-style: solid;
       border-bottom-color: lightgrey;
       border-bottom-width: 1px;
-    }
-    #category-cards{
-      ion-col{
-        padding:1.2%;
-      }
-    }
-    #popular{
-      side-scroller{
-        background-color: green;
-      }
-    }
-  }
 
+      .section-head {
+        margin-top: -8px;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        font-family: 'atcduel6' !important;
+        font-size: 2.2vw;
+        color: color($colors, red);
+      }
+      .description{
+
+        font-family: Dinpro !important;
+        font-weight: 300;
+        max-height: 10vw;
+        overflow: hidden;
+
+      }
+      button {
+
+        margin: 1vw 0 0 0;
+        background-color: color($colors, dark);
+      .button-inner{
+
+        font-family: Dinpro;
+        font-weight: 500;
+      }
+    }
+      .trainer-prof {
+        position: relative;
+        .pic {
+          width: 3vw;
+          display: inline-block;
+        }
+        .name {
+          margin: 0 5% 0 5%;
+          text-transform: uppercase;
+          font-family: 'atcduel4';
+          font-size: 1.3vw;
+          display: inline-block;
+          position: absolute;
+          top: 46%;
+          transform: translateY(-50%);
+
+        }
+      }
+    }
+    //end .section
+    #category-cards {
+      ion-col {
+        padding: 1.2%;
+      }
+    }
+
+    #popular {}
+  }
 }
