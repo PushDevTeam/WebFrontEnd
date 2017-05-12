@@ -1,3 +1,59 @@
-topbar{
 
-}
+  .pandoraLogoHolder {
+    display: inline-block;
+    width: 10%;
+    .pandoraLogo {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  .pandoraStationHolder {
+      display: inline-block;
+      width: 30%;
+  }
+
+  .controls {
+      display: inline-block;
+      width: 25%;
+      .controlButtonHolder {
+        display: inline-block;
+        margin-left: 3.1vh;
+      }
+      .thumb {
+        font-size: 70%;
+        vertical-align: middle;
+        margin: auto;
+      }
+      .pause {
+        vertical-align: middle;
+        margin: auto;
+        font-size: 130%;
+      }
+      .skip {
+        vertical-align: middle;
+        margin: auto;
+        font-size: 110%;
+      }
+      .replay {
+        font-size: 80%;
+        vertical-align: middle;
+        margin: auto;
+      }
+
+  }
+
+  .albumInfoHolder {
+      display: inline-block;
+      width: 25%;
+  }
+
+  .timeHolder {
+      display: inline-block;
+      width: 5%;
+  }
+
+  .volumeHolder {
+      display: inline-block;
+      width: 5%;
+  }

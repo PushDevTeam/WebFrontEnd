@@ -8,6 +8,8 @@ import {Component} from '@angular/core'
   selector: 'bottombar',
   templateUrl: 'bottombar.component.html'
 })
-export class BottomBar {
 
+export class BottomBar {
+  constructor(){
+  }
 }
