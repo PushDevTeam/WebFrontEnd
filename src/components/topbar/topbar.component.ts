@@ -10,7 +10,7 @@ import { NavController} from 'ionic-angular';
 import {App} from 'ionic-angular';
 import {UserService} from '../../services/user.service';
 import {PopoverController} from 'ionic-angular';
-import {DropDown} from '../dropdown/dropdown';
+import {DropDown} from '../dropdown/dropdown.component';
 
 @Component({
   selector: 'topbar',
@@ -39,6 +39,7 @@ export class TopBar {
 
 openPopover(myEvent) {
   let popover = this.popoverCtrl.create(DropDown);
+
   popover.present({
     ev: myEvent
   });

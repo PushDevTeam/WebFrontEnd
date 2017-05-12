@@ -25,7 +25,7 @@ import {Headliner} from '../components/headliner/headliner.component';
 import {SideScroller} from "../components/side-scroller/side-scroller.component";
 import {TopBar} from '../components/topbar/topbar.component';
 import {VideoThumbnail} from "../components/video-thumbnail/video-thumbnail.component";
-import {DropDown} from '../components/dropdown/dropdown';
+import {DropDown} from '../components/dropdown/dropdown.component';
 
 
 /* Services */
