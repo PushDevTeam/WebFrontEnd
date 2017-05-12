@@ -1,16 +1,23 @@
 
   .pandoraLogoHolder {
     display: inline-block;
-    width: 10%;
+    width: 8%;
+    padding-left: 1vw;
     .pandoraLogo {
-      display: inline-block;
       vertical-align: middle;
+      width: 90%;
+      height: auto;
     }
   }
 
   .pandoraStationHolder {
       display: inline-block;
       width: 30%;
+      .pandoraStation {
+        text-align: center;
+        font-size: 70%;
+        font-family: DinPro !important;
+      }
   }
 
   .controls {
@@ -41,11 +48,34 @@
         margin: auto;
       }
 
+.material-icons:hover {
+  color: red;
+}
   }
 
   .albumInfoHolder {
       display: inline-block;
       width: 25%;
+      vertical-align: middle;
+      .albumCover {
+        display: inline-block;
+        width: 9%;
+        height: auto;
+        vertical-align: middle;
+      }
+      .songInfo {
+        display: inline-block;
+        font-size: 55%;
+        vertical-align: middle;
+      }
+      .band {
+        font-family: DinPro !important;
+      }
+      .song {
+          font-family: DinPro !important;
+          color: red;
+      }
+
   }
 
   .timeHolder {
@@ -55,5 +85,12 @@
 
   .volumeHolder {
       display: inline-block;
+      vertical-align: middle;
       width: 5%;
+      .volume {
+        font-size: 90%;
+      }
+      .volume:hover {
+        color: red;
+      }
   }
