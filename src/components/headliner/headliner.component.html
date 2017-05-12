@@ -6,10 +6,33 @@
 <ion-slides pager class="slides">
 
   <ion-slide *ngFor="let vid_info of video_info_arr" [ngStyle]="{'background-image': 'url(' + vid_info.featureThumbUrl + ')'}">
+    <div class='video-info'>
+      <div class='title'>
+        Extreme Dance Mix
+      </div>
+      <div class='secondary-info'>
+      <span class='pic'>
+          <img src='assets/icons/profile.svg' />
+        </span>
+
+      <span class='name'>
+          Trainer Name
+        </span>
+        <ion-icon name='time'></ion-icon>
+        40:00
+      <ion-icon name='stats'> </ion-icon>
+      Intermediate
+
+      </div>
+      <div class='description'>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pretium urna ut nibh hendrerit, nec aliquet erat vestibulum. Maecenas facilisis diam at augue cursus volutpat ac a dui. Morbi non varius purus, vitae aliquam nibh. Sed vitae est sit amet justo scelerisque tempus. Fusce posuere dui vel faucibus consequat.
+
+      </div>
+    </div>
 
 
 
-    <!--  <img src='{{vid_info.featureThumbUrl}}' class="background"/>-->
+
 
   </ion-slide>
 

@@ -18,7 +18,7 @@ headliner {
       top: 20vw;
       left: 1%;
       transform: translateY(-50%);
-      font-size: 1000%;
+      font-size: 500%;
       transition: color 0.2s ease-out;
       color: white;
       z-index: 10;
@@ -35,7 +35,7 @@ headliner {
       top: 20vw;
       right: 1%;
       transform: translateY(-50%);
-      font-size: 1000%;
+      font-size: 500%;
       transition: color 0.2s ease-out;
       color: white;
       z-index: 10;
@@ -49,23 +49,76 @@ headliner {
   }
 
   .slides {
-    width: 100%;
+    width: 100vw;
     max-height: 42.84vw;
     position: relative;
     overflow: hidden;
 
     ion-slide {
+      width: 100%;
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
-    }
 
-    img .background {
-      width: 100%;
-      height: auto;
-      position: absolute;
-      display: flex;
-      z-index: 0;
+      .video-info {
+        position: absolute;
+        top: 15%;
+        left: 5%;
+        width: 30%; 
+        background-color: rgba(0,0,0,0.2);
+        height: auto;
+
+        z-index: 9;
+        color: white !important;
+
+        .title {
+          text-align: left;
+          width: 100%;
+          text-transform: capitalize;
+          font-family: 'atcduel8';
+          font-size: 2.5vw;
+          line-height: 100%;
+          margin-bottom: 2%;
+        }
+
+        .secondary-info {
+          margin: 3% 0;
+          font-family: DinPro !important;
+          font-weight: 200;
+          font-size: 1vw;
+          float: left;
+          text-align: left;
+          .pic {
+            float: left;
+            width: 5%;
+
+            img {
+              vertical-align: middle;
+              width: 100%;
+            }
+          }
+
+          .name {
+            margin-left: 1.5%;
+            float: left;
+            vertical-align: middle;
+
+          }
+          ion-icon{
+            margin-left: 3%;
+          }
+        }
+        .description{
+          clear: left;
+          float: left;
+          font-family: DinPro !important;
+          font-weight: 100;
+          font-size: 1vw;
+          word-wrap: break-word;
+          text-align: left;
+
+        }
+      }
     }
   }
 }
