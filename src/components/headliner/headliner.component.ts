@@ -47,16 +47,19 @@ export class Headliner {
 
   }
   slideLeft(){
+
     this.slides.lockSwipes(false);
     this.slides.slidePrev();
     this.slides.lockSwipes(true);
   }
   slideRight(){
+
     this.slides.lockSwipes(false);
     this.slides.slideNext();
     this.slides.lockSwipes(true);
   }
   goToVid(id) {
-    this.navCtrl.push(VideoView, { 'id': id });
+    alert();
+    //this.navCtrl.push(VideoView, { 'id': id });
   }
 }
