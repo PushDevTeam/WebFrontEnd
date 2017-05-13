@@ -2,6 +2,7 @@
 import {NgModule, ErrorHandler} from '@angular/core';
 import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
 import {IonicStorageModule} from '@ionic/storage';
+import { NavController, NavParams } from 'ionic-angular';
 // import {StatusBar, Splashscreen} from 'ionic-native';
 
 /* Root */
@@ -16,7 +17,6 @@ import {StartPage} from '../pages/start/start';
 import {Terms} from '../pages/terms/terms';
 import {VideoRatingPage} from '../pages/video-rating/video-rating';
 import {VideoView} from '../pages/video-view/video-view';
-
 /* Components */
 import {BottomBar} from '../components/bottombar/bottombar.component';
 import {Feature} from '../components/feature/feature.component';
@@ -24,7 +24,9 @@ import {Headliner} from '../components/headliner/headliner.component';
 import {SideScroller} from "../components/side-scroller/side-scroller.component";
 import {TopBar} from '../components/topbar/topbar.component';
 import {VideoThumbnail} from "../components/video-thumbnail/video-thumbnail.component";
+import {DropDown} from '../components/dropdown/dropdown.component';
 import {VideoSet} from '../components/video-set/video-set.component';
+
 
 /* Services */
 import {AuthService} from '../services/auth';
@@ -63,7 +65,9 @@ import {FacebookService} from 'ng2-facebook-sdk';
     SideScroller,
     VideoThumbnail,
     TopBar,
+    DropDown,
     VideoSet,
+
 
   ],
   imports: [
@@ -83,7 +87,7 @@ import {FacebookService} from 'ng2-facebook-sdk';
     ForgotPasswordPage,
     VideoRatingPage,
     Terms,
-    ContactUsPage
+    ContactUsPage,
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
@@ -95,7 +99,6 @@ import {FacebookService} from 'ng2-facebook-sdk';
     StorageService,
     UserService,
     VideoInfoService,
-
     FacebookService,
   ]
 })

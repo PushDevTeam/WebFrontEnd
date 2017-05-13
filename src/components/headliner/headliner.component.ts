@@ -59,7 +59,7 @@ export class Headliner {
     this.slides.lockSwipes(true);
   }
   goToVid(id) {
-    alert();
-    //this.navCtrl.push(VideoView, { 'id': id });
+    //alert();
+    this.navCtrl.push(VideoView, { 'id': id });
   }
 }
