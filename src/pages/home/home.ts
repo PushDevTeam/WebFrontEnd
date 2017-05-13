@@ -1,7 +1,7 @@
 /**
  * Created by Javes on 3/19/2017.
  */
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { BrowsePanel} from '../../components/browse-panel/browse-panel.component';
 import { NowPlaying } from '../../components/now-playing/now-playing.component';
 import {RadioSidepanel} from '../../components/radio-sidepanel/radio-sidepanel.component';
@@ -32,5 +32,8 @@ export class Home {
 
   getEmail(){
     return this.userService.getEmail();
+  }
+  @HostListener('scroll') onScroll(event){
+   console.log("scrollll");
   }
 }

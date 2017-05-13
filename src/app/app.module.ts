@@ -17,7 +17,6 @@ import {StartPage} from '../pages/start/start';
 import {Terms} from '../pages/terms/terms';
 import {VideoRatingPage} from '../pages/video-rating/video-rating';
 import {VideoView} from '../pages/video-view/video-view';
-
 /* Components */
 import {BottomBar} from '../components/bottombar/bottombar.component';
 import {Feature} from '../components/feature/feature.component';
@@ -88,7 +87,7 @@ import {FacebookService} from 'ng2-facebook-sdk';
     ForgotPasswordPage,
     VideoRatingPage,
     Terms,
-    ContactUsPage
+    ContactUsPage,
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

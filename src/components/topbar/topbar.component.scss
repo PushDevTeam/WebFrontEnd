@@ -1,88 +1,158 @@
-
-topbar{
+topbar {
+  background-color: #cccccc;
+  ion-header{
+    background-color: #cccccc;
+    box-shadow: 0 0 1px 1px grey;
+  }
   .button-inner {
     text-transform: none;
     color: white;
   }
 
-  .header-ios .toolbar-background-ios,.toolbar-background-md,.toolbar-background-wp{
+  .header-ios .toolbar-background-ios,
+  .toolbar-background-md,
+  .toolbar-background-wp {
     border-style: none;
-    background: none;
+    background-color: #cccccc;
     border-color: rgba(0, 0, 0, 0);
-
   }
 
-  .header-md::after{
+  .header-md::after {
     background-image: none;
   }
 
-.toolBarHolder {
-  position: relative;
-  display: table;
-  width: 100%;
-  overflow-y: hidden;
-}
-
-.navButtonHolder {
-  width: 25%;
-  max-width: 30%;
-  display: inline-block;
-  color: white;
-  .navButtons {
-    margin-left: 3.5vh;
-    display: inline-block;
+  .toolBarHolder {
+    position: relative;
+    display: table;
+    width: 100%;
+    overflow-y: hidden;
   }
-}
 
-.logoHolder {
-  display: inline-block;
-  width: 50%;
-  text-align: center;
+  .navButtonHolder {
+    display: inline-block;
+    color: white;
+
+    .navButtons {
+      padding: 0 1.5vw;
+      height: 30px;
+      line-height: 30px;
+      display: inline-block;
+      vertical-align: middle;
+      border-radius: 8px;
+      transition: background-color 0.5s ease-out;
+      background-color: rgba(0, 0 ,0, 0);
+
+    }
+    .navButtons:hover{
+      transition: background-color 0.75s ease-out;
+      background-color: rgba(255, 0 ,0, 0.5);
+      cursor: pointer;
+    }
+  }
+
+  .logoHolder {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10%;
+    text-align: center;
+
     .pushLogo {
-      width: 18.5%;
+      width: 100%;
       height: auto;
       margin: auto;
+    }
   }
-}
 
+  .searchHolder {
+    position: absolute;
+    left: 60%;
+    top: 50%;
+    transform: translateY(-60%);
+    display: inline-block;
+    .searchBar {
+      display: inline;
+      width: 15vw;
+      padding: 2%;
+      height: auto;
+    }
 
-.searchHolder {
-  display: inline-block;
-  .searchBar {
-  width: 14vw;
-  height: auto;
-}
-.searchIcon {
-  z-index: 2;
-  position: absolute;
-  bottom: 26%;
-  right: 11%;
-  color: gray;
-}
-}
+    .searchIcon {
+      z-index: 2;
+      position: absolute;
+      right: 5%;
+      top:50%;
+      transform: translateY(-50%);
+      float: right;
+      color: gray;
+    }
+  }
 
-.userNameHolder {
-  display: inline;
-  color: white;
-  width: 20%;
-  max-width: 20%;
-  margin-left: 2vh;
+  .userNameHolder {
+    float: right;
+    right: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-block;
+    margin-right: 2.5vw;
+    color: white;
+    max-width: 15%;
+    overflow: hidden;
+    white-space: nowrap;
     .profilePic {
       height: 4vh;
       width: auto;
       margin-bottom: -1.4vh;
     }
+
     .userName {
       display: inline;
       color: white;
       padding-left: 0;
+      font-size: 1.2vw;
       font-family: DinPro !important;
-  }
-  .dropdown {
+      font-weight: 100;
+      line-height: 30px;
+    }
+    i{
       position: relative;
-      top:.3vh;
-  }
-}
+      top: 5px;
+      transition: transform 0.3s ease-out;
+      transform: rotate(0deg);
+    }
+    i:hover{
+      cursor:pointer;
 
+    }
+    .active{
+      transition: all 0.3s ease-out;
+      transform: rotate(180deg);
+    }
+    .dropdown {
+      margin: 0 0.4vw;
+      position: relative;
+      font-size: 2vw;
+      top: 0.3vh;
+    }
+  }
+  .drop-menu{
+    position: absolute;
+    font-family: 'atcduel4';
+    font-size: 16px;
+    line-height: 24px;
+    color:white;
+    right: 3.5%;
+    top: 30px;
+    background-color: rgba(0,0,0,0.4);
+    overflow-y: hidden;
+    transition: height 0.3s ease-out;
+    height: 0;
+  }
+  .drop-menu-active{
+    transition: height 0.3s ease-out;
+    height: 80px;
+  }
 
 }

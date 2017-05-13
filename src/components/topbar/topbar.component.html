@@ -1,27 +1,36 @@
 <ion-header>
-      <ion-toolbar transparent>
-          <div>
-          <div class="navButtonHolder">
-            <div class="navButtons"  (click)="onHome()"> Home </div>
-            <div class="navButtons"> Library </div>
-            <div class="navButtons"> Programs </div>
-            <div class="navButtons"> Contact </div>
-          </div>
-          <div class="logoHolder">
-          <img class="pushLogo" src="assets/PUSHTEXT_Logo_Red.png" />
-        </div>
-        <div class="searchHolder">
-         <form>
+  <ion-toolbar transparent>
+    <div>
+      <div class="navButtonHolder">
+        <div class="navButtons" (click)="onHome()"> Home </div>
+        <div class="navButtons"> Library </div>
+        <div class="navButtons"> Programs </div>
+        <div class="navButtons"> Contact </div>
+      </div>
+      <div class="logoHolder">
+        <img class="pushLogo" src="assets/PUSHTEXT_Logo_Red.png" />
+      </div>
+      <div class="searchHolder">
+        <form>
           <input class="searchBar" type="search">
         </form>
-        <ion-icon class="searchIcon" name ="search"> </ion-icon> 
+        <ion-icon class="searchIcon" name="search"> </ion-icon>
       </div>
-       <div class="userNameHolder">
-          <img class="profilePic" src="assets/profile_placeholder.png" />
-          <div class="userName"> Natasha
-            <ion-icon (click)="openPopover($event)" class="dropdown" name="arrow-dropdown"></ion-icon>
-          </div>
-        </div>
+      <div class="userNameHolder">
+        <img class="profilePic" src="assets/profile_placeholder.png" />
+        <div class="userName"> Natasha
+          <!--<ion-icon (click)="openPopover($event)" class="dropdown" name="arrow-dropdown"></ion-icon>
+        -->
+      <!--  <i (click)='dropdown()' id='topbar-drop-button' class="material-icons">arrow_drop_down</i>
+      -->
       </div>
-      </ion-toolbar>
+
+      </div>
+
+    </div>
+  </ion-toolbar>
+  <div class='drop-menu' id="drop-menu">
+    Thing<br />
+    Thing<br />
+  </div>
 </ion-header>
