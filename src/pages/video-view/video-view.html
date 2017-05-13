@@ -1,67 +1,63 @@
 <!--component html goes here -->
-
-<div class='player-wrapper'>
-  <video controls (ended)="onVideoEnd()" id="video-player">
+<ion-content>
+  <div class='player-wrapper'>
+    <video controls (ended)="onVideoEnd()" id="video-player">
     <source src={{this.videoInfo.videoUrl}} type="video/mp4"/>
   </video>
-</div>
-<div class='body'>
+  </div>
+  <div class='body'>
 
 
-  <div class='titles'>
+    <div class='titles'>
 
-    <div class='small-title'>
-      Lorem ipsum sit dolor
+      <div class='small-title'>
+        Lorem ipsum sit dolor
+      </div>
+      <div class='large-title'>
+        {{this.videoInfo.title}}
+      </div>
     </div>
-    <div class='large-title'>
-      {{this.videoInfo.title}}
+    <div class='info'>
+
+
+      <div class='misc-list'>
+        <div class='item'>
+          <div class='iconthing'>
+            <img src='assets/icons/profile.svg' class='pd-icon' id='trainer-pic' />
+          </div>
+
+          <div class='text'>
+            {{this.videoInfo.trainer}}
+          </div>
+        </div>
+        <div class='item'>
+          <div class='iconthing'>
+            <img src='assets/icons/Time.svg' class='pd-icon' />
+          </div>
+
+          <div class='text'>
+            {{this.videoInfo.duration}}
+          </div>
+        </div>
+        <div class='item'>
+          <div class='iconthing'>
+            <img src='assets/icons/Difficulty.svg' class='pd-icon' />
+          </div>
+
+          <div class='text'>
+            {{this.videoInfo.difficulty}}
+          </div>
+        </div>
+
+
+      </div>
+      <div class='paragraph'>
+        {{this.videoInfo.description}}
+      </div>
+      <div class='tags'>
+        tags<br /><br />
+        <ion-badge item-left *ngFor='let tag of videoInfo.tags'>{{tag}}</ion-badge>
+      </div>
     </div>
   </div>
-
-  <div class='misc-list'>
-    <div class='item'>
-      <div class='iconthing'>
-        <img src='assets/icons/profile.svg' class='pd-icon'/>
-      </div>
-
-      <div class='text'>
-       {{this.videoInfo.trainer}}
-      </div>
-    </div>
-    <div class='item'>
-      <div class='iconthing'>
-        <img src='assets/icons/Time.svg' class='pd-icon'/>
-      </div>
-
-      <div class='text'>
-        {{this.videoInfo.duration}}
-      </div>
-    </div>
-    <div class='item'>
-      <div class='iconthing'>
-        <img src='assets/icons/Difficulty.svg' class='pd-icon'/>
-      </div>
-
-      <div class='text'>
-        {{this.videoInfo.difficulty}}
-      </div>
-    </div>
-    <div class='item'>
-      <div class='iconthing'>
-        <img src='assets/icons/Fire.svg' class='pd-icon'/>
-      </div>
-
-      <div class='text'>
-        320 Calories
-      </div>
-    </div>
-
-  </div>
-  <div class='paragraph'>
-{{this.videoInfo.description}}
-  </div>
-  <div class='tags'>
-    tags<br /><br />
-    <ion-badge item-left *ngFor='let tag of videoInfo.tags'>{{tag}}</ion-badge>
-  </div>
-</div>
+</ion-content>
