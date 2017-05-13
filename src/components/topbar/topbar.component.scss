@@ -71,11 +71,14 @@ topbar {
     top: 50%;
     transform: translateY(-50%);
     display: inline-block;
+
     .searchBar {
       display: inline;
       width: 15vw;
-      padding: 2%;
+      padding: 2% 5%;
       height: auto;
+      border-radius: 10px;
+      border-style: none;
     }
 
     .searchIcon {
