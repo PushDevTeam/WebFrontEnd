@@ -51,12 +51,16 @@
 
 
       </div>
-      <div class='paragraph'>
-        {{this.videoInfo.description}}
-      </div>
-      <div class='tags'>
-        tags<br /><br />
-        <ion-badge item-left *ngFor='let tag of videoInfo.tags'>{{tag}}</ion-badge>
+      <div class='partags-wrapper'>
+
+
+        <div class='paragraph'>
+          {{this.videoInfo.description}}
+        </div>
+        <div class='tags'>
+          tags<br /><br />
+          <ion-badge item-left *ngFor='let tag of videoInfo.tags'>{{tag}}</ion-badge>
+        </div>
       </div>
     </div>
   </div>

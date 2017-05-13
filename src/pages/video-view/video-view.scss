@@ -20,6 +20,7 @@ video-view {
 
     .body {
       padding: 0 3vw;
+      text-align: left;
 
       .titles {
         border-bottom-color: color($colors, whitegrey);
@@ -46,7 +47,6 @@ video-view {
       }
 
       .info {
-        content-align: left;
         .misc-list {
           padding: 1vh 0;
           border-right-color: color($colors, whitegrey);
@@ -54,14 +54,15 @@ video-view {
           border-right-width: 2px;
           margin: 2vh 0;
           text-align: left;
-          width: 20%;
-          display:inline-block;
+          width: 25%;
+          display: inline-block;
 
           .item {
             .iconthing {
-              text-align: center;
+              text-align: left;
               display: inline-block;
-              width: 6vw;
+              width: 5vw;
+              text-align: center;
 
               .pd-icon {
                 display: inline;
@@ -80,37 +81,46 @@ video-view {
               display: inline-block;
               font-family: DinPro;
               font-size: 2.1vh;
+              text-align: left;
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
             }
           }
         }
 
-        .paragraph {
-          font-family: DinPro;
-          font-weight: 300;
-          text-align: left;
-          margin: 2vh 2vw;
-          font-size: 2.2vh;
-          line-height: 1.3;
+        .partags-wrapper {
           display: inline-block;
-          width: 40%;
-        }
-
-        .tags {
-
-          text-align: left;
-          font-family: DinPro;
-          font-weight: 700;
-          font-size: 1.5vh;
-          text-transform: uppercase;
-          display: inline-block;
-
-          ion-badge {
+          padding: 2vh 2vw;
+          .paragraph {
             font-family: DinPro;
-            font-weight: 500;
-            font-size: 2vh;
-            margin: 1vh 1vw;
-            background-color: color($colors, midgrey);
+            font-weight: 300;
+            text-align: left;
+            margin: 2vh 0;
+            font-size: 2.2vh;
+            line-height: 1.3;
+            display: block;
+
+          }
+
+          .tags {
+            text-align: left;
+            font-family: DinPro;
+            font-weight: 700;
+            font-size: 1.5vh;
             text-transform: uppercase;
+            display: block;
+
+            ion-badge {
+              font-family: DinPro;
+              font-weight: 100;
+              font-size: 1.5vh;
+              padding: 0.8vh 1.2vw;
+              margin: 1vh 0.5vw 1vh 0;
+              background-color: color($colors, midgrey);
+              border-radius: 90px;
+              text-transform: capitalize;
+            }
           }
         }
       }
