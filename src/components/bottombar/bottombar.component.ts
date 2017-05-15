@@ -1,7 +1,8 @@
 /**
  * Created by Javes on 5/7/2017.
  */
-import {Component} from '@angular/core'
+import {Component} from '@angular/core';
+import {TimeDisplayPipe} from "../../pipes/timedisplay.pipe";
 
 
 @Component({
@@ -13,7 +14,10 @@ export class BottomBar {
   private stationPopupActive: boolean = false;
   private volBarActive: boolean = false;
   private audioElement: any;
-  private isPlaying: boolean;
+  private isPlaying: boolean = false;
+  private currentTime: number = 0;
+  private totalTime: number = 0;
+
   constructor() {
 
   }
@@ -21,8 +25,18 @@ export class BottomBar {
 
  ngOnInit() {
    this.audioElement = <HTMLAudioElement> document.getElementById("audioDisplay");
-   this.isPlaying = false;
+   this.audioElement.addEventListener("loadedmetadata", this.updateData);
+   this.audioElement.addEventListener("timeupdate", this.updateTime);
   }
+
+  updateData = (e: any) => {
+    this.totalTime = this.audioElement.duration;
+  };
+
+  updateTime = (e: any) => {
+    this.currentTime = this.audioElement.currentTime;
+  };
+
   onStationPopup() {
     let stationMenu = document.getElementById('station-menu');
     let stationButton = document.getElementById('station-button');
@@ -63,6 +77,7 @@ export class BottomBar {
     if (this.audioElement.paused) {
       this.audioElement.play();
       this.isPlaying = true;
+
     } else {
       this.audioElement.pause();
       this.isPlaying = false;

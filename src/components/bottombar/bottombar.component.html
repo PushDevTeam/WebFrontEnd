@@ -86,7 +86,7 @@
         </div>
       </div>
 
-      <div class="timeHolder">
+      <div class="timeHolder"> {{this.currentTime | timeDisplay }} | {{this.totalTime | timeDisplay}}
 
       </div>
       <div class="volumeHolder" (click)='toggleVolumeBar()'>
