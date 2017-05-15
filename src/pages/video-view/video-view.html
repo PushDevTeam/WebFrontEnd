@@ -26,13 +26,13 @@
             <img src='assets/icons/profile.svg' class='pd-icon' id='trainer-pic' />
           </div>
 
-          <div class='text'>
+          <div class='text' id="trainer-name">
             {{this.videoInfo.trainer}}
           </div>
         </div>
         <div class='item'>
           <div class='iconthing'>
-            <img src='assets/icons/Time.svg' class='pd-icon' />
+           <ion-icon ios="md-time" md="md-time" class='pd-icon'></ion-icon>
           </div>
 
           <div class='text'>
@@ -41,7 +41,7 @@
         </div>
         <div class='item'>
           <div class='iconthing'>
-            <img src='assets/icons/Difficulty.svg' class='pd-icon' />
+            <ion-icon ios="ios-stats" md="md-stats" class='pd-icon'></ion-icon>
           </div>
 
           <div class='text'>
@@ -64,4 +64,6 @@
       </div>
     </div>
   </div>
+
+  <video-set [set_info]="set_array[0]"></video-set>
 </ion-content>
