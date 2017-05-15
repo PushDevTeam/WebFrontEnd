@@ -47,7 +47,7 @@
   <ion-toolbar>
     <ion-title>
 
-      <audio src='assets/test.mp3'></audio>
+      <audio id="audioDisplay" src='assets/test.mp3'></audio>
       <div class="pandoraLogoHolder">
         <img class="pandoraLogo" src="assets/Pandora_Logo.png" />
       </div>
@@ -63,7 +63,7 @@
           <i class="material-icons replay">replay</i>
         </div>
         <div class="controlButtonHolder">
-          <i class="material-icons pause">pause</i>
+          <i (click)="playSong()" class="material-icons pause">pause</i>
         </div>
         <div class="controlButtonHolder">
           <i class="material-icons skip">skip_next</i>

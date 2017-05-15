@@ -12,9 +12,17 @@ import {Component} from '@angular/core'
 export class BottomBar {
   private stationPopupActive: boolean = false;
   private volBarActive: boolean = false;
+  private audioElement: any;
+  private isPlaying: boolean;
   constructor() {
+
   }
 
+
+ ngOnInit() {
+   this.audioElement = <HTMLAudioElement> document.getElementById("audioDisplay");
+   this.isPlaying = false;
+  }
   onStationPopup() {
     let stationMenu = document.getElementById('station-menu');
     let stationButton = document.getElementById('station-button');
@@ -48,6 +56,16 @@ export class BottomBar {
       volBar.classList.remove('volume-bar-active');
       this.volBarActive = true;
 
+    }
+  }
+
+  playSong() {
+    if (this.audioElement.paused) {
+      this.audioElement.play();
+      this.isPlaying = true;
+    } else {
+      this.audioElement.pause();
+      this.isPlaying = false;
     }
   }
 
