@@ -1,4 +1,38 @@
 <ion-footer>
+  <div class='station-menu' id='station-menu'>
+    <!--  <div class="stations" *ngFor="let s of topFiveStations; let index = index" (click)="changeStation(index)" [ngClass]="{'now-playing':index == 0}">
+    </div> -->
+    <div class="stations">
+        <div class="albumCover">
+          <img class="albumImg" src='https://images-na.ssl-images-amazon.com/images/I/61nxfaFU4yL._SS500.jpg' />
+        </div>
+        <div class="station-name">
+          Flesh and Bones Radio
+      </div>
+    </div>
+        <div class="stations">
+      <div class="albumCover">
+        <img class="albumImg" src='https://images-na.ssl-images-amazon.com/images/I/61nxfaFU4yL._SS500.jpg' />
+      </div>
+      <div class="station-name">
+        Flesh and Bones Radio
+    </div>
+  </div>
+      <div class="stations">
+    <div class="albumCover">
+      <img class="albumImg" src='https://images-na.ssl-images-amazon.com/images/I/61nxfaFU4yL._SS500.jpg' />
+    </div>
+    <div class="station-name">
+      Flesh and Bones Radio
+  </div>
+    </div>
+    <div (click)="seeAllStations()" class="see-all-stations"> See All Stations </div>
+    <div class="divider">  </div>
+      <div (click)="createStation()" class=create-station-button>
+        <i class="material-icons add-box">add_box</i>
+        <div class=create-station> Create Station </div>
+      </div>
+    </div>
   <ion-toolbar>
     <ion-title>
 
@@ -7,7 +41,7 @@
         <img class="pandoraLogo" src="assets/Pandora_Logo.png"/>
       </div>
       <div class="pandoraStationHolder">
-        <div class="pandoraStation"> Summer Hits of the 90's Radio
+        <div (click)="onStationPopup()" id="station-button" class="pandoraStation"> Summer Hits of the 90's Radio
         </div>
       </div>
       <div class="controls">
@@ -29,7 +63,7 @@
         </div>
       <div class="albumInfoHolder">
         <div class="albumCover">
-          <img clas="albumImg" src='https://images-na.ssl-images-amazon.com/images/I/61nxfaFU4yL._SS500.jpg' />
+          <img class="albumImg" src='https://images-na.ssl-images-amazon.com/images/I/61nxfaFU4yL._SS500.jpg' />
         </div>
         <div class="songInfo">
           <div class="band">
