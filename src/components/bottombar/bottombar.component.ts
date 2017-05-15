@@ -11,7 +11,8 @@ import {Component} from '@angular/core'
 
 export class BottomBar {
   private stationPopupActive: boolean = false;
-  constructor(){
+  private volBarActive: boolean = false;
+  constructor() {
   }
 
   onStationPopup() {
@@ -35,5 +36,20 @@ export class BottomBar {
   seeAllStations() {
 
   }
+  toggleVolumeBar() {
+    let volBar = document.getElementById('vol-bar');
+
+    if (this.volBarActive) {
+
+      volBar.classList.add('volume-bar-active');
+      this.volBarActive = false;
+    } else {
+
+      volBar.classList.remove('volume-bar-active');
+      this.volBarActive = true;
+
+    }
+  }
+
 
 }

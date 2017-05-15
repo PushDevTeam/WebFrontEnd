@@ -1,203 +1,278 @@
-$station_button_padding: .9vh;
-$station_popup_margin: 2vh 1vw;
+$station_button_padding: 0;
+$station_popup_margin: 1vh 1vw;
 
-  .pandoraLogoHolder {
-    display: inline-block;
-    width: 8%;
-    padding-left: 1vw;
-    .pandoraLogo {
-      vertical-align: middle;
-      width: 90%;
-      height: auto;
-    }
+.pandoraLogoHolder {
+  display: inline-block;
+  width: 8%;
+  padding-left: 1vw;
+
+  .pandoraLogo {
+    vertical-align: middle;
+    width: 90%;
+    height: auto;
   }
+}
 
 .pandoraStationHolder:hover {
   color: red;
+  cursor: pointer;
 }
 
-  .pandoraStationHolder {
-      display: inline-block;
-      width: 30%;
-      .pandoraStation {
-        text-align: center;
-        font-size: 70%;
-        font-family: DinPro !important;
-      }
-      .pandoraStation:hover {
-        cursor: pointer;
-      }
-  }
+.pandoraStationHolder {
+  display: inline-block;
+  width: 30%;
 
-  .controls {
-      display: inline-block;
-      width: 25%;
-      .controlButtonHolder {
-        display: inline-block;
-        margin-left: 3.1vh;
-      }
-      .thumb {
-        font-size: 70%;
-        vertical-align: middle;
-        margin: auto;
-      }
-      .pause {
-        vertical-align: middle;
-        margin: auto;
-        font-size: 130%;
-      }
-      .skip {
-        vertical-align: middle;
-        margin: auto;
-        font-size: 110%;
-      }
-      .replay {
-        font-size: 80%;
-        vertical-align: middle;
-        margin: auto;
-      }
-
-.material-icons:hover {
-  color: red;
-}
-  }
-
-
-  .albumInfoHolder {
-      display: inline-block;
-      width: 25%;
-      vertical-align: middle;
-      .albumCover {
-        display: inline-block;
-        width: 9%;
-        height: auto;
-        vertical-align: middle;
-      }
-      .songInfo {
-        display: inline-block;
-        font-size: 55%;
-        vertical-align: middle;
-      }
-      .band {
-        font-family: DinPro !important;
-      }
-      .song {
-          font-family: DinPro !important;
-          color: red;
-      }
-
-  }
-
-  .timeHolder {
-      display: inline-block;
-      width: 5%;
-  }
-
-  .volumeHolder {
-      display: inline-block;
-      vertical-align: middle;
-      width: 5%;
-      .volume {
-        font-size: 90%;
-      }
-      .volume:hover {
-        color: red;
-      }
-
-
-  }
-
-  .active{
-      transition: all 0.3s ease-out;
-    }
-
-  .station-menu {
+  .pandoraStation {
+    text-align: center;
+    font-size: 70%;
     font-family: DinPro !important;
-    position: absolute;
-    line-height: 24px;
-    right: 67%;
-    bottom: 60px;
-    max-width: 18%;
-    background-color: white;
-    overflow-y: hidden;
-    transition: height 0.3s ease-out;
-    height: 0;
-    padding: 0;
-
-.create-station-button:hover {
-
-}
-
-.create-station-button {
-  border-style: solid;
-  border-color: gray;
-  border-width: thin;
-  border-radius: 3px;
-  margin: $station_popup_margin;
-  padding: $station_button_padding;
-}
-
-    .add-box {
-      color: red;
-      display: inline-block;
-      vertical-align: middle;
-    }
-    .create-station {
-      font-family: DinPro !important;
-      display: inline-block;
-      vertical-align: middle;
-      color: gray;
-      font-size: 1em;
-      font-weight: bold;
-    }
-
-.divider {
-  border-style: solid;
-  border-top: thin;
-  border-width: thin;
-  border-color: gray;
-  margin: $station_popup_margin;
-}
-
-.see-all-stations:hover {
-
-}
-    .see-all-stations {
-      font-family: DinPro !important;
-      font-weight: bold;
-      border-style: solid;
-      border-color: red;
-      border-radius: 3px;
-      border-width: thin;
-      color: red;
-      text-align: center;
-      font-size: 1em;
-      margin: $station_popup_margin;
-      margin-top: 0;
-      padding: $station_button_padding;
-    }
-
-    .stations:hover {
-
-    }
-    .stations {
-      margin: 1vh 1vw;
-      .albumCover {
-        display: inline-block;
-        vertical-align: middle;
-        width: 11%;
-        height: auto;
-      }
-      .station-name {
-        font-family: DinPro !important;
-        display: inline-block;
-        font-size: .9em;
-      }
-    }
-   }
-
-
-  .station-popup-active{
-    transition: height 0.3s ease-out;
-    height: 180px;
   }
+
+  .pandoraStation:hover {
+    cursor: pointer;
+  }
+}
+
+.volume-bar{
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 5%;
+  width: 15px;
+  height: 0px;
+  transition: all 0.5s ease-out;
+  background-color: white;
+  box-shadow: 0 0 5px grey;
+  z-index: 9000;
+  overflow: hidden;
+
+}
+.volume-bar-active{
+  height: 170px;
+  transition: all 0.5s ease-out;
+  top: -160px
+}
+.vol-track{
+  background: color($colors, lightgrey);
+  height: 160px;
+  margin: 5px 0 ;
+  width: 1px;
+  position: relative;
+  left: 7px;
+
+}
+.vol-thumb{
+  position: absolute;
+  left: -5px;
+  top: 0;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: red;
+  box-shadow: 0 0 1px black;
+}
+.vol-thumb:hover{
+  cursor: grab;
+}
+.vol-thumb:active{
+  cursor: grabbing;
+}
+
+
+.controls {
+  display: inline-block;
+  width: 25%;
+
+  .controlButtonHolder {
+    display: inline-block;
+    margin-left: 3.1vh;
+  }
+
+  .thumb {
+    font-size: 70%;
+    vertical-align: middle;
+    margin: auto;
+  }
+
+  .pause {
+    vertical-align: middle;
+    margin: auto;
+    font-size: 130%;
+  }
+
+  .skip {
+    vertical-align: middle;
+    margin: auto;
+    font-size: 110%;
+  }
+
+  .replay {
+    font-size: 80%;
+    vertical-align: middle;
+    margin: auto;
+  }
+
+  .material-icons:hover {
+    color: red;
+    cursor: pointer;
+  }
+}
+
+.albumInfoHolder {
+  display: inline-block;
+  width: 25%;
+  vertical-align: middle;
+  position: absolute;
+  right: 7%;
+
+  .albumCover {
+    display: inline-block;
+    width: 32px;
+    height: auto;
+    vertical-align: middle;
+  }
+
+  .songInfo {
+    display: inline-block;
+    font-size: 55%;
+    vertical-align: middle;
+  }
+
+  .band {
+    font-family: DinPro !important;
+  }
+
+  .song {
+    font-family: DinPro !important;
+    color: red;
+  }
+}
+
+.timeHolder {
+  display: inline-block;
+  width: 5%;
+}
+
+.volumeHolder {
+  display: inline-block;
+  vertical-align: middle;
+  width: 5%;
+  float: right;
+  position: relative;
+
+  .volume {
+    font-size: 90%;
+  }
+
+  .volume:hover {
+    color: red;
+    cursor: pointer;
+  }
+}
+
+.active {
+  transition: all 0.3s ease-out;
+}
+
+.station-menu {
+  font-family: DinPro !important;
+  position: absolute;
+  line-height: 24px;
+  right: 67%;
+  bottom: 60px;
+  max-width: 18%;
+  background-color: white;
+  overflow-y: hidden;
+  transition: height 0.3s ease-out;
+  height: 0;
+  padding: 0;
+
+  .create-station-button:hover {
+    cursor: pointer;
+  }
+
+  .create-station-button {
+    border-style: solid;
+    border-color: gray;
+    border-width: thin;
+    border-radius: 3px;
+    line-height: 2.2em;
+    margin: $station_popup_margin;
+    padding: $station_button_padding;
+  }
+
+  .add-circle {
+    color: red;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 5px;
+    margin: 0 4px;
+  }
+
+  .create-station {
+    font-family: DinPro !important;
+    font-weight: 300 !important;
+    display: inline-block;
+    vertical-align: middle;
+    color: gray;
+    font-size: 1em;
+    font-weight: bold;
+  }
+
+  .divider {
+    border-style: solid;
+    border-top: thin;
+    border-width: thin;
+    border-color: color($colors, whitegrey);
+    margin: $station_popup_margin;
+  }
+
+  .see-all-stations:hover {
+    cursor: pointer;
+    background-color: color($colors, red);
+    transition: background-color 0.5s ease-out, color 0.3s ease-out;
+    color: white;
+  }
+
+  .see-all-stations {
+    transition: background-color 0.5s ease-out, color 0.3s ease-out;
+    font-family: DinPro !important;
+    font-weight: bold;
+    border-style: solid;
+    border-color: red;
+    border-radius: 3px;
+    border-width: thin;
+    color: red;
+    text-align: center;
+    font-size: 1em;
+    margin: 0 $station_popup_margin $station_popup_margin;
+    padding: $station_button_padding;
+    line-height: 2.4em;
+  }
+
+  .stations:hover {
+    cursor: pointer;
+  }
+
+  .stations {
+    margin: 1vh 1vw;
+
+    .albumCover {
+      display: inline-block;
+      vertical-align: middle;
+      width: 11%;
+      height: auto;
+    }
+
+    .station-name {
+      font-family: DinPro !important;
+      display: inline-block;
+      font-size: 0.9em;
+    }
+  }
+}
+
+.station-popup-active {
+  transition: height 0.3s ease-out;
+  height: 222px;
+}
