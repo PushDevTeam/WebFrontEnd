@@ -77,10 +77,11 @@ export class BottomBar {
     if (this.audioElement.paused) {
       this.audioElement.play();
       this.isPlaying = true;
-
+      document.getElementById("playButton").innerHTML="pause";
     } else {
       this.audioElement.pause();
       this.isPlaying = false;
+      document.getElementById("playButton").innerHTML="play_arrow";
     }
   }
 

@@ -120,7 +120,7 @@ $station_popup_margin: 1vh 1vw;
 
 .albumInfoHolder {
   display: inline-block;
-  width: 25%;
+  width: 20%;
   vertical-align: middle;
   position: absolute;
   right: 7%;
@@ -150,7 +150,14 @@ $station_popup_margin: 1vh 1vw;
 
 .timeHolder {
   display: inline-block;
+  vertical-align: middle;
   width: 5%;
+  position: absolute;
+  right: 8.5%;
+  bottom: 10%;
+  font-family: DinPro !important;
+
+  font-size: 70%;
 }
 
 .volumeHolder {

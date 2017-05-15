@@ -9,6 +9,6 @@ export class TimeDisplayPipe {
     let hh = Math.floor(value / 3000);
     let mm = Math.floor(value / 60) % 60;
     let ss = Math.floor(value) % 60;
-    return hh + ":" + (mm < 10 ? "0" : "") + mm + ":" + (ss < 10 ? "0" :"") + ss;
+    return (hh < 10 ? "" : (hh + ":")) + mm + ":" + (ss < 10 ? "0" :"") + ss;
   }
 }
