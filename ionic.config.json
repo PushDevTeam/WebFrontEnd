@@ -6,7 +6,7 @@
   "proxies": [
     { 
       "path":"/api",
-      "proxyUrl": "https://pushdaily-api.azurewebsites.net:3000/api/v1",
+      "proxyUrl": "https://pushdaily-api.azurewebsites.net/api/v1",
       "secure": false
     }
   ]
