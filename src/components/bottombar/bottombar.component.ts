@@ -33,13 +33,17 @@ export class BottomBar {
    })
   }
 
-  updateData = (e: any) => {
+  updateData = () => {
     this.totalTime = this.audioElement.duration;
   };
 
-  updateTime = (e: any) => {
+  updateTime = () => {
     this.currentTime = this.audioElement.currentTime;
   };
+
+  updateVol() {
+    this.audioElement.volume =  (<HTMLInputElement>document.getElementById("volume-slider")).value;
+  }
 
   onStationPopup() {
     let stationMenu = document.getElementById('station-menu');
