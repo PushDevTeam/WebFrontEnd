@@ -87,8 +87,7 @@ export class MyApp {
       }
 
       console.log('starting pandora service call from component');
-      this.pandoraService.pandoraStart();
-      this.pandoraService.getStations();
+      //this.pandoraService.getStationList();
       console.log('ending pandora service call from component');
 
 
