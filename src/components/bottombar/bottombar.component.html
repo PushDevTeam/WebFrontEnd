@@ -2,7 +2,7 @@
   <div class='station-menu' id='station-menu'>
     <!--  <div class="stations" *ngFor="let s of topFiveStations; let index = index" (click)="changeStation(index)" [ngClass]="{'now-playing':index == 0}">
     </div> -->
-    <div (click)="pandoraService.changeStation(idx)" class="stations" *ngFor="let station of pandoraService.userStations; let idx = index;">
+    <div (click)="changeStation(idx)" class="stations" *ngFor="let station of pandoraService.userStations; let idx = index;">
       <div class="albumCover">
         <img class="albumImg" src='{{station.artUrl}}' />
       </div>
@@ -47,9 +47,9 @@
           <i class="material-icons replay">replay</i>
         </div>
         <div class="controlButtonHolder">
-          <i id="playButton" (click)="playSong()" class="material-icons pause">play_arrow</i>
+          <i id="playButton" (click)="togglePlayPause()" class="material-icons pause">play_arrow</i>
         </div>
-        <div class="controlButtonHolder">
+        <div (click)="nextSong()" class="controlButtonHolder">
           <i class="material-icons skip">skip_next</i>
         </div>
         <div class="controlButtonHolder">
@@ -58,14 +58,14 @@
       </div>
       <div class="albumInfoHolder">
         <div class="albumCover">
-          <img class="albumImg" src='https://images-na.ssl-images-amazon.com/images/I/61nxfaFU4yL._SS500.jpg' />
+          <img id="nowPlayingImg" class="albumImg" src='' />
         </div>
         <div class="songInfo">
           <div class="band">
-            Lazerhawk
+            <span id="artistName"></span>
           </div>
           <div class="song">
-            Arrival
+            <span id="songName"></span>
           </div>
         </div>
       </div>

@@ -16,23 +16,43 @@ export class PandoraService {
   constructor(private http: Http){
   }
 
+  getNextSong(){
+    if (this.currentStation === undefined){
+      return this.getStationList().then(()=>{
+        this.getPlaylist(this.currentStation.stationToken).then(()=>{
+          this.goNextSong();
+        })
+      })
+    } else {
+      if (this.playQueue === undefined){
+        return this.getPlaylist(this.currentStation.stationToken).then(()=>{
+          this.goNextSong();
+        })
+      }
+      else if (this.playIndex === this.playQueue.length){
+        return this.getPlaylist(this.currentStation.stationToken).then(()=>{
+          this.goNextSong();
+        })
+      } else {
+        return new Promise((resolve, reject)=>{
+          resolve(this.goNextSong())
+        })
+      }
+    }
+  }
+
   goNextSong(){
     this.playIndex += 1;
-    if (this.playIndex === this.playQueue.length){
-      this.playIndex = -1;
-      this.getPlaylist(this.currentStation.stationToken);
-    }
     this.currentSong = this.playQueue[this.playIndex];
-    document.getElementById('audioDisplay').setAttribute('src', this.currentSong.audioUrlMap.mediumQuality.audioUrl);
+    return this.currentSong;
   }
   changeStation(index){
-    //this.playIndex = -1;
     this.currentStation = this.userStations[index];
     return this.getPlaylist(this.currentStation.stationToken);
   }
   getStationList(){
-    return this.http.get('/api/pandora/user/getStationList')
-      .subscribe((resp: any)=>{
+    return this.http.get('/api/pandora/user/getStationList').toPromise()
+      .then((resp: any)=>{
         this.userStations = JSON.parse(resp._body).stations;
         console.log('user/getStationList resp', this.userStations);
         if (!this.currentStation){
@@ -41,15 +61,16 @@ export class PandoraService {
       }, this.errorHandler)
   }
   getPlaylist(stationToken){
-    return this.http.get('/api/pandora/station/getPlaylist/' + stationToken)
-      .subscribe((resp: any)=>{
+    return this.http.get('/api/pandora/station/getPlaylist/' + stationToken).toPromise()
+      .then((resp: any)=>{
         this.playQueue = JSON.parse(resp._body).items;
+        this.playIndex = -1;
         this.goNextSong();
         console.log('station/getPlaylist resp', this.playQueue);
     }, this.errorHandler)
   }
   addFeedback(stationToken, trackToken, isPositive){
-    return this.http.post('/api/pandora/station/addFeedback/' + stationToken + '/' + trackToken + '/' + isPositive, {});
+    return this.http.post('/api/pandora/station/addFeedback/' + stationToken + '/' + trackToken + '/' + isPositive, {}).toPromise();
   }
   errorHandler = (error:any) =>{
     console.log('PANDORA ERROR - PROBABLY BLOCKED TEMPORARILY BY PANDORA');
