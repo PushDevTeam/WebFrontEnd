@@ -1,8 +1,99 @@
 <ion-footer>
+  <div class='station-menu' id='station-menu'>
+    <div class='station-menu-inner'>
+    <!--  <div class="stations" *ngFor="let s of topFiveStations; let index = index" (click)="changeStation(index)" [ngClass]="{'now-playing':index == 0}">
+    </div> -->
+    <div class="stations">
+      <div class="albumCover">
+        <img class="albumImg" src='https://images-na.ssl-images-amazon.com/images/I/61nxfaFU4yL._SS500.jpg' />
+      </div>
+      <div class="station-name">
+        Flesh and Bones Radio
+      </div>
+    </div>
+    <div class="stations">
+      <div class="albumCover">
+        <img class="albumImg" src='https://images-na.ssl-images-amazon.com/images/I/61nxfaFU4yL._SS500.jpg' />
+      </div>
+      <div class="station-name">
+        Flesh and Bones Radio
+      </div>
+    </div>
+    <div class="stations">
+      <div class="albumCover">
+        <img class="albumImg" src='https://images-na.ssl-images-amazon.com/images/I/61nxfaFU4yL._SS500.jpg' />
+      </div>
+      <div class="station-name">
+        Flesh and Bones Radio
+      </div>
+    </div>
+    <div (click)="seeAllStations()" class="see-all-stations">
+      See All Stations
+    </div>
+    <div class="divider"> </div>
+    <div (click)="createStation()" class=create-station-button>
+      <i class="material-icons add-circle">add_circle</i>
+      <div class=create-station> Create Station </div>
+    </div>
+  </div>
+</div>
+  <div class='volume-bar' id='vol-bar'>
+  <!--  <div class='vol-track'>
+      <div class='vol-thumb'>
+
+      </div>
+    </div> -->
+    <input (change)="updateVol()" type="range" id="volume-slider" min="0" max="1" step="0.1" value="1">
+
+  </div>
   <ion-toolbar>
     <ion-title>
 
-      <audio src='assets/test.mp3' controls></audio>
+      <audio id="audioDisplay" src='assets/test.mp3'></audio>
+      <div class="pandoraLogoHolder">
+        <img class="pandoraLogo" src="assets/Pandora_Logo.png" />
+      </div>
+      <div class="pandoraStationHolder">
+        <div (click)="onStationPopup()" id="station-button" class="pandoraStation"> Summer Hits of the 90's Radio
+        </div>
+      </div>
+      <div class="controls">
+        <div class="controlButtonHolder">
+          <i class="material-icons thumb">thumb_down</i>
+        </div>
+        <div class="controlButtonHolder">
+          <i class="material-icons replay">replay</i>
+        </div>
+        <div class="controlButtonHolder">
+          <i id="playButton" (click)="playSong()" class="material-icons pause">play_arrow</i>
+        </div>
+        <div class="controlButtonHolder">
+          <i class="material-icons skip">skip_next</i>
+        </div>
+        <div class="controlButtonHolder">
+          <i class="material-icons thumb">thumb_up</i>
+        </div>
+      </div>
+      <div class="albumInfoHolder">
+        <div class="albumCover">
+          <img class="albumImg" src='https://images-na.ssl-images-amazon.com/images/I/61nxfaFU4yL._SS500.jpg' />
+        </div>
+        <div class="songInfo">
+          <div class="band">
+            Lazerhawk
+          </div>
+          <div class="song">
+            Arrival
+          </div>
+        </div>
+      </div>
+      <div class="timeHolder"> {{this.currentTime | timeDisplay }} | {{this.totalTime | timeDisplay}}
+      </div>
+
+      <div class="volumeHolder" (click)='toggleVolumeBar()'>
+        <i class="material-icons volume">volume_up</i>
+      </div>
+
     </ion-title>
   </ion-toolbar>
 </ion-footer>

@@ -1,3 +1,402 @@
-topbar{
+$station_button_padding: 0;
+$station_popup_margin: 1.5vh 1vw;
+$volume_track_box_shadow: 0px 0px 0px #000000;
+$volume_thumb_box_shadow: 0px 0px 0px #000000;
+$volume_thumb_height: 11px;
+$volume_thumb_width: 11px;
 
+.pandoraLogoHolder {
+  display: inline-block;
+  width: 8%;
+  padding-left: 1vw;
+
+  .pandoraLogo {
+    vertical-align: middle;
+    width: 90%;
+    height: auto;
+  }
+}
+
+.pandoraStationHolder:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.pandoraStationHolder {
+  display: inline-block;
+  width: 30%;
+
+  .pandoraStation {
+    text-align: center;
+    font-size: 70%;
+    font-family: DinPro !important;
+  }
+
+  .pandoraStation:hover {
+    cursor: pointer;
+  }
+}
+
+.volume-bar{
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 2.9%;
+  width: 25px;
+  height: 0px;
+  transition: all 0.5s ease-out;
+  background-color: white;
+  box-shadow: 0 0 6px grey;
+  z-index: 9000;
+  overflow: hidden;
+  background-color: #F1F2F3;
+}
+.volume-bar-active{
+  height: 130px;
+  transition: all 0.5s ease-out;
+  top: -120px;
+  background-color: #F1F2F3;
+}
+.vol-track{
+  background: color($colors, lightgrey);
+  height: 160px;
+  margin: 5px 0 ;
+  width: 1px;
+  position: relative;
+  left: 7px;
+
+}
+.vol-thumb{
+  position: absolute;
+  left: -5px;
+  top: 0;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: red;
+  box-shadow: 0 0 1px black;
+}
+.vol-thumb:hover{
+  cursor: grab;
+}
+.vol-thumb:active{
+  cursor: grabbing;
+}
+
+
+input[type=range] {
+  -webkit-appearance: none;
+  margin: auto;
+  width: 140px;
+   position: absolute;
+   transform: rotate(270deg);
+   padding-bottom: 115px;
+   padding-right: 25px;  //left/right = top/bottom since rotated
+   padding-left: 15px;
+     background-color: #F1F2F3;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  background: color($colors, lightgrey);
+  margin: auto;
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: $volume_track_box_shadow;
+  border-radius: 1px;
+  border: 0px solid #010101;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: $volume_thumb_box_shadow;
+  //border: 1px solid #000000;
+  height: $volume_thumb_height;
+  width: $volume_thumb_width;
+  border-radius: 25px;
+  background: red;
+  cursor: grab;
+  -webkit-appearance: none;
+  margin-top: -5px;  //moves left or right
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  //background: black;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: $volume_track_box_shadow;
+  background: #3071a9;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: $volume_thumb_box_shadow;
+  border: 1px solid #000000;
+  height: $volume_thumb_height;
+  width: $volume_thumb_width;
+  border-radius: 3px;
+  background: red;
+  cursor: grab;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: red;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: $volume_track_box_shadow;
+}
+input[type=range]::-ms-fill-upper {
+  background: color($colors, lightgrey);;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: $volume_track_box_shadow;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: $volume_thumb_box_shadow;
+  border: 1px solid #000000;
+  height: $volume_thumb_height;
+  width: $volume_thumb_width;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: grab;
+}
+/*
+input[type=range]:focus::-ms-fill-lower {
+  background: red;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: color($colors, lightgrey);
+}
+*/
+
+.controls {
+  display: inline-block;
+  width: 25%;
+
+  .controlButtonHolder {
+    display: inline-block;
+    margin-left: 3.1vh;
+  }
+
+  .thumb {
+    font-size: 70%;
+    vertical-align: middle;
+    margin: auto;
+  }
+
+  .pause {
+    vertical-align: middle;
+    margin: auto;
+    font-size: 130%;
+  }
+
+  .skip {
+    vertical-align: middle;
+    margin: auto;
+    font-size: 110%;
+  }
+
+  .replay {
+    font-size: 80%;
+    vertical-align: middle;
+    margin: auto;
+  }
+
+  .material-icons:hover {
+    color: red;
+    cursor: pointer;
+  }
+}
+
+.albumInfoHolder {
+  display: inline-block;
+  width: 20%;
+  vertical-align: middle;
+  position: absolute;
+  right: 7%;
+
+  .albumCover {
+    display: inline-block;
+    width: 32px;
+    height: auto;
+    vertical-align: middle;
+  }
+
+  .songInfo {
+    display: inline-block;
+    font-size: 55%;
+    vertical-align: middle;
+  }
+
+  .band {
+    font-family: DinPro !important;
+  }
+
+  .song {
+    font-family: DinPro !important;
+    color: red;
+  }
+}
+
+.timeHolder {
+  display: inline-block;
+  vertical-align: middle;
+  width: 5%;
+  position: absolute;
+  //right: 5%;
+  right: 65px;
+  bottom: 10%;
+  font-family: DinPro !important;
+  font-size: 70%;
+}
+
+.volumeHolder {
+  display: inline-block;
+  vertical-align: middle;
+  width: 4%;
+  float: right;
+  position: absolute;
+  right: 2px;
+  bottom: 1.5%;
+
+  .volume {
+    font-size: 90%;
+  }
+
+  .volume:hover {
+    color: red;
+    cursor: pointer;
+  }
+}
+
+.active {
+  transition: all 0.3s ease-out;
+}
+
+.station-menu {
+  font-family: DinPro !important;
+  position: absolute;
+  line-height: 24px;
+  right: 66.5%;
+  bottom: 45px;
+  max-width: 18%;
+  background-color: #F1F2F3;
+  overflow-y: hidden;
+  transition: height 0.3s ease-out;
+  height: 0;
+  padding: 0;
+  box-shadow: 0 0 6px grey;
+
+.station-menu-inner {
+  width: auto;
+  height: auto;
+  padding: 0;
+  padding-top: 5px;
+
+  .create-station-button:hover {
+    cursor: pointer;
+  }
+
+  .create-station-button {
+    border-style: solid;
+    border-color: #CFD0D1;
+    border-width: thin;
+    border-radius: 3px;
+    line-height: 2.2em;
+    margin: $station_popup_margin;
+    padding: $station_button_padding;
+    background-color: #EDEEEF;
+  }
+
+  .add-circle {
+    color: red;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 5px;
+    margin: 0 4px;
+  }
+
+  .create-station {
+    font-family: DinPro !important;
+    font-weight: 300 !important;
+    display: inline-block;
+    vertical-align: middle;
+    color: #7C7D7E;
+    font-size: 1em;
+    font-weight: 500 !important;
+  }
+
+  .divider {
+    border-style: solid;
+    border-top: thin;
+    border-width: thin;
+    border-color: #CFD0D1;
+    margin: $station_popup_margin;
+  }
+
+  .see-all-stations:hover {
+    cursor: pointer;
+    background-color: color($colors, red);
+    transition: background-color 0.5s ease-out, color 0.3s ease-out;
+    color: white;
+  }
+
+  .see-all-stations {
+    transition: background-color 0.5s ease-out, color 0.3s ease-out;
+    font-family: DinPro !important;
+    font-weight: bold;
+    border-style: solid;
+    border-color: red;
+    border-radius: 3px;
+    border-width: thin;
+    color: red;
+    text-align: center;
+    font-size: 1em;
+    margin: $station_popup_margin;
+    padding: $station_button_padding;
+    line-height: 2.4em;
+  }
+
+  .stations:hover {
+    cursor: pointer;
+  }
+
+  .stations {
+    margin: 1vh 1vw;
+
+    .albumCover {
+      display: inline-block;
+      vertical-align: middle;
+      width: 11%;
+      height: auto;
+    }
+
+    .station-name {
+      font-family: DinPro !important;
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 0.9em;
+    }
+  }
+}
+}
+
+.station-popup-active {
+  transition: height 0.3s ease-out;
+  height: 215px;
+  z-index: 9000;
 }

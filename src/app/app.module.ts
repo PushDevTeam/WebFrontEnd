@@ -27,6 +27,8 @@ import {VideoThumbnail} from "../components/video-thumbnail/video-thumbnail.comp
 import {DropDown} from '../components/dropdown/dropdown.component';
 import {VideoSet} from '../components/video-set/video-set.component';
 
+/* Pipes */
+import {TimeDisplayPipe}  from '../pipes/timedisplay.pipe';
 
 /* Services */
 import {AuthService} from '../services/auth';
@@ -67,6 +69,8 @@ import {FacebookService} from 'ng2-facebook-sdk';
     TopBar,
     DropDown,
     VideoSet,
+    //Pipes
+    TimeDisplayPipe,
 
 
   ],
