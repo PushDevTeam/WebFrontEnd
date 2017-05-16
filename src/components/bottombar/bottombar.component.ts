@@ -3,7 +3,7 @@
  */
 import {Component} from '@angular/core';
 import {TimeDisplayPipe} from "../../pipes/timedisplay.pipe";
-
+import {PandoraService} from '../../services/pandora.service';
 
 @Component({
   selector: 'bottombar',
@@ -18,15 +18,19 @@ export class BottomBar {
   private currentTime: number = 0;
   private totalTime: number = 0;
 
-  constructor() {
+  constructor(private pandoraService: PandoraService) {
 
   }
 
 
  ngOnInit() {
-   this.audioElement = <HTMLAudioElement> document.getElementById("audioDisplay");
-   this.audioElement.addEventListener("loadedmetadata", this.updateData);
-   this.audioElement.addEventListener("timeupdate", this.updateTime);
+   this.pandoraService.getStationList().then(()=>{
+    this.audioElement = <HTMLAudioElement> document.getElementById("audioDisplay");
+    this.audioElement.addEventListener("loadedmetadata", this.updateData);
+    this.audioElement.addEventListener("timeupdate", this.updateTime);
+    this.audioElement.addEventListener("ended", this.nextSong)
+    this.nextSong();
+   })
   }
 
   updateData = () => {
@@ -76,17 +80,37 @@ export class BottomBar {
 
     }
   }
-
-  playSong() {
+  changeStation(index){
+    this.pandoraService.changeStation(index);
+    this.nextSong();
+  }
+  nextSong(e?: any){
+    this.pandoraService.getNextSong().then(()=>{
+      this.pandoraService.goNextSong();
+      document.getElementById('audioDisplay').setAttribute('src', this.pandoraService.currentSong.audioUrlMap.mediumQuality.audioUrl);
+      document.getElementById('nowPlayingImg').setAttribute('src', this.pandoraService.currentSong.albumArtUrl);
+      document.getElementById('artistName').innerText = this.pandoraService.currentSong.artistName;
+      document.getElementById('songName').innerText = this.pandoraService.currentSong.songName;
+      this.playSong();
+    })
+  }
+  togglePlayPause() {
     if (this.audioElement.paused) {
-      this.audioElement.play();
-      this.isPlaying = true;
-      document.getElementById("playButton").innerHTML="pause";
+      this.playSong();
     } else {
+      this.pauseSong();
+    }
+  }
+  pauseSong(){
       this.audioElement.pause();
       this.isPlaying = false;
       document.getElementById("playButton").innerHTML="play_arrow";
-    }
+  }
+  playSong(){
+      this.audioElement.play();
+      this.isPlaying = true;
+      document.getElementById("playButton").innerHTML="pause";
+
   }
 
 

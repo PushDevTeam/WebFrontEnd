@@ -6,7 +6,7 @@ import { Storage } from '@ionic/storage';
 import {AzureService} from '../services/azure.service';
 import {UserService, UserObj} from '../services/user.service';
 import {StorageService} from '../services/storage.service';
-
+import {PandoraService} from '../services/pandora.service';
 
 import {Home} from "../pages/home/home";
 import { Terms} from '../pages/terms/terms';
@@ -40,6 +40,7 @@ export class MyApp {
     private userService: UserService,
     private storage: Storage,
     private fbService: FBService,
+    private pandoraService: PandoraService
 
   ) {
     this.initializeApp();
@@ -85,6 +86,9 @@ export class MyApp {
         this.nav.setRoot(Home);
       }
 
+      console.log('starting pandora service call from component');
+      //this.pandoraService.getStationList();
+      console.log('ending pandora service call from component');
 
 
       StatusBar.styleDefault();

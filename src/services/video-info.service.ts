@@ -30,8 +30,8 @@ const MOCK_THUMB_URL = 'https://pushdaily.blob.core.windows.net/asset-d009e52e-1
 
    fetchVideoData = (): Promise<any> =>{
      return this.azureService.loadVideos().then((resp)=>{
-       for (let i=0; i < resp.length; i++){
-         this._videosbyid[resp[i].id] = resp[i];
+       for (let i=0; i < this.azureService.videoinfos.length; i++){
+         this._videosbyid[this.azureService.videoinfos[i].id] = this.azureService.videoinfos[i];
        }
        return this._videosbyid;
     });
