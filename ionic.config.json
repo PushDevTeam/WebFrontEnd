@@ -2,5 +2,17 @@
   "name": "dailyPush",
   "app_id": "",
   "v2": true,
-  "typescript": true
+  "typescript": true,
+  "proxies": [
+    {
+      "path": "/pandoraBROKEN",
+      "proxyUrl": "https://tuner.pandora.com/services/json",
+      "secure": true
+    },
+    { 
+      "path":"/api",
+      "proxyUrl": "http://localhost:3000/api/v1",
+      "secure": false
+    }
+  ]
 }
