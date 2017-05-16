@@ -39,8 +39,15 @@ export class AzureService {
     connectAzure = (azure: any) => {
         this._client = new azure(this._azurepath);
         this._isinitialized = true;
+        this.getVideos();
         //this.testApi();
         //this._initVideos();
+    }
+
+    getVideos = () => {
+        this.http.get('/api/videos').toPromise().then((resp)=>{
+            console.log('/api/videos resp', resp);
+        })
     }
     /*
     _initVideos = () => {

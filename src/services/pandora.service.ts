@@ -16,26 +16,20 @@ export class PandoraService {
   constructor(private http: Http){
   }
 
-  getNextSong(){
+  getNextSong():Promise<any>{
     if (this.currentStation === undefined){
       return this.getStationList().then(()=>{
-        this.getPlaylist(this.currentStation.stationToken).then(()=>{
-          this.goNextSong();
-        })
+        return this.getPlaylist(this.currentStation.stationToken)
       })
     } else {
       if (this.playQueue === undefined){
-        return this.getPlaylist(this.currentStation.stationToken).then(()=>{
-          this.goNextSong();
-        })
+        return this.getPlaylist(this.currentStation.stationToken)
       }
       else if (this.playIndex === this.playQueue.length){
-        return this.getPlaylist(this.currentStation.stationToken).then(()=>{
-          this.goNextSong();
-        })
+        return this.getPlaylist(this.currentStation.stationToken)
       } else {
         return new Promise((resolve, reject)=>{
-          resolve(this.goNextSong())
+          return resolve()
         })
       }
     }
