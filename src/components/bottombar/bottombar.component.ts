@@ -78,7 +78,7 @@ export class BottomBar {
   }
   changeStation(index){
     this.pandoraService.changeStation(index);
-    this.playSong();
+    this.nextSong();
   }
   nextSong(e?: any){
     this.pandoraService.getNextSong().then(()=>{
