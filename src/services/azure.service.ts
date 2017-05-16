@@ -44,21 +44,7 @@ export class AzureService {
             this._isinitialized = true;
         })
     }
-/*
-    _initVideos = () => {
-        let slider1 = "https://pushdaily.blob.core.windows.net/asset-26a078e2-1362-4a31-8fcf-e5cdb0fde7c6/Home_Slider_One.jpg?sv=2015-07-08&sr=c&si=1efcac16-cb10-47c7-92ff-e155c9bfb804&sig=NcJ9srvRcKBc0IDsY3fs7xU0oyas7tM4FobKksofLo4%3D&st=2017-04-03T07%3A53%3A07Z&se=2117-04-03T07%3A53%3A07Z"
-        let slider2 = "https://pushdaily.blob.core.windows.net/asset-35c4c78e-e123-43bd-aff2-d04800a54fbc/Home_Slider_Two.jpg?sv=2015-07-08&sr=c&si=41dc0961-ff61-44e0-8658-0e5ae59bbab3&sig=2FBnOPPWGbZEYk7Lh3Or0Y4JGJrL33vhNpruLffetL0%3D&st=2017-04-03T07%3A52%3A52Z&se=2117-04-03T07%3A52%3A52Z"
-        let slider3 = "https://pushdaily.blob.core.windows.net/asset-0b0c8d31-c327-4d52-a3d6-d5b372cfa963/Home_Slider_Three.jpg?sv=2015-07-08&sr=c&si=3620dbe6-5622-48da-99da-619b55fa8170&sig=kmG4CtBpmYGH5mARoe%2FDP4DoCQth6pApGWrivUF6puM%3D&st=2017-04-03T07%3A53%3A01Z&se=2117-04-03T07%3A53%3A01Z";
-        let id1 = "0d65a51b-c042-4cc5-b932-afe844d6533a";
-        let id2 = "160d73dd-f4ec-4efa-9e44-b576b3aeedee";
-        let id3 = "2c676648-bf0e-48b6-b1a5-12dc7aedb54c";
-        let itemstoupdate = [{'id': id1, 'thumbUrl': slider1}, {'id': id2, 'thumbUrl': slider2}, {'id': id3, 'thumbUrl': slider3}];
-        for (let i=0; i < itemstoupdate.length; i++){
-            //this.updateTableItem('FeaturedVideo', itemstoupdate[i]);
-        }
-
-    }*/
-
+    
     updateTableItem = (tablename: string, updateitem: any): Promise<any> => {
         let table = this.client.getTable(tablename);
         return table.update(updateitem).done((updateditem)=> {console.log('update item success \n tablename: ' + tablename + ' \n', updateitem);});
@@ -80,22 +66,11 @@ export class AzureService {
         })
 }
     getFeaturedVideoIds = (): Promise<Array<string>> => {
-        //this._featuredvideoids = ['0d65a51b-c042-4cc5-b932-afe844d6533a','160d73dd-f4ec-4efa-9e44-b576b3aeedee','2c676648-bf0e-48b6-b1a5-12dc7aedb54c'];
-        return Promise.resolve(this.featuredvideoids);
+       return Promise.resolve(this.featuredvideoids);
     }
 
     loadVideos = () => {
-        return this.getVideos();/*
-        if (!this.isdoneloadingvideos && !this.isloadingvideos) {
-            //return this._loadVideos();
-            return this.getVideos();
-        }
-        else {
-
-            return Promise.resolve(this.videoinfos);
-            //return this.videoinfos;
-            //return new Promise(()=>{return this.videoinfos});
-        }*/
+        return this.getVideos();
     }
     queryTable(string: string){
         return Promise.resolve();
