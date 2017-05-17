@@ -332,15 +332,18 @@ input[type=range]:focus::-ms-fill-upper {
     vertical-align: middle;
     border-radius: 5px;
     margin: 0 4px;
-    position: absolute;
+    position: relative;
+    float: right;
+    transform: translateY(-50%);
     z-index: 9001;
-    bottom: 8.5%;
-    left: 4%;
+    bottom: 27px;
+    right: 11px;
+
   }
 
-.search-hidden {
-  visibility: hidden;
-}
+  .search-hidden {
+    visibility: hidden;
+  }
 
   .create-station-search {
     font-family: DinPro !important;
@@ -348,6 +351,10 @@ input[type=range]:focus::-ms-fill-upper {
   //  color: #7C7D7E;
     font-size: 1em;
     font-weight: 500 !important;
+    background-color: #EDEEEF;
+    border-style: none;
+    width: 90%;
+    padding-left: .4vw;
   }
 
   .divider {
@@ -407,6 +414,6 @@ input[type=range]:focus::-ms-fill-upper {
 
 .station-popup-active {
   transition: height 0.3s ease-out;
-  height: 270px;
+  height: 510%;
   z-index: 9000;
 }

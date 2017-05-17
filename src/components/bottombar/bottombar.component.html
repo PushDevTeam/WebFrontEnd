@@ -21,9 +21,9 @@
   -->
 
 <form class="create-station">
-  <input onfocus="removeSearchIcon()" onblur="addSearchIcon()" class="create-station-search" type=search (click)="createStation()">
+  <input (focus)="removeSearchIcon()" (blur)="addSearchIcon()" class="create-station-search" type=search (click)="createStation()" placeholder="Create Station">
   </form>
-      <i ng-class="{search-hidden: hideSearchIcon}" class="material-icons station-search-icon">search</i>
+      <i ng-class="{search-hidden: this.hideSearchIcon}" class="material-icons station-search-icon">search</i>
   </div>
 </div>
   <div class='volume-bar' id='vol-bar'>
