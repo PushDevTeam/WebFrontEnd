@@ -5,7 +5,7 @@ import {IVideoInfoObj} from '../components/video-thumbnail/video-info-obj';
 import * as WindowsAzure from 'azure-mobile-apps-client';
 
 import { Http, Response } from '@angular/http';
-//declare var WindowsAzure: any;
+import {environment} from '../classes/environ.class';
 /**
  * ACG 3/29/17
  *
@@ -35,7 +35,7 @@ export class AzureService {
 
     getVideos = (): Promise<any> => {
         this._isloadingvideos = true;
-        return this.http.get('/api/videos').toPromise().then((resp)=>{
+        return this.http.get(environment.apiPath + '/videos').toPromise().then((resp)=>{
             console.log('/api/videos resp', resp);
             this._videoinfos = resp.json();
             console.log('this._videoinfos', this._videoinfos);
