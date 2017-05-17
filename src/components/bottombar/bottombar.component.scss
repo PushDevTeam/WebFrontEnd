@@ -1,5 +1,5 @@
 $station_button_padding: 0;
-$station_popup_margin: 1vh 1vw;
+$station_popup_margin: 1.5vh 1vw;
 $volume_track_box_shadow: 0px 0px 0px #000000;
 $volume_thumb_box_shadow: 0px 0px 0px #000000;
 $volume_thumb_height: 11px;
@@ -49,12 +49,13 @@ $volume_thumb_width: 11px;
   box-shadow: 0 0 6px grey;
   z-index: 9000;
   overflow: hidden;
-
+  background-color: #F1F2F3;
 }
 .volume-bar-active{
   height: 130px;
   transition: all 0.5s ease-out;
-  top: -120px
+  top: -120px;
+  background-color: #F1F2F3;
 }
 .vol-track{
   background: color($colors, lightgrey);
@@ -83,7 +84,7 @@ $volume_thumb_width: 11px;
 }
 
 
-/////////////////////
+
 input[type=range] {
   -webkit-appearance: none;
   margin: auto;
@@ -93,6 +94,7 @@ input[type=range] {
    padding-bottom: 115px;
    padding-right: 25px;  //left/right = top/bottom since rotated
    padding-left: 15px;
+     background-color: #F1F2F3;
 }
 
 input[type=range]:focus {
@@ -256,10 +258,10 @@ input[type=range]:focus::-ms-fill-upper {
   vertical-align: middle;
   width: 5%;
   position: absolute;
-  right: 5%;
+  //right: 5%;
+  right: 65px;
   bottom: 10%;
   font-family: DinPro !important;
-
   font-size: 70%;
 }
 
@@ -290,14 +292,21 @@ input[type=range]:focus::-ms-fill-upper {
   font-family: DinPro !important;
   position: absolute;
   line-height: 24px;
-  right: 67%;
-  bottom: 60px;
+  right: 66.5%;
+  bottom: 45px;
   max-width: 18%;
-  background-color: white;
+  background-color: #F1F2F3;
   overflow-y: hidden;
   transition: height 0.3s ease-out;
   height: 0;
   padding: 0;
+  box-shadow: 0 0 6px grey;
+
+.station-menu-inner {
+  width: auto;
+  height: auto;
+  padding: 0;
+  padding-top: 5px;
 
   .create-station-button:hover {
     cursor: pointer;
@@ -305,12 +314,13 @@ input[type=range]:focus::-ms-fill-upper {
 
   .create-station-button {
     border-style: solid;
-    border-color: gray;
+    border-color: #CFD0D1;
     border-width: thin;
     border-radius: 3px;
     line-height: 2.2em;
     margin: $station_popup_margin;
     padding: $station_button_padding;
+    background-color: #EDEEEF;
   }
 
   .add-circle {
@@ -326,16 +336,16 @@ input[type=range]:focus::-ms-fill-upper {
     font-weight: 300 !important;
     display: inline-block;
     vertical-align: middle;
-    color: gray;
+    color: #7C7D7E;
     font-size: 1em;
-    font-weight: bold;
+    font-weight: 500 !important;
   }
 
   .divider {
     border-style: solid;
     border-top: thin;
     border-width: thin;
-    border-color: color($colors, whitegrey);
+    border-color: #CFD0D1;
     margin: $station_popup_margin;
   }
 
@@ -357,7 +367,7 @@ input[type=range]:focus::-ms-fill-upper {
     color: red;
     text-align: center;
     font-size: 1em;
-    margin: 0 $station_popup_margin $station_popup_margin;
+    margin: $station_popup_margin;
     padding: $station_button_padding;
     line-height: 2.4em;
   }
@@ -379,12 +389,15 @@ input[type=range]:focus::-ms-fill-upper {
     .station-name {
       font-family: DinPro !important;
       display: inline-block;
+      vertical-align: middle;
       font-size: 0.9em;
     }
   }
 }
+}
 
 .station-popup-active {
   transition: height 0.3s ease-out;
-  height: 222px;
+  height: 215px;
+  z-index: 9000;
 }

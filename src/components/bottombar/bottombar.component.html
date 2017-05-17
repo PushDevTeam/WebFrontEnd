@@ -1,5 +1,6 @@
 <ion-footer>
   <div class='station-menu' id='station-menu'>
+    <div class='station-menu-inner'>
     <!--  <div class="stations" *ngFor="let s of topFiveStations; let index = index" (click)="changeStation(index)" [ngClass]="{'now-playing':index == 0}">
     </div> -->
     <div (click)="changeStation(idx)" class="stations" *ngFor="let station of pandoraService.userStations; let idx = index;">
@@ -19,7 +20,7 @@
       <div class=create-station> Create Station </div>
     </div>
   </div>
-
+</div>
   <div class='volume-bar' id='vol-bar'>
   <!--  <div class='vol-track'>
       <div class='vol-thumb'>

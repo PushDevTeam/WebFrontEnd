@@ -28,7 +28,7 @@ export class BottomBar {
     this.audioElement = <HTMLAudioElement> document.getElementById("audioDisplay");
     this.audioElement.addEventListener("loadedmetadata", this.updateData);
     this.audioElement.addEventListener("timeupdate", this.updateTime);
-    this.audioElement.addEventListener("ended", this.nextSong)
+    this.audioElement.addEventListener("ended", (e) => this.nextSong(e));
     this.nextSong();
    })
   }
