@@ -8,6 +8,11 @@
       "path":"/api",
       "proxyUrl": "https://pushdaily-api.azurewebsites.net/api/v1",
       "secure": false
+    },
+    {
+      "path":"/api/dev",
+      "proxyUrl": "http://localhost:3000/api/v1",
+      "secure": false
     }
   ]
 }

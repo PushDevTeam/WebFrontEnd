@@ -5,6 +5,7 @@
 **/
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
+import {environment} from '../classes/environ.class';
 
 @Injectable()
 export class PandoraService {
@@ -24,8 +25,7 @@ export class PandoraService {
     } else {
       if (this.playQueue === undefined){
         return this.getPlaylist(this.currentStation.stationToken)
-      }
-      else if (this.playIndex === this.playQueue.length){
+      } else if (this.playIndex === this.playQueue.length){
         return this.getPlaylist(this.currentStation.stationToken)
       } else {
         return new Promise((resolve, reject)=>{
@@ -37,7 +37,15 @@ export class PandoraService {
 
   goNextSong(){
     this.playIndex += 1;
-    this.currentSong = this.playQueue[this.playIndex];
+    if (!this.playQueue){
+      this.currentSong = {
+        'artistName': 'Some Artist', 
+        'songName': 'Some Song Name', 
+        'audioUrlMap': {'mediumQuality': '/assets/test.mp3'}, 
+        'albumArtUrl': 'https://www.pandora.com/static/images/ShuffleStationArt.jpg'}
+    } else {
+      this.currentSong = this.playQueue[this.playIndex];
+    }
     return this.currentSong;
   }
   changeStation(index){
@@ -45,7 +53,7 @@ export class PandoraService {
     return this.getPlaylist(this.currentStation.stationToken);
   }
   getStationList(){
-    return this.http.get('/api/pandora/user/getStationList').toPromise()
+    return this.http.get(environment.apiPath + '/pandora/user/getStationList').toPromise()
       .then((resp: any)=>{
         this.userStations = JSON.parse(resp._body).stations;
         console.log('user/getStationList resp', this.userStations);
@@ -55,7 +63,7 @@ export class PandoraService {
       }, this.errorHandler)
   }
   getPlaylist(stationToken){
-    return this.http.get('/api/pandora/station/getPlaylist/' + stationToken).toPromise()
+    return this.http.get(environment.apiPath + '/pandora/station/getPlaylist/' + stationToken).toPromise()
       .then((resp: any)=>{
         this.playQueue = JSON.parse(resp._body).items;
         this.playIndex = -1;
@@ -64,7 +72,7 @@ export class PandoraService {
     }, this.errorHandler)
   }
   addFeedback(stationToken, trackToken, isPositive){
-    return this.http.post('/api/pandora/station/addFeedback/' + stationToken + '/' + trackToken + '/' + isPositive, {}).toPromise();
+    return this.http.post(environment.apiPath + '/pandora/station/addFeedback/' + stationToken + '/' + trackToken + '/' + isPositive, {}).toPromise();
   }
   errorHandler = (error:any) =>{
     console.log('PANDORA ERROR - PROBABLY BLOCKED TEMPORARILY BY PANDORA');
