@@ -24,24 +24,18 @@ export class Feature {
     private azureService: AzureService,
     private navCtrl: NavController,
     private videoInfoService: VideoInfoService,
-  ) {
-
-    console.log('on init of feature.component');
-    this.videoInfoService.fetchVideoData().then(() => {
-      this.azureService.getFeaturedVideoIds().then((resp) => {
-        this.video_ids = resp;
-        this.video_ids.forEach((id) => {
-          this.video_info_arr.push(this.videoInfoService.getVideoInfo(id));
-        });
-        
-        console.log('video_info_arr',this.video_info_arr);
-      });
-    });
-
-
-  }
+  ) {}
 
   ngOnInit() {
+    this.video_ids = [];
+      this.videoInfoService.fetchVideoData().then((resp) => {
+        for (let k in this.azureService.videoinfos){
+          if (this.azureService.videoinfos[k].isfeatured){
+            this.video_info_arr.push(this.azureService.videoinfos[k]);
+            this.video_ids.push(this.azureService.videoinfos[k].id)
+          }
+        }
+      });
   }
 
   goToVid(id) {
