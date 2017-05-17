@@ -1,9 +1,7 @@
 <ion-footer>
   <div class='station-menu' id='station-menu'>
     <div class='station-menu-inner'>
-    <!--  <div class="stations" *ngFor="let s of topFiveStations; let index = index" (click)="changeStation(index)" [ngClass]="{'now-playing':index == 0}">
-    </div> -->
-    <div (click)="changeStation(idx)" class="stations" *ngFor="let station of pandoraService.userStations; let idx = index;">
+      <div (click)="changeStation(idx)" class="stations" *ngFor="let station of pandoraService.userStations; let idx = index;">
       <div class="albumCover">
         <img class="albumImg" src='{{station.artUrl}}' />
       </div>
@@ -15,10 +13,17 @@
       See All Stations
     </div>
     <div class="divider"> </div>
+<!--
     <div (click)="createStation()" class=create-station-button>
       <i class="material-icons add-circle">add_circle</i>
       <div class=create-station> Create Station </div>
     </div>
+  -->
+
+<form class="create-station">
+  <input (focus)="removeSearchIcon()" (blur)="addSearchIcon()" class="create-station-search" type=search (click)="createStation()" placeholder="Create Station">
+  </form>
+      <i ng-class="{search-hidden: this.hideSearchIcon}" class="material-icons station-search-icon">search</i>
   </div>
 </div>
   <div class='volume-bar' id='vol-bar'>

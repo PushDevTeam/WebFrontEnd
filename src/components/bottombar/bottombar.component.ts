@@ -17,7 +17,7 @@ export class BottomBar {
   private isPlaying: boolean = false;
   private currentTime: number = 0;
   private totalTime: number = 0;
-
+  private hideSearchIcon: boolean = false;
   constructor(private pandoraService: PandoraService) {
 
   }
@@ -113,5 +113,12 @@ export class BottomBar {
 
   }
 
+  removeSearchIcon() {
+    this.hideSearchIcon = true;
+  }
+
+  addSearchIcon() {
+    this.hideSearchIcon = false;
+  }
 
 }
