@@ -24,15 +24,14 @@ export class VideoView {
     public navParams: NavParams,
     public navCtrl: NavController,
     private modalCtrl: ModalController
-  ) {
+  ) {}
+  ngOnInit(){
     this.d = new Date();
     this.id = this.navParams.get('id');
 
     this.videoInfoService.fetchVideoData().then(()=> {
       this.videoInfo = this.videoInfoService.getVideoInfo(this.id);
     });
-  }
-  ngOnInit(){
     //this.videoInfo = this.videoInfoService.getVideoInfo(this.id);
   }
 

@@ -2,7 +2,7 @@
 <ion-content>
   <div class='player-wrapper'>
     <video controls (ended)="onVideoEnd()" id="video-player">
-    <source src={{this.videoInfo.videoUrl}} type="video/mp4"/>
+    <source src='{{videoInfoService.getVideoInfo(id).videoUrl}}' type="video/mp4"/>
   </video>
   </div>
   <div class='body'>
@@ -14,7 +14,7 @@
         Lorem ipsum sit dolor
       </div>
       <div class='large-title'>
-        {{this.videoInfo.title}}
+        {{videoInfo.title}}
       </div>
     </div>
     <div class='info'>
@@ -27,7 +27,7 @@
           </div>
 
           <div class='text' id="trainer-name">
-            {{this.videoInfo.trainer}}
+            {{videoInfo.trainer}}
           </div>
         </div>
         <div class='item'>
@@ -36,7 +36,7 @@
           </div>
 
           <div class='text'>
-            {{this.videoInfo.duration}}
+            {{videoInfo.duration}}
           </div>
         </div>
         <div class='item'>
@@ -45,7 +45,7 @@
           </div>
 
           <div class='text'>
-            {{this.videoInfo.difficulty}}
+            {{videoInfo.difficulty}}
           </div>
         </div>
 
@@ -55,7 +55,7 @@
 
 
         <div class='paragraph'>
-          {{this.videoInfo.description}}
+          {{videoInfo.description}}
         </div>
         <div class='tags'>
           tags<br /><br />
