@@ -225,10 +225,11 @@ input[type=range]:focus::-ms-fill-upper {
 
 .albumInfoHolder {
   display: inline-block;
-  width: 20%;
+  width: 15%;
   vertical-align: middle;
   position: absolute;
-  right: 7%;
+  right: 14%;
+  overflow-y: hidden;
 
   .albumCover {
     display: inline-block;
@@ -241,10 +242,12 @@ input[type=range]:focus::-ms-fill-upper {
     display: inline-block;
     font-size: 55%;
     vertical-align: middle;
+    overflow-y: hidden;
   }
 
   .band {
     font-family: DinPro !important;
+    overflow-y: hidden;
   }
 
   .song {
@@ -272,7 +275,7 @@ input[type=range]:focus::-ms-fill-upper {
   float: right;
   position: absolute;
   right: 2px;
-  bottom: 1.5%;
+  bottom: 1.3%;
 
   .volume {
     font-size: 90%;
@@ -308,11 +311,11 @@ input[type=range]:focus::-ms-fill-upper {
   padding: 0;
   padding-top: 5px;
 
-  .create-station-button:hover {
+  .create-station:hover {
     cursor: pointer;
   }
 
-  .create-station-button {
+  .create-station {
     border-style: solid;
     border-color: #CFD0D1;
     border-width: thin;
@@ -323,20 +326,26 @@ input[type=range]:focus::-ms-fill-upper {
     background-color: #EDEEEF;
   }
 
-  .add-circle {
+  .station-search-icon {
     color: red;
     display: inline-block;
     vertical-align: middle;
     border-radius: 5px;
     margin: 0 4px;
+    position: absolute;
+    z-index: 9001;
+    bottom: 8.5%;
+    left: 4%;
   }
 
-  .create-station {
+.search-hidden {
+  visibility: hidden;
+}
+
+  .create-station-search {
     font-family: DinPro !important;
     font-weight: 300 !important;
-    display: inline-block;
-    vertical-align: middle;
-    color: #7C7D7E;
+  //  color: #7C7D7E;
     font-size: 1em;
     font-weight: 500 !important;
   }
@@ -398,6 +407,6 @@ input[type=range]:focus::-ms-fill-upper {
 
 .station-popup-active {
   transition: height 0.3s ease-out;
-  height: 215px;
+  height: 270px;
   z-index: 9000;
 }
