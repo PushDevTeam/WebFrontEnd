@@ -11,7 +11,7 @@
         <button ion-button>VIEW All</button>
       </ion-col>
       <ion-col col-7>
-        <div class='thumb'>
+        <div class='thumb' (click)="goToVid(video_info_arr[2].id)">
 
 
           <img src='{{video_info_arr[2]?.featureThumbUrl}}' />

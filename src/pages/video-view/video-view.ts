@@ -13,7 +13,12 @@ export class VideoView {
   public videoInfo : IVideoInfoObj = <IVideoInfoObj>{};
   private id: string;
   private d: any;
-
+  private set_array =
+  [
+    {'title': 'Related Workouts'},
+    {'id': null, 'title': 'My Workouts'},
+    {'title': 'Other Category'},
+  ];
   constructor(
     public videoInfoService: VideoInfoService,
     public navParams: NavParams,

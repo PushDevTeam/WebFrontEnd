@@ -4,7 +4,7 @@
 /**
  * Created by Javes on 3/19/2017.
  */
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { AzureService } from '../../services/azure.service';
 import { VideoView} from '../../pages/video-view/video-view';
@@ -27,36 +27,39 @@ export class Headliner {
   ) {
 
     console.log('on init of headliner.component');
-    this.videoInfoService.fetchVideoData().then(() => {
-      this.azureService.getFeaturedVideoIds().then((resp) => {
-        this.video_ids = resp;
-        this.video_ids.forEach((id) => {
-          this.video_info_arr.push(this.videoInfoService.getVideoInfo(id));
-        });
-        console.log('video_info_arr',this.video_info_arr);
-      });
-    });
-
 
   }
 
   ngOnInit() {
+    this.video_ids = [];
+      this.videoInfoService.fetchVideoData().then((resp) => {
+        for (let k in this.azureService.videoinfos){
+          if (this.azureService.videoinfos[k].isfeatured){
+            this.video_info_arr.push(this.azureService.videoinfos[k]);
+            this.video_ids.push(this.azureService.videoinfos[k].id)
+          }
+        }
+      });
+
   }
   ngAfterViewInit(){
     this.slides.lockSwipes(true);
 
   }
   slideLeft(){
+
     this.slides.lockSwipes(false);
     this.slides.slidePrev();
     this.slides.lockSwipes(true);
   }
   slideRight(){
+
     this.slides.lockSwipes(false);
     this.slides.slideNext();
     this.slides.lockSwipes(true);
   }
   goToVid(id) {
+    //alert();
     this.navCtrl.push(VideoView, { 'id': id });
   }
 }

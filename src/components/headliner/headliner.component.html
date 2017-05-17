@@ -1,18 +1,62 @@
-<ion-slides pager class="slides" >
+<div class='slide-controls'>
+  <ion-icon name="ios-arrow-back" id='back' (click)='slideLeft()'></ion-icon>
+  <ion-icon name="ios-arrow-forward" id='forward' (click)='slideRight()'></ion-icon>
+</div>
+
+<ion-slides pager class="slides">
+
+  <ion-slide *ngFor="let vid_info of video_info_arr" [ngStyle]="{'background-image': 'url(' + vid_info.featureThumbUrl + ')'}">
 
 
-  <ion-slide *ngFor="let vid_info of video_info_arr">
+    <div class='video-info'>
+      <div class='title'>
+        Extreme Dance Mix
+      </div>
+      <div class='secondary-info'>
+      <span class='pic'>
+          <img src='assets/icons/profile.svg' />
+        </span>
 
-    <div id="left" (click)="slideLeft()">
-      <img src="http://alexoliveira.me/Hawaii/images/chevron-left.png">
+      <span class='name'>
+          Trainer Name
+        </span>
+        <ion-icon name='time'></ion-icon>
+        40:00
+      <ion-icon name='stats'> </ion-icon>
+      Intermediate
+
+      </div>
+      <div class='description'>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pretium urna ut nibh hendrerit, nec aliquet erat vestibulum. Maecenas facilisis diam at augue cursus volutpat ac a dui. Morbi non varius purus, vitae aliquam nibh. Sed vitae est sit amet justo scelerisque tempus. Fusce posuere dui vel faucibus consequat.
+
+      </div>
+    </div>
+    <div class='playbutton'>
+      <i class="material-icons" (click)='goToVid(vid_info.id)'>play_circle_outline</i>
     </div>
 
-    <div id="middle" (click)="goToVid(vid_info.id)"></div>
-    <div id="right" (click)="slideRight()">
-      <img src="http://alexoliveira.me/Hawaii/images/chevron-right.png">
-    </div>
-    <img src='{{vid_info.featureThumbUrl}}' class="background"/>
+    <div class='suggested-radio'>
+      Suggested Radio Stations
+      <div class='station-wrap'>
+        <img src='https://images-na.ssl-images-amazon.com/images/I/61WtzIi5L0L._SS500.jpg' />
+        <div class='radio-name'>
 
+        Tech N9ne Radio
+        </div>
+      </div>
+      <div class='station-wrap'>
+        <img src='https://images-na.ssl-images-amazon.com/images/I/51SVFPuNbUL._SS500.jpg' />
+        <div class='radio-name'>Israel IZ
+        </div>
+      </div>
+      <div class='station-wrap'>
+        <img src='https://images-na.ssl-images-amazon.com/images/I/519FJqa%2BhTL._SS500.jpg' />
+        <span class='radio-name'>
+          90's Hip Hop
+        </span>
+
+      </div>
+    </div>
   </ion-slide>
 
 
