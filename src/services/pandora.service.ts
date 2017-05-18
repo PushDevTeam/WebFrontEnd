@@ -41,7 +41,7 @@ export class PandoraService {
       this.currentSong = {
         'artistName': 'Some Artist', 
         'songName': 'Some Song Name', 
-        'audioUrlMap': {'mediumQuality': '/assets/test.mp3'}, 
+        'audioUrlMap': {'mediumQuality': 'assets/test.mp3'}, 
         'albumArtUrl': 'https://www.pandora.com/static/images/ShuffleStationArt.jpg'}
     } else {
       this.currentSong = this.playQueue[this.playIndex];
@@ -73,6 +73,13 @@ export class PandoraService {
   }
   addFeedback(stationToken, trackToken, isPositive){
     return this.http.post(environment.apiPath + '/pandora/station/addFeedback/' + stationToken + '/' + trackToken + '/' + isPositive, {}).toPromise();
+  }
+
+  getFeaturedStations(){
+    return [
+      {'stationId': '3608848574149979011', 'imgUrl': 'https://images-na.ssl-images-amazon.com/images/I/61WtzIi5L0L._SS500.jpg', 'stationName': 'Tech N9ne Radio'}, 
+      {'stationId': '3608848836142984067', 'imgUrl': 'https://images-na.ssl-images-amazon.com/images/I/51SVFPuNbUL._SS500.jpg', 'stationName': 'Israel IZ'}, 
+      {'stationId': '3608849274229648259', 'imgUrl': 'https://images-na.ssl-images-amazon.com/images/I/519FJqa%2BhTL._SS500.jpg', 'stationName': "90's Hip Hop"}];
   }
   errorHandler = (error:any) =>{
     console.log('PANDORA ERROR - PROBABLY BLOCKED TEMPORARILY BY PANDORA');

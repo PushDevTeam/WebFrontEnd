@@ -37,24 +37,11 @@
 
     <div class='suggested-radio'>
       Suggested Radio Stations
-      <div class='station-wrap'>
-        <img src='https://images-na.ssl-images-amazon.com/images/I/61WtzIi5L0L._SS500.jpg' />
-        <div class='radio-name'>
-
-        Tech N9ne Radio
-        </div>
-      </div>
-      <div class='station-wrap'>
-        <img src='https://images-na.ssl-images-amazon.com/images/I/51SVFPuNbUL._SS500.jpg' />
-        <div class='radio-name'>Israel IZ
-        </div>
-      </div>
-      <div class='station-wrap'>
-        <img src='https://images-na.ssl-images-amazon.com/images/I/519FJqa%2BhTL._SS500.jpg' />
-        <span class='radio-name'>
-          90's Hip Hop
-        </span>
-
+      <div *ngFor="let station of pandoraService.getFeaturedStations()" 
+            (click)='pandoraService.getPlaylist(station.stationId)'
+            class='station-wrap'>
+        <img src='{{station.imgUrl}}' />
+        <div class='radio-name'>{{station.stationName}}</div>
       </div>
     </div>
   </ion-slide>
