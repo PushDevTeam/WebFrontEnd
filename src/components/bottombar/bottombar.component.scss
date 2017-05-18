@@ -127,20 +127,20 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 }
 input[type=range]::-moz-range-track {
   width: 100%;
-  height: 8.4px;
+  height: 2px;
   cursor: pointer;
   animate: 0.2s;
   box-shadow: $volume_track_box_shadow;
-  background: #3071a9;
+  background: color($colors, lightgrey);
   border-radius: 1.3px;
-  border: 0.2px solid #010101;
+  border: 0px solid #010101;
 }
 input[type=range]::-moz-range-thumb {
   box-shadow: $volume_thumb_box_shadow;
-  border: 1px solid #000000;
+  border: 0px solid #000000;
   height: $volume_thumb_height;
   width: $volume_thumb_width;
-  border-radius: 3px;
+  border-radius: 25px;
   background: red;
   cursor: grab;
 }
@@ -156,23 +156,23 @@ input[type=range]::-ms-track {
 }
 input[type=range]::-ms-fill-lower {
   background: red;
-  border: 0.2px solid #010101;
+  border: 0px solid #010101;
   border-radius: 2.6px;
   box-shadow: $volume_track_box_shadow;
 }
 input[type=range]::-ms-fill-upper {
   background: color($colors, lightgrey);;
-  border: 0.2px solid #010101;
+  border: 0px solid #010101;
   border-radius: 2.6px;
   box-shadow: $volume_track_box_shadow;
 }
 input[type=range]::-ms-thumb {
   box-shadow: $volume_thumb_box_shadow;
-  border: 1px solid #000000;
+  border: 0px solid #000000;
   height: $volume_thumb_height;
   width: $volume_thumb_width;
-  border-radius: 3px;
-  background: #ffffff;
+  border-radius: 25px;
+  background: red;
   cursor: grab;
 }
 /*
@@ -225,10 +225,11 @@ input[type=range]:focus::-ms-fill-upper {
 
 .albumInfoHolder {
   display: inline-block;
-  width: 20%;
+  width: 15%;
   vertical-align: middle;
   position: absolute;
-  right: 7%;
+  right: 14%;
+  overflow-y: hidden;
 
   .albumCover {
     display: inline-block;
@@ -241,10 +242,12 @@ input[type=range]:focus::-ms-fill-upper {
     display: inline-block;
     font-size: 55%;
     vertical-align: middle;
+    overflow-y: hidden;
   }
 
   .band {
     font-family: DinPro !important;
+    overflow-y: hidden;
   }
 
   .song {
@@ -272,7 +275,7 @@ input[type=range]:focus::-ms-fill-upper {
   float: right;
   position: absolute;
   right: 2px;
-  bottom: 1.5%;
+  bottom: 1.3%;
 
   .volume {
     font-size: 90%;
@@ -308,11 +311,11 @@ input[type=range]:focus::-ms-fill-upper {
   padding: 0;
   padding-top: 5px;
 
-  .create-station-button:hover {
+  .create-station:hover {
     cursor: pointer;
   }
 
-  .create-station-button {
+  .create-station {
     border-style: solid;
     border-color: #CFD0D1;
     border-width: thin;
@@ -323,22 +326,35 @@ input[type=range]:focus::-ms-fill-upper {
     background-color: #EDEEEF;
   }
 
-  .add-circle {
+  .station-search-icon {
     color: red;
     display: inline-block;
     vertical-align: middle;
     border-radius: 5px;
     margin: 0 4px;
+    position: relative;
+    float: right;
+    transform: translateY(-50%);
+    z-index: 9001;
+    bottom: 27px;
+    right: 11px;
+
   }
 
-  .create-station {
+  .search-hidden {
+    visibility: hidden;
+  }
+
+  .create-station-search {
     font-family: DinPro !important;
     font-weight: 300 !important;
-    display: inline-block;
-    vertical-align: middle;
-    color: #7C7D7E;
+  //  color: #7C7D7E;
     font-size: 1em;
     font-weight: 500 !important;
+    background-color: #EDEEEF;
+    border-style: none;
+    width: 90%;
+    padding-left: .4vw;
   }
 
   .divider {
@@ -398,6 +414,6 @@ input[type=range]:focus::-ms-fill-upper {
 
 .station-popup-active {
   transition: height 0.3s ease-out;
-  height: 215px;
+  height: 510%;
   z-index: 9000;
 }
