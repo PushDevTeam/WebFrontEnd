@@ -63,20 +63,6 @@ export class MyApp {
 
       this.azureService.loadVideos().then((resp)=>{console.log('loadVideos() \n', resp)});
 
-      //example getter - will return array of strings with video ids of featured videos
-      //this.azureService.getFeaturedVideoIds()
-      //.then((resp) => {
-      //  console.log('featured video ids:', resp);
-
-        //example setter - will post feedback for the 0 index video id returned from getFeaturedVideos
-      //  this.azureService.postVideoFeedback(resp[0], '2', 'some comment about this video');
-      //})
-      //.then(()=>{
-      //    this.azureService.getAllVideoFeedback().then((newresp)=>{
-      //      console.log('all video feedback', newresp);
-      //    })
-      //})
-
       if (this.userService.loadStoredUser()) {
         console.log('user found');
         this.nav.setRoot(Home);
@@ -85,11 +71,6 @@ export class MyApp {
         //this.nav.setRoot(StartPage);
         this.nav.setRoot(Home);
       }
-
-      console.log('starting pandora service call from component');
-      //this.pandoraService.getStationList();
-      console.log('ending pandora service call from component');
-
 
       StatusBar.styleDefault();
       Splashscreen.hide();

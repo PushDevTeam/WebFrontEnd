@@ -34,9 +34,11 @@ export class AzureService {
     }
 
     getVideos = (): Promise<any> => {
+        if (this._isloadingvideos){
+            
+        }
         this._isloadingvideos = true;
         return this.http.get(environment.apiPath + '/videos').toPromise().then((resp)=>{
-            console.log('/api/videos resp', resp);
             this._videoinfos = resp.json();
             console.log('this._videoinfos', this._videoinfos);
             this._isdoneloadingvideos = true;
