@@ -37,11 +37,11 @@
 
     <div class='suggested-radio'>
       Suggested Radio Stations
-      <div *ngFor="let station of pandoraService.getFeaturedStations()" 
-            (click)='pandoraService.getPlaylist(station.stationId)'
-            class='station-wrap'>
-        <img src='{{station.imgUrl}}' />
-        <div class='radio-name'>{{station.stationName}}</div>
+      <div (click)='pandoraService.goToSuggestedStation(station.stationId)' *ngFor="let station of pandoraService.getFeaturedStations()">
+        <div class='station-wrap'>
+          <img src='{{station.imgUrl}}' />
+          <div class='radio-name'>{{station.stationName}}</div>
+        </div>
       </div>
     </div>
   </ion-slide>

@@ -14,6 +14,8 @@ export class PandoraService {
   public playIndex = -1;
   public currentStation: any;
   public currentSong: any;
+  public stationChange: boolean = false;
+
   constructor(private http: Http){
   }
 
@@ -72,6 +74,7 @@ export class PandoraService {
     }, this.errorHandler)
   }
   addFeedback(stationToken, trackToken, isPositive){
+    console.log('addFeedback running');
     return this.http.post(environment.apiPath + '/pandora/station/addFeedback/' + stationToken + '/' + trackToken + '/' + isPositive, {}).toPromise();
   }
 
@@ -87,4 +90,9 @@ export class PandoraService {
     tmp.innerHTML = error;
     console.log('PANDORA ERROR MSG: ' + tmp.innerText || tmp.textContent || '');
   }
+  goToSuggestedStation(id){
+    console.log('XXX goToSuggestedStation(id)', id);
+    this.getPlaylist(id);
+  }
+
 }
