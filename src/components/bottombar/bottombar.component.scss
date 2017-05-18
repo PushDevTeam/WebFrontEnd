@@ -196,6 +196,13 @@ input[type=range]:focus::-ms-fill-upper {
   .controlButtonHolder {
     display: inline-block;
     margin-left: 3.1vh;
+
+    #thumbs-up.active{
+      color: red;
+      &:hover {
+        color: black;
+      }
+    }
   }
 
   .thumb {
@@ -222,15 +229,17 @@ input[type=range]:focus::-ms-fill-upper {
     margin: auto;
   }
 
-  .material-icons:hover {
+  .material-icons{
+  
+  &:hover {
     color: red;
     cursor: pointer;
-  }
-}
+  }}
+  } 
 
 .albumInfoHolder {
   display: inline-block;
-  width: 20%;
+  width: 15%;
   vertical-align: middle;
   position: absolute;
   right: 10%;
