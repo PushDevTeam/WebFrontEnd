@@ -11,6 +11,7 @@ import { VideoView} from '../../pages/video-view/video-view';
 import { NavController } from 'ionic-angular';
 import { VideoInfoObj } from '../video-thumbnail/video-info-obj';
 import { VideoInfoService } from '../../services/video-info.service';
+import { PandoraService } from '../../services/pandora.service';
 @Component({
   selector: 'feature',
   templateUrl: 'feature.component.html'
@@ -24,6 +25,7 @@ export class Feature {
     private azureService: AzureService,
     private navCtrl: NavController,
     private videoInfoService: VideoInfoService,
+    private pandoraService: PandoraService
   ) {}
 
   ngOnInit() {

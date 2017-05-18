@@ -60,23 +60,20 @@ export class MyApp {
 
       //TODO uncomment this if building for mobile
       //MobileAccessibility.usePreferredTextZoom(false);
+        if (this.userService.loadStoredUser()) {
+          console.log('user found');
+          this.nav.setRoot(Home);
+        } else {
+          console.log('no user locally stored');
+          //this.nav.setRoot(StartPage);
+          this.nav.setRoot(Home);
+        }
 
-      this.azureService.loadVideos().then((resp)=>{console.log('loadVideos() \n', resp)});
+        StatusBar.styleDefault();
+        Splashscreen.hide();
+        console.log("initializeApp");
 
-      if (this.userService.loadStoredUser()) {
-        console.log('user found');
-        this.nav.setRoot(Home);
-      } else {
-        console.log('no user locally stored');
-        //this.nav.setRoot(StartPage);
-        this.nav.setRoot(Home);
-      }
-
-      StatusBar.styleDefault();
-      Splashscreen.hide();
-      console.log("initializeApp");
-
-    });
+      });
   }
 
   openPage(page) {

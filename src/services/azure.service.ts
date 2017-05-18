@@ -40,10 +40,15 @@ export class AzureService {
         this._isloadingvideos = true;
         return this.http.get(environment.apiPath + '/videos').toPromise().then((resp)=>{
             this._videoinfos = resp.json();
-            console.log('this._videoinfos', this._videoinfos);
+            //console.log('this._videoinfos', this._videoinfos);
             this._isdoneloadingvideos = true;
             this._isloadingvideos = false;
             this._isinitialized = true;
+        }, (reason:any)=>{
+            console.log('error getting videos', reason);
+            this._isdoneloadingvideos = true;
+            this._isloadingvideos = false;
+            this._isinitialized = false;
         })
     }
     
