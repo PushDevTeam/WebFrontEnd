@@ -46,7 +46,7 @@
         <img class="pandoraLogo" src="assets/Pandora_Logo.png" />
       </div>
       <div class="pandoraStationHolder">
-        <div (click)="onStationPopup()" id="station-button" class="pandoraStation"> <span *ngIf="pandoraService.currentStation">{{pandoraService.currentStation.stationName}}</span>
+        <div (click)="onStationPopup()" id="station-button" class="pandoraStation"> <span *ngIf="pandoraService.currentStation">{{pandoraService.currentStationName()}}</span>
         </div>
       </div>
       <div class="controls">

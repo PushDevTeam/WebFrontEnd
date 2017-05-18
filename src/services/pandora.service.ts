@@ -95,6 +95,9 @@ export class PandoraService {
        //console.log('station/getStation resp', JSON.parse(resp._body));
       })
   }
+  currentStationName(){
+    return this.currentStation.stationName;
+  }
   addFeedback(stationToken, trackToken, songIdentity, isPositive){
     if (this.currentSong.allowFeedback && this.currentStation.allowAddMusic){
       return this.http.post(environment.apiPath + '/pandora/station/addFeedback/' + stationToken + '/' + trackToken + '/' + songIdentity + '/' + isPositive, {}).toPromise()
