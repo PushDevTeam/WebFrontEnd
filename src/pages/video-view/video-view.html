@@ -1,7 +1,7 @@
 <!--component html goes here -->
 <ion-content>
   <div class='player-wrapper'>
-    <video controls (ended)="onVideoEnd()" id="video-player">
+    <video controls (ended)="onVideoEnd()" id="video-player" (play)='playAV()' (pause)='pauseAV()'>
 
     <source src='{{videoInfoService.getVideoInfo(id).videoUrl}}' type="video/mp4"/>
 
