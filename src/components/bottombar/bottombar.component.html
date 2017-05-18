@@ -1,16 +1,19 @@
 <ion-footer>
   <div class='station-menu' id='station-menu'>
     <div class='station-menu-inner'>
-      <div (click)="changeStation(idx)" class="stations" *ngFor="let station of pandoraService.userStations; let idx = index;">
-      <div class="albumCover">
-        <img class="albumImg" src='{{station.artUrl}}' />
+      <div *ngFor="let station of pandoraService.userStations; let idx = index;">
+        <div (click)="changeStation(idx)" class="stations" *ngIf="idx < stationShowLimit">
+          <div class="albumCover">
+            <img class="albumImg" src='{{station.artUrl}}' />
+          </div>
+          <div class="station-name">
+            {{station.stationName}}
+          </div>
+        </div>
       </div>
-      <div class="station-name">
-        {{station.stationName}}
-      </div>
-    </div>
     <div (click)="seeAllStations()" class="see-all-stations">
-      See All Stations
+      <span *ngIf="stationShowLimit === 3">See All Stations</span>
+      <span *ngIf="stationShowLimit === 100">See Fewer Stations</span>
     </div>
     <div class="divider"> </div>
 <!--

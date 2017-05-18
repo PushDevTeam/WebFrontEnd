@@ -18,6 +18,7 @@ export class BottomBar {
   private currentTime: number = 0;
   private totalTime: number = 0;
   private hideSearchIcon: boolean = false;
+  private stationShowLimit: number = 3;
   constructor(private pandoraService: PandoraService) {
 
   }
@@ -66,7 +67,12 @@ export class BottomBar {
   }
 
   seeAllStations() {
-
+    if (this.stationShowLimit === 3){
+      this.stationShowLimit = 100;
+    } 
+    else if (this.stationShowLimit === 100){
+      this.stationShowLimit = 3;
+    }
   }
   toggleVolumeBar() {
     let volBar = document.getElementById('vol-bar');
