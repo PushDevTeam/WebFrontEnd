@@ -34,7 +34,7 @@ export class CustomAuthService {
     authSuccess = (resp) => {
         this.userService.storeUser(resp);
         //console.log('custom auth response \n', resp);
-        console.log('\n resp.status \n', resp.status, '\n resp.statusText \n', resp.statusText, '\n resp.result.token \n', resp.result.token);
+       //#console.log('\n resp.status \n', resp.status, '\n resp.statusText \n', resp.statusText, '\n resp.result.token \n', resp.result.token);
         
         //resp.status;
         //resp.statusText;
@@ -42,7 +42,7 @@ export class CustomAuthService {
 
     }
     authError = (error: Error) => {
-        console.log('authError \n');
-        console.log('error.name \n', error.name, '\n error.message \n', error.message, '\n error.stack \n', error.stack);
+       //#console.log('authError \n');
+       //#console.log('error.name \n', error.name, '\n error.message \n', error.message, '\n error.stack \n', error.stack);
     }
 }

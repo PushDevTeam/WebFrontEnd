@@ -45,7 +45,7 @@ export class AzureService {
             this._isloadingvideos = false;
             this._isinitialized = true;
         }, (reason:any)=>{
-            console.log('error getting videos', reason);
+           //#console.log('error getting videos', reason);
             this._isdoneloadingvideos = true;
             this._isloadingvideos = false;
             this._isinitialized = false;
@@ -68,7 +68,7 @@ export class AzureService {
 
     getAllVideoFeedback = () => {
         return this.queryTable('VideoFeedback').then((resp)=>{
-            console.log(resp);
+            //console.log(resp);
             return resp;
         })
 }

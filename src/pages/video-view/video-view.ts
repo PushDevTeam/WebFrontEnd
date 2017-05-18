@@ -51,7 +51,7 @@ export class VideoView {
     document.getElementById("playButton").innerHTML = "pause";
   }
   pauseAV(){
-    console.log("pauseAV");
+   //#console.log("pauseAV");
     this.audioElement.pause();
     let vid = <HTMLVideoElement> document.getElementById('video-player');
     vid.pause();

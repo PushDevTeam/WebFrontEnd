@@ -61,17 +61,17 @@ export class MyApp {
       //TODO uncomment this if building for mobile
       //MobileAccessibility.usePreferredTextZoom(false);
         if (this.userService.loadStoredUser()) {
-          console.log('user found');
+          //console.log('user found');
           this.nav.setRoot(Home);
         } else {
-          console.log('no user locally stored');
+          //console.log('no user locally stored');
           //this.nav.setRoot(StartPage);
           this.nav.setRoot(Home);
         }
 
         StatusBar.styleDefault();
         Splashscreen.hide();
-        console.log("initializeApp");
+        //console.log("initializeApp");
 
       });
   }

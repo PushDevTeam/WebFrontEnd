@@ -28,7 +28,7 @@ export class Headliner {
     private pandoraService: PandoraService
   ) {
 
-    console.log('on init of headliner.component');
+   //#console.log('on init of headliner.component');
 
   }
 

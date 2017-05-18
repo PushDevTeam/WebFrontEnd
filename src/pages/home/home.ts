@@ -34,6 +34,6 @@ export class Home {
     return this.userService.getEmail();
   }
   @HostListener('scroll') onScroll(event){
-   console.log("scrollll");
+  //#console.log("scrollll");
   }
 }

@@ -145,11 +145,11 @@ export class OnBoardingPage {
     let fit_level = FIT_LEVELS[this.toggledFitLvl];
     let toggled_goals = this.toggledGoals;
     let cast_opt = CAST_OPT[this.toggledCast];
-    console.log('gender: \n', gender);
-    console.log('age_group: \n', age_group);
-    console.log('fit_level: \n', fit_level);
-    console.log('toggled_goals: \n', toggled_goals);
-    console.log('cast_opt: \n', cast_opt);
+   //#console.log('gender: \n', gender);
+   //#console.log('age_group: \n', age_group);
+   //#console.log('fit_level: \n', fit_level);
+   //#console.log('toggled_goals: \n', toggled_goals);
+   //#console.log('cast_opt: \n', cast_opt);
 
     this.build_user.authtype = 'custom';
     this.authService.customAuthSignUp(this.build_user).then(()=>{

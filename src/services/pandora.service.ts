@@ -74,7 +74,7 @@ export class PandoraService {
     return this.http.get(environment.apiPath + '/pandora/user/getStationList').toPromise()
       .then((resp: any)=>{
         this.userStations = JSON.parse(resp._body).stations;
-        console.log('user/getStationList resp', this.userStations);
+       //console.log('user/getStationList resp', this.userStations);
         if (!this.currentStation){
           this.changeStation(0);
         }
@@ -86,20 +86,20 @@ export class PandoraService {
         this.playQueue = JSON.parse(resp._body).items;
         this.playIndex = -1;
         this.goNextSong();
-        console.log('station/getPlaylist resp', this.playQueue);
+       //console.log('station/getPlaylist resp', this.playQueue);
     }, this.errorHandler)
   }
   getStation(stationToken){
     return this.http.get(environment.apiPath + '/pandora/station/getStation/' + stationToken).toPromise()
       .then((resp: any)=>{
-        console.log('station/getStation resp', JSON.parse(resp._body));
+       //console.log('station/getStation resp', JSON.parse(resp._body));
       })
   }
   addFeedback(stationToken, trackToken, songIdentity, isPositive){
     if (this.currentSong.allowFeedback && this.currentStation.allowAddMusic){
       return this.http.post(environment.apiPath + '/pandora/station/addFeedback/' + stationToken + '/' + trackToken + '/' + songIdentity + '/' + isPositive, {}).toPromise()
       .then((resp: any)=>{
-        console.log('addFeedback resp', JSON.parse(resp._body));
+       //console.log('addFeedback resp', JSON.parse(resp._body));
         if (this.currentSong.songRating === 0){
             this.currentSong.songRating = 1;
         } else if (this.currentSong.songRating === 1){
@@ -113,8 +113,6 @@ export class PandoraService {
   }
 
   getFeaturedStations(idxmultiplier: number){
-      setTimeout(()=>{
-      }, 2000)
       if (this.userStations){
         return [this.userStations[1 * idxmultiplier], this.userStations[2 * idxmultiplier], this.userStations[3 * idxmultiplier]]
       } else {
@@ -159,13 +157,13 @@ export class PandoraService {
   }
 
   errorHandler = (error:any) =>{
-    console.log('PANDORA ERROR - PROBABLY BLOCKED TEMPORARILY BY PANDORA');
+   //console.log('PANDORA ERROR - PROBABLY BLOCKED TEMPORARILY BY PANDORA');
     const tmp = document.createElement("DIV");
     tmp.innerHTML = error;
-    console.log('PANDORA ERROR MSG: ' + tmp.innerText || tmp.textContent || '');
+   //console.log('PANDORA ERROR MSG: ' + tmp.innerText || tmp.textContent || '');
   }
   goToSuggestedStation(id){
-    console.log('XXX goToSuggestedStation(id)', id);
+   //console.log('XXX goToSuggestedStation(id)', id);
     this.getPlaylist(id);
   }
 

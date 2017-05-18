@@ -38,8 +38,8 @@ const MOCK_THUMB_URL = 'https://pushdaily.blob.core.windows.net/asset-d009e52e-1
    }
 
    getAllVideoIds = (): Promise<Array<string>> => {
-     console.log('videokeys', Object.keys(this._videosbyid));
-     console.log('all videos by id', this._videosbyid);
+    //#console.log('videokeys', Object.keys(this._videosbyid));
+    //#console.log('all videos by id', this._videosbyid);
      return this.fetchVideoData().then(()=>{
       let returnable = [];
       Object.keys(this._videosbyid).map((value)=>{returnable.push(value)});
