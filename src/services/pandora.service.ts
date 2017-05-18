@@ -1,6 +1,6 @@
 /**
  * Created by Javes on 5/6/2017.
- * 
+ *
  *
 **/
 import {Injectable} from '@angular/core';
@@ -41,11 +41,11 @@ export class PandoraService {
     this.playIndex += 1;
     if (!this.playQueue){
       this.currentSong = {
-        'artistName': 'Some Artist', 
-        'songName': 'Some Song Name', 
+        'artistName': 'Some Artist',
+        'songName': 'Some Song Name',
         'allowFeedback': false,
         'songRating': 0,
-        'audioUrlMap': {'mediumQuality': {'audioUrl': 'assets/test.mp3'}}, 
+        'audioUrlMap': {'mediumQuality': {'audioUrl': 'assets/test.mp3'}},
         'albumArtUrl': 'https://www.pandora.com/static/images/ShuffleStationArt.jpg'}
     } else {
       this.currentSong = this.playQueue[this.playIndex];
@@ -54,7 +54,7 @@ export class PandoraService {
     return this.currentSong;
   }
 
-  evaluateThumb(){ 
+  evaluateThumb(){
     const thumbup = document.getElementById('thumbs-up');
     if (this.currentSong.songRating === 1){
       thumbup.classList.add('active');
@@ -92,7 +92,7 @@ export class PandoraService {
   getStation(stationToken){
     return this.http.get(environment.apiPath + '/pandora/station/getStation/' + stationToken).toPromise()
       .then((resp: any)=>{
-       //console.log('station/getStation resp', JSON.parse(resp._body));
+        this.currentStation = JSON.parse(resp._body);
       })
   }
   currentStationName(){
@@ -121,26 +121,26 @@ export class PandoraService {
       } else {
         return [
           //dummy data until real data comes in
-          {'stationId': '3608848574149979011', 
-          'artUrl': 'https://images-na.ssl-images-amazon.com/images/I/61WtzIi5L0L._SS500.jpg', 
-          'stationName': 'Tech N9ne Radio'}, 
-          {'stationId': '3608848836142984067', 
-          'artUrl': 'https://images-na.ssl-images-amazon.com/images/I/51SVFPuNbUL._SS500.jpg', 
-          'stationName': 'Israel IZ'}, 
+          {'stationId': '3608848574149979011',
+          'artUrl': 'https://images-na.ssl-images-amazon.com/images/I/61WtzIi5L0L._SS500.jpg',
+          'stationName': 'Tech N9ne Radio'},
+          {'stationId': '3608848836142984067',
+          'artUrl': 'https://images-na.ssl-images-amazon.com/images/I/51SVFPuNbUL._SS500.jpg',
+          'stationName': 'Israel IZ'},
           {'stationId': '3608849274229648259',
-          'artUrl': 'https://images-na.ssl-images-amazon.com/images/I/519FJqa%2BhTL._SS500.jpg', 
+          'artUrl': 'https://images-na.ssl-images-amazon.com/images/I/519FJqa%2BhTL._SS500.jpg',
           'stationName': "90's Hip Hop"},
-          {'stationId': '3608848574149979011', 
-          'artUrl': 'https://images-na.ssl-images-amazon.com/images/I/61WtzIi5L0L._SS500.jpg', 
-          'stationName': 'Tech N9ne Radio'}, 
-          {'stationId': '3608848836142984067', 
-          'artUrl': 'https://images-na.ssl-images-amazon.com/images/I/51SVFPuNbUL._SS500.jpg', 
-          'stationName': 'Israel IZ'}, 
+          {'stationId': '3608848574149979011',
+          'artUrl': 'https://images-na.ssl-images-amazon.com/images/I/61WtzIi5L0L._SS500.jpg',
+          'stationName': 'Tech N9ne Radio'},
+          {'stationId': '3608848836142984067',
+          'artUrl': 'https://images-na.ssl-images-amazon.com/images/I/51SVFPuNbUL._SS500.jpg',
+          'stationName': 'Israel IZ'},
           {'stationId': '3608849274229648259',
-          'artUrl': 'https://images-na.ssl-images-amazon.com/images/I/519FJqa%2BhTL._SS500.jpg', 
+          'artUrl': 'https://images-na.ssl-images-amazon.com/images/I/519FJqa%2BhTL._SS500.jpg',
           'stationName': "90's Hip Hop"},
-          {'stationId': '3608848574149979011', 
-          'artUrl': 'https://images-na.ssl-images-amazon.com/images/I/61WtzIi5L0L._SS500.jpg', 
+          {'stationId': '3608848574149979011',
+          'artUrl': 'https://images-na.ssl-images-amazon.com/images/I/61WtzIi5L0L._SS500.jpg',
           'stationName': 'Tech N9ne Radio'}];
       }
   }
@@ -168,6 +168,7 @@ export class PandoraService {
   goToSuggestedStation(id){
    //console.log('XXX goToSuggestedStation(id)', id);
     this.getPlaylist(id);
+    this.getStation(id);
   }
 
 }
