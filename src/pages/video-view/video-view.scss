@@ -8,8 +8,8 @@ video-view {
 
   ion-content {
     .player-wrapper {
-      width: 100%;
-      margin-top: 0;
+      width: calc(100%);
+      margin: 0;
 
       #video-player {
         width: 100%;
@@ -138,17 +138,4 @@ video-view {
       }
     }
   }
-}
-
-video::-internal-media-controls-download-button {
-  display: none;
-}
-
-video::-webkit-media-controls-enclosure {
-  overflow: hidden;
-}
-
-video::-webkit-media-controls-panel {
-  width: calc(113%);
-  /* Adjust as needed */
 }
