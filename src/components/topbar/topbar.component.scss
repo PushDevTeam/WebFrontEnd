@@ -1,8 +1,6 @@
 topbar {
-  background-color: #cccccc;
-  postion: relative;
   ion-header{
-    background-color: #cccccc;
+    background-color: color($colors,toolbar-bg);
     box-shadow: 0 0 1px 1px grey;
     ion-toolbar{
       padding: 0 !important;
@@ -10,7 +8,7 @@ topbar {
   }
   .button-inner {
     text-transform: none;
-    color: white;
+    color: color($colors, red);
   }
 
   .header-ios .toolbar-background-ios,
@@ -34,7 +32,7 @@ topbar {
 
   .navButtonHolder {
     display: inline-block;
-    color: white;
+    color: rgba(66,66,66, 1);
 
     .navButtons {
       padding: 0 1.5vw;
@@ -42,13 +40,13 @@ topbar {
       line-height: 56px;
       display: inline-block;
       vertical-align: middle;
-      transition: background-color 0.5s ease-out;
+      transition: all 0.2s ease-out;
       background-color: rgba(0, 0 ,0, 0);
 
     }
     .navButtons:hover{
-      transition: background-color 0.75s ease-out;
-      background-color: rgba(255, 0 ,0, 0.5);
+      transition: all 0.1s ease-out;
+      color: red;
       cursor: pointer;
     }
   }
@@ -82,7 +80,9 @@ topbar {
       padding: 2% 5%;
       height: auto;
       border-radius: 10px;
-      border-style: none;
+      border-style: solid;
+      border-width: 1px;
+      border-color: color($colors, lightgrey);
     }
 
     .searchIcon {
@@ -104,7 +104,6 @@ topbar {
     transform: translateY(-50%);
     display: inline-block;
     margin-right: 2.5vw;
-    color: white;
     max-width: 15%;
     overflow: hidden;
     white-space: nowrap;
@@ -116,7 +115,7 @@ topbar {
 
     .userName {
       display: inline;
-      color: white;
+      color: color($colors, red);
       padding-left: 0;
       font-size: 1.2vw;
       font-family: DinPro !important;
