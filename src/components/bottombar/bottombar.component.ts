@@ -42,6 +42,11 @@ export class BottomBar {
 
   updateTime = () => {
     this.currentTime = this.audioElement.currentTime;
+    if (!(this.pandoraService.currentSong === undefined)) {
+      if (this.audioElement.getAttribute('src') != this.pandoraService.currentSong.audioUrlMap.mediumQuality.audioUrl) {
+        this.nextSong();
+      }
+    }
   };
 
   updateVol() {
@@ -69,7 +74,7 @@ export class BottomBar {
   seeAllStations() {
     if (this.stationShowLimit === 3){
       this.stationShowLimit = 100;
-    } 
+    }
     else if (this.stationShowLimit === 100){
       this.stationShowLimit = 3;
     }
