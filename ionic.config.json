@@ -1,5 +1,5 @@
 {
-  "name": "dailyPush",
+  "name": "PUSH",
   "app_id": "",
   "v2": true,
   "typescript": true,
@@ -10,7 +10,7 @@
       "secure": false
     },
     {
-      "path":"/api/dev",
+      "path":"/devapi",
       "proxyUrl": "http://localhost:3000/api/v1",
       "secure": false
     }

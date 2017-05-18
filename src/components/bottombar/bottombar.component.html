@@ -60,7 +60,7 @@
           <i class="material-icons skip">skip_next</i>
         </div>
         <div class="controlButtonHolder">
-          <i class="material-icons thumb" (click)="pandoraService.addFeedback(pandoraService.currentStation.stationToken, pandoraService.currentSong.trackToken, 1)">thumb_up</i>
+          <i id="thumbs-up" class="material-icons thumb" (click)="pandoraService.addFeedback(pandoraService.currentStation.stationToken, pandoraService.currentSong.trackToken, pandoraService.currentSong.songIdentity, 1)">thumb_up</i>
         </div>
       </div>
       <div class="albumInfoHolder">
