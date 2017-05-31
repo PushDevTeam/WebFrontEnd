@@ -32,7 +32,7 @@ export class BottomBar {
     this.audioElement.addEventListener("ended", (e) => this.nextSong(e));
     this.audioElement.addEventListener("playing", () => this.playSong);
     this.audioElement.addEventListener("pause", () => this.pauseSong);
-    this.nextSong();
+    //this.nextSong();
    })
   }
 

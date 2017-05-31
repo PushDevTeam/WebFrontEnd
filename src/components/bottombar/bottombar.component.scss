@@ -230,12 +230,12 @@ input[type=range]:focus::-ms-fill-upper {
   }
 
   .material-icons{
-  
+
   &:hover {
     color: red;
     cursor: pointer;
   }}
-  } 
+  }
 
 .albumInfoHolder {
   display: inline-block;
@@ -255,7 +255,7 @@ input[type=range]:focus::-ms-fill-upper {
 
   .songInfo {
     display: inline-block;
-    font-size: 55%;
+    font-size: 54%;
     vertical-align: middle;
     overflow-y: hidden;
   }
@@ -263,11 +263,12 @@ input[type=range]:focus::-ms-fill-upper {
   .band {
     font-family: DinPro !important;
     overflow-y: hidden;
+    color:  #111111;
   }
 
   .song {
     font-family: DinPro !important;
-    color: red;
+    color:  #111111;
   }
 }
 

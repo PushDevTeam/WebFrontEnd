@@ -2,8 +2,36 @@
 SCSS for the big slider at top
 */
 
-.swiper-pagination-bullet-active {
+.pager-bullet-active {
   background: red !important;
+  opacity: 1 !important;
+}
+
+.pager-bullet {
+  //background: red;
+  height: 9px;
+  width: 9px;
+  opacity: 0.3;
+  margin: 4px 5px;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 100%;
+  background: black;
+  line-height: 1;
+  z-index: 1000;
+  text-align: center;
+}
+
+
+
+.pager-container {
+  position: absolute;
+  z-index: 1000;
+  //transition: 300ms;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  text-align: center;
 }
 
 headliner {
@@ -117,8 +145,8 @@ headliner {
           clear: left;
           float: left;
           font-family: DinPro !important;
-          font-weight: 100;
-          font-size: 1vw;
+          font-weight: 600;
+          font-size: 1.25vw; //21px
           word-wrap: break-word;
           text-align: left;
         }

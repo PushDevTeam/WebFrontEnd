@@ -20,6 +20,7 @@ export class Headliner {
   @ViewChild(Slides) slides: Slides;
   public video_ids: any[] = [];
   public video_info_arr: VideoInfoObj[] = [];
+  private activeIndex: number = 0;
 
   constructor(
     private azureService: AzureService,
@@ -42,11 +43,9 @@ export class Headliner {
           }
         }
       });
-
   }
   ngAfterViewInit(){
     this.slides.lockSwipes(true);
-
   }
   slideLeft(){
 
@@ -64,4 +63,12 @@ export class Headliner {
     //alert();
     this.navCtrl.push(VideoView, { 'id': id });
   }
+
+ pageToSlide(index) {
+   this.slides.lockSwipes(false);
+   this.slides.slideTo(index);
+   this.slides.lockSwipes(true);
+   this.activeIndex = index;
+ }
+
 }
