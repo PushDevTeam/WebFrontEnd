@@ -52,12 +52,14 @@ export class Headliner {
     this.slides.lockSwipes(false);
     this.slides.slidePrev();
     this.slides.lockSwipes(true);
+    this.activeIndex = this.slides.getActiveIndex();
   }
   slideRight(){
 
     this.slides.lockSwipes(false);
     this.slides.slideNext();
     this.slides.lockSwipes(true);
+    this.activeIndex = this.slides.getActiveIndex();
   }
   goToVid(id) {
     //alert();

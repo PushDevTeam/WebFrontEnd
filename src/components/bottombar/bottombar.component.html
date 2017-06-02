@@ -48,7 +48,8 @@
       <div class="pandoraStationHolder">
         <div (click)="onStationPopup()" id="station-button" class="pandoraStation"> <span *ngIf="pandoraService.currentStation">{{pandoraService.currentStation.stationName}}</span>
         </div>
-      </div>
+        <i id='station-dropup-arrow' class="material-icons md-18">arrow_drop_up</i>
+    </div>
       <div class="controls">
         <div class="controlButtonHolder">
           <i class="material-icons thumb" (click)="pandoraService.addFeedback(pandoraService.currentStation.stationToken, pandoraService.currentSong.trackToken, 0); nextSong();">thumb_down</i>

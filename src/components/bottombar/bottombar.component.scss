@@ -28,11 +28,25 @@ ion-header{
 .pandoraStationHolder {
   display: inline-block;
   width: 32%;
+  text-align: center;
 
   .pandoraStation {
-    text-align: center;
     font-size: 70%;
     font-family: DinPro !important;
+    display: inline-block;
+  }
+
+  #station-dropup-arrow {
+    display: inline-block;
+    position: relative;
+    bottom: -8px;
+    right: 7px;
+    transition: transform 0.3s ease-out;
+  }
+
+  .station-arrow-down {
+    transition: all 0.3s ease-out;
+    transform: rotate(180deg);
   }
 
   .pandoraStation:hover {
