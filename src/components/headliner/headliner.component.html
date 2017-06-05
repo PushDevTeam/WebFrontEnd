@@ -10,7 +10,7 @@
 
     <div class='video-info'>
       <div class='title'>
-        Extreme Dance Mix
+        {{vid_info.title}}
       </div>
       <div class='secondary-info'>
       <span class='pic'>
@@ -18,17 +18,16 @@
         </span>
 
       <span class='name'>
-          Trainer Name
+          {{vid_info.trainer}}
         </span>
         <ion-icon name='time'></ion-icon>
-        40:00
+        {{vid_info.duration}}
       <ion-icon name='stats'> </ion-icon>
       Intermediate
 
       </div>
       <div class='description'>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pretium urna ut nibh hendrerit, nec aliquet erat vestibulum. Maecenas facilisis diam at augue cursus volutpat ac a dui. Morbi non varius purus, vitae aliquam nibh. Sed vitae est sit amet justo scelerisque tempus. Fusce posuere dui vel faucibus consequat.
-
+        {{vid_info.description}}
       </div>
     </div>
     <div class='playbutton'>
@@ -37,7 +36,8 @@
 
     <div class='suggested-radio'>
       Suggested Radio Stations
-      <div (click)='pandoraService.goToSuggestedStation(station.stationId)' *ngFor="let station of pandoraService.getFeaturedStations(1)">
+      <div (click)='pandoraService.goToSuggestedStation(station.stationId)' 
+            *ngFor="let station of pandoraService.getFeaturedStations(1)">
         <div class='station-wrap'>
           <img src='{{station.artUrl}}' />
           <div class='radio-name'>{{station.stationName}}</div>
