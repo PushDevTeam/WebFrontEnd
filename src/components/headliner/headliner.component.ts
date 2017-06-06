@@ -4,7 +4,7 @@
 /**
  * Created by Javes on 3/19/2017.
  */
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { AzureService } from '../../services/azure.service';
 import { VideoView} from '../../pages/video-view/video-view';
@@ -16,10 +16,13 @@ import { PandoraService } from '../../services/pandora.service';
   selector: 'headliner',
   templateUrl: 'headliner.component.html'
 })
-export class Headliner {
+export class Headliner implements OnChanges, OnInit {
   @ViewChild(Slides) slides: Slides;
+  @ViewChild('slideset') slidesetDOM: Slides;
   public video_ids: any[] = [];
   public video_info_arr: VideoInfoObj[] = [];
+  public changeprop: string;
+  public sizeSettings: any = {};
 
   constructor(
     private azureService: AzureService,
@@ -42,20 +45,45 @@ export class Headliner {
           }
         }
       });
+  }
 
+  ngOnChanges(change: SimpleChanges) {
+    console.log('ngOnChanges change', change);
+    console.log('slideset div', this.slidesetDOM);
   }
   ngAfterViewInit(){
     this.slides.lockSwipes(true);
+    this.resetSize();
 
   }
-  slideLeft(){
 
+  ngAfterViewChecked() {
+    //console.log('ngAFterViewChecked')
+    //console.log('slideset div', this.slidesetDOM);
+    if (this.slidesetDOM.container) {
+      let sameheight = this.slidesetDOM.container.clientHeight === this.sizeSettings.clientHeight;
+      let samewidth = this.slidesetDOM.container.clientWidth === this.sizeSettings.clientWidth;
+      if (!(sameheight && samewidth)){
+        this.resetSize();
+      }
+    }
+  }
+
+  resetSize() {
+    if (this.slidesetDOM.container) {
+      this.sizeSettings['clientHeight'] = this.slidesetDOM.container.clientHeight;
+      this.sizeSettings['clientWidth'] = this.slidesetDOM.container.clientWidth;
+      this.slides.update();
+    }
+  }
+  slideLeft(){
+    this.changeprop = 'left';
     this.slides.lockSwipes(false);
     this.slides.slidePrev();
     this.slides.lockSwipes(true);
   }
   slideRight(){
-
+    this.changeprop = 'right';
     this.slides.lockSwipes(false);
     this.slides.slideNext();
     this.slides.lockSwipes(true);
