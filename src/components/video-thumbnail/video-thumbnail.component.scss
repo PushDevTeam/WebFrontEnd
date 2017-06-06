@@ -17,6 +17,7 @@ video-thumbnail {
       padding: 0;
       width: 100%;
       height: auto;
+      border-radius: 3px;
     }
 
     .play {
@@ -32,9 +33,10 @@ video-thumbnail {
   }
 
   .info {
+    margin-top: .5vh;
     .title {
       font-family: DinPro;
-      font-weight: 500;
+      font-weight: 600;
       width: 100%;
       text-align: left;
       overflow: hidden;
@@ -47,6 +49,7 @@ video-thumbnail {
       display: block;
       vertical-align: middle;
       position: relative;
+      margin-top: .5vh;
 
       ion-icon {
         display: inline;
@@ -56,12 +59,13 @@ video-thumbnail {
       }
 
       .text {
-        margin-right: 1vw;
+        margin-right: 1.2em;
         font-family: DinPro;
-        font-weight: 100;
-        font-size: 1vw;
+        font-weight: 300;
+        font-size: .8em;
         display: inline;
         position: relative;
+        color: #777777;
       }
 
       #last {

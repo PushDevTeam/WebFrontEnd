@@ -1,7 +1,6 @@
 topbar {
   ion-header{
-    background-color: color($colors,toolbar-bg);
-    box-shadow: 0 0 1px 1px grey;
+    background-color: color($colors, red);
     ion-toolbar{
       padding: 0 !important;
     }
@@ -15,7 +14,7 @@ topbar {
   .toolbar-background-md,
   .toolbar-background-wp {
     border-style: none;
-    background-color: #cccccc;
+    background-color: #ffffff;
     border-color: rgba(0, 0, 0, 0);
   }
 
@@ -35,7 +34,7 @@ topbar {
     color: rgba(66,66,66, 1);
 
     .navButtons {
-      padding: 0 1.5vw;
+      padding: 0 1.5em;
       height: 56px;
       line-height: 56px;
       display: inline-block;
@@ -46,7 +45,7 @@ topbar {
     }
     .navButtons:hover{
       transition: all 0.1s ease-out;
-      color: red;
+      color: white;
       cursor: pointer;
     }
   }
@@ -57,7 +56,7 @@ topbar {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 10%;
+    width: 8%;
     text-align: center;
 
     .pushLogo {
@@ -69,7 +68,7 @@ topbar {
 
   .searchHolder {
     position: absolute;
-    left: 65%;
+    left: 75%;
     top: 50%;
     transform: translateY(-50%);
     display: inline-block;
@@ -79,20 +78,20 @@ topbar {
       width: 15vw;
       padding: 2% 5%;
       height: auto;
-      border-radius: 10px;
+      border-radius: 3px;
       border-style: solid;
       border-width: 1px;
-      border-color: color($colors, lightgrey);
+      border-color: #dddddd;
     }
 
     .searchIcon {
       z-index: 2;
       position: absolute;
       right: 5%;
-      top:45%;
+      top:50%;
       transform: translateY(-50%);
       float: right;
-      color: gray;
+      color: #cccccc;
     }
   }
 
@@ -103,21 +102,23 @@ topbar {
     top: 50%;
     transform: translateY(-50%);
     display: inline-block;
-    margin-right: 2.5vw;
+    margin-right: 1.5vw;
     max-width: 15%;
     overflow: hidden;
     white-space: nowrap;
+    cursor: pointer;
     .profilePic {
-      height: 4vh;
+      height: 3.2vh;
       width: auto;
-      margin-bottom: -1.4vh;
+      margin-bottom: -1vh;
+      margin-right:.5vw;
     }
 
     .userName {
       display: inline;
-      color: color($colors, red);
+      color: #111111;
       padding-left: 0;
-      font-size: 1.2vw;
+      font-size: 1em;
       font-family: DinPro !important;
       font-weight: 100;
       line-height: 30px;
@@ -129,7 +130,7 @@ topbar {
       transform: rotate(0deg);
     }
     i:hover{
-      cursor:pointer;
+      cursor: pointer;
 
     }
     .active{

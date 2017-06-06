@@ -17,9 +17,12 @@ video-set{
   .description{
 
     font-family: Dinpro !important;
-    font-weight: 300;
+    font-weight: 400;
+    color:#555555;
+    font-size: 1.2em;
     max-height: 10vw;
     overflow: hidden;
+
 
   }
   button {
@@ -28,21 +31,21 @@ video-set{
     background-color: color($colors, dark);
   .button-inner{
 
-    font-family: Dinpro;
-    font-weight: 500;
+    font-family: 'PFDinTextCompPro';
+    font-weight: 800;
   }
 }
   .trainer-prof {
     position: relative;
     .pic {
-      width: 3vw;
+      width: 2vw;
       display: inline-block;
     }
     .name {
       margin: 0 5% 0 5%;
       text-transform: uppercase;
       font-family: 'atcduel4';
-      font-size: 1.3vw;
+      font-size: 1.3em;
       display: inline-block;
       position: absolute;
       top: 46%;
