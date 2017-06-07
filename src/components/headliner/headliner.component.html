@@ -34,7 +34,7 @@
     <div class='playbutton'>
       <i class="material-icons" (click)='goToVid(vid_info.id)'>play_circle_outline</i>
     </div>
-
+<!--
     <div class='suggested-radio'>
       Suggested Radio Stations
       <div (click)='pandoraService.goToSuggestedStation(station.stationId)' *ngFor="let station of pandoraService.getFeaturedStations(1)">
@@ -44,7 +44,7 @@
         </div>
       </div>
     </div>
-
+-->
 <div class="pager-container">
     <div (click)="pageToSlide(index)" class="pager-bullet" *ngFor="let bullet of video_info_arr; let index = index"
     [class.pager-bullet-active]="this.activeIndex == index">

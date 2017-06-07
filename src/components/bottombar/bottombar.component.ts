@@ -12,13 +12,14 @@ import {PandoraService} from '../../services/pandora.service';
 
 export class BottomBar {
   private stationPopupActive: boolean = false;
-  private volBarActive: boolean = false;
+  private volBarActive: boolean = true;
   private audioElement: any;
   private isPlaying: boolean = false;
   private currentTime: number = 0;
   private totalTime: number = 0;
   private hideSearchIcon: boolean = false;
   private stationShowLimit: number = 3;
+  private isMuted: boolean = false;
   constructor(private pandoraService: PandoraService) {
 
   }
@@ -32,7 +33,7 @@ export class BottomBar {
     this.audioElement.addEventListener("ended", (e) => this.nextSong(e));
     this.audioElement.addEventListener("playing", () => this.playSong);
     this.audioElement.addEventListener("pause", () => this.pauseSong);
-    //this.nextSong();
+    this.nextSong();
    })
   }
 
@@ -86,7 +87,6 @@ export class BottomBar {
     let volBar = document.getElementById('vol-bar');
 
     if (this.volBarActive) {
-
       volBar.classList.add('volume-bar-active');
       this.volBarActive = false;
     } else {
@@ -96,6 +96,21 @@ export class BottomBar {
 
     }
   }
+
+  toggleMute() {
+    if (this.isMuted) {
+      document.getElementById("volumeControl").innerHTML= "volume_up";
+    //  this.audioElement.volume = this.volumeBeforeMute;
+      this.isMuted = false;
+    }
+    else {
+      document.getElementById("volumeControl").innerHTML="volume_off";
+      this.isMuted = true;
+    }
+  }
+
+
+
   changeStation(index){
     this.pandoraService.changeStation(index);
     this.nextSong();

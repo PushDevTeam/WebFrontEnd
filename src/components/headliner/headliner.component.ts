@@ -4,7 +4,7 @@
 /**
  * Created by Javes on 3/19/2017.
  */
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit, HostListener } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { AzureService } from '../../services/azure.service';
 import { VideoView} from '../../pages/video-view/video-view';
@@ -21,6 +21,7 @@ export class Headliner {
   public video_ids: any[] = [];
   public video_info_arr: VideoInfoObj[] = [];
   private activeIndex: number = 0;
+  private winWidth: number;
 
   constructor(
     private azureService: AzureService,

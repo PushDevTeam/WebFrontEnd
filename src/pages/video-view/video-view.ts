@@ -19,6 +19,7 @@ export class VideoView {
     { 'id': null, 'title': 'My Workouts' },
     { 'title': 'Other Category' },
   ];
+  private safari: boolean = false;
   private audioElement : HTMLAudioElement = <HTMLAudioElement> document.getElementById("audioDisplay");
   constructor(
     public videoInfoService: VideoInfoService,
@@ -35,12 +36,19 @@ export class VideoView {
     });
     //this.videoInfo = this.videoInfoService.getVideoInfo(this.id);
   this.audioElement.addEventListener('pause', () => this.pauseAV());
+  let vid = <HTMLVideoElement> document.getElementById('video-player');
+  vid.play();
+  if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0)
+    {
+      this.safari = true;
+   }
 
   }
 
   onVideoEnd() {
-    const modal = this.modalCtrl.create(VideoRatingPage, { 'id': this.id });
-    modal.present();
+    //const modal = this.modalCtrl.create(VideoRatingPage, { 'id': this.id });
+    //modal.present();
+    this.audioElement.play();
   }
 
   playAV() {
