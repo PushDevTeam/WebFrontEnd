@@ -7,6 +7,7 @@ export class PandoraPlaybackService {
   totalTime: number = 0;
   volBarActive: boolean = false;
   isPlaying: boolean = false;
+  isMuted: boolean = false;
 
   constructor(private pandoraService: PandoraService){}
   initializePlayer(){
@@ -42,6 +43,19 @@ export class PandoraPlaybackService {
       this.pauseSong();
     }
   };
+
+    toggleMute() {
+    if (this.isMuted) {
+      document.getElementById("volumeControl").innerHTML= "volume_up";
+    //  this.audioElement.volume = this.volumeBeforeMute;
+      this.isMuted = false;
+    }
+    else {
+      document.getElementById("volumeControl").innerHTML="volume_off";
+      this.isMuted = true;
+    }
+  }
+
 
   playSongIfNot() {
     if (this.audioElement.paused) {

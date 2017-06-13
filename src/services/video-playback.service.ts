@@ -8,4 +8,8 @@ export class VideoPlaybackService {
   initializePlayer() {
     this.videoElement = <HTMLVideoElement>document.getElementById('video-player');
   }
+
+  playVideo() {
+      this.videoElement.play();
+  }
 }
