@@ -42,11 +42,18 @@ export class BottomBar {
   }
 
   onThumbsDown() {
-    let pandora = this.pandoraService;
-    pandora.addFeedback(pandora.currentStation.stationToken, pandora.currentSong.trackToken, pandora.currentSong.songIdentity, 0); 
+    this.giveFeedback(false);
     this.pandoraPlaybackService.nextSong();
   }
+  onThumbsUp() {
+    this.giveFeedback(true);
+  }
 
+  giveFeedback(positive: boolean) {
+    let pandora = this.pandoraService;
+    return pandora.addFeedback(pandora.currentStation.stationToken, pandora.currentSong.trackToken, pandora.currentSong.songIdentity, positive);
+  }
+  
   createStation() {
   }
 

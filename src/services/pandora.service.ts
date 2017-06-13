@@ -102,8 +102,10 @@ export class PandoraService {
     return this.currentStation.stationName;
   }
   addFeedback(stationToken, trackToken, songIdentity, isPositive){
+    let setFlag: number;
+    if (isPositive) { setFlag = 1 } else { setFlag = 0 };
     if (this.currentSong.allowFeedback && this.currentStation.allowAddMusic){
-      return this.http.post(environment.apiPath + '/pandora/station/addFeedback/' + stationToken + '/' + trackToken + '/' + songIdentity + '/' + isPositive, {}).toPromise()
+      return this.http.post(environment.apiPath + '/pandora/station/addFeedback/' + stationToken + '/' + trackToken + '/' + songIdentity + '/' + setFlag.toString(), {}).toPromise()
       .then((resp: any)=>{
        //console.log('addFeedback resp', JSON.parse(resp._body));
         if (this.currentSong.songRating === 0){
