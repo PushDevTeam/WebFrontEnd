@@ -55,7 +55,7 @@ export class PandoraService {
   }
 
   evaluateThumb(){
-    console.log('this.currentSong', this.currentSong);
+    //'this.currentSong', this.currentSong);
     const thumbup = document.getElementById('thumbs-up');
     if (this.currentSong.songRating === 1){
       thumbup.classList.add('active');
@@ -89,7 +89,7 @@ export class PandoraService {
         this.playQueue = JSON.parse(resp._body).items;
         this.playIndex = -1;
         this.goNextSong();
-       console.log('station/getPlaylist resp', this.playQueue);
+        //console.log('station/getPlaylist resp', this.playQueue);
     }, this.errorHandler)
   }
   getStation(stationToken){
