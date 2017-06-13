@@ -4,7 +4,7 @@
 import {Component} from '@angular/core';
 import {TimeDisplayPipe} from "../../pipes/timedisplay.pipe";
 import {PandoraService} from '../../services/pandora.service';
-
+import {PandoraPlaybackService} from '../../services/pandora-playback.service';
 @Component({
   selector: 'bottombar',
   templateUrl: 'bottombar.component.html'
@@ -12,45 +12,16 @@ import {PandoraService} from '../../services/pandora.service';
 
 export class BottomBar {
   private stationPopupActive: boolean = false;
-  private volBarActive: boolean = false;
-  private audioElement: any;
-  private isPlaying: boolean = false;
-  private currentTime: number = 0;
-  private totalTime: number = 0;
   private hideSearchIcon: boolean = false;
   private stationShowLimit: number = 3;
-  constructor(private pandoraService: PandoraService) {
+  constructor(private pandoraService: PandoraService,
+              private pandoraPlaybackService: PandoraPlaybackService) {}
 
-  }
-
-
- ngOnInit() {
-   this.pandoraService.getStationList().then(()=>{
-    this.audioElement = <HTMLAudioElement> document.getElementById("audioDisplay");
-    this.audioElement.addEventListener("loadedmetadata", this.updateData);
-    this.audioElement.addEventListener("timeupdate", this.updateTime);
-    this.audioElement.addEventListener("ended", (e) => this.nextSong(e));
-    this.audioElement.addEventListener("playing", () => this.playSong);
-    this.audioElement.addEventListener("pause", () => this.pauseSong);
-    this.nextSong();
-   })
-  }
-
-  updateData = () => {
-    this.totalTime = this.audioElement.duration;
-  };
-
-  updateTime = () => {
-    this.currentTime = this.audioElement.currentTime;
-    if (!(this.pandoraService.currentSong === undefined)) {
-      if (this.audioElement.getAttribute('src') != this.pandoraService.currentSong.audioUrlMap.mediumQuality.audioUrl) {
-        this.nextSong();
-      }
-    }
-  };
-
-  updateVol() {
-    this.audioElement.volume =  (<HTMLInputElement>document.getElementById("volume-slider")).value;
+  ngOnInit() {
+    this.pandoraService.getStationList().then(()=>{
+      this.pandoraPlaybackService.initializePlayer();
+      this.pandoraPlaybackService.nextSong();
+   });
   }
 
   onStationPopup() {
@@ -67,8 +38,13 @@ export class BottomBar {
     }
   }
 
-  createStation() {
+  onThumbsDown() {
+    let pandora = this.pandoraService;
+    pandora.addFeedback(pandora.currentStation.stationToken, pandora.currentSong.trackToken, pandora.currentSong.songIdentity, 0); 
+    this.pandoraPlaybackService.nextSong();
+  }
 
+  createStation() {
   }
 
   seeAllStations() {
@@ -78,52 +54,6 @@ export class BottomBar {
     else if (this.stationShowLimit === 100){
       this.stationShowLimit = 3;
     }
-  }
-  toggleVolumeBar() {
-    let volBar = document.getElementById('vol-bar');
-
-    if (this.volBarActive) {
-
-      volBar.classList.add('volume-bar-active');
-      this.volBarActive = false;
-    } else {
-
-      volBar.classList.remove('volume-bar-active');
-      this.volBarActive = true;
-
-    }
-  }
-  changeStation(index){
-    this.pandoraService.changeStation(index);
-    this.nextSong();
-  }
-  nextSong(e?: any){
-    this.pandoraService.getNextSong().then(()=>{
-      this.pandoraService.goNextSong();
-      document.getElementById('audioDisplay').setAttribute('src', this.pandoraService.currentSong.audioUrlMap.mediumQuality.audioUrl);
-      document.getElementById('nowPlayingImg').setAttribute('src', this.pandoraService.currentSong.albumArtUrl);
-      document.getElementById('artistName').innerText = this.pandoraService.currentSong.artistName;
-      document.getElementById('songName').innerText = this.pandoraService.currentSong.songName;
-      this.playSong();
-    })
-  }
-  togglePlayPause() {
-    if (this.audioElement.paused) {
-      this.playSong();
-    } else {
-      this.pauseSong();
-    }
-  }
-  pauseSong(){
-      this.audioElement.pause();
-      this.isPlaying = false;
-      document.getElementById("playButton").innerHTML="play_arrow";
-  }
-  playSong(){
-      this.audioElement.play();
-      this.isPlaying = true;
-      document.getElementById("playButton").innerHTML="pause";
-
   }
 
   removeSearchIcon() {

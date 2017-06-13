@@ -39,11 +39,11 @@ import {PandoraService} from '../services/pandora.service';
 import {StorageService} from '../services/storage.service';
 import {UserService} from '../services/user.service';
 import {VideoInfoService} from '../services/video-info.service';
+import {PandoraPlaybackService} from '../services/pandora-playback.service';
+import {VideoPlaybackService} from '../services/video-playback.service';
 
 /* JS library services*/
 import {FacebookService} from 'ng2-facebook-sdk';
-
-
 
 @NgModule({
   declarations: [
@@ -104,6 +104,8 @@ import {FacebookService} from 'ng2-facebook-sdk';
     UserService,
     VideoInfoService,
     FacebookService,
+    PandoraPlaybackService,
+    VideoPlaybackService,
   ]
 })
 export class AppModule {

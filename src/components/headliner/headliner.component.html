@@ -36,7 +36,7 @@
 
     <div class='suggested-radio'>
       Suggested Radio Stations
-      <div (click)='pandoraService.goToSuggestedStation(station.stationId)' 
+      <div (click)='onStationSelection(station.stationId)' 
             *ngFor="let station of pandoraService.getFeaturedStations(1)">
         <div class='station-wrap'>
           <img src='{{station.artUrl}}' />

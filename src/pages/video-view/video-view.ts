@@ -4,6 +4,8 @@ import { VideoInfoService } from '../../services/video-info.service';
 import { IVideoInfoObj } from '../../components/video-thumbnail/video-info-obj';
 import { VideoRatingPage } from '../video-rating/video-rating';
 import { PandoraService } from '../../services/pandora.service';
+import { PandoraPlaybackService } from '../../services/pandora-playback.service';
+import { VideoPlaybackService } from '../../services/video-playback.service';
 @Component({
   selector: 'video-view',
   templateUrl: 'video-view.html',
@@ -26,16 +28,18 @@ export class VideoView {
     public navCtrl: NavController,
     private modalCtrl: ModalController,
     private pandoraService: PandoraService,
+    private pandoraPlaybackService: PandoraPlaybackService,
+    private videoPlaybackService: VideoPlaybackService,
   ) { }
   ngOnInit() {
+    this.videoPlaybackService.initializePlayer();
     this.d = new Date();
     this.id = this.navParams.get('id');
     this.videoInfoService.fetchVideoData().then(() => {
       this.videoInfo = this.videoInfoService.getVideoInfo(this.id);
     });
-    //this.videoInfo = this.videoInfoService.getVideoInfo(this.id);
-  this.audioElement.addEventListener('pause', () => this.pauseAV());
-
+    this.pandoraPlaybackService.audioElement.addEventListener('pause', (e) => this.pauseAV(e));
+    this.videoPlaybackService.videoElement.addEventListener('pause', (e) => this.pauseAV(e));
   }
 
   onVideoEnd() {
@@ -44,14 +48,21 @@ export class VideoView {
   }
 
   playAV() {
-
     this.audioElement.play();
     let vid = <HTMLVideoElement> document.getElementById('video-player');
     vid.play();
     document.getElementById("playButton").innerHTML = "pause";
   }
-  pauseAV(){
-   //#console.log("pauseAV");
+  pauseAV(e){
+    if (!e) {
+      return;
+    }
+    if (e.target.nodeName === 'VIDEO') {
+      if (e.target.currentTime === e.target.duration) {
+        return;
+      }
+    }
+    // console.log("pauseAV", e);
     this.audioElement.pause();
     let vid = <HTMLVideoElement> document.getElementById('video-player');
     vid.pause();

@@ -55,6 +55,7 @@ export class PandoraService {
   }
 
   evaluateThumb(){
+    console.log('this.currentSong', this.currentSong);
     const thumbup = document.getElementById('thumbs-up');
     if (this.currentSong.songRating === 1){
       thumbup.classList.add('active');
@@ -66,17 +67,19 @@ export class PandoraService {
       }
     }
   }
+
   changeStation(index){
     this.currentStation = this.userStations[index];
     return this.getPlaylist(this.currentStation.stationToken);
   }
+
   getStationList(){
     return this.http.get(environment.apiPath + '/pandora/user/getStationList').toPromise()
       .then((resp: any)=>{
         this.userStations = JSON.parse(resp._body).stations;
        //console.log('user/getStationList resp', this.userStations);
         if (!this.currentStation){
-          this.changeStation(0);
+          this.changeStation(1);
         }
       }, this.errorHandler)
   }
@@ -86,7 +89,7 @@ export class PandoraService {
         this.playQueue = JSON.parse(resp._body).items;
         this.playIndex = -1;
         this.goNextSong();
-       //console.log('station/getPlaylist resp', this.playQueue);
+       console.log('station/getPlaylist resp', this.playQueue);
     }, this.errorHandler)
   }
   getStation(stationToken){
@@ -167,8 +170,10 @@ export class PandoraService {
   }
   goToSuggestedStation(id){
    //console.log('XXX goToSuggestedStation(id)', id);
-    this.getPlaylist(id);
-    this.getStation(id);
+   return Promise.all([
+    this.getPlaylist(id),
+    this.getStation(id)
+    ]);
   }
 
 }

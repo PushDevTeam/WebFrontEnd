@@ -7,5 +7,7 @@ export interface IPandoraSong {
     'audioUrlMap': IAudioUrlMap,
     'allowFeedback': boolean,
     'songRating': number,
-    'albumName'?: string
+    'trackToken'?: string,
+    'songIdentity'?: string,
+    'albumName'?: string,
 }

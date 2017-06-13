@@ -2,7 +2,7 @@
   <div class='station-menu' id='station-menu'>
     <div class='station-menu-inner'>
       <div *ngFor="let station of pandoraService.userStations; let idx = index;">
-        <div (click)="changeStation(idx)" class="stations" *ngIf="idx < stationShowLimit">
+        <div (click)="pandoraPlaybackService.changeStation(idx)" class="stations" *ngIf="idx < stationShowLimit">
           <div class="albumCover">
             <img class="albumImg" src='{{station.artUrl}}' />
           </div>
@@ -35,7 +35,7 @@
 
       </div>
     </div> -->
-    <input (change)="updateVol()" type="range" id="volume-slider" min="0" max="1" step="0.1" value="1">
+    <input (change)="pandoraPlaybackService.updateVol()" type="range" id="volume-slider" min="0" max="1" step="0.1" value="1">
 
   </div>
   <ion-toolbar>
@@ -51,15 +51,15 @@
       </div>
       <div class="controls">
         <div class="controlButtonHolder">
-          <i class="material-icons thumb" (click)="pandoraService.addFeedback(pandoraService.currentStation.stationToken, pandoraService.currentSong.trackToken, 0); nextSong();">thumb_down</i>
+          <i class="material-icons thumb" (click)="onThumbsDown">thumb_down</i>
         </div>
         <div class="controlButtonHolder">
           <i class="material-icons replay">replay</i>
         </div>
         <div class="controlButtonHolder">
-          <i id="playButton" (click)="togglePlayPause()" class="material-icons pause">play_arrow</i>
+          <i id="playButton" (click)="pandoraPlaybackService.togglePlayPause()" class="material-icons pause">play_arrow</i>
         </div>
-        <div (click)="nextSong()" class="controlButtonHolder">
+        <div (click)="pandoraPlaybackService.nextSong()" class="controlButtonHolder">
           <i class="material-icons skip">skip_next</i>
         </div>
         <div class="controlButtonHolder">
@@ -71,7 +71,7 @@
           <img id="nowPlayingImg" class="albumImg" src='' />
         </div>
         <div class="songInfo">
-          <div class="band">
+          <div class="band">`
             <span id="artistName"></span>
           </div>
           <div class="song">
@@ -79,10 +79,10 @@
           </div>
         </div>
       </div>
-      <div class="timeHolder"> {{this.currentTime | timeDisplay }} | {{this.totalTime | timeDisplay}}
+      <div class="timeHolder"> {{pandoraPlaybackService.currentTime | timeDisplay }} | {{pandoraPlaybackService.totalTime | timeDisplay}}
       </div>
 
-      <div class="volumeHolder" (click)='toggleVolumeBar()'>
+      <div class="volumeHolder" (click)='pandoraPlaybackService.toggleVolumeBar()'>
         <i class="material-icons volume">volume_up</i>
       </div>
 

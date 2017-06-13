@@ -12,6 +12,7 @@ import { NavController } from 'ionic-angular';
 import { VideoInfoObj } from '../video-thumbnail/video-info-obj';
 import { VideoInfoService } from '../../services/video-info.service';
 import { PandoraService } from '../../services/pandora.service';
+import { PandoraPlaybackService } from '../../services/pandora-playback.service';
 @Component({
   selector: 'headliner',
   templateUrl: 'headliner.component.html'
@@ -28,7 +29,8 @@ export class Headliner implements OnChanges, OnInit {
     private azureService: AzureService,
     private navCtrl: NavController,
     private videoInfoService: VideoInfoService,
-    private pandoraService: PandoraService
+    private pandoraService: PandoraService,
+    private pandoraPlaybackService: PandoraPlaybackService
   ) {
 
    //#console.log('on init of headliner.component');
@@ -46,7 +48,12 @@ export class Headliner implements OnChanges, OnInit {
         }
       });
   }
-
+  onStationSelection(stationid: string) {
+    this.pandoraService.goToSuggestedStation(stationid)
+      .then(()=>{
+        this.pandoraPlaybackService.nextSong();
+      });
+  }
   ngOnChanges(change: SimpleChanges) {
     console.log('ngOnChanges change', change);
     console.log('slideset div', this.slidesetDOM);
