@@ -58,8 +58,6 @@ export class Headliner implements OnChanges, OnInit {
   }
 
   ngAfterViewChecked() {
-    //console.log('ngAFterViewChecked')
-    //console.log('slideset div', this.slidesetDOM);
     if (this.slidesetDOM.container) {
       let sameheight = this.slidesetDOM.container.clientHeight === this.sizeSettings.clientHeight;
       let samewidth = this.slidesetDOM.container.clientWidth === this.sizeSettings.clientWidth;
