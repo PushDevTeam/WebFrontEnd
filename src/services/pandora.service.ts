@@ -27,9 +27,10 @@ export class PandoraService {
     } else {
       if (this.playQueue === undefined){
         return this.getPlaylist(this.currentStation.stationToken)
-      } else if (this.playIndex === this.playQueue.length){
+      } else if (this.playIndex === this.playQueue.length - 1){
         return this.getPlaylist(this.currentStation.stationToken)
       } else {
+        this.goNextSong();
         return new Promise((resolve, reject)=>{
           return resolve()
         })

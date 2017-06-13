@@ -20,10 +20,12 @@ export class PandoraPlaybackService {
   }
 
   playMusic(){
-    document.getElementById('audioDisplay').setAttribute('src', this.pandoraService.currentSong.audioUrlMap.mediumQuality.audioUrl);
-    document.getElementById('nowPlayingImg').setAttribute('src', this.pandoraService.currentSong.albumArtUrl);
-    document.getElementById('artistName').innerText = this.pandoraService.currentSong.artistName;
-    document.getElementById('songName').innerText = this.pandoraService.currentSong.songName;
+    if (this.pandoraService.currentSong.audioUrlMap) {
+      document.getElementById('audioDisplay').setAttribute('src', this.pandoraService.currentSong.audioUrlMap.mediumQuality.audioUrl);
+      document.getElementById('nowPlayingImg').setAttribute('src', this.pandoraService.currentSong.albumArtUrl);
+      document.getElementById('artistName').innerText = this.pandoraService.currentSong.artistName;
+      document.getElementById('songName').innerText = this.pandoraService.currentSong.songName;
+    }
   }
 
   toggleVolumeBar() {
@@ -82,7 +84,7 @@ export class PandoraPlaybackService {
 
 nextSong(e?: any) {
     this.pandoraService.getNextSong().then(()=>{
-      this.pandoraService.goNextSong();
+      // this.pandoraService.goNextSong();
       this.playMusic();
       this.playSongIfNot();
     })
