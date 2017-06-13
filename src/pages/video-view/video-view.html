@@ -29,8 +29,7 @@
           <div class='iconthing'>
             <img src='assets/icons/profile.svg' class='pd-icon' id='trainer-pic' />
           </div>
-
-          <div class='text' id="trainer-name">
+          <div class='text'  [class.safari-fix-trainer]='safari' id="trainer-name">
 
             {{videoInfo.trainer}}
 
@@ -41,18 +40,18 @@
            <ion-icon ios="md-time" md="md-time" class='pd-icon'></ion-icon>
           </div>
 
-          <div class='text'>
+          <div class='text' [class.safari-fix]='safari' >
 
             {{videoInfo.duration}}
 
           </div>
         </div>
-        <div class='item'>
+        <div [class.safari-fix]='safari' class='item'>
           <div class='iconthing'>
             <ion-icon ios="ios-stats" md="md-stats" class='pd-icon'></ion-icon>
           </div>
 
-          <div class='text'>
+          <div class='text' [class.safari-fix]='safari' >
 
             {{videoInfo.difficulty}}
 

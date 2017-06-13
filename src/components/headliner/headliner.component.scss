@@ -2,8 +2,36 @@
 SCSS for the big slider at top
 */
 
-.swiper-pagination-bullet-active {
+.pager-bullet-active {
   background: red !important;
+  opacity: 1 !important;
+}
+
+.pager-bullet {
+  //background: red;
+  height: 9px;
+  width: 9px;
+  opacity: 0.3;
+  margin: 4px 5px;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 100%;
+  background: black;
+  line-height: 1;
+  z-index: 1000;
+  text-align: center;
+}
+
+
+
+.pager-container {
+  position: absolute;
+  z-index: 1000;
+  //transition: 300ms;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  text-align: center;
 }
 
 headliner {
@@ -67,7 +95,7 @@ headliner {
         position: absolute;
         top: 20%;
         left: 5%;
-        width: 30%;
+        width: 25%;
         background-color: rgba(0,0,0,0.0);
         height: auto;
         z-index: 9;
@@ -78,7 +106,7 @@ headliner {
           width: 100%;
           text-transform: capitalize;
           font-family: 'atcduel4';
-          font-size: 2.8vw;
+          font-size: 2.8em;
           line-height: 100%;
           margin-bottom: 2%;
         }
@@ -117,7 +145,7 @@ headliner {
           clear: left;
           float: left;
           font-family: DinPro !important;
-          font-weight: 100;
+          font-weight: 400;
           font-size: 1vw;
           word-wrap: break-word;
           text-align: left;
@@ -139,9 +167,8 @@ headliner {
 
         i {
           transition: color 0.5s ease;
-          text-shadow: 0 0 6px grey;
           color: white;
-          font-size: 15vw;
+          font-size: 10vw;
         }
         i:hover{
           transition: color 0.5s ease;
@@ -156,7 +183,7 @@ headliner {
         position: absolute;
         top: 20%;
         right: 8%;
-        width: 25%;
+        width: 20%;
         height: auto;
         z-index: 9;
         color: white !important;

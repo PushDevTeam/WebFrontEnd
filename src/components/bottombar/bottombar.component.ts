@@ -27,13 +27,16 @@ export class BottomBar {
   onStationPopup() {
     let stationMenu = document.getElementById('station-menu');
     let stationButton = document.getElementById('station-button');
+    let stationDropUpArrow = document.getElementById('station-dropup-arrow');
     if (this.stationPopupActive) {
       stationButton.classList.remove('active');
       stationMenu.classList.remove('station-popup-active');
+      stationDropUpArrow.classList.remove('station-arrow-down');
       this.stationPopupActive = false;
     } else {
       stationButton.classList.add('active');
       stationMenu.classList.add('station-popup-active');
+      stationDropUpArrow.classList.add('station-arrow-down');
       this.stationPopupActive = true;
     }
   }

@@ -87,6 +87,7 @@ video-view {
               font-size: 1.7vh;
               text-transform: capitalize;
             }
+
             .text {
               display: inline-block;
               font-family: DinPro;
@@ -96,7 +97,18 @@ video-view {
               position: absolute;
               top: 50%;
               transform: translateY(-50%);
-            }
+
+}
+              .safari-fix {
+                position: initial !important;
+              }
+              .safari-fix-trainer {
+                position: relative !important;
+                bottom: 3vh;
+              }
+
+
+
           }
         }
 

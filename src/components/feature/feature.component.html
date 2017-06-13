@@ -53,14 +53,14 @@
         <div id='cover-art-carousel'>
 
 
-          <ion-slides effect='coverflow' loop='true' autoplay='3000' speed='1000'>
-            <ion-slide (click)='pandoraService.goToSuggestedStation(station.stationId)' *ngFor="let station of pandoraService.getFeaturedStations(2); let idx = index;">
+        <ion-slides effect='coverflow' loop='true' autoplay='3000' speed='1000'>
+           <ion-slide (click)='pandoraService.goToSuggestedStation(station.stationId)' *ngFor="let station of pandoraService.getFeaturedStations(2); let idx = index;">
               <img src={{station.artUrl}} />
               <div class='station-name'>
                 {{station.stationName}}
               </div>
             </ion-slide>
-          </ion-slides>
+          </ion-slides> 
 
         </div>
 

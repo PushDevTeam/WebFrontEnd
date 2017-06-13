@@ -27,12 +27,26 @@ ion-header{
 
 .pandoraStationHolder {
   display: inline-block;
-  width: 32%;
+  width: 40%;
+  text-align: center;
 
   .pandoraStation {
-    text-align: center;
     font-size: 70%;
     font-family: DinPro !important;
+    display: inline-block;
+  }
+
+  #station-dropup-arrow {
+    display: inline-block;
+    position: relative;
+    bottom: -8px;
+    right: 7px;
+    transition: transform 0.3s ease-out;
+  }
+
+  .station-arrow-down {
+    transition: all 0.3s ease-out;
+    transform: rotate(180deg);
   }
 
   .pandoraStation:hover {
@@ -192,6 +206,9 @@ input[type=range]:focus::-ms-fill-upper {
 .controls {
   display: inline-block;
   width: 25%;
+  left: 41.3vw;
+  margin-right: -42.5vw;
+  position: absolute;
 
   .controlButtonHolder {
     display: inline-block;
@@ -230,12 +247,12 @@ input[type=range]:focus::-ms-fill-upper {
   }
 
   .material-icons{
-  
+
   &:hover {
     color: red;
     cursor: pointer;
   }}
-  } 
+  }
 
 .albumInfoHolder {
   display: inline-block;
@@ -255,7 +272,7 @@ input[type=range]:focus::-ms-fill-upper {
 
   .songInfo {
     display: inline-block;
-    font-size: 55%;
+    font-size: 54%;
     vertical-align: middle;
     overflow-y: hidden;
   }
@@ -263,11 +280,12 @@ input[type=range]:focus::-ms-fill-upper {
   .band {
     font-family: DinPro !important;
     overflow-y: hidden;
+    color:  #111111;
   }
 
   .song {
     font-family: DinPro !important;
-    color: red;
+    color:  #111111;
   }
 }
 
@@ -313,7 +331,7 @@ input[type=range]:focus::-ms-fill-upper {
   right: 66.5%;
   bottom: 45px;
   max-width: 18%;
-  background-color: #F1F2F3;
+  background-color: #f2f2f2;
   overflow-y: hidden;
   transition: height 0.3s ease-out;
   height: 0;

@@ -1,4 +1,5 @@
 <ion-footer>
+
   <div class='station-menu' id='station-menu'>
     <div class='station-menu-inner'>
       <div *ngFor="let station of pandoraService.userStations; let idx = index;">
@@ -21,8 +22,8 @@
       <i class="material-icons add-circle">add_circle</i>
       <div class=create-station> Create Station </div>
     </div>
-  -->
 
+-->
 <form class="create-station">
   <input (focus)="removeSearchIcon()" (blur)="addSearchIcon()" class="create-station-search" type=search (click)="createStation()" placeholder="Create Station">
   </form>
@@ -30,25 +31,22 @@
   </div>
 </div>
   <div class='volume-bar' id='vol-bar'>
-  <!--  <div class='vol-track'>
-      <div class='vol-thumb'>
 
-      </div>
-    </div> -->
     <input (change)="pandoraPlaybackService.updateVol()" type="range" id="volume-slider" min="0" max="1" step="0.1" value="1">
 
   </div>
   <ion-toolbar>
     <ion-title>
 
-      <audio id="audioDisplay"></audio>
+      <audio [muted]="this.isMuted" id="audioDisplay"></audio>
       <div class="pandoraLogoHolder">
         <img class="pandoraLogo" src="assets/Pandora_Logo.png" />
       </div>
       <div class="pandoraStationHolder">
         <div (click)="onStationPopup()" id="station-button" class="pandoraStation"> <span *ngIf="pandoraService.currentStation">{{pandoraService.currentStationName()}}</span>
         </div>
-      </div>
+        <i id='station-dropup-arrow' class="material-icons md-18">arrow_drop_up</i>
+    </div>
       <div class="controls">
         <div class="controlButtonHolder">
           <i class="material-icons thumb" (click)="onThumbsDown">thumb_down</i>
@@ -82,10 +80,11 @@
       <div class="timeHolder"> {{pandoraPlaybackService.currentTime | timeDisplay }} | {{pandoraPlaybackService.totalTime | timeDisplay}}
       </div>
 
-      <div class="volumeHolder" (click)='pandoraPlaybackService.toggleVolumeBar()'>
-        <i class="material-icons volume">volume_up</i>
+      <div class="volumeHolder" (mouseover)='pandoraPlaybackService.toggleVolumeBar()' (click)="pandoraPlaybackService.toggleVolumeBar()">
+        <i id="volumeControl" class="material-icons volume">volume_up</i>
       </div>
 
     </ion-title>
   </ion-toolbar>
+
 </ion-footer>
