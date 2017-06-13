@@ -12,6 +12,7 @@ import { NavController } from 'ionic-angular';
 import { VideoInfoObj } from '../video-thumbnail/video-info-obj';
 import { VideoInfoService } from '../../services/video-info.service';
 import { PandoraService } from '../../services/pandora.service';
+import { PandoraPlaybackService } from '../../services/pandora-playback.service';
 @Component({
   selector: 'feature',
   templateUrl: 'feature.component.html'
@@ -25,7 +26,8 @@ export class Feature {
     private azureService: AzureService,
     private navCtrl: NavController,
     private videoInfoService: VideoInfoService,
-    private pandoraService: PandoraService
+    private pandoraService: PandoraService,
+    private pandoraPlaybackService: PandoraPlaybackService,
   ) {}
 
   ngOnInit() {
@@ -39,7 +41,12 @@ export class Feature {
         }
       });
   }
-
+  onStationSelection(stationid: string) {
+    this.pandoraService.goToSuggestedStation(stationid)
+      .then(()=>{
+        this.pandoraPlaybackService.nextSong();
+      });
+  }
   goToVid(id) {
     this.navCtrl.push(VideoView, { 'id': id });
   }
