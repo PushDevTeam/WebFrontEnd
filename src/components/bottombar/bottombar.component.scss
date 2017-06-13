@@ -27,8 +27,7 @@ ion-header{
 
 .pandoraStationHolder {
   display: inline-block;
-  width: 32%;
-  text-align: center;
+  width: 31%;
 
   .pandoraStation {
     font-size: 70%;
@@ -206,6 +205,9 @@ input[type=range]:focus::-ms-fill-upper {
 .controls {
   display: inline-block;
   width: 25%;
+  left: 42.5vw;
+  margin-right: -42.5vw;
+  position: absolute;
 
   .controlButtonHolder {
     display: inline-block;
@@ -328,7 +330,7 @@ input[type=range]:focus::-ms-fill-upper {
   right: 66.5%;
   bottom: 45px;
   max-width: 18%;
-  background-color: #F1F2F3;
+  background-color: #f2f2f2;
   overflow-y: hidden;
   transition: height 0.3s ease-out;
   height: 0;
