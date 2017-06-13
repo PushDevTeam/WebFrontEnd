@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {PandoraService} from './pandora.service';
+import {VideoPlaybackService} from './video-playback.service';
 @Injectable()
 export class PandoraPlaybackService { 
   audioElement: HTMLAudioElement;
@@ -9,7 +10,8 @@ export class PandoraPlaybackService {
   isPlaying: boolean = false;
   isMuted: boolean = false;
 
-  constructor(private pandoraService: PandoraService){}
+  constructor(private pandoraService: PandoraService,
+              private videoPlaybackService: VideoPlaybackService){}
   initializePlayer(){
     this.audioElement = <HTMLAudioElement> document.getElementById("audioDisplay");
     this.audioElement.addEventListener("loadedmetadata", this.updateData);
@@ -83,8 +85,12 @@ export class PandoraPlaybackService {
   };
 
 nextSong(e?: any) {
+    console.log('nextSong e', e);
     this.pandoraService.getNextSong().then(()=>{
       // this.pandoraService.goNextSong();
+      if (e && e.target.nodeName === 'AUDIO' && e.type === 'ended') {
+        // this.videoPlaybackService.playVideo();
+      }
       this.playMusic();
       this.playSongIfNot();
     })

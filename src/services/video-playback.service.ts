@@ -10,6 +10,10 @@ export class VideoPlaybackService {
   }
 
   playVideo() {
-      this.videoElement.play();
+    this.videoElement.play();
+  }
+
+  pauseVideo() {
+    this.videoElement.pause();
   }
 }

@@ -68,12 +68,22 @@ export class VideoView {
     if (e.target.nodeName === 'VIDEO') {
       if (e.target.currentTime === e.target.duration) {
         return;
+      } else {
+        if (!this.audioElement.paused){
+          this.audioElement.pause();
+        }
+      }
+    } else {
+      if (!this.videoPlaybackService.videoElement.paused) {
+        this.videoPlaybackService.pauseVideo();
       }
     }
-    // console.log("pauseAV", e);
+    /*
+    console.log("pauseAV", e);
     this.audioElement.pause();
     let vid = <HTMLVideoElement> document.getElementById('video-player');
     vid.pause();
+    */
     document.getElementById("playButton").innerHTML="play_arrow";
   }
 
