@@ -30,7 +30,6 @@
     <div class='playbutton'>
       <i class="material-icons" (click)='goToVid(vid_info.id)'>play_circle_outline</i>
     </div>
-    <!--
     <div class='suggested-radio'>
       Suggested Radio Stations
       <div (click)='onStationSelection(station.stationId)' 
@@ -40,8 +39,7 @@
           <div class='radio-name'>{{station.stationName}}</div>
         </div>
       </div>
-    </div>-->
-
+    </div>
     <div class="pager-container">
       <div (click)="pageToSlide(index)" class="pager-bullet" *ngFor="let bullet of video_info_arr; let index = index"
       [class.pager-bullet-active]="this.activeIndex == index">

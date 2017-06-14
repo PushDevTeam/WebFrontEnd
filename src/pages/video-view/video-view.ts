@@ -56,9 +56,12 @@ export class VideoView {
   }
 
   playAV() {
-    this.audioElement.play();
-    let vid = <HTMLVideoElement> document.getElementById('video-player');
-    vid.play();
+    if (this.audioElement.paused) {
+      this.audioElement.play();
+    }
+    if (this.videoPlaybackService.videoElement.paused) {
+      this.videoPlaybackService.videoElement.play();
+    }
     document.getElementById("playButton").innerHTML = "pause";
   }
   pauseAV(e){
