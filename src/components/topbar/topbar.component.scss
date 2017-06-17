@@ -68,7 +68,7 @@ topbar {
 
   .searchHolder {
     position: absolute;
-    left: 75%;
+    left: 73%;
     top: 50%;
     transform: translateY(-50%);
     display: inline-block;
@@ -108,10 +108,12 @@ topbar {
     white-space: nowrap;
     cursor: pointer;
     .profilePic {
-      height: 3.2vh;
+      height: 3.6vh;
       width: auto;
+      transform: translateY(5%);
       margin-bottom: -1vh;
       margin-right:.5vw;
+      border-radius: 100px;
     }
 
     .userName {

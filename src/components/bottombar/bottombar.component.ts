@@ -53,7 +53,7 @@ export class BottomBar {
     let pandora = this.pandoraService;
     return pandora.addFeedback(pandora.currentStation.stationToken, pandora.currentSong.trackToken, pandora.currentSong.songIdentity, positive);
   }
-  
+
   createStation() {
   }
 

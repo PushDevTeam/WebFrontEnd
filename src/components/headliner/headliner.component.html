@@ -5,7 +5,7 @@
 
 <ion-slides #slideset class="slides">
   <ion-slide *ngFor="let vid_info of video_info_arr" [ngStyle]="{'background-image': 'url(' + vid_info.featureThumbUrl + ')'}">
-    <div class='video-info'>
+    <div [style.color]=vid_info.infoTextColor class='video-info'>
       <div class='title'>
         {{vid_info.title}}
       </div>
@@ -33,7 +33,7 @@
     <!--
     <div class='suggested-radio'>
       Suggested Radio Stations
-      <div (click)='onStationSelection(station.stationId)' 
+      <div (click)='onStationSelection(station.stationId)'
             *ngFor="let station of pandoraService.getFeaturedStations(1)">
         <div class='station-wrap'>
           <img src='{{station.artUrl}}' />

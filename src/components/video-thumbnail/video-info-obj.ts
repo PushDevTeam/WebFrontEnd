@@ -1,5 +1,5 @@
 export interface IVideoInfoObj extends VideoInfoObj{
-  
+
 };
 
 export class VideoInfoObj {
@@ -14,11 +14,12 @@ export class VideoInfoObj {
   thumbUrl: string;
   isfeatured?: boolean;
   featureThumbUrl?: string;
+  infoTextColor: string;
 
   constructor(propertybag: IVideoInfoObj){
     for (let k in propertybag){
       this[k] = propertybag[k];
     }
   }
-  
+
 }
