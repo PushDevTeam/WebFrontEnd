@@ -2,13 +2,15 @@ import {Injectable} from '@angular/core';
 import {PandoraService} from './pandora.service';
 import {VideoPlaybackService} from './video-playback.service';
 @Injectable()
-export class PandoraPlaybackService { 
+export class PandoraPlaybackService {
   audioElement: HTMLAudioElement;
   currentTime: number = 0;
   totalTime: number = 0;
   volBarActive: boolean = false;
   isPlaying: boolean = false;
   isMuted: boolean = false;
+  pauseOnEnter: boolean = true;
+  timeoutHandle: any;
 
   constructor(private pandoraService: PandoraService,
               private videoPlaybackService: VideoPlaybackService){}
@@ -32,14 +34,34 @@ export class PandoraPlaybackService {
 
   toggleVolumeBar() {
     let volBar = document.getElementById('vol-bar');
-    if (this.volBarActive) {
-      volBar.classList.add('volume-bar-active');
-      this.volBarActive = false;
-    } else {
-      volBar.classList.remove('volume-bar-active');
+    console.log("hove on toggled");
+    console.log("vol bar active" + this.volBarActive);
+    if (!this.volBarActive) {
       this.volBarActive = true;
+      volBar.classList.add('volume-bar-active');
+      console.log("in if statement");
+      this.timeoutHandle = setTimeout(() => {
+        let volBar = document.getElementById('vol-bar');
+        volBar.classList.remove('volume-bar-active');
+        this.volBarActive = false;
+        console.log("in timeout fucntion" + this.volBarActive);
+      }, 3000);
     }
-  };
+}
+
+    updateVolBarToggler() {
+      console.log("update toggler");
+      if (this.volBarActive) {
+        console.log("in updateVolBarToggler")
+        clearTimeout(this.timeoutHandle);
+        this.timeoutHandle = setTimeout (() => {
+          let volBar = document.getElementById('vol-bar');
+          volBar.classList.remove('volume-bar-active');
+          this.volBarActive = false;
+        }, 5000);
+      }
+    }
+
   togglePlayPause() {
     if (this.audioElement.paused) {
       this.playSong();
@@ -92,7 +114,7 @@ nextSong(e?: any) {
         // this.videoPlaybackService.playVideo();
       }
       this.playMusic();
-      this.playSongIfNot();
+      this.playSongIfNot()
     })
   };
 

@@ -16,16 +16,16 @@ const MOCK_THUMB_URL = 'https://pushdaily.blob.core.windows.net/asset-d009e52e-1
 
     }
    private mock: IVideoInfoObj[] = [
-     {id:'0', videoUrl: MOCK_URL, title:"SLIM DOWN FAST", trainer: 'Eddie Lacy' , duration: '32:30', difficulty: 'Medium', tags: ['Tag1', 'Tag2', 'Tag3','Tag4','Tag5','Tag6','Tag7','Tag8'], description: 'mock_desc', thumbUrl: MOCK_THUMB_URL},
-     {id:'1', videoUrl: MOCK_URL, title:"COOL VID", trainer: 'Jillian Michaels', duration: '32:31', difficulty: 'Medium', tags: ['Tag1', 'Tag2', 'Tag3','Tag4','Tag5','Tag6','Tag7','Tag8'], description: 'mock_desc', thumbUrl: MOCK_THUMB_URL},
-     {id:'2', videoUrl: MOCK_URL, title:"LOSE 15 lbs in 30 Minutes", trainer: 'Tony Horton', duration: '32:32', difficulty: 'Medium', tags: ['Tag1', 'Tag2', 'Tag3','Tag4','Tag5','Tag6','Tag7','Tag8'], description: 'mock_desc', thumbUrl: MOCK_THUMB_URL},
-     {id:'3', videoUrl: MOCK_URL, title:"DANCE UR ASS OFF", trainer: 'Sean T', duration: '32:33', difficulty: 'Medium', tags: ['Tag1', 'Tag2', 'Tag3','Tag4','Tag5','Tag6','Tag7','Tag8'], description: 'mock_desc', thumbUrl: MOCK_THUMB_URL},
-     {id:'4', videoUrl: MOCK_URL, title:"CRUNCHIFY UR ABS", trainer: 'The Rock', duration: '32:34', difficulty: 'Medium', tags: ['Tag1', 'Tag2', 'Tag3','Tag4','Tag5','Tag6','Tag7','Tag8'], description: 'mock_desc', thumbUrl: MOCK_THUMB_URL},
-     {id:'5', videoUrl: MOCK_URL, title:"TURN LEFT TODAY", trainer: 'Zoolander', duration: '32:35', difficulty: 'Medium', tags: ['Tag1', 'Tag2', 'Tag3','Tag4','Tag5','Tag6','Tag7','Tag8'], description: 'mock_desc', thumbUrl: MOCK_THUMB_URL},
-     {id:'6', videoUrl: MOCK_URL, title:"LETS SWEAT", trainer: 'Sweaty Trainer', duration: '32:36', difficulty: 'Medium', tags: ['Tag1', 'Tag2', 'Tag3','Tag4','Tag5','Tag6','Tag7','Tag8'], description: 'mock_desc', thumbUrl: MOCK_THUMB_URL},
-     {id:'7', videoUrl: MOCK_URL, title:"CARDO TIME", trainer: 'Lance Armstrong', duration: '32:37', difficulty: 'Medium', tags: ['Tag1', 'Tag2', 'Tag3','Tag4','Tag5','Tag6','Tag7','Tag8'], description: 'mock_desc', thumbUrl: MOCK_THUMB_URL},
-     {id:'8', videoUrl: MOCK_URL, title:"LEAN & MEAN", trainer: 'Trainer #42', duration: '32:38', difficulty: 'Medium', tags: ['Tag1', 'Tag2', 'Tag3','Tag4','Tag5','Tag6','Tag7','Tag8'], description: 'mock_desc', thumbUrl: MOCK_THUMB_URL},
-     {id:'9', videoUrl: MOCK_URL, title:"YEAH WORK OUTS", trainer: 'Trainer McTrainer', duration: '32:39', difficulty: 'Medium', tags: ['Tag1', 'Tag2', 'Tag3','Tag4','Tag5','Tag6','Tag7','Tag8'], description: 'mock_desc', thumbUrl: MOCK_THUMB_URL},
+     {id:'0', videoUrl: MOCK_URL, title:"SLIM DOWN FAST", trainer: 'Eddie Lacy' , duration: '32:30', difficulty: 'Medium', tags: ['Tag1', 'Tag2', 'Tag3','Tag4','Tag5','Tag6','Tag7','Tag8'], description: 'mock_desc', thumbUrl: MOCK_THUMB_URL, infoTextColor: 'white'},
+     {id:'1', videoUrl: MOCK_URL, title:"COOL VID", trainer: 'Jillian Michaels', duration: '32:31', difficulty: 'Medium', tags: ['Tag1', 'Tag2', 'Tag3','Tag4','Tag5','Tag6','Tag7','Tag8'], description: 'mock_desc', thumbUrl: MOCK_THUMB_URL, infoTextColor: 'black'},
+     {id:'2', videoUrl: MOCK_URL, title:"LOSE 15 lbs in 30 Minutes", trainer: 'Tony Horton', duration: '32:32', difficulty: 'Medium', tags: ['Tag1', 'Tag2', 'Tag3','Tag4','Tag5','Tag6','Tag7','Tag8'], description: 'mock_desc', thumbUrl: MOCK_THUMB_URL, infoTextColor: 'white'},
+     {id:'3', videoUrl: MOCK_URL, title:"DANCE UR ASS OFF", trainer: 'Sean T', duration: '32:33', difficulty: 'Medium', tags: ['Tag1', 'Tag2', 'Tag3','Tag4','Tag5','Tag6','Tag7','Tag8'], description: 'mock_desc', thumbUrl: MOCK_THUMB_URL, infoTextColor: 'white'},
+     {id:'4', videoUrl: MOCK_URL, title:"CRUNCHIFY UR ABS", trainer: 'The Rock', duration: '32:34', difficulty: 'Medium', tags: ['Tag1', 'Tag2', 'Tag3','Tag4','Tag5','Tag6','Tag7','Tag8'], description: 'mock_desc', thumbUrl: MOCK_THUMB_URL, infoTextColor: 'white'},
+     {id:'5', videoUrl: MOCK_URL, title:"TURN LEFT TODAY", trainer: 'Zoolander', duration: '32:35', difficulty: 'Medium', tags: ['Tag1', 'Tag2', 'Tag3','Tag4','Tag5','Tag6','Tag7','Tag8'], description: 'mock_desc', thumbUrl: MOCK_THUMB_URL, infoTextColor: 'white'},
+     {id:'6', videoUrl: MOCK_URL, title:"LETS SWEAT", trainer: 'Sweaty Trainer', duration: '32:36', difficulty: 'Medium', tags: ['Tag1', 'Tag2', 'Tag3','Tag4','Tag5','Tag6','Tag7','Tag8'], description: 'mock_desc', thumbUrl: MOCK_THUMB_URL, infoTextColor: 'white'},
+     {id:'7', videoUrl: MOCK_URL, title:"CARDO TIME", trainer: 'Lance Armstrong', duration: '32:37', difficulty: 'Medium', tags: ['Tag1', 'Tag2', 'Tag3','Tag4','Tag5','Tag6','Tag7','Tag8'], description: 'mock_desc', thumbUrl: MOCK_THUMB_URL, infoTextColor: 'white'},
+     {id:'8', videoUrl: MOCK_URL, title:"LEAN & MEAN", trainer: 'Trainer #42', duration: '32:38', difficulty: 'Medium', tags: ['Tag1', 'Tag2', 'Tag3','Tag4','Tag5','Tag6','Tag7','Tag8'], description: 'mock_desc', thumbUrl: MOCK_THUMB_URL,infoTextColor: 'white'},
+     {id:'9', videoUrl: MOCK_URL, title:"YEAH WORK OUTS", trainer: 'Trainer McTrainer', duration: '32:39', difficulty: 'Medium', tags: ['Tag1', 'Tag2', 'Tag3','Tag4','Tag5','Tag6','Tag7','Tag8'], description: 'mock_desc', thumbUrl: MOCK_THUMB_URL, infoTextColor: 'white'},
    ];
 
    fetchVideoData = (): Promise<any> =>{
