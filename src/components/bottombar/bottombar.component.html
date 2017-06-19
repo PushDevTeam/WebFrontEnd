@@ -31,14 +31,12 @@
   </div>
 </div>
   <div (mouseover)="pandoraPlaybackService.updateVolBarToggler()" class='volume-bar' id='vol-bar'>
-
     <input (change)="pandoraPlaybackService.updateVol()" type="range" id="volume-slider" min="0" max="1" step="0.1" value=".5">
-
   </div>
   <ion-toolbar>
     <ion-title>
 
-      <audio [muted]="this.isMuted" id="audioDisplay"></audio>
+      <audio [muted]="pandoraPlaybackService.isMuted" id="audioDisplay"></audio>
       <div class="pandoraLogoHolder">
         <img class="pandoraLogo" src="assets/Pandora_Logo.png" />
       </div>
@@ -80,7 +78,7 @@
       <div class="timeHolder"> {{pandoraPlaybackService.currentTime | timeDisplay }} | {{pandoraPlaybackService.totalTime | timeDisplay}}
       </div>
 
-      <div class="volumeHolder" (mouseover)='pandoraPlaybackService.toggleVolumeBar()' (click)="pandoraPlaybackService.toggleVolumeBar()">
+      <div class="volumeHolder" (mouseover)='pandoraPlaybackService.toggleVolumeBar()' (click)="pandoraPlaybackService.toggleMute()">
         <i id="volumeControl" class="material-icons volume">volume_up</i>
       </div>
 

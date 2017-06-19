@@ -8,8 +8,8 @@ export class PandoraPlaybackService {
   volBarActive: boolean = false;
   isPlaying: boolean = false;
   isMuted: boolean = false;
-  pauseOnEnter: boolean = true;
   timeoutHandle: any;
+
 
   constructor(private pandoraService: PandoraService){}
   initializePlayer(){
@@ -19,6 +19,7 @@ export class PandoraPlaybackService {
     this.audioElement.addEventListener("ended", (e) => this.nextSong(e));
     this.audioElement.addEventListener("playing", () => this.playSong);
     this.audioElement.addEventListener("pause", () => this.pauseSong);
+    this.audioElement.volume = .5; //where to put this so that it only happens when someone enters the site, and not when they go to the home page
   }
 
   playMusic(){
@@ -32,25 +33,19 @@ export class PandoraPlaybackService {
 
   toggleVolumeBar() {
     let volBar = document.getElementById('vol-bar');
-    console.log("hove on toggled");
-    console.log("vol bar active" + this.volBarActive);
     if (!this.volBarActive) {
       this.volBarActive = true;
       volBar.classList.add('volume-bar-active');
-      console.log("in if statement");
       this.timeoutHandle = setTimeout(() => {
         let volBar = document.getElementById('vol-bar');
         volBar.classList.remove('volume-bar-active');
         this.volBarActive = false;
-        console.log("in timeout fucntion" + this.volBarActive);
       }, 3000);
     }
 }
 
     updateVolBarToggler() {
-      console.log("update toggler");
       if (this.volBarActive) {
-        console.log("in updateVolBarToggler")
         clearTimeout(this.timeoutHandle);
         this.timeoutHandle = setTimeout (() => {
           let volBar = document.getElementById('vol-bar');
@@ -113,7 +108,7 @@ nextSong(e?: any) {
   };
 
   updateVol() {
-    this.audioElement.volume =  parseInt((<HTMLInputElement>document.getElementById("volume-slider")).value);
+    this.audioElement.volume =  (<HTMLInputElement>document.getElementById("volume-slider")).value;
   };
 
   updateData = () => {
