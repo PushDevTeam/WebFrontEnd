@@ -38,10 +38,12 @@ export class VideoView {
     this.id = this.navParams.get('id');
     this.videoInfoService.fetchVideoData().then(() => {
       this.videoInfo = this.videoInfoService.getVideoInfo(this.id);
+      this.playAV();
     });
-    this.pandoraPlaybackService.audioElement.addEventListener('pause', (e) => this.pauseAV(e));
-    this.videoPlaybackService.videoElement.addEventListener('pause', (e) => this.pauseAV(e));
-    this.videoPlaybackService.playVideo();
+    // this.pandoraPlaybackService.audioElement.addEventListener('pause', (e) => this.pauseAV(e));
+    // this.videoPlaybackService.videoElement.addEventListener('pause', (e) => this.pauseAV(e));
+    // this.videoPlaybackService.playVideo();
+    // this.playAV();
     if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0)
       {
         this.safari = true;
@@ -56,13 +58,9 @@ export class VideoView {
   }
 
   playAV() {
-    if (this.audioElement.paused) {
-      this.audioElement.play();
-    }
-    if (this.videoPlaybackService.videoElement.paused) {
-      this.videoPlaybackService.videoElement.play();
-    }
-    document.getElementById("playButton").innerHTML = "pause";
+    this.pandoraPlaybackService.playSong();
+    this.videoPlaybackService.playVideo();
+    //document.getElementById("playButton").innerHTML = "pause";
   }
   pauseAV(e){
     if (!e) {
@@ -72,9 +70,7 @@ export class VideoView {
       if (e.target.currentTime === e.target.duration) {
         return;
       } else {
-        if (!this.audioElement.paused){
-          this.audioElement.pause();
-        }
+        this.pandoraPlaybackService.pauseSong();
       }
     } else {
       if (!this.videoPlaybackService.videoElement.paused) {
@@ -87,7 +83,7 @@ export class VideoView {
     let vid = <HTMLVideoElement> document.getElementById('video-player');
     vid.pause();
     */
-    document.getElementById("playButton").innerHTML="play_arrow";
+    // document.getElementById("playButton").innerHTML="play_arrow";
   }
 
 

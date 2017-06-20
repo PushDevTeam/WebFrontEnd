@@ -10,10 +10,16 @@ export class VideoPlaybackService {
   }
 
   playVideo() {
-    this.videoElement.play();
+    let src = this.videoElement.currentSrc;
+    console.log("video source", src);
+    if (src && this.videoElement.paused) {
+      this.videoElement.play();
+    }
   }
 
   pauseVideo() {
-    this.videoElement.pause();
+    if (!this.videoElement.paused) {
+      this.videoElement.pause();
+    }
   }
 }
