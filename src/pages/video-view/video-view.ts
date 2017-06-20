@@ -40,10 +40,6 @@ export class VideoView {
       this.videoInfo = this.videoInfoService.getVideoInfo(this.id);
       this.playAV();
     });
-    // this.pandoraPlaybackService.audioElement.addEventListener('pause', (e) => this.pauseAV(e));
-    // this.videoPlaybackService.videoElement.addEventListener('pause', (e) => this.pauseAV(e));
-    // this.videoPlaybackService.playVideo();
-    // this.playAV();
     if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0)
       {
         this.safari = true;
@@ -54,37 +50,15 @@ export class VideoView {
   onVideoEnd() {
     //const modal = this.modalCtrl.create(VideoRatingPage, { 'id': this.id });
     //modal.present();
-    this.audioElement.play();
+    //this.audioElement.play();
   }
 
   playAV() {
     this.pandoraPlaybackService.playSong();
     this.videoPlaybackService.playVideo();
-    //document.getElementById("playButton").innerHTML = "pause";
   }
   pauseAV(e){
-    if (!e) {
-      return;
-    }
-    if (e.target.nodeName === 'VIDEO') {
-      if (e.target.currentTime === e.target.duration) {
-        return;
-      } else {
-        this.pandoraPlaybackService.pauseSong();
-      }
-    } else {
-      if (!this.videoPlaybackService.videoElement.paused) {
-        this.videoPlaybackService.pauseVideo();
-      }
-    }
-    /*
-    console.log("pauseAV", e);
-    this.audioElement.pause();
-    let vid = <HTMLVideoElement> document.getElementById('video-player');
-    vid.pause();
-    */
-    // document.getElementById("playButton").innerHTML="play_arrow";
+    this.pandoraPlaybackService.pauseSong();
+    this.videoPlaybackService.pauseVideo();
   }
-
-
 }

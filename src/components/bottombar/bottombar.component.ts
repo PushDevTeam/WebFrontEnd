@@ -49,6 +49,14 @@ export class BottomBar {
     this.giveFeedback(true);
   }
 
+  onPlay() {
+
+  }
+
+  onPause() {
+
+  }
+  
   giveFeedback(positive: boolean) {
     let pandora = this.pandoraService;
     return pandora.addFeedback(pandora.currentStation.stationToken, pandora.currentSong.trackToken, pandora.currentSong.songIdentity, positive);

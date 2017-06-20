@@ -75,20 +75,21 @@ export class PandoraPlaybackService {
     }
 
   togglePlayPause() {
-     if (this.audioElement.paused) {
+    if (this.audioElement.paused) {
       this.playSong();
+      this.videoPlaybackService.playVideo();
     } else {
       this.pauseSong();
+      this.videoPlaybackService.pauseVideo();
     }
   };
 
-    toggleMute() {
+  toggleMute() {
     if (this.isMuted) {
       document.getElementById("volumeControl").innerHTML= "volume_up";
     //  this.audioElement.volume = this.volumeBeforeMute;
       this.isMuted = false;
-    }
-    else {
+    } else {
       document.getElementById("volumeControl").innerHTML="volume_off";
       this.isMuted = true;
     }
@@ -102,19 +103,23 @@ export class PandoraPlaybackService {
   }
 
   pauseSong() {
-    this.audioElement.pause();
-    this.isPlaying = false;
-    document.getElementById("playButton").innerHTML="play_arrow";
+    if (!this.audioElement.paused) {
+      this.audioElement.pause();
+      this.isPlaying = false;
+      document.getElementById("playButton").innerHTML="play_arrow";
+    }
   };
 
   playSong() {
     const src = this.audioElement.currentSrc;
-    if (src) {
-      this.audioElement.play();
-      this.isPlaying = true;
-      document.getElementById("playButton").innerHTML="pause";
-    } else {
-      this.nextSong();
+    if (this.audioElement.paused) {
+      if (src) {
+        this.audioElement.play();
+        this.isPlaying = true;
+        document.getElementById("playButton").innerHTML="pause";
+      } else {
+        this.nextSong();
+      }
     }
   };
 
