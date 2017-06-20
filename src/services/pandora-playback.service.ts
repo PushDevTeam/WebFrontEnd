@@ -50,7 +50,7 @@ export class PandoraPlaybackService {
           let volBar = document.getElementById('vol-bar');
           volBar.classList.remove('volume-bar-active');
           this.volBarActive = false;
-        }, 4000);
+        }, 2800);
       }
     }
 
