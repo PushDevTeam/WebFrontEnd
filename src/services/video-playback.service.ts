@@ -2,10 +2,14 @@ import {Injectable} from '@angular/core';
 import {PandoraService} from './pandora.service';
 @Injectable()
 export class VideoPlaybackService { 
-  public videoElement: HTMLVideoElement;
+  videoElement: HTMLVideoElement;
+  currentVideoId: string;
 
   constructor(private pandoraService: PandoraService){}
   initializePlayer() {
+    if (this.videoElement) {
+      this.videoElement.remove();
+    }
     this.videoElement = <HTMLVideoElement>document.getElementById('video-player');
   }
 

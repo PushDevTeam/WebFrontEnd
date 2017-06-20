@@ -22,7 +22,6 @@ export class VideoView {
     { 'title': 'Other Category' },
   ];
   private safari: boolean = false;
-  private audioElement : HTMLAudioElement = <HTMLAudioElement> document.getElementById("audioDisplay");
   constructor(
     public videoInfoService: VideoInfoService,
     public navParams: NavParams,
@@ -36,8 +35,10 @@ export class VideoView {
     this.videoPlaybackService.initializePlayer();
     this.d = new Date();
     this.id = this.navParams.get('id');
+    this.videoPlaybackService.currentVideoId = this.id;
     this.videoInfoService.fetchVideoData().then(() => {
       this.videoInfo = this.videoInfoService.getVideoInfo(this.id);
+      // document.getElementById('video-source').setAttribute('src', this.videoInfo.videoUrl);// = this.videoInfo.videoUrl;
       this.playAV();
     });
     if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0)
@@ -50,7 +51,7 @@ export class VideoView {
   onVideoEnd() {
     //const modal = this.modalCtrl.create(VideoRatingPage, { 'id': this.id });
     //modal.present();
-    //this.audioElement.play();
+    this.pandoraPlaybackService.playSong();
   }
 
   playAV() {

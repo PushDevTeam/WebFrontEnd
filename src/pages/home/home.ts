@@ -18,7 +18,7 @@ export class Home {
   private d:any;
   private set_array =
   [
-    {'title': 'Popular Trainers', 'description': 'descriptionnn', 'trainer': 'JENA HUFFINE', 'trainer_img': 'assets/icons/profile.svg'},
+    {'title': 'Popular Trainers', 'description': 'Teaches bodyweight, strength, and dance formats', 'trainer': 'Nnanna Egbujiobi', 'trainer_img': 'assets/icons/profile.svg'},
     {'id': null, 'title': 'My Workouts'},
     {'id': null, 'title': 'Popular Workouts'},
     {'title': 'Other Category'},
