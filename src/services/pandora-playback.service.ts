@@ -28,7 +28,6 @@ export class PandoraPlaybackService {
     this.audioElement.addEventListener("ended", (e) => this.nextSong(e));
     this.audioElement.addEventListener("playing", () => this.playSong);
     this.audioElement.addEventListener("pause", () => this.pauseSong);
-    this.audioElement.volume = .5; //where to put this so that it only happens when someone enters the site, and not when they go to the home page
   }
 
   playMusic(){
@@ -70,7 +69,7 @@ export class PandoraPlaybackService {
           let volBar = document.getElementById('vol-bar');
           volBar.classList.remove('volume-bar-active');
           this.volBarActive = false;
-        }, 5000);
+        }, 2800);
       }
     }
 
@@ -141,7 +140,7 @@ nextSong(e?: any) {
   };
 
   updateVol() {
-    this.audioElement.volume =  parseFloat((<HTMLInputElement>document.getElementById("volume-slider")).value);
+    this.audioElement.volume =   parseFloat((<HTMLInputElement>document.getElementById("volume-slider")).value);
   };
 
   updateData = () => {

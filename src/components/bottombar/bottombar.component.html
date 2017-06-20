@@ -30,8 +30,7 @@
       <i ng-class="{search-hidden: this.hideSearchIcon}" class="material-icons station-search-icon">search</i>
   </div>
 </div>
-  <div (mouseover)="pandoraPlaybackService.updateVolBarToggler()" class='volume-bar' id='vol-bar'>
-
+  <div (mouseover)="pandoraPlaybackService.updateVolBarToggler()" (click)="pandoraPlaybackService.updateVolBarToggler()" class='volume-bar' id='vol-bar'>
     <input (change)="pandoraPlaybackService.updateVol()" type="range" id="volume-slider" min="0" max="1" step="0.1" value=".5">
 
   </div>

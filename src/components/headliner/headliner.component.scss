@@ -93,13 +93,22 @@ headliner {
 
       .video-info {
         position: absolute;
-        top: 20%;
+        top: 21%;
         left: 5%;
         width: 25%;
         background-color: rgba(0,0,0,0.0);
         height: auto;
         z-index: 9;
         //color: white !important;
+
+        .logo {
+          width: 30%;
+          height: auto;
+          text-align: left;
+          position: relative;
+          right: 34%;
+
+        }
 
         .title {
           text-align: left;
