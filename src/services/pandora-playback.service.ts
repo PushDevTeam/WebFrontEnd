@@ -9,8 +9,8 @@ export class PandoraPlaybackService {
   volBarActive: boolean = false;
   isPlaying: boolean = false;
   isMuted: boolean = false;
-  pauseOnEnter: boolean = true;
   timeoutHandle: any;
+
 
   constructor(private pandoraService: PandoraService,
               private videoPlaybackService: VideoPlaybackService){}
@@ -22,13 +22,14 @@ export class PandoraPlaybackService {
       });
     }
   initializePlayer(){
-      this.audioElement = <HTMLAudioElement> document.getElementById("audioDisplay");
-      this.audioElement.addEventListener("loadedmetadata", this.updateData);
-      this.audioElement.addEventListener("timeupdate", this.updateTime);
-      this.audioElement.addEventListener("ended", (e) => this.nextSong(e));
-      this.audioElement.addEventListener("playing", () => this.playSong);
-      this.audioElement.addEventListener("pause", () => this.pauseSong);
-    }
+    this.audioElement = <HTMLAudioElement> document.getElementById("audioDisplay");
+    this.audioElement.addEventListener("loadedmetadata", this.updateData);
+    this.audioElement.addEventListener("timeupdate", this.updateTime);
+    this.audioElement.addEventListener("ended", (e) => this.nextSong(e));
+    this.audioElement.addEventListener("playing", () => this.playSong);
+    this.audioElement.addEventListener("pause", () => this.pauseSong);
+    this.audioElement.volume = .5; //where to put this so that it only happens when someone enters the site, and not when they go to the home page
+  }
 
   playMusic(){
     if (!this.pandoraService.currentSong) {
@@ -51,25 +52,19 @@ export class PandoraPlaybackService {
 
   toggleVolumeBar() {
     let volBar = document.getElementById('vol-bar');
-    console.log("hove on toggled");
-    console.log("vol bar active" + this.volBarActive);
     if (!this.volBarActive) {
       this.volBarActive = true;
       volBar.classList.add('volume-bar-active');
-      console.log("in if statement");
       this.timeoutHandle = setTimeout(() => {
         let volBar = document.getElementById('vol-bar');
         volBar.classList.remove('volume-bar-active');
         this.volBarActive = false;
-        console.log("in timeout fucntion" + this.volBarActive);
       }, 3000);
     }
 }
 
     updateVolBarToggler() {
-      console.log("update toggler");
       if (this.volBarActive) {
-        console.log("in updateVolBarToggler")
         clearTimeout(this.timeoutHandle);
         this.timeoutHandle = setTimeout (() => {
           let volBar = document.getElementById('vol-bar');
@@ -80,7 +75,7 @@ export class PandoraPlaybackService {
     }
 
   togglePlayPause() {
-    if (this.audioElement.paused) {
+     if (this.audioElement.paused) {
       this.playSong();
     } else {
       this.pauseSong();
@@ -113,9 +108,14 @@ export class PandoraPlaybackService {
   };
 
   playSong() {
-    this.audioElement.play();
-    this.isPlaying = true;
-    document.getElementById("playButton").innerHTML="pause";
+    const src = this.audioElement.currentSrc;
+    if (src) {
+      this.audioElement.play();
+      this.isPlaying = true;
+      document.getElementById("playButton").innerHTML="pause";
+    } else {
+      this.nextSong();
+    }
   };
 
   changeStation(index) {
