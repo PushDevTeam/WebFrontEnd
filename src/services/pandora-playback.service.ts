@@ -14,16 +14,33 @@ export class PandoraPlaybackService {
 
   constructor(private pandoraService: PandoraService,
               private videoPlaybackService: VideoPlaybackService){}
+
+    initializePandora() {
+      this.pandoraService.getStationList().then(()=>{
+        this.initializePlayer();
+        this.nextSong();
+      });
+    }
   initializePlayer(){
-    this.audioElement = <HTMLAudioElement> document.getElementById("audioDisplay");
-    this.audioElement.addEventListener("loadedmetadata", this.updateData);
-    this.audioElement.addEventListener("timeupdate", this.updateTime);
-    this.audioElement.addEventListener("ended", (e) => this.nextSong(e));
-    this.audioElement.addEventListener("playing", () => this.playSong);
-    this.audioElement.addEventListener("pause", () => this.pauseSong);
-  }
+      this.audioElement = <HTMLAudioElement> document.getElementById("audioDisplay");
+      this.audioElement.addEventListener("loadedmetadata", this.updateData);
+      this.audioElement.addEventListener("timeupdate", this.updateTime);
+      this.audioElement.addEventListener("ended", (e) => this.nextSong(e));
+      this.audioElement.addEventListener("playing", () => this.playSong);
+      this.audioElement.addEventListener("pause", () => this.pauseSong);
+    }
 
   playMusic(){
+    if (!this.pandoraService.currentSong) {
+      this.nextSong().then(()=>{
+        this.loadSongMetadata();
+      })
+    } else {
+      this.loadSongMetadata();
+    }
+  }
+
+  loadSongMetadata() {
     if (this.pandoraService.currentSong.audioUrlMap) {
       document.getElementById('audioDisplay').setAttribute('src', this.pandoraService.currentSong.audioUrlMap.mediumQuality.audioUrl);
       document.getElementById('nowPlayingImg').setAttribute('src', this.pandoraService.currentSong.albumArtUrl);
@@ -108,7 +125,7 @@ export class PandoraPlaybackService {
 
 nextSong(e?: any) {
     console.log('nextSong e', e);
-    this.pandoraService.getNextSong().then(()=>{
+    return this.pandoraService.getNextSong().then(()=>{
       // this.pandoraService.goNextSong();
       if (e && e.target.nodeName === 'AUDIO' && e.type === 'ended') {
         // this.videoPlaybackService.playVideo();
@@ -119,7 +136,7 @@ nextSong(e?: any) {
   };
 
   updateVol() {
-    this.audioElement.volume =  parseInt((<HTMLInputElement>document.getElementById("volume-slider")).value);
+    this.audioElement.volume =  parseFloat((<HTMLInputElement>document.getElementById("volume-slider")).value);
   };
 
   updateData = () => {

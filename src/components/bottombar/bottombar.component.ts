@@ -20,7 +20,7 @@ export class BottomBar {
   ngOnInit() {
     this.pandoraService.getStationList().then(()=>{
       this.pandoraPlaybackService.initializePlayer();
-      this.pandoraPlaybackService.nextSong();
+      // this.pandoraPlaybackService.nextSong();
    });
   }
 
