@@ -20,6 +20,11 @@ export class BottomBar {
   ngOnInit() {
     this.pandoraService.getStationList().then(()=>{
       this.pandoraPlaybackService.initializePlayer();
+
+      if (this.pandoraPlaybackService.firstEnter) {
+        this.pandoraPlaybackService.audioElement.volume = .1;
+        this.pandoraPlaybackService.firstEnter = false;
+      }
       // this.pandoraPlaybackService.nextSong();
    });
   }
@@ -56,7 +61,7 @@ export class BottomBar {
   onPause() {
 
   }
-  
+
   giveFeedback(positive: boolean) {
     let pandora = this.pandoraService;
     return pandora.addFeedback(pandora.currentStation.stationToken, pandora.currentSong.trackToken, pandora.currentSong.songIdentity, positive);

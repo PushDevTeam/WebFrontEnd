@@ -39,7 +39,7 @@ video-view {
 
         .large-title {
           font-family: 'atcduel6';
-          font-size: 3.5vh;
+          font-size: 3.6vh;
           font-weight: 300;
           margin: 0 0 2vh;
         }
@@ -120,9 +120,11 @@ video-view {
             font-weight: 300;
             text-align: left;
             margin: 2vh 0;
-            font-size: 1.5vh;
+            font-size: 2vh;
             line-height: 1.3;
             display: block;
+            position: relative;
+            top: -3.6vh;
 
           }
 
@@ -130,15 +132,17 @@ video-view {
             text-align: left;
             font-family: DinPro;
             font-weight: 700;
-            font-size: 1.4vh;
+            font-size: 1.5vh;
             text-transform: uppercase;
             display: block;
             color: color($colors, midgrey);
+            position: relative;
+            top: -1vh;
 
             ion-badge {
               font-family: DinPro;
               font-weight: 100;
-              font-size: 1.5vh;
+              font-size: 1.6vh;
               padding: 0.8vh 1.2vw;
               margin: 0 0.5vw 1vh 0;
               background-color: color($colors, midgrey);

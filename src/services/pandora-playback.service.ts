@@ -10,6 +10,7 @@ export class PandoraPlaybackService {
   isPlaying: boolean = false;
   isMuted: boolean = false;
   timeoutHandle: any;
+  firstEnter: boolean = true;
 
 
   constructor(private pandoraService: PandoraService,
