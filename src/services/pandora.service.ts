@@ -138,15 +138,6 @@ export class PandoraService {
           'stationName': "90's Hip Hop"},
           {'stationId': '3608848574149979011',
           'artUrl': 'https://images-na.ssl-images-amazon.com/images/I/61WtzIi5L0L._SS500.jpg',
-          'stationName': 'Tech N9ne Radio'},
-          {'stationId': '3608848836142984067',
-          'artUrl': 'https://images-na.ssl-images-amazon.com/images/I/51SVFPuNbUL._SS500.jpg',
-          'stationName': 'Israel IZ'},
-          {'stationId': '3608849274229648259',
-          'artUrl': 'https://images-na.ssl-images-amazon.com/images/I/519FJqa%2BhTL._SS500.jpg',
-          'stationName': "90's Hip Hop"},
-          {'stationId': '3608848574149979011',
-          'artUrl': 'https://images-na.ssl-images-amazon.com/images/I/61WtzIi5L0L._SS500.jpg',
           'stationName': 'Tech N9ne Radio'}];
       }
   }
