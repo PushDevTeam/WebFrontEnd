@@ -1,0 +1,33 @@
+<div class='wrapper'>
+
+<ion-grid>
+  <ion-row>
+    <ion-col col-2>
+      <div class='section-head'>
+        {{set_info['title']}}
+      </div>
+      <div class='trainer-prof' *ngIf='set_info.hasOwnProperty("trainer")'>
+        <div class='pic'>
+          <img src="{{set_info['trainer_img']}}" />
+        </div>
+        <div class='name'>
+
+          {{set_info['trainer']}}
+
+        </div>
+      </div>
+      <div class='description'>
+
+
+
+        {{set_info['description']}}
+
+      </div>
+      <button ion-button>VIEW ALL</button>
+    </ion-col>
+    <ion-col col-10>
+      <side-scroller [id]='0'></side-scroller>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</div>

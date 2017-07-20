@@ -1,6 +1,22 @@
-<div class="cat-head" (click)=goToCategoryView()>
-  <h3>MY WORKOUTS</h3>
+<div>
+  <!--
+  <div class="scrollmenu">
+    <video-thumbnail *ngFor='let id of v_ids' [id]=id></video-thumbnail>
+  </div>
+
+-->
+<div class='slide-controls'>
+<ion-icon name="arrow-dropleft-circle" id='left-arrow' (click)='slideLeft()'></ion-icon>
+ <ion-icon name="arrow-dropright-circle" id='right-arrow' (click)='slideRight()'></ion-icon>
 </div>
-<div class="scrollmenu">
-  <video-thumbnail *ngFor='let id of v_ids' [id]=id></video-thumbnail>
+
+ <ion-slides slidesPerView=3 spaceBetween=12px; class='slides'>
+
+   <ion-slide *ngFor='let id of v_ids'>
+     <video-thumbnail [id]=id></video-thumbnail>
+   </ion-slide>
+ </ion-slides>
+
+
+
 </div>

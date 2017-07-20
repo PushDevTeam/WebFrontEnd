@@ -13817,13 +13817,13 @@ Buffer.prototype.indexOf = function indexOf (val, byteOffset) {
 
 // `get` is deprecated
 Buffer.prototype.get = function get (offset) {
-  console.log('.get() is deprecated. Access using array indexes instead.')
+ //#console.log('.get() is deprecated. Access using array indexes instead.')
   return this.readUInt8(offset)
 }
 
 // `set` is deprecated
 Buffer.prototype.set = function set (v, offset) {
-  console.log('.set() is deprecated. Access using array indexes instead.')
+ //#console.log('.set() is deprecated. Access using array indexes instead.')
   return this.writeUInt8(v, offset)
 }
 
@@ -33536,9 +33536,9 @@ function timestamp() {
 }
 
 
-// log is just a thin wrapper to console.log that prepends a timestamp
+// log is just a thin wrapper to//#console.log that prepends a timestamp
 exports.log = function() {
-  console.log('%s - %s', timestamp(), exports.format.apply(exports, arguments));
+ //#console.log('%s - %s', timestamp(), exports.format.apply(exports, arguments));
 };
 
 

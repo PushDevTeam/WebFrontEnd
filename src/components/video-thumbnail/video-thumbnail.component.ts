@@ -17,7 +17,7 @@ import { NavController,  NavParams } from 'ionic-angular';
   providers: [VideoInfoService]
 })
 
-export class VideoThumbnail {
+export class VideoThumbnail implements OnInit{
   @Input() public id: string;
   public metaData: IVideoInfoObj = <IVideoInfoObj>{};
 
@@ -25,23 +25,15 @@ export class VideoThumbnail {
     private infoService: VideoInfoService,
     public navCtrl: NavController,
     public navParams: NavParams,
+  ) {}
 
-  ) {
-
-
+  ngOnInit(){
     this.infoService.fetchVideoData().then(()=> {
       this.metaData = this.infoService.getVideoInfo(this.id);
     });
   }
-  onInit(){
-
-  }
 
   goToVidView(){
-
-    // TODO add params such as uhhhhh what video to watch
-
     this.navCtrl.push(VideoView, {'id': this.id});
-
   }
 }

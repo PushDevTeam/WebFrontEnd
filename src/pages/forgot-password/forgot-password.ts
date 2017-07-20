@@ -17,7 +17,7 @@ export class ForgotPasswordPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ForgotPasswordPage');
+   //#console.log('ionViewDidLoad ForgotPasswordPage');
   }
 
 onReset(form: NgForm) {

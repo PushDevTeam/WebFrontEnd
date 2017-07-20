@@ -25,7 +25,7 @@ export class FBService {
         return this.fb.getLoginStatus().then((resp)=>{if (resp.status !== 'connected'){
         return this.fb.login().then(
             (response: FacebookLoginResponse) => {
-                console.log(response);
+                //console.log(response);
                 return this.azureService.client.login('facebook', {'access_token': response.authResponse.accessToken});
             })
     }})}

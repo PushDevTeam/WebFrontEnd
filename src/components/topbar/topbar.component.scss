@@ -1,0 +1,167 @@
+topbar {
+  ion-header{
+    background-color: color($colors, red);
+    ion-toolbar{
+      padding: 0 !important;
+    }
+  }
+  .button-inner {
+    text-transform: none;
+    color: color($colors, red);
+  }
+
+  .header-ios .toolbar-background-ios,
+  .toolbar-background-md,
+  .toolbar-background-wp {
+    border-style: none;
+    background-color: #ffffff;
+    border-color: rgba(0, 0, 0, 0);
+  }
+
+  .header-md::after {
+    background-image: none;
+  }
+
+  .toolBarHolder {
+    position: relative;
+    display: table;
+    width: 100%;
+    overflow-y: hidden;
+  }
+
+  .navButtonHolder {
+    display: inline-block;
+    color: rgba(66,66,66, 1);
+
+    .navButtons {
+      padding: 0 1.5em;
+      height: 56px;
+      line-height: 56px;
+      display: inline-block;
+      vertical-align: middle;
+      transition: all 0.2s ease-out;
+      background-color: rgba(0, 0 ,0, 0);
+
+    }
+    .navButtons:hover{
+      transition: all 0.1s ease-out;
+      color: white;
+      cursor: pointer;
+    }
+  }
+
+  .logoHolder {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 8%;
+    text-align: center;
+
+    .pushLogo {
+      width: 100%;
+      height: auto;
+      margin: auto;
+    }
+  }
+
+  .searchHolder {
+    position: absolute;
+    left: 73%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-block;
+
+    .searchBar {
+      display: inline;
+      width: 15vw;
+      padding: 2% 5%;
+      height: auto;
+      border-radius: 3px;
+      border-style: solid;
+      border-width: 1px;
+      border-color: #dddddd;
+    }
+
+    .searchIcon {
+      z-index: 2;
+      position: absolute;
+      right: 5%;
+      top:50%;
+      transform: translateY(-50%);
+      float: right;
+      color: #cccccc;
+    }
+  }
+
+  .userNameHolder {
+    float: right;
+    right: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-block;
+    margin-right: 1.5vw;
+    max-width: 15%;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    .profilePic {
+      height: 3.6vh;
+      width: auto;
+      transform: translateY(5%);
+      margin-bottom: -1vh;
+      margin-right:.5vw;
+      border-radius: 100px;
+    }
+
+    .userName {
+      display: inline;
+      color: #111111;
+      padding-left: 0;
+      font-size: 1em;
+      font-family: DinPro !important;
+      font-weight: 100;
+      line-height: 30px;
+    }
+    i{
+      position: relative;
+      top: 5px;
+      transition: transform 0.3s ease-out;
+      transform: rotate(0deg);
+    }
+    i:hover{
+      cursor: pointer;
+
+    }
+    .active{
+      transition: all 0.3s ease-out;
+      transform: rotate(180deg);
+    }
+    .dropdown {
+      margin: 0 0.4vw;
+      position: relative;
+      font-size: 2vw;
+      top: 0.3vh;
+    }
+  }
+  .drop-menu{
+    position: absolute;
+    font-family: 'atcduel4';
+    font-size: 16px;
+    line-height: 24px;
+    color:white;
+    right: 3.5%;
+    top: 30px;
+    background-color: rgba(0,0,0,0.4);
+    overflow-y: hidden;
+    transition: height 0.3s ease-out;
+    height: 0;
+  }
+  .drop-menu-active{
+    transition: height 0.3s ease-out;
+    height: 80px;
+  }
+
+}

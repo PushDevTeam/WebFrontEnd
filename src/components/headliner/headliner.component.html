@@ -1,0 +1,51 @@
+<div class='slide-controls'>
+  <ion-icon name="ios-arrow-back" id='back' (click)='slideLeft()'></ion-icon>
+  <ion-icon name="ios-arrow-forward" id='forward' (click)='slideRight()'></ion-icon>
+</div>
+
+<ion-slides #slideset class="slides">
+  <ion-slide *ngFor="let vid_info of video_info_arr" [ngStyle]="{'background-image': 'url(' + vid_info.featureThumbUrl + ')'}">
+    <div [style.color]=vid_info.infoTextColor class='video-info'>
+      <img class="logo" src="assets/NewVybe_NOW.png" />
+      <div class='title'>
+        {{vid_info.title}}
+      </div>
+      <div class='secondary-info'>
+      <span class='pic'>
+          <img src='assets/icons/profile.svg' />
+        </span>
+
+      <span class='name'>
+          {{vid_info.trainer}}
+        </span>
+        <ion-icon name='time'></ion-icon>
+        {{vid_info.duration}}
+      <ion-icon name='stats'> </ion-icon>
+      {{vid_info.difficulty}}
+
+      </div>
+      <div class='description'>
+        {{vid_info.description}}
+      </div>
+    </div>
+    <div class='playbutton'>
+      <i class="material-icons" (click)='goToVid(vid_info.id)'>play_circle_outline</i>
+    </div>
+    <div class='suggested-radio'>
+      Suggested Radio Stations
+      <div (click)='onStationSelection(station.stationId)'
+            *ngFor="let station of pandoraService.getFeaturedStations(1)">
+        <div class='station-wrap'>
+          <img src='{{station.artUrl}}' />
+          <div class='radio-name'>{{station.stationName}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="pager-container">
+      <div (click)="pageToSlide(index)" class="pager-bullet" *ngFor="let bullet of video_info_arr; let index = index"
+      [class.pager-bullet-active]="this.activeIndex == index">
+      </div>
+    </div>
+  </ion-slide>
+
+</ion-slides>

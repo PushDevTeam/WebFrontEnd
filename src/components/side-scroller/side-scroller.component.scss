@@ -1,14 +1,63 @@
-div.cat-head {
-  text-align: center;
-  text-transform: uppercase;
-  margin: 2vh 0 2vh 0;
-}
+side-scroller {
+  position: relative;
 
-div.scrollmenu {
-  padding-left: 4vw;
-  padding-right: 4vw;
-  background-color: white;
-  height: auto;
-  white-space: nowrap;
-  overflow-x: scroll;
+  .slide-controls {
+    width: 100%;
+    position: relative;
+
+    #left-arrow {
+      position: absolute;
+      top: 7vw;
+      left: -12px;
+      transform: translateY(-50%);
+      font-size: 300%;
+      transition: color 0.2s ease-out;
+      color: white;
+      z-index: 10;
+      text-shadow: 0 0 6px grey;
+    }
+
+    #left-arrow:hover {
+      transition: color 0.5s ease;
+      color: color($colors, red);
+      cursor: pointer;
+    }
+
+    #right-arrow {
+      position: absolute;
+      top: 7vw;
+      right: -12px;
+      transform: translateY(-50%);
+      font-size: 300%;
+      transition: color 0.2s ease-out;
+      color: white;
+      z-index: 10;
+      text-shadow: 0 0 6px grey;
+    }
+
+    #right-arrow:hover {
+      transition: color 0.5s ease-out;
+      color: color($colors, red);
+      cursor: pointer;
+
+    }
+  }
+
+  ion-slides {
+    position: absolute;
+    background-color: white;
+    height: auto;
+    white-space: nowrap;
+    position: relative;
+
+    ion-slide {
+      video-thumbnail {
+        width: 100%;
+        height: auto;
+        display: inline-block;
+        background-color: white;
+        overflow-y: hidden;
+      }
+    }
+  }
 }

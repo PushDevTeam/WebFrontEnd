@@ -1,12 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, NavController, Platform } from 'ionic-angular';
+import {Content, Nav, NavController, Platform} from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import { Storage } from '@ionic/storage';
 
 import {AzureService} from '../services/azure.service';
 import {UserService, UserObj} from '../services/user.service';
 import {StorageService} from '../services/storage.service';
-
+import {PandoraService} from '../services/pandora.service';
 
 import {Home} from "../pages/home/home";
 import { Terms} from '../pages/terms/terms';
@@ -17,6 +17,8 @@ import {ContactUsPage} from '../pages/contact-us/contact-us';
 import { StartPage } from '../pages/start/start';
 import {VideoView} from '../pages/video-view/video-view';
 import {VideoRatingPage} from '../pages/video-rating/video-rating';
+
+
 import {FBService} from '../services/fb.service';
 
 //import * as WindowsAzure from 'azure-mobile-apps-client';
@@ -28,7 +30,7 @@ declare var MobileAccessibility: any;
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-
+  @ViewChild(Content) content: Content;
   //rootPage: any = Home;
   rootPage: any = Home;
   pages: Array<{ title: string, component: any, icon_name: string }>;
@@ -38,6 +40,7 @@ export class MyApp {
     private userService: UserService,
     private storage: Storage,
     private fbService: FBService,
+    private pandoraService: PandoraService
 
   ) {
     this.initializeApp();
@@ -57,38 +60,20 @@ export class MyApp {
 
       //TODO uncomment this if building for mobile
       //MobileAccessibility.usePreferredTextZoom(false);
+        if (this.userService.loadStoredUser()) {
+          //console.log('user found');
+          this.nav.setRoot(Home);
+        } else {
+          //console.log('no user locally stored');
+          //this.nav.setRoot(StartPage);
+          this.nav.setRoot(Home);
+        }
 
-      this.azureService.loadVideos().then((resp)=>{console.log('loadVideos() \n', resp)});
+        StatusBar.styleDefault();
+        Splashscreen.hide();
+        //console.log("initializeApp");
 
-      //example getter - will return array of strings with video ids of featured videos
-      //this.azureService.getFeaturedVideoIds()
-      //.then((resp) => {
-      //  console.log('featured video ids:', resp);
-
-        //example setter - will post feedback for the 0 index video id returned from getFeaturedVideos
-      //  this.azureService.postVideoFeedback(resp[0], '2', 'some comment about this video');
-      //})
-      //.then(()=>{
-      //    this.azureService.getAllVideoFeedback().then((newresp)=>{
-      //      console.log('all video feedback', newresp);
-      //    })
-      //})
-
-      if (this.userService.loadStoredUser()) {
-        console.log('user found');
-        this.nav.setRoot(Home);
-      } else {
-        console.log('no user locally stored');
-        this.nav.setRoot(StartPage);
-      }
-
-
-
-      StatusBar.styleDefault();
-      Splashscreen.hide();
-      console.log("initializeApp");
-
-    });
+      });
   }
 
   openPage(page) {

@@ -1,29 +1,22 @@
 <div class="vt-wrapper">
-  <img src='{{this.metaData.thumbUrl}}' class="vt" />
-  <img (click)='goToVidView()' src='assets/play_button.png' class="play" />
-
+  <img src='{{metaData.thumbUrl}}' class="vt" (click)='goToVidView()' />
 </div>
 <div class="info">
 
 
   <div class="title">
-      {{this.metaData.title}}
+      {{metaData.title}}
   </div>
-  <div class="subtitle">
-    Sample text for subtitle goes here. retreive from class
-  </div>
+
   <div class="misc">
-    <img src='assets/icons/Time.svg' class='pd-icon'/>
+    <ion-icon md="md-time"></ion-icon>
     <div class="text">
-{{this.metaData.duration}}
+      {{metaData.duration}}
     </div>
-    <img src='assets/icons/Difficulty.svg' class='pd-icon'/>
+    <ion-icon md="md-stats"></ion-icon>
     <div class="text">
-{{this.metaData.difficulty}}
+      {{metaData.difficulty}}
     </div>
-    <img src='assets/icons/Fire.svg' class='pd-icon'/>
-    <div class="text" id='last'>
-        320
-    </div>
+
   </div>
 </div>

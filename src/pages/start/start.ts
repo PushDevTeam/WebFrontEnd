@@ -19,7 +19,7 @@ export class StartPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad StartPage');
+   //#console.log('ionViewDidLoad StartPage');
   }
 
   onSignUp() {

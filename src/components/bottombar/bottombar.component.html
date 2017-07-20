@@ -1,0 +1,89 @@
+<ion-footer>
+
+  <div class='station-menu' id='station-menu'>
+    <div class='station-menu-inner'>
+      <div *ngFor="let station of pandoraService.userStations; let idx = index;">
+        <div (click)="pandoraPlaybackService.changeStation(idx)" class="stations" *ngIf="idx < stationShowLimit">
+          <div class="albumCover">
+            <img class="albumImg" src='{{station.artUrl}}' />
+          </div>
+          <div class="station-name">
+            {{station.stationName}}
+          </div>
+        </div>
+      </div>
+    <div (click)="seeAllStations()" class="see-all-stations">
+      <span *ngIf="stationShowLimit === 3">See All Stations</span>
+      <span *ngIf="stationShowLimit === 100">See Fewer Stations</span>
+    </div>
+    <div class="divider"> </div>
+<!--
+    <div (click)="createStation()" class=create-station-button>
+      <i class="material-icons add-circle">add_circle</i>
+      <div class=create-station> Create Station </div>
+    </div>
+
+-->
+<form class="create-station">
+  <input (focus)="removeSearchIcon()" (blur)="addSearchIcon()" class="create-station-search" type=search (click)="createStation()" placeholder="Create Station">
+  </form>
+      <i ng-class="{search-hidden: this.hideSearchIcon}" class="material-icons station-search-icon">search</i>
+  </div>
+</div>
+  <div (mouseover)="pandoraPlaybackService.updateVolBarToggler()" (click)="pandoraPlaybackService.updateVolBarToggler()" class='volume-bar' id='vol-bar'>
+    <input (change)="pandoraPlaybackService.updateVol()" type="range" id="volume-slider" min="0" max="1" step="0.1" value=".5">
+
+  </div>
+  <ion-toolbar>
+    <ion-title>
+
+      <audio [muted]="pandoraPlaybackService.isMuted" id="audioDisplay"></audio>
+      <div class="pandoraLogoHolder">
+        <img class="pandoraLogo" src="assets/Pandora_Logo.png" />
+      </div>
+      <div class="pandoraStationHolder">
+        <div (click)="onStationPopup()" id="station-button" class="pandoraStation"> <span *ngIf="pandoraService.currentStation">{{pandoraService.currentStationName()}}</span>
+        </div>
+        <i id='station-dropup-arrow' class="material-icons md-18">arrow_drop_up</i>
+    </div>
+      <div class="controls">
+        <div class="controlButtonHolder">
+          <i class="material-icons thumb" (click)="onThumbsDown()">thumb_down</i>
+        </div>
+        <div class="controlButtonHolder">
+          <i class="material-icons replay">replay</i>
+        </div>
+        <div class="controlButtonHolder">
+          <i id="playButton" (click)="pandoraPlaybackService.togglePlayPause()" class="material-icons pause">play_arrow</i>
+        </div>
+        <div (click)="pandoraPlaybackService.nextSong()" class="controlButtonHolder">
+          <i class="material-icons skip">skip_next</i>
+        </div>
+        <div class="controlButtonHolder">
+          <i id="thumbs-up" class="material-icons thumb" (click)="onThumbsUp()">thumb_up</i>
+        </div>
+      </div>
+      <div class="albumInfoHolder">
+        <div class="albumCover">
+          <img id="nowPlayingImg" class="albumImg" src='' />
+        </div>
+        <div class="songInfo">
+          <div class="band">
+            <span id="artistName"></span>
+          </div>
+          <div class="song">
+            <span id="songName"></span>
+          </div>
+        </div>
+      </div>
+      <div class="timeHolder"> {{pandoraPlaybackService.currentTime | timeDisplay }} | {{pandoraPlaybackService.totalTime | timeDisplay}}
+      </div>
+
+      <div class="volumeHolder" (mouseover)='pandoraPlaybackService.toggleVolumeBar()' (click)="pandoraPlaybackService.toggleMute()">
+        <i id="volumeControl" class="material-icons volume">volume_up</i>
+      </div>
+
+    </ion-title>
+  </ion-toolbar>
+
+</ion-footer>
