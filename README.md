@@ -1,4 +1,4 @@
-# pushDaily
+# PUSH
 
 
 requires npm, cordova, ionic.
